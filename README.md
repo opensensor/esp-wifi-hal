@@ -19,7 +19,7 @@ their submissions and the work needed to address review feedback. See
 
 The driver crate is in `esp-wifi-hal/`, PHY rate types are in `esp-wifi-rates/`,
 and applications are in `examples/`. Select exactly one chip feature:
-`esp32`, `esp32s2` or `esp32s3`. The `critical_section` feature allows using the
+`esp32`, `esp32s2`, `esp32s3` or `esp32c3`. The `critical_section` feature allows using the
 driver across cores; without it, the driver does not use critical sections.
 
 The S3 port adds Rust MAC initialization, RX/TX handling and hardware crypto
@@ -30,6 +30,12 @@ manifests; application workspaces also need that patch.
 
 The new MAC helper path has an unresolved DHCP timeout in an extended comparison
 against the original helpers; see its [validation limits](docs/esp32s3/MAC-HELPERS.md#device-validation).
+
+The C3 port integrates okhsunrog's existing work, with additional RX address and
+HT20 corrections. On the provisioner board, Rust WPA2/DHCP testing passed three
+cycles with 60/60 gateway replies; RX buffer recovery and OFDM TX also passed.
+C3 initialization and PHY still use vendor code at this milestone. See the
+[C3 build, attribution and validation notes](docs/esp32c3/README.md).
 
 The recorded S3 hardware validation includes:
 
