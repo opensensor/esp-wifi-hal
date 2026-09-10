@@ -14,28 +14,26 @@
       "size_bytes": 44,
       "instruction_bytes_sha256": "646bbe08495307b38ed3b592af206306412f6c81a6af115594063ebc8950622e"
     },
-    "rom1_disable_wifi_agc": {
-      "member": "phy_reg.o",
-      "member_sha256": "361a8b35e66f49de3ac8ea93264630bc57989e7aba57b0b73cb3ab369baf14ea",
-      "address": "0x40382058",
+    "rom_disable_wifi_agc": {
+      "source": "esp32c3_rev3_rom.elf",
+      "address": "0x4003b8b4",
       "size_bytes": 44,
-      "instruction_bytes_sha256": "2173835e712ad6af8a2f369a52221fe98a24c647c3cb7e3f1cf84f15191dd913"
+      "instruction_bytes_sha256": "e7cbd42f656fa6cc7eca968705a4414d2d2164adc880a5f45a7f9c51e98bdef9"
     },
-    "rom1_enable_wifi_agc": {
-      "member": "phy_reg.o",
-      "member_sha256": "361a8b35e66f49de3ac8ea93264630bc57989e7aba57b0b73cb3ab369baf14ea",
-      "address": "0x40382084",
+    "rom_enable_wifi_agc": {
+      "source": "esp32c3_rev3_rom.elf",
+      "address": "0x4003b8e0",
       "size_bytes": 42,
-      "instruction_bytes_sha256": "3a0baedfdc7107e38b679898d2f32c401342a2a1445b84ac0ecf079054a367d6"
+      "instruction_bytes_sha256": "e256a8f38dd5341209cd8a1b8af03754998036dc3bdac833d9fd1c9c5d374265"
     }
   },
   "original_instruction_trace_cases": 48,
-  "trace_sha256": "c1d64251d2e01e783feb59e13fd483e6f4a3c505912d6ca41b84df3275efb511",
-  "trace_generator_sha256": "c1ba4f12d04bf3b7a3691426d731da92f8cec91f1b9d78ed7d73ba2460d9c833",
-  "rust_source_sha256": "fc640ef131c4e9d657115f242242f3220fc9e03e75af93c9cf442fa2cdf9b9f9",
+  "trace_sha256": "fc8d7fc699d3e8ddee0322dc745c82708126f31180beb77311b37e09da51a1bf",
+  "trace_generator_sha256": "ffd858eb6f3aed3f92b9031c84688f14ff98a18d8557bc582892203e90ebb9ee",
+  "rust_source_sha256": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
   "host_trace_test_passed": true,
-  "device_tested": false,
-  "device_validation_status": "pending root hardware test",
+  "device_tested": true,
+  "device_validation_status": "ROM-contract replacement passed three station cycles and RX exhaustion/recovery/TX smoke on ESP32-C3 revision0.4; sustained reliability remains unproven.",
   "semantic_proof": false,
   "rom_direct_agc_register": "0x6001c038",
   "installed_ram_agc_register": "0x6001c034",
@@ -59,31 +57,7 @@
     "derived_period_q12": 27664,
     "previous_hardcoded_period_q12": 44462
   },
-  "candidate_static_link_checks": {
-    "wifi_smoke": {
-      "elf_sha256": "ebbbe4a1df87db98a6dc75f8046d00c76a9b90c848cc77e1bf77ef7c1455da07",
-      "map_sha256": "81eb707238102b6561843d0fbfa0890dd9009d4095c0e455fcec806bcfb525e7",
-      "allocated_libphy_input_bytes": 35605,
-      "allocated_libphy_sections": 167,
-      "vendor_phy_disable_low_rate_absent": true,
-      "original_rom1_agc_patch_symbols_remain": true,
-      "image_sha256": "f7eb2a1d22ccc583b16e45f64d24c7d4b22bf495073062c547d04314f8b8f373",
-      "image_bytes": 140720
-    },
-    "sta_smoke": {
-      "elf_sha256": "91de88bad5eefe8d1efd87ebdd6cfb94da2f1585cbba0feee66905c5e51de7d3",
-      "map_sha256": "9d795f7edce5c013a4387c2769b59994340c5094bb7d55fe1f88172df955b0c4",
-      "allocated_libphy_input_bytes": 35605,
-      "allocated_libphy_sections": 167,
-      "vendor_phy_disable_low_rate_absent": true,
-      "original_rom1_agc_patch_symbols_remain": true,
-      "image_sha256": "678f6510ca55274fc3238b340a817de9272ee505d32454635a6bf2d3b67af334",
-      "image_bytes": 249376,
-      "driver_channel_setter_direct_rom_agc_calls_absent": true,
-      "driver_channel_setter_agc_mmio": "0x6001c034"
-    }
-  },
-  "agc_status": "Candidate RAM-table contract only; equivalence for direct driver calls unproven. S3 counterpart had two RX-recovery smoke failures despite station passes; C3 device test pending.",
+  "agc_status": "Original direct ROM call contract preserved at 0x6001c038; internal libphy RAM callbacks remain at 0x6001c034.",
   "clock_oracle": {
     "source": "ESP-IDF 5.4 open C3 coexistence clock wrapper and RTC getter",
     "elf_sha256": "09d58c0c5bf65695dec0e4f67cc9de44097e5971ae9a9fec31b1a1d2c222e08d",
@@ -98,6 +72,106 @@
         "size_bytes": 8,
         "instruction_bytes_sha256": "df9b1ea002dbbbd9ed61aef22df82c4bc240300b78302f9ec01fa6bb01e52e05"
       }
+    }
+  },
+  "ram_contract_experiment": {
+    "agc_register": "0x6001c034",
+    "candidate_static_link_checks": {
+      "wifi_smoke": {
+        "elf_sha256": "ebbbe4a1df87db98a6dc75f8046d00c76a9b90c848cc77e1bf77ef7c1455da07",
+        "map_sha256": "81eb707238102b6561843d0fbfa0890dd9009d4095c0e455fcec806bcfb525e7",
+        "allocated_libphy_input_bytes": 35605,
+        "allocated_libphy_sections": 167,
+        "vendor_phy_disable_low_rate_absent": true,
+        "original_rom1_agc_patch_symbols_remain": true,
+        "image_sha256": "f7eb2a1d22ccc583b16e45f64d24c7d4b22bf495073062c547d04314f8b8f373",
+        "image_bytes": 140720
+      },
+      "sta_smoke": {
+        "elf_sha256": "91de88bad5eefe8d1efd87ebdd6cfb94da2f1585cbba0feee66905c5e51de7d3",
+        "map_sha256": "9d795f7edce5c013a4387c2769b59994340c5094bb7d55fe1f88172df955b0c4",
+        "allocated_libphy_input_bytes": 35605,
+        "allocated_libphy_sections": 167,
+        "vendor_phy_disable_low_rate_absent": true,
+        "original_rom1_agc_patch_symbols_remain": true,
+        "image_sha256": "678f6510ca55274fc3238b340a817de9272ee505d32454635a6bf2d3b67af334",
+        "image_bytes": 249376,
+        "driver_channel_setter_direct_rom_agc_calls_absent": true,
+        "driver_channel_setter_agc_mmio": "0x6001c034"
+      }
+    },
+    "hardware": {
+      "station_cycles": 3,
+      "gateway_replies": 60,
+      "gateway_requests": 60,
+      "host_replies": 58,
+      "host_requests": 60,
+      "rx_smoke_passed": true
+    },
+    "production_selected": false,
+    "reason": "Preserve existing direct ROM contract; S3 register-only isolation demonstrated an RX-recovery regression from copying internal RAM callback semantics."
+  },
+  "ram_patch_reference": {
+    "rom1_disable_wifi_agc": {
+      "member": "phy_reg.o",
+      "member_sha256": "361a8b35e66f49de3ac8ea93264630bc57989e7aba57b0b73cb3ab369baf14ea",
+      "address": "0x40382058",
+      "size_bytes": 44,
+      "instruction_bytes_sha256": "2173835e712ad6af8a2f369a52221fe98a24c647c3cb7e3f1cf84f15191dd913"
+    },
+    "rom1_enable_wifi_agc": {
+      "member": "phy_reg.o",
+      "member_sha256": "361a8b35e66f49de3ac8ea93264630bc57989e7aba57b0b73cb3ab369baf14ea",
+      "address": "0x40382084",
+      "size_bytes": 42,
+      "instruction_bytes_sha256": "3a0baedfdc7107e38b679898d2f32c401342a2a1445b84ac0ecf079054a367d6"
+    }
+  },
+  "candidate_static_link_checks": {
+    "wifi_smoke": {
+      "elf_sha256": "bd34a46b84498d87122ce037e6aae8d41843c26ef23f38fe5a2cf11e0b7149ab",
+      "map_sha256": "81eb707238102b6561843d0fbfa0890dd9009d4095c0e455fcec806bcfb525e7",
+      "image_sha256": "a5d8165af9293ae89a809c6695c55dcc1117b933b4ae1932f6538ac64cd1290c",
+      "image_bytes": 140720,
+      "allocated_libphy_input_bytes": 35605,
+      "allocated_libphy_sections": 167,
+      "vendor_phy_disable_low_rate_absent": true,
+      "original_rom1_agc_patch_symbols_remain": true
+    },
+    "sta_smoke": {
+      "elf_sha256": "dff318e91b492f74b47006ed7336c921734f98836ff21d27e88fd908266bdafc",
+      "map_sha256": "9d795f7edce5c013a4387c2769b59994340c5094bb7d55fe1f88172df955b0c4",
+      "image_sha256": "0154c31948bde06795e21e91dcf72b15b0f86e7ccfa4cb558b7cc769b06a09a0",
+      "image_bytes": 249376,
+      "allocated_libphy_input_bytes": 35605,
+      "allocated_libphy_sections": 167,
+      "vendor_phy_disable_low_rate_absent": true,
+      "original_rom1_agc_patch_symbols_remain": true,
+      "driver_channel_setter_direct_rom_agc_calls_absent": true,
+      "driver_channel_setter_agc_mmio": "0x6001c038"
+    }
+  },
+  "device_validation": {
+    "sta_smoke": {
+      "image_sha256": "0154c31948bde06795e21e91dcf72b15b0f86e7ccfa4cb558b7cc769b06a09a0",
+      "complete": true,
+      "result_sha256": "8156dbde0614def382100098fdf596ff8af16bf17d300b8b99cb0a0c643c19a1",
+      "cycles": 3,
+      "gateway_replies": 60,
+      "gateway_requests": 60,
+      "host_replies": 58,
+      "host_requests": 60
+    },
+    "wifi_smoke": {
+      "image_sha256": "a5d8165af9293ae89a809c6695c55dcc1117b933b4ae1932f6538ac64cd1290c",
+      "complete": true,
+      "result_sha256": "a7b68fc48729ccbd275de3c65e3089dc2cd2666f703296b3d3c2a6e3563aa68f",
+      "received_frames": 8,
+      "ofdm_received_frames": 3,
+      "pending_rx_passed": true,
+      "descriptor_exhaustion_passed": true,
+      "rx_recovery_passed": true,
+      "ofdm_transmit_passed": true
     }
   }
 }

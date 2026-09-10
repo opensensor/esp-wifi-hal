@@ -11,7 +11,7 @@ See [Rust initialization results and unresolved failures](MAC-INIT.md). The
 initial bring-up results below used vendor MAC initialization.
 
 [PHY controls and slow-clock calibration](PHY-ROM.md) documents the next scoped
-replacement, its instruction-trace checks, and pending hardware validation.
+replacement, its instruction-trace checks, and short hardware validation.
 
 ## Hardware evidence, 2026-09-10
 

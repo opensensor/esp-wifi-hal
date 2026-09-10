@@ -2,8 +2,9 @@
 
 The driver now implements three small PHY controls in Rust and obtains its slow
 clock period from the configured clock source. RF initialization, calibration,
-channel tuning and power tracking still depend on libphy and ROM. Hardware
-validation of this change is pending; it does not establish a packet-loss fix.
+channel tuning and power tracking still depend on libphy and ROM. The C3
+replacement passed short station and RX smoke tests; it does not establish a
+packet-loss fix.
 
 ## Preserve the direct AGC call contract
 
@@ -39,8 +40,8 @@ into the direct driver controls. It passed three station cycles (60/60 gateway,
 S3 change failed fresh-RX recovery twice. Changing only that register literal
 back to `0x6001c038` restored the S3 smoke result. Those observations do not
 establish that the two call contexts are interchangeable. This implementation
-therefore retains the direct ROM contract on both chips. Final C3 hardware
-validation of the ROM-contract replacement is pending.
+therefore retains the direct ROM contract on both chips. The final C3 ROM-contract
+replacement also passed three station cycles and RX exhaustion/recovery/TX.
 
 ## Low-rate PHY control
 
@@ -93,8 +94,11 @@ PHY control bodies. These checks do not establish whether callers need further
 synchronization.
 
 Release `wifi_smoke` and three-cycle `sta_smoke` C3 builds pass. App images fit
-the test board's existing factory slot. Device tests for these images remain
-pending. Source, input, trace, ELF and link-map hashes are recorded in
+the test board's existing factory slot. The final ROM-contract images passed
+three station cycles (60/60 gateway and 58/60 host replies), and the smoke test
+received eight frames including three OFDM frames, exercised pending RX and
+descriptor exhaustion/recovery, and completed OFDM transmission. The two absent
+host replies and limited duration remain part of the result. Source, input, trace, ELF and link-map hashes are recorded in
 [phy-validation.json](phy-validation.json). Firmware images and network settings
 are private. Public trace tests require no proprietary harness, model, SDK or
 board; see [the regeneration notes](tests/README.md).
