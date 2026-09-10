@@ -96,3 +96,6 @@ macro_rules! mk_static {
         x
     }};
 }
+
+#[cfg(feature = "network-trace")]
+pub mod packet_trace;

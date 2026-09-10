@@ -24,12 +24,17 @@ async fn sta_task(mut runner: StaRunner<'static, 'static>) {
     runner.run().await
 }
 
+#[cfg(feature = "network-trace")]
+type NetDevice = examples::packet_trace::TraceDriver<StaNetDevice<'static>>;
+#[cfg(not(feature = "network-trace"))]
+type NetDevice = StaNetDevice<'static>;
+
 #[embassy_executor::task]
-async fn net_task(mut runner: NetRunner<'static, StaNetDevice<'static>>) -> ! {
+async fn net_task(mut runner: NetRunner<'static, NetDevice>) -> ! {
     runner.run().await
 }
 
-#[cfg(all(feature = "esp32s3", feature = "network-trace"))]
+#[cfg(all(any(feature = "esp32s3", feature = "esp32c3"), feature = "network-trace"))]
 fn log_rx_state() {
     let regs = unsafe { esp_wifi_hal::ll::LowLevelDriver::regs() };
     let base = regs.rx_dma_list().rx_descr_base().read().bits();
@@ -42,7 +47,11 @@ fn log_rx_state() {
         regs.mac_interrupt().wifi_int_status().read().bits()
     );
     // S3 descriptor registers contain a 20-bit DRAM offset, plus status bits.
-    let base = (base & 0xfffff) | 0x3fc00000;
+    #[cfg(feature = "esp32s3")]
+    let high = 0x3fc00000;
+    #[cfg(feature = "esp32c3")]
+    let high = unsafe { (0x60033c64 as *const u32).read_volatile() } & 0xfff00000;
+    let base = (base & 0xfffff) | high;
     if (0x3fc80000..0x3fd00000).contains(&base) && base & 3 == 0 {
         let descriptor = unsafe { (base as *const esp_hal::dma::DmaDescriptor).read_volatile() };
         info!(
@@ -117,7 +126,7 @@ async fn ping_gateway(stack: embassy_net::Stack<'_>, cycle: u32) -> usize {
                 cycle,
                 sequence
             );
-            #[cfg(all(feature = "esp32s3", feature = "network-trace"))]
+            #[cfg(all(any(feature = "esp32s3", feature = "esp32c3"), feature = "network-trace"))]
             log_rx_state();
         }
         Timer::after_millis(100).await;
@@ -143,6 +152,10 @@ async fn main(spawner: Spawner) {
     info!("stage=boot test=rust_foa_wpa2 cycles={}", cycles);
     let resources = mk_static!(FoAResources, FoAResources::new());
     let ([vif, ..], runner) = foa::init(resources, peripherals.WIFI);
+    #[cfg(all(feature = "esp32c3", feature = "network-trace"))]
+    info!("stage=clock bt_lpck={:x} rtc_q19={}",
+        unsafe { (0x600c0024 as *const u32).read_volatile() },
+        unsafe { (0x60008054 as *const u32).read_volatile() });
     spawner.spawn(foa_task(runner).unwrap());
     let (mut control, runner, device) = foa_sta::new_sta_interface(
         mk_static!(VirtualInterface<'static>, vif),
@@ -150,6 +163,8 @@ async fn main(spawner: Spawner) {
     );
     spawner.spawn(sta_task(runner).unwrap());
     control.randomize_mac_address().unwrap();
+    #[cfg(feature = "network-trace")]
+    let device = examples::packet_trace::TraceDriver(device);
     let (stack, runner) = embassy_net::new(
         device,
         embassy_net::Config::dhcpv4(Default::default()),
@@ -159,7 +174,8 @@ async fn main(spawner: Spawner) {
     spawner.spawn(net_task(runner).unwrap());
     let mut gateway_received = 0;
     for cycle in 1..=cycles {
-        with_timeout(
+        info!("stage=connecting cycle={}", cycle);
+        let connected = with_timeout(
             Duration::from_secs(25),
             control.connect_by_ssid(
                 env!("SSID"),
@@ -170,9 +186,12 @@ async fn main(spawner: Spawner) {
                 Some(Credentials::Passphrase(env!("PASSWORD"))),
             ),
         )
-        .await
-        .expect("Connection timed out")
-        .expect("Connection failed");
+        .await;
+        #[cfg(all(any(feature = "esp32s3", feature = "esp32c3"), feature = "network-trace"))]
+        if !matches!(connected, Ok(Ok(_))) {
+            log_rx_state();
+        }
+        connected.expect("Connection timed out").expect("Connection failed");
         info!("stage=connected cycle={}", cycle);
         with_timeout(Duration::from_secs(15), stack.wait_config_up())
             .await

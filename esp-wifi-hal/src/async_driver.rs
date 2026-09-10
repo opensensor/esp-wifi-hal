@@ -1169,8 +1169,13 @@ mod private {
             if let Some(byte) = mpdu_buf.get_mut(1) {
                 *byte &= !bit!(3);
             }
-            if last_res.is_err() {
-                trace!("Transmission of MPDU failed.");
+            if let Err(error) = last_res {
+                // Upper layers may enqueue without awaiting a completion handle.
+                // Keep exhausted MAC/medium failures visible without logging payloads.
+                warn!(
+                    "TX exhausted: interface={} slot={} length={} error={:?}",
+                    interface, queue.hardware_slot(), mpdu_buf.len(), error
+                );
             }
             last_res
         }

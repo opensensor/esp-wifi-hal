@@ -32,6 +32,7 @@ esp-bootloader-esp-idf = "0.5.0"
 ieee80211 = "0.5.9"
 foa = { version = "0.2.0", features = ["log"], optional = true }
 foa_sta = { version = "0.2.0", features = ["log"], optional = true }
+embassy-net-driver = { version = "0.2", optional = true }
 embassy-net = { version = "0.9.1", features = [
     "proto-ipv4", "dhcpv4", "icmp", "auto-icmp-echo-reply", "medium-ethernet",
 ], optional = true }
@@ -49,7 +50,7 @@ required-features = ["esp32c3"]
 
 [features]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net"]
-network-trace = ["foa-smoke", "dep:smoltcp", "embassy-net/log"]
+network-trace = ["foa-smoke", "dep:smoltcp", "embassy-net/log", "dep:embassy-net-driver"]
 esp32 = [
     "esp-wifi-hal/esp32",
     "esp-hal/esp32",

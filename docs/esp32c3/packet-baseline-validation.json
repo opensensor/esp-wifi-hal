@@ -1,0 +1,125 @@
+{
+  "image_sha256": "961ecc324b215c53f615b455e9863fa53e59db7395766485d76f3221c8dda6f4",
+  "complete": true,
+  "cycles": [
+    {
+      "identifier": 1632,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 20,
+      "host_replies": 20,
+      "missing_device_replies": [],
+      "missing_after_device_tx": [],
+      "cycle": 1
+    },
+    {
+      "identifier": 1634,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 2
+    },
+    {
+      "identifier": 1635,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 3
+    },
+    {
+      "identifier": 1636,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 4
+    },
+    {
+      "identifier": 1637,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 5
+    },
+    {
+      "identifier": 1638,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 6
+    },
+    {
+      "identifier": 1639,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 7
+    },
+    {
+      "identifier": 1640,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 8
+    },
+    {
+      "identifier": 1641,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 9
+    },
+    {
+      "identifier": 1642,
+      "host_requests": 20,
+      "device_requests": 20,
+      "device_replies": 19,
+      "host_replies": 19,
+      "missing_device_replies": [
+        1
+      ],
+      "missing_after_device_tx": [],
+      "cycle": 10
+    }
+  ],
+  "gateway_replies": 200
+}
