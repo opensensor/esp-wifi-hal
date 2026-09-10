@@ -10,10 +10,11 @@ channel control, power tracking and ROM routines still remain external. It does
 not make the complete ESP32-S3 radio firmware open source, replace every function
 in the archive, or remove the dependency on `esp-wifi-sys-esp32s3`.
 
-Three-cycle station and RX recovery tests pass. An extended comparison found a
-DHCP timeout with the Rust helpers while the original-helper build completed
-ten cycles. This remains an unresolved possible regression; see the device
-results below before relying on this experimental path.
+Three-cycle station and RX recovery tests pass. An extended Rust-helper run
+encountered a DHCP timeout, while a byte-identical repeat and the original-helper
+comparison each completed ten cycles. The intermittent failure remains under
+investigation; see the device results below before relying on this experimental
+path.
 
 ## Reviewed input and behavior
 
@@ -70,6 +71,32 @@ branches including nonzero high bytes with a zero low byte. The existing
 trace tests independently exercise the actual helper implementations. These
 checks cover register behavior, not a proof of RF equivalence.
 
+### RX queue investigation
+
+The follow-up found and reproduced a separate DMA queue invariant failure.
+Hardware having no next buffer does not mean that the software queue is empty:
+completed frames may still be waiting to be consumed. With three completed
+descriptors A → B → C, returning A after borrowing it should leave B → C → A.
+The previous fallback replaced the software head with A and retained C as the
+tail. That stranded B and C; another append could then overwrite the wrong link.
+
+The S3 fallback now restarts hardware at A as before, retains B as the software
+head and records A as the tail. The new regression exercises the production queue
+code and fails on the previous implementation with `Restart discarded an unread
+completed frame`. It checks both unread completions and the next append's links.
+This is the fifth production DMA queue test in the host suite. It establishes
+a queue defect in the hardware-empty fallback, but does not by itself prove the
+cause of the observed DHCP timeout.
+
+The S3 `wifi_smoke` now also holds nine buffers and waits for the tenth to finish
+while still unread. It returns one held buffer and requires the next receive to
+deliver that exact pending buffer, then completes the ten-buffer exhaustion and
+reverse-return recovery test. Both old and fixed queue implementations passed
+this hardware check. On this observed path the descriptor reload advances the
+hardware to the appended buffer, bypassing the fallback that fails in the host
+regression. The fallback failure has therefore been reproduced on the host,
+not directly on the device.
+
 To audit an application's actual archive contribution, produce a GNU linker map:
 
 ```sh
@@ -113,6 +140,18 @@ cause. Both successful and failed runs are retained in the evidence report.
 The exact three-cycle Rust-helper image was then restored and completed another
 three cycles with 60/60 gateway and 58/60 host replies. The board was left with
 that image, station disconnected and MAC/PHY still initialized.
+
+A later repeat of the **byte-identical** ten-cycle Rust-helper image completed
+all ten cycles with 200/200 gateway and 191/200 host replies. Thus the first
+comparison did not establish a deterministic helper regression. No helper code
+was changed to obtain that pass. The failed run remains in the report.
+
+The queue-fix build then completed another ten cycles with **200/200 gateway
+and 191/200 host replies**. Its focused RX check, full buffer exhaustion/recovery,
+OFDM TX and MAC timer checks also passed. The final board image is this fixed
+`wifi_smoke` build, with MAC/PHY initialized and no station connection. The
+earlier three-cycle image and all comparison images remain available locally.
+No result here establishes that the intermittent DHCP timeout is resolved.
 
 These checks do not test AP mode, Bluetooth coexistence, all PHY rates, full
 PHY/MAC teardown, or the actual provisioning workload. The earlier extended

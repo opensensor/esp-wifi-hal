@@ -194,6 +194,15 @@ impl DmaList {
                     *last_ptr = NonNull::new(dma_list_descriptor).unwrap();
                     return;
                 }
+                #[cfg(feature = "esp32s3")]
+                {
+                    // Hardware exhaustion does not imply an empty software queue:
+                    // completed frames can still precede this returned buffer.
+                    // Restart hardware here, retaining those frames and the new tail.
+                    *last_ptr = NonNull::from(&mut *dma_list_descriptor);
+                    self.ll_driver.set_base_rx_descriptor(*last_ptr);
+                    return;
+                }
             }
         }
         // If the DMA list is empty, we make this descriptor the base.

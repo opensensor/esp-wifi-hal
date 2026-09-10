@@ -28,8 +28,8 @@ in Rust with no `libpp.a` code/data in the tested images. PHY and ROM code remai
 a partial Wi-Fi deblob. The S3 feature requires the PAC patch pinned in the
 manifests; application workspaces also need that patch.
 
-The new MAC helper path has an unresolved DHCP timeout in an extended comparison
-against the original helpers; see its [validation limits](docs/esp32s3/MAC-HELPERS.md#device-validation).
+Extended tests have seen an intermittent DHCP timeout, although a repeat of the
+same image completed ten cycles; see the [validation limits](docs/esp32s3/MAC-HELPERS.md#device-validation).
 
 The C3 port integrates okhsunrog's existing work, with additional RX address and
 HT20 corrections. On the provisioner board, Rust WPA2/DHCP testing passed three

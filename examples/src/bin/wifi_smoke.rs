@@ -49,13 +49,57 @@ async fn main(_spawner: Spawner) {
     // Exhaust the ten descriptors supplied by examples::wifi_init, then return
     // them in reverse order. RX must recover after all buffers were loaned out.
     let mut held: [Option<BorrowedBuffer<'_>>; 10] = core::array::from_fn(|_| None);
-    for entry in &mut held {
+    for entry in &mut held[..9] {
         *entry = Some(
             with_timeout(Duration::from_secs(2), wifi.receive())
                 .await
                 .expect("RX drain timed out"),
         );
     }
+    #[cfg(feature = "esp32s3")]
+    {
+        // Leave the tenth descriptor completed but unread while hardware runs
+        // out of buffers. Returning one must not discard that pending frame.
+        let pending_buffer = with_timeout(Duration::from_secs(2), async {
+            loop {
+                let registers = unsafe { LowLevelDriver::regs() };
+                let dma = registers.rx_dma_list();
+                let base_offset = dma.rx_descr_base().read().bits() & 0xfffff;
+                if base_offset != 0 {
+                    let descriptor = unsafe {
+                        ((0x3fc00000 | base_offset) as *const esp_hal::dma::DmaDescriptor)
+                            .read_volatile()
+                    };
+                    if descriptor.flags.suc_eof()
+                        && descriptor.len() >= BorrowedBuffer::RX_CONTROL_HEADER_LENGTH + 24
+                        && dma.rx_descr_next().read().bits() & 0xfffff == 0
+                    {
+                        break descriptor.buffer;
+                    }
+                }
+                embassy_time::Timer::after_millis(10).await;
+            }
+        })
+        .await
+        .expect("Hardware did not reach an unread completed tail");
+        info!("stage=rx_pending_exhausted held=9 pending=1");
+        drop(held[0].take());
+        let pending = with_timeout(Duration::from_secs(2), wifi.receive())
+            .await
+            .expect("Returning a buffer discarded the pending frame");
+        assert_eq!(
+            pending.padded_buffer().as_ptr(),
+            pending_buffer as *const u8,
+            "Returning a buffer changed which completed frame was delivered"
+        );
+        held[0] = Some(pending);
+        info!("stage=rx_pending_preserved");
+    }
+    held[9] = Some(
+        with_timeout(Duration::from_secs(2), wifi.receive())
+            .await
+            .expect("RX drain timed out"),
+    );
     info!("stage=rx_exhausted buffers=10");
     for entry in held.iter_mut().rev() {
         drop(entry.take());

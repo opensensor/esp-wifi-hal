@@ -150,6 +150,50 @@ fn empty_s3_hardware_queue_restarts_from_returned_descriptor() {
 }
 
 #[test]
+fn hardware_empty_append_preserves_pending_frames_and_the_new_software_tail() {
+    let (mut list, driver, mut first) = setup();
+    let mut second = unsafe { NonNull::new(first.as_ref().next).unwrap() };
+    let mut third = unsafe { NonNull::new(second.as_ref().next).unwrap() };
+    unsafe {
+        for (descriptor, length) in [(&mut first, 72), (&mut second, 84), (&mut third, 96)] {
+            descriptor.as_mut().set_length(length);
+            descriptor.as_mut().flags.0 |= 1 << 30;
+        }
+    }
+    let returned = list.take_first().unwrap();
+    driver.next.set(None); // Hardware reached the null tail after completing all three.
+    driver.last.set(Some(third));
+    list.recycle(returned);
+    assert_eq!(
+        driver.base.get(),
+        Some(first),
+        "Hardware must resume at the returned buffer"
+    );
+
+    let pending = list
+        .take_first()
+        .expect("Restart discarded an unread completed frame");
+    assert_eq!(pending as *mut _, second.as_ptr());
+    assert_eq!(pending.len(), 84);
+    driver.next.set(Some(first));
+    list.recycle(pending);
+    unsafe {
+        assert_eq!(
+            third.as_ref().next,
+            first.as_ptr(),
+            "An old software tail overwrote the live chain"
+        );
+        assert_eq!(first.as_ref().next, second.as_ptr());
+        assert!(second.as_ref().next.is_null());
+    }
+    let pending = list
+        .take_first()
+        .expect("Second unread completion disappeared");
+    assert_eq!(pending as *mut _, third.as_ptr());
+    assert_eq!(pending.len(), 96);
+}
+
+#[test]
 fn returns_never_link_to_borrowed_descriptors_or_form_a_cycle() {
     for reverse in [false, true] {
         let (mut list, driver, mut first) = setup();
