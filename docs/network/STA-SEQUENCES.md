@@ -48,6 +48,21 @@ The sequence correction therefore does not eliminate all duplicate reception.
 The S3 target stayed disconnected throughout this C3 run. Image SHA-256:
 `ecc63512c19c7c221b46bbf818afcb60104d8f8e634e4f8f4de3b7d0813cdf28`.
 
+## Corrected S3 sequence result and remaining loss
+
+The secured S3 also confirms assignment: all 504 generated transmissions paired
+with successful completions and sequences 0 through 503. Its single ten-cycle
+run returned **199/200 host and 194/200 gateway replies**, with one duplicate
+host reply. The final gateway assertion failed and the run remains recorded.
+
+Every missing gateway request correlates to an `Ok(0)` completion: no retry was
+needed, but no corresponding reply reached the receive boundary. The missing
+host request also never reached that boundary. This verifies sequence assignment
+while leaving a separate receive/delivery problem unresolved. The duplicate host
+reply had one request/reply submission at the boundary and a transmission that
+needed one retry; its path differs from the C3 duplicate incoming requests.
+See [the S3 trace and exact correlations](../esp32s3/STA-SEQUENCES.md).
+
 ## Loss attribution and reproduction
 
 A new frame reusing an earlier sequence can resemble an old retransmission when
