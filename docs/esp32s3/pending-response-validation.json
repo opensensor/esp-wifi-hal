@@ -1,0 +1,546 @@
+{
+  "scope": "S3 ten-cycle station comparison of pending-response queue before and after idempotent hardware-address update fix.",
+  "test_parameters": {
+    "cycles": 10,
+    "host_packets_per_cycle": 20,
+    "payload_bytes": 512,
+    "host_interval_seconds": 0.2,
+    "host_timeout_seconds": 1,
+    "host_first_packet_included": true,
+    "explicit_arp_warmup": false,
+    "gateway_test_after_host_window": true,
+    "hardware": "ESP32-S3 rev0.1",
+    "signed_application_offset": "0x20000",
+    "other_target_activity": "Independent C3 station work may run concurrently on the same AP."
+  },
+  "images": [
+    {
+      "name": "sta-pending",
+      "source": {
+        "local_commit": "19b5dff452cf402832e5e6f6a32f5816aa582760",
+        "smoltcp_revision": "4b4b1bcc4894539e1b9f7f6f24dbc3d5c455320f",
+        "features": [
+          "esp32s3",
+          "network-trace"
+        ],
+        "log_filter": "info,smoltcp=trace,embassy_net=debug",
+        "cycles": 10,
+        "source_sha256": {
+          "examples/Cargo.toml": "a58ed6afcc67c3fbf23703a1d1dc6ee0b50b67fd239c6e10f51c51552608d46e",
+          "examples/Cargo.lock": "899356926f8cb7736413b4900358ca613bacba5097a5c727d07e65308ba6b775",
+          "examples/src/bin/sta_smoke.rs": "aea995d686307ca8849634d7798ea303edeb46b214d4dcc2e0946788caedcc2e",
+          "examples/src/packet_trace.rs": "98385a6cd06ee60a1b9dbfed2ee21ba3d006c6a5498e42ab74b12860e11b9d4c",
+          "esp-wifi-hal/src/s3_phy.rs": "afb586fb6f9b5fc487f006f369d5df2734fd34be7aee7a118dbd4549539b9aa1",
+          "esp-wifi-hal/src/async_driver.rs": "9d5c5d17af3e4a0f1807ae734e17a64b9de7e730f255122af2ac79c77989ff54"
+        }
+      },
+      "elf_sha256": "b6f7144e635d364b3c4f2edc9c0336f8e9d071f2f680c449f9ead813f22a7d05",
+      "runs": [
+        {
+          "signed_image_sha256": "03b45409b0ee24c90fb1e70def42fdb7d7425cbf9f47ec18c90021984f468c73",
+          "application_complete": false,
+          "completed_cycles": 10,
+          "tx_exhaustion_reports": 0,
+          "cycles": [
+            {
+              "cycle": 1,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": false,
+                "arp_answer_seen": false,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": 9446
+              }
+            },
+            {
+              "cycle": 2,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 3,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 4,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 5,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 6,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 7,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 19,
+              "gateway_missing_sequences": [2],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 8,
+              "host_sent": 20,
+              "host_received": 18,
+              "host_missing_sequences": [1, 16],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 9,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            },
+            {
+              "cycle": 10,
+              "host_sent": 20,
+              "host_received": 19,
+              "host_missing_sequences": [1],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": false,
+                "host_received": false,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": null
+              }
+            }
+          ],
+          "host_totals": {
+            "sent": 200,
+            "received": 190
+          },
+          "gateway_totals": {
+            "sent": 200,
+            "received": 199
+          },
+          "failure": "Gateway echo loss assertion"
+        }
+      ]
+    },
+    {
+      "name": "sta-idempotent",
+      "source": {
+        "local_commit": "19b5dff452cf402832e5e6f6a32f5816aa582760",
+        "smoltcp_revision": "517222f7318c092d82197e2e68cfccca0f460b09",
+        "features": [
+          "esp32s3",
+          "network-trace"
+        ],
+        "log_filter": "info,smoltcp=trace,embassy_net=debug",
+        "cycles": 10,
+        "source_sha256": {
+          "examples/Cargo.toml": "eba4350d2c7ff5cad4110b813cfb55fb657b2c2efcbf47f63418b6cdab425fdc",
+          "examples/Cargo.lock": "385c1b0ce6f596af57cc531e3640391ac9af771b59162878d8851cb50ad4950e",
+          "examples/src/bin/sta_smoke.rs": "aea995d686307ca8849634d7798ea303edeb46b214d4dcc2e0946788caedcc2e",
+          "examples/src/packet_trace.rs": "98385a6cd06ee60a1b9dbfed2ee21ba3d006c6a5498e42ab74b12860e11b9d4c",
+          "esp-wifi-hal/src/s3_phy.rs": "afb586fb6f9b5fc487f006f369d5df2734fd34be7aee7a118dbd4549539b9aa1",
+          "esp-wifi-hal/src/async_driver.rs": "9d5c5d17af3e4a0f1807ae734e17a64b9de7e730f255122af2ac79c77989ff54"
+        },
+        "local_uncommitted_change": "examples smoltcp pin and lock updated to517222f"
+      },
+      "elf_sha256": "f48b857dd3c9e177b36856f7ff01da973c47a598c496fd8b9948b5818d826c09",
+      "runs": [
+        {
+          "signed_image_sha256": "296230a6bc7387b293dfbb411e248aebf3e4037d295014d043c5e80d7704eec0",
+          "application_complete": true,
+          "completed_cycles": 10,
+          "tx_exhaustion_reports": 0,
+          "cycles": [
+            {
+              "cycle": 1,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": false,
+                "arp_answer_seen": false,
+                "reply_after_arp_answer": false,
+                "reply_delay_us": 8831
+              }
+            },
+            {
+              "cycle": 2,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 39197
+              }
+            },
+            {
+              "cycle": 3,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 49941
+              }
+            },
+            {
+              "cycle": 4,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 40997
+              }
+            },
+            {
+              "cycle": 5,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 42308
+              }
+            },
+            {
+              "cycle": 6,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 41416
+              }
+            },
+            {
+              "cycle": 7,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 47620
+              }
+            },
+            {
+              "cycle": 8,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 50902
+              }
+            },
+            {
+              "cycle": 9,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 47418
+              }
+            },
+            {
+              "cycle": 10,
+              "host_sent": 20,
+              "host_received": 20,
+              "host_missing_sequences": [],
+              "host_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "host_reply_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_sent": 20,
+              "gateway_received": 20,
+              "gateway_missing_sequences": [],
+              "gateway_tx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "gateway_rx_sequences_at_boundary": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+              "first_echo": {
+                "request_seen": true,
+                "reply_seen": true,
+                "host_received": true,
+                "arp_request_after_echo": true,
+                "arp_answer_seen": true,
+                "reply_after_arp_answer": true,
+                "reply_delay_us": 44706
+              }
+            }
+          ],
+          "host_totals": {
+            "sent": 200,
+            "received": 200
+          },
+          "gateway_totals": {
+            "sent": 200,
+            "received": 200
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Packet boundary tracing establishes handoff to/from FoA/embassy, not RF reception at the AP or over-the-air ACKs.",
+    "Initial 4b4b1bcc queue revision fails Embassy integration because repeated same-MAC updates clear pending replies; it is retained as a failed comparison.",
+    "The first queue run also had a gateway reply and a later host request absent at the RX boundary; these are separate from cold-neighbor automatic-reply loss.",
+    "One S3 and one AP with tracing enabled; a bounded run does not establish long-duration or all-network reliability."
+  ]
+}

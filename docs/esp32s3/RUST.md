@@ -177,6 +177,9 @@ This leaves FoA security debug logging disabled. The measurements above used the
 unmodified smoltcp automatic responder, with the first ping included. Subsequent
 `foa-smoke` builds enable a bounded pending-response queue in the pinned OpenSensor
 smoltcp fork; see [the fix and its separate host regression](../network/PENDING-RESPONSES.md).
+The [S3 hardware comparison](PENDING-RESPONSES.md) records the initial integration
+failure and the corrected ten-cycle result: 200/200 host and gateway replies,
+including the first ping after each reconnect.
 
 An extended test also exposed intermittent loss of all reception. Two exploratory
 builds stopped receiving after initial successful traffic; an attempted ten-cycle
