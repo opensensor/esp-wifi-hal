@@ -194,7 +194,7 @@ impl DmaList {
                     *last_ptr = NonNull::new(dma_list_descriptor).unwrap();
                     return;
                 }
-                #[cfg(any(feature = "esp32s3", feature = "esp32c3")))]
+                #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
                 {
                     // Hardware exhaustion does not imply an empty software queue:
                     // completed frames can still precede this returned buffer.
