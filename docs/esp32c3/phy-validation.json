@@ -1,0 +1,103 @@
+{
+  "schema": "esp32c3-phy-controls-v1",
+  "baseline_elf_sha256": "9b6b577e47ed6a7434017c16b3fcfc563a2dac04e0f39e4b093ea4612693f78d",
+  "baseline_map_sha256": "9f47c6e80ef3e0619d8e1b0ccbc9573b0e225462333dbf3a489861da06ec2fac",
+  "rom_elf_sha256": "19ac22e08707df926fb0cf4c54795d4067b983fae8635f396ded173a6d78fc3c",
+  "libphy_archive_sha256": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+  "libphy_input_section_bytes_before": 35649,
+  "libphy_allocated_sections_before": 168,
+  "selected_functions": {
+    "phy_disable_low_rate": {
+      "member": "phy_feature.o",
+      "member_sha256": "f9b7f152d03becb1ea2162fa016558a7c6eba15da649504a077ffd3db2b35b78",
+      "address": "0x420368ee",
+      "size_bytes": 44,
+      "instruction_bytes_sha256": "646bbe08495307b38ed3b592af206306412f6c81a6af115594063ebc8950622e"
+    },
+    "rom1_disable_wifi_agc": {
+      "member": "phy_reg.o",
+      "member_sha256": "361a8b35e66f49de3ac8ea93264630bc57989e7aba57b0b73cb3ab369baf14ea",
+      "address": "0x40382058",
+      "size_bytes": 44,
+      "instruction_bytes_sha256": "2173835e712ad6af8a2f369a52221fe98a24c647c3cb7e3f1cf84f15191dd913"
+    },
+    "rom1_enable_wifi_agc": {
+      "member": "phy_reg.o",
+      "member_sha256": "361a8b35e66f49de3ac8ea93264630bc57989e7aba57b0b73cb3ab369baf14ea",
+      "address": "0x40382084",
+      "size_bytes": 42,
+      "instruction_bytes_sha256": "3a0baedfdc7107e38b679898d2f32c401342a2a1445b84ac0ecf079054a367d6"
+    }
+  },
+  "original_instruction_trace_cases": 48,
+  "trace_sha256": "c1d64251d2e01e783feb59e13fd483e6f4a3c505912d6ca41b84df3275efb511",
+  "trace_generator_sha256": "c1ba4f12d04bf3b7a3691426d731da92f8cec91f1b9d78ed7d73ba2460d9c833",
+  "rust_source_sha256": "fc640ef131c4e9d657115f242242f3220fc9e03e75af93c9cf442fa2cdf9b9f9",
+  "host_trace_test_passed": true,
+  "device_tested": false,
+  "device_validation_status": "pending root hardware test",
+  "semantic_proof": false,
+  "rom_direct_agc_register": "0x6001c038",
+  "installed_ram_agc_register": "0x6001c034",
+  "patched_table_slots": {
+    "disable": 8,
+    "enable": 12
+  },
+  "rtc_clock": {
+    "select_register": "0x600c0024",
+    "xtal_select_bit": 26,
+    "rtc_store1": "0x60008054",
+    "rtc_fractional_bits": 19,
+    "wifi_fractional_bits": 12,
+    "xtal_period_q12": 4096
+  },
+  "scope": "Direct driver PHY controls only. libphy still owns RF init/calibration/channel/power tracking and retains its own installed AGC patches.",
+  "observed_baseline_clock": {
+    "source": "root hardware baseline after PHY initialization",
+    "bt_lpck_register": 16781313,
+    "rtc_store1_q19": 3540992,
+    "derived_period_q12": 27664,
+    "previous_hardcoded_period_q12": 44462
+  },
+  "candidate_static_link_checks": {
+    "wifi_smoke": {
+      "elf_sha256": "ebbbe4a1df87db98a6dc75f8046d00c76a9b90c848cc77e1bf77ef7c1455da07",
+      "map_sha256": "81eb707238102b6561843d0fbfa0890dd9009d4095c0e455fcec806bcfb525e7",
+      "allocated_libphy_input_bytes": 35605,
+      "allocated_libphy_sections": 167,
+      "vendor_phy_disable_low_rate_absent": true,
+      "original_rom1_agc_patch_symbols_remain": true,
+      "image_sha256": "f7eb2a1d22ccc583b16e45f64d24c7d4b22bf495073062c547d04314f8b8f373",
+      "image_bytes": 140720
+    },
+    "sta_smoke": {
+      "elf_sha256": "91de88bad5eefe8d1efd87ebdd6cfb94da2f1585cbba0feee66905c5e51de7d3",
+      "map_sha256": "9d795f7edce5c013a4387c2769b59994340c5094bb7d55fe1f88172df955b0c4",
+      "allocated_libphy_input_bytes": 35605,
+      "allocated_libphy_sections": 167,
+      "vendor_phy_disable_low_rate_absent": true,
+      "original_rom1_agc_patch_symbols_remain": true,
+      "image_sha256": "678f6510ca55274fc3238b340a817de9272ee505d32454635a6bf2d3b67af334",
+      "image_bytes": 249376,
+      "driver_channel_setter_direct_rom_agc_calls_absent": true,
+      "driver_channel_setter_agc_mmio": "0x6001c034"
+    }
+  },
+  "agc_status": "Candidate RAM-table contract only; equivalence for direct driver calls unproven. S3 counterpart had two RX-recovery smoke failures despite station passes; C3 device test pending.",
+  "clock_oracle": {
+    "source": "ESP-IDF 5.4 open C3 coexistence clock wrapper and RTC getter",
+    "elf_sha256": "09d58c0c5bf65695dec0e4f67cc9de44097e5971ae9a9fec31b1a1d2c222e08d",
+    "functions": {
+      "esp_coex_common_clk_slowclk_cal_get_wrapper": {
+        "address": "0x4206b52c",
+        "size_bytes": 34,
+        "instruction_bytes_sha256": "728753b1da6695de51e1ae25e6f96359a4d88582d1d9e0f8d3caed37981a9850"
+      },
+      "esp_clk_slowclk_cal_get": {
+        "address": "0x4200279a",
+        "size_bytes": 8,
+        "instruction_bytes_sha256": "df9b1ea002dbbbd9ed61aef22df82c4bc240300b78302f9ec01fa6bb01e52e05"
+      }
+    }
+  }
+}

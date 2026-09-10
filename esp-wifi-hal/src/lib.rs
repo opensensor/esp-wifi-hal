@@ -67,6 +67,8 @@ pub mod crypto;
 mod dma_list;
 #[cfg(feature = "esp32c3")]
 mod c3_mac;
+#[cfg(feature = "esp32c3")]
+mod c3_phy;
 mod ffi;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;

@@ -2,6 +2,9 @@
 
 use esp_hal::{clock::xtal_clock, ram};
 
+#[cfg(feature = "esp32c3")]
+pub(crate) use crate::c3_phy::{disable_wifi_agc, enable_wifi_agc};
+
 #[cfg(osi_funcs_required)]
 #[allow(non_upper_case_globals)]
 #[cfg_attr(not(osi_funcs_in_rom), unsafe(no_mangle))]
@@ -234,11 +237,11 @@ pub unsafe extern "C" fn slowclk_cal_get() -> u32 {
     #[cfg(esp32s2)]
     return 44462;
 
-    #[cfg(any(esp32s3, esp32c3))]
+    #[cfg(esp32s3)]
     return 44462;
 
     #[cfg(esp32c3)]
-    return 28639;
+    return crate::c3_phy::slowclk_cal_get();
 
     #[cfg(esp32c2)]
     return 28639;
@@ -268,11 +271,13 @@ unsafe extern "C" {
     #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
     pub fn hal_init();
     pub fn tx_pwctrl_background(_: u8, _: u8);
+    #[cfg(not(feature = "esp32c3"))]
     #[cfg_attr(
         any(feature = "esp32s3", feature = "esp32c3"),
         link_name = "rom_enable_wifi_agc"
     )]
     pub fn enable_wifi_agc();
+    #[cfg(not(feature = "esp32c3"))]
     #[cfg_attr(
         any(feature = "esp32s3", feature = "esp32c3"),
         link_name = "rom_disable_wifi_agc"

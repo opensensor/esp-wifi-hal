@@ -40,6 +40,9 @@ fn update(address: usize, keep: u32, set: u32) {
 }
 
 use helpers::*;
+#[cfg(not(test))]
+use crate::c3_phy::disable_low_rate as phy_disable_low_rate;
+#[cfg(test)]
 unsafe extern "C" {
     fn phy_disable_low_rate();
 }

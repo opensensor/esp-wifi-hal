@@ -6,3 +6,5 @@ test_out=$(mktemp -d)
 trap 'rm -rf "$test_out"' EXIT HUP INT TERM
 rustc +stable --edition 2024 --test "$test_dir/test_c3_mac.rs" -o "$test_out/c3-init"
 "$test_out/c3-init"
+rustc +stable --edition 2024 --test "$test_dir/test_c3_phy.rs" -o "$test_out/c3-phy"
+"$test_out/c3-phy"

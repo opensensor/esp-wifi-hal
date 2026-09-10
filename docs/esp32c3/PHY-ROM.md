@@ -1,0 +1,105 @@
+# ESP32-C3 PHY controls and clock calibration
+
+The driver now implements three small PHY controls in Rust and obtains its slow
+clock period from the configured clock source. RF initialization, calibration,
+channel tuning and power tracking still depend on libphy and ROM. Hardware
+validation of this change is pending; it does not establish a packet-loss fix.
+
+## Preserve the direct AGC call contract
+
+The original driver called C3 ROM veneers `rom_disable_wifi_agc` at `0x40001a1c`
+and `rom_enable_wifi_agc` at `0x40001a20`. The matching ROM ELF sends those calls
+to bodies at `0x4003b8b4` and `0x4003b8e0`, which set bit 7 at `0x6001c038`.
+
+The linked esp-wifi-sys-esp32c3 0.2.0 libphy instead installs
+`rom1_disable_wifi_agc` and `rom1_enable_wifi_agc` at offsets 8 and 12 of the
+`g_phyFuns` table. Those RAM patches access `0x6001c034`. The installation in
+`phy_get_romfunc_addr` is unconditional, and `chip_v7_set_chan` calls those table
+slots. The driver previously called the ROM implementation directly. This is a
+real contract difference, but the two call sites may require different behavior.
+
+The Rust replacement preserves the directly called ROM body's ordered 32-bit read/modify/write
+operations:
+
+| Operation | Address | Bits preserved | Bits set |
+| --- | --- | --- | --- |
+| Disable AGC, first | `0x6001c01c` | `0xff00ffff` | `0x007f0000` |
+| Disable AGC, second | `0x6001c038` | `0xffffffff` | `0x00000080` |
+| Disable AGC, third | `0x6001c080` | `0xffffffff` | `0x00000001` |
+| Enable AGC, first | `0x6001c080` | `0xfffffffe` | `0` |
+| Enable AGC, second | `0x6001c01c` | `0xff00ffff` | `0x00200000` |
+| Enable AGC, third | `0x6001c038` | `0xffffffff` | `0x00000080` |
+
+The driver channel setter uses these Rust controls around its existing MAC
+operations. libphy's own table callbacks remain allocated and unchanged.
+
+An earlier C3 experiment copied the internal RAM callback's `0x6001c034` access
+into the direct driver controls. It passed three station cycles (60/60 gateway,
+58/60 host replies) and the RX exhaustion/recovery smoke. However, the equivalent
+S3 change failed fresh-RX recovery twice. Changing only that register literal
+back to `0x6001c038` restored the S3 smoke result. Those observations do not
+establish that the two call contexts are interchangeable. This implementation
+therefore retains the direct ROM contract on both chips. Final C3 hardware
+validation of the ROM-contract replacement is pending.
+
+## Low-rate PHY control
+
+The reconstructed `phy_disable_low_rate` performs three separate read/modify/write
+operations: clear bit 10 at `0x6001c860`, clear bit 11 at that same address, then
+clear bit 11 at `0x6001c87c`. Keeping both accesses to the first register preserves
+the original transaction order. MAC initialization calls this Rust body.
+
+Both release examples drop the original 44-byte `.text.phy_disable_low_rate`
+input section and its vendor symbol. Allocated libphy input sections decrease
+from 168 / 35,649 bytes to 167 / 35,605 bytes. These totals include libphy code
+and data, exclude linker padding and do not measure ROM contents or total
+firmware size. This is a small reduction in the remaining dependency.
+
+## Slow-clock period
+
+The old C3 callback returned `44462` through a shared S3/C3 branch; its subsequent
+C3-specific `28639` branch was unreachable. A fixed value also ignored the
+selected clock and its measured calibration.
+
+The replacement follows the open ESP-IDF 5.4 C3
+[`esp_coex_common_clk_slowclk_cal_get_wrapper`](https://github.com/espressif/esp-idf/blob/v5.4/components/esp_coex/esp32c3/esp_coex_adapter.c).
+It checks bit 26 of `SYSTEM_BT_LPCK_DIV_FRAC_REG` (`0x600c0024`). With divided
+XTAL selected, it returns `4096`, representing one microsecond in Q12. Otherwise
+it reads the Q19 RTC calibration from `RTC_CNTL_STORE1_REG` (`0x60008054`) and
+shifts right by seven. esp-hal 1.1.2 initializes this calibration when it measures
+the selected RTC slow clock.
+
+The connected C3's preceding hardware baseline reported LPCK `0x01001001` and
+STORE1 `3540992` after PHY initialization. This selects the RTC path and implies
+Q12 period `27664`. The difference from `44462` is a concrete configuration
+error; its contribution to intermittent connection failures remains unproven.
+
+## Validation and limits
+
+Run `sh docs/esp32c3/tests/run-tests.sh` with stable Rust. It exercises 260 existing
+MAC cases and 48 new PHY/clock cases against checked-in original-instruction
+traces. The PHY cases cover four register patterns, each control separately and
+an AGC disable/enable cycle. Clock cases cover both source branches, unrelated
+flag bits, shift boundaries, the observed board calibration and large values.
+
+The expected low-rate transactions came from the linked vendor instructions;
+AGC transactions came from the directly called ROM bodies. Clock transactions
+came from the stock ESP-IDF wrapper and its calibration getter.
+They were not generated by executing the Rust replacement. The bounded oracle
+models ordinary 32-bit registers and fails on unknown instructions. It does not
+model RF behavior, register side effects, concurrent ownership, bus timing or
+low-power transitions. No explicit RISC-V fence occurs in the three original
+PHY control bodies. These checks do not establish whether callers need further
+synchronization.
+
+Release `wifi_smoke` and three-cycle `sta_smoke` C3 builds pass. App images fit
+the test board's existing factory slot. Device tests for these images remain
+pending. Source, input, trace, ELF and link-map hashes are recorded in
+[phy-validation.json](phy-validation.json). Firmware images and network settings
+are private. Public trace tests require no proprietary harness, model, SDK or
+board; see [the regeneration notes](tests/README.md).
+
+The remaining libphy input sections still supply RF setup, analog/RX/TX
+calibration, PLL/channel selection, temperature handling, gain tables and power
+tracking. Its installed AGC bodies remain part of that dependency. This work
+does not replace the entire PHY or claim sustained radio reliability.

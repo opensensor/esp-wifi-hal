@@ -10,6 +10,9 @@ helpers are implemented in Rust; PHY code and ROM routines remain external.
 See [Rust initialization results and unresolved failures](MAC-INIT.md). The
 initial bring-up results below used vendor MAC initialization.
 
+[PHY controls and slow-clock calibration](PHY-ROM.md) documents the next scoped
+replacement, its instruction-trace checks, and pending hardware validation.
+
 ## Hardware evidence, 2026-09-10
 
 The board is an ESP32-C3 revision 0.4 with 4 MiB flash (the existing
