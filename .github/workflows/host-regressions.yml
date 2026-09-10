@@ -33,3 +33,7 @@ jobs:
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu
           --manifest-path docs/network/tests/pending-response-repro/Cargo.toml
+      - name: Preserve MAC retry identity and duplicate suppression
+        run: |
+          sh docs/network/tests/run-mac-retry.sh
+          sh docs/network/tests/run-mac-retry.sh --release

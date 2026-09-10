@@ -1,0 +1,15 @@
+[package]
+name = "mac-retry-regressions"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[dependencies]
+log = "0.4.33"
+macro-bits = "0.1.5"
+
+[build-dependencies]
+syn = { version = "2.0", features = ["full"] }
+quote = "1.0"

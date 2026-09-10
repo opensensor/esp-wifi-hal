@@ -1148,6 +1148,15 @@ mod private {
                     )
                     .await
                     .map(|_| i as u8);
+                if matches!(last_res, Err(TxError::MacProtocol(_))) {
+                    // The peer may have received this MPDU even if its ACK was
+                    // lost. Mark later attempts as retries of the same frame.
+                    // A channel-access failure alone must not set this flag,
+                    // nor clear one retained from an earlier MAC failure.
+                    if let Some(byte) = mpdu_buf.get_mut(1) {
+                        *byte |= bit!(3);
+                    }
+                }
                 match last_res {
                     Ok(_) => break,
                     Err(TxError::MacProtocol(MacProtocolError::AckTimeout)) => {
