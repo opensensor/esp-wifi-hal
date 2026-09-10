@@ -65,6 +65,8 @@ pub mod borrowed_buffer;
 /// Support structures for HW crypto.
 pub mod crypto;
 mod dma_list;
+#[cfg(feature = "esp32c3")]
+mod c3_mac;
 mod ffi;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;

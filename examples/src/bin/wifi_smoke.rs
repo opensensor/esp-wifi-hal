@@ -56,7 +56,7 @@ async fn main(_spawner: Spawner) {
                 .expect("RX drain timed out"),
         );
     }
-    #[cfg(feature = "esp32s3")]
+    #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
     {
         // Leave the tenth descriptor completed but unread while hardware runs
         // out of buffers. Returning one must not discard that pending frame.
@@ -66,8 +66,12 @@ async fn main(_spawner: Spawner) {
                 let dma = registers.rx_dma_list();
                 let base_offset = dma.rx_descr_base().read().bits() & 0xfffff;
                 if base_offset != 0 {
+                    #[cfg(feature = "esp32s3")]
+                    let high = 0x3fc00000;
+                    #[cfg(feature = "esp32c3")]
+                    let high = unsafe { (0x60033c64 as *const u32).read_volatile() } & 0xfff00000;
                     let descriptor = unsafe {
-                        ((0x3fc00000 | base_offset) as *const esp_hal::dma::DmaDescriptor)
+                        ((high | base_offset) as *const esp_hal::dma::DmaDescriptor)
                             .read_volatile()
                     };
                     if descriptor.flags.suc_eof()

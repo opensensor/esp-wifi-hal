@@ -34,8 +34,12 @@ same image completed ten cycles; see the [validation limits](docs/esp32s3/MAC-HE
 The C3 port integrates okhsunrog's existing work, with additional RX address and
 HT20 corrections. On the provisioner board, Rust WPA2/DHCP testing passed three
 cycles with 60/60 gateway replies; RX buffer recovery and OFDM TX also passed.
-C3 initialization and PHY still use vendor code at this milestone. See the
-[C3 build, attribution and validation notes](docs/esp32c3/README.md).
+C3 now also has Rust MAC initialization, with no allocated `libpp.a` sections
+in the tested station image. Its final ten-cycle repeat passed 200/200 gateway
+echoes and 185/200 host echoes, following an initial connection timeout. PHY/ROM
+remain external; connection and host echo failures remain unresolved. See the
+[C3 build and attribution notes](docs/esp32c3/README.md) and
+[initialization evidence](docs/esp32c3/MAC-INIT.md).
 
 The recorded S3 hardware validation includes:
 

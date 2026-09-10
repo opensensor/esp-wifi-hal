@@ -5,8 +5,10 @@ through commit `e65264ae992a02a4d776b33ad3e3784cf8f33260`, preserving its origin
 commits and authorship. That work supplied the C3 PAC, RX layout, TX power/control,
 auto-ACK and TSF timer support. OpenSensor added SDK-checked HT20 short-GI encoding,
 configured RX descriptor-address decoding, bounds checks and shared C3/S3 regression
-coverage. This is an experimental port: **C3 MAC initialization and PHY still use
-vendor code at this milestone**.
+coverage. This is an experimental port. Current C3 MAC initialization and eight
+helpers are implemented in Rust; PHY code and ROM routines remain external.
+See [Rust initialization results and unresolved failures](MAC-INIT.md). The
+initial bring-up results below used vendor MAC initialization.
 
 ## Hardware evidence, 2026-09-10
 

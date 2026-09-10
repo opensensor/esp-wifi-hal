@@ -1,0 +1,285 @@
+{
+  "schema": "esp32c3-rust-mac-init-validation-v1",
+  "date": "2026-09-10",
+  "source_sha256": {
+    "esp-wifi-hal/src/c3_mac.rs": "e2fa92d50dd5d5924a1f42afb58e95590fb0bf1aa0ea2c2566dce494644810d7",
+    "esp-wifi-hal/src/lib.rs": "c41a6aeda70e1f776ab2bd8b9e945adde383d72ba7e42add985c343a57b08d8b",
+    "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+    "esp-wifi-hal/src/ffi.rs": "f52218c2d90a70a928f22c5355e7a23d2be7b0da62d292dac97187770406dbbb",
+    "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+    "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+    "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+    "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5",
+    "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749"
+  },
+  "host_tests": {
+    "passed": true,
+    "groups_and_tests": 35,
+    "c3_init_trace_cases": 260,
+    "dma_chip_configurations": [
+      "esp32s3",
+      "esp32c3"
+    ]
+  },
+  "cross_compile": {
+    "c3_examples": true,
+    "s3_examples": true,
+    "c3_station_release_link": true
+  },
+  "station_runs": [
+    {
+      "run_id": "c3-rust-init-sta-ten-20260910-215720",
+      "image_sha256": "fd8350ed7c9d2ff1c828113cf8491ca774c25d21a175cfb4df513b6eb03bcc0d",
+      "complete": false,
+      "completed_cycles": 0,
+      "gateway_replies_by_cycle": [],
+      "host_echoes_by_cycle": [],
+      "serial_sha256": "ce02aa0a48507fb76a7f5ecefbe7a2cb86e452acd7e7a70db169dfd9b9a5edf6",
+      "failure": "Connection timed out before cycle 1 completed"
+    },
+    {
+      "run_id": "c3-rust-init-sta-ten-20260910-215910",
+      "image_sha256": "fd8350ed7c9d2ff1c828113cf8491ca774c25d21a175cfb4df513b6eb03bcc0d",
+      "complete": true,
+      "completed_cycles": 10,
+      "gateway_replies_by_cycle": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "host_echoes_by_cycle": [
+        {
+          "sent": 20,
+          "received": 20,
+          "missing_sequences": [],
+          "log_sha256": "804282466b22fae753381e5ac9b38dc324842d8d2637b617d33d40c3bbab6e25"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "4194a0e433e38585323cf21da7bb9acfb067725b03080655a5431286e885d002"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "b5b41a5cdf840a87536df1347ca9c431f699bac2362df088f9f81cb351f449b5"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "e1133d31ea19e415065b7ad534cf93526920def93a261a6b8588efd612847e53"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "52eb00ce18f177dc80c134f652d9e1d01e25b05ed6f7523fec44b6d6791da1fb"
+        },
+        {
+          "sent": 20,
+          "received": 18,
+          "missing_sequences": [
+            1,
+            2
+          ],
+          "log_sha256": "fb52959fd9fb91de33d24936d7c7e7aeb2797b47ac0c2a290544c9af43ebac3f"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "5c31dadfe22194ec5f54411705599e9f846938b91ad04ce53dc7bd37740dd4fc"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "56ab5b596eb326ff21cc6d5f770515be0894bcb50e0e8e44b2b90f4d0a9e874f"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "9c0c713155953b31c54f348e706c5134b81b103406689e5554b11f1f4e5a9a0f"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "36d7680dbb803519bf084899b7b39fb0373f3749e62f4d72cd894ec224cd3035"
+        }
+      ],
+      "serial_sha256": "6bfab049db3f54020588f8d01cca09d28d607eb44d008a32c3c7608f788d7d36",
+      "failure": null
+    },
+    {
+      "run_id": "c3-rust-init-queue-sta-ten-20260910-220312",
+      "image_sha256": "e3974a53d59bc54bf775b1fbc313a167e0374aa30312de5392b335f267dc2646",
+      "complete": false,
+      "completed_cycles": 0,
+      "gateway_replies_by_cycle": [],
+      "host_echoes_by_cycle": [],
+      "serial_sha256": "bca25cbc3b48b36be43103478716710dafefa68f307ee3128e44f5f19c0db9b9",
+      "failure": "Connection timed out before cycle 1 completed"
+    },
+    {
+      "run_id": "c3-rust-init-queue-sta-ten-20260910-220457",
+      "image_sha256": "e3974a53d59bc54bf775b1fbc313a167e0374aa30312de5392b335f267dc2646",
+      "complete": true,
+      "completed_cycles": 10,
+      "gateway_replies_by_cycle": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "host_echoes_by_cycle": [
+        {
+          "sent": 20,
+          "received": 20,
+          "missing_sequences": [],
+          "log_sha256": "885defc4157be8071932903394787d25962bd842403a91803f06757a77784744"
+        },
+        {
+          "sent": 20,
+          "received": 14,
+          "missing_sequences": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "log_sha256": "df0542bc4a18d8e69e50f9cd328f8b20e177eb5ec3cbb47a436825c371e9c06a"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "8c0a48c29278b4529c008c1df405cce9138e6120123318c2c31acf171ca44c42"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "6d0cf170263c5792f790b515c7f7b0ed4d1449725270ca1c852e4ffad0d27057"
+        },
+        {
+          "sent": 20,
+          "received": 18,
+          "missing_sequences": [
+            1,
+            8
+          ],
+          "log_sha256": "7930d0c2c68de2418b3af21bb8c688df941ef28f8c9c70fc6edb5703155e8500"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "44b59c3a3cb78c779071cbd608d5e4720a60ac58de02496331cae22d0b1c53a0"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "cf4add4f04709a899b764e2fc5c903c454866f4b14050ad2394198001b60f8a2"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "d650e5e1b6bfe95bd12dc99f03db6f7dfe6ce5e8467c57072252fb02e5457a2b"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "3524702a382fa3361f0e3fe5712597ba928896bae7c8b671082a7a243d05a446"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ],
+          "log_sha256": "aa9eb0e7066bbe15a1fa53914e233a1305d11f6d71e04cee5905e7f22841be11"
+        }
+      ],
+      "serial_sha256": "59e53ca2ec985d155fe34c4bf24561caf2e3378c33a54bee2bc022a483f31d50",
+      "failure": null
+    }
+  ],
+  "link": {
+    "map_sha256": "9f47c6e80ef3e0619d8e1b0ccbc9573b0e225462333dbf3a489861da06ec2fac",
+    "allocated_libpp_sections": [],
+    "allocated_standalone_archives": [
+      "libphy.a",
+      "libprintf.a"
+    ],
+    "elf_sha256": "9b6b577e47ed6a7434017c16b3fcfc563a2dac04e0f39e4b093ea4612693f78d"
+  },
+  "wifi_smoke": {
+    "image_sha256": "d1d9351433bd772a887073a1c63fe18882f53f8e097461a47123b04fa3e78b8f",
+    "received": 8,
+    "ofdm": 2,
+    "pending_buffer_preserved": true,
+    "held_descriptors": 10,
+    "reverse_return_recovery": true,
+    "ofdm6_tx": true,
+    "timer_advanced": true
+  },
+  "limits": [
+    "Two first station runs failed before cycle 1; both exact-image repeats completed ten cycles",
+    "Connection timeout cause unresolved",
+    "Extra host echo losses beyond the usual first-ARP reply are unexplained",
+    "No claim that the DMA fallback fix resolves connection or host echo failures",
+    "PHY and ROM remain external",
+    "Provisioner workload not ported; no sustained or cold-power-on reliability claim"
+  ]
+}

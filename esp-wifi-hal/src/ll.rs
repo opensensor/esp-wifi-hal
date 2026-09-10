@@ -693,7 +693,7 @@ impl LowLevelDriver {
     /// # Safety
     /// This should only be called during init.
     unsafe fn setup_mac(&self) {
-        // S3 uses the reviewed Rust MAC sequence; the older chips retain blob
+        // C3 and S3 use reviewed Rust MAC sequences; the older chips retain blob
         // initialization. Shared setup below installs this driver's filter and
         // crypto policy after the chip-specific defaults.
         unsafe {
@@ -701,7 +701,9 @@ impl LowLevelDriver {
             crate::ffi::install_osi_funcs();
             #[cfg(feature = "esp32s3")]
             crate::s3_mac::init();
-            #[cfg(not(feature = "esp32s3"))]
+            #[cfg(feature = "esp32c3")]
+            crate::c3_mac::init();
+            #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
             crate::ffi::hal_init();
         }
 

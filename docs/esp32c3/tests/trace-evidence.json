@@ -1,0 +1,119 @@
+{
+  "schema": "esp32c3-init-trace-evidence-v1",
+  "cases": 260,
+  "case_expansion": "4 register seeds; per seed full init, four fixed helpers, three priority helpers times8 inputs, RTC helper times6 enable values times6 calibration values",
+  "idf_baseline_sha256": "f9bdd324b6362df4fca67cdede644341662bc705462f473e3c06908af34527fb",
+  "rust_baseline_sha256": "66063e3c0d934d56139dd3b1a1b570c637650e579ce6eef0b34da9b40d554adc",
+  "archive_comparison": {
+    "idf_archive_sha256": "b3c2de0b12b7e99ebbadba88ba756831b466f2b508cc71cb583deee4dda62edb",
+    "rust_archive_sha256": "a752442af19cbe70c349446dc26065561a911a29a7b28ccc805321c3a1b2ca84",
+    "members": [
+      {
+        "name": "hal_mac.o",
+        "idf_sha256": "e3a31c7c751f95eb5ee48c7814d89b268fb66d56992f5377094ba6b3bd615657",
+        "rust_sha256": "c356a4a8f77890392ce0db3786f9608e4ed27851464268348642e4fc3549ff98",
+        "byte_identical": false
+      },
+      {
+        "name": "hal_crypto.o",
+        "idf_sha256": "d1e21487152c5dfa1bef58bcd61a8b54b74a5f4ce6c592cd063e03ccbd8b42b3",
+        "rust_sha256": "5614b44eb856a75dc94253e3538ac39366a8eae2132f028f83102451233262f8",
+        "byte_identical": false
+      },
+      {
+        "name": "hal_mac_tx.o",
+        "idf_sha256": "36d1fb43ec95263f3430d02bb1f6f7091347cd33f50e8b9a179955ea87be9325",
+        "rust_sha256": "27ba091e51a9ca6482e066019feefdaf4f238f05bf7eca79af0e9df9f514f3b4",
+        "byte_identical": false
+      },
+      {
+        "name": "hal_coex.o",
+        "idf_sha256": "e165c82ce889cf864fc4bcef38d2bdbf5921e541635254cdc5f9cad6d930d3ba",
+        "rust_sha256": "3caf7376abcc7f40cf6d1b5e842a6d444ca358e963287cc088e42c0f8dddcaca",
+        "byte_identical": false
+      },
+      {
+        "name": "hal_tsf.o",
+        "idf_sha256": "d2f61660b81a996d4b35ca8f7950264dc358c24a7774ebbcc1dcfaa6f0540538",
+        "rust_sha256": "1ac75f587b91d5a013db711868ee87001a41a6bcf3cb44cf2218375cdd760417",
+        "byte_identical": false
+      }
+    ],
+    "bounded_instruction_trace_cases": 260,
+    "bounded_instruction_traces_match": true
+  },
+  "original_traces_sha256": "0ff412d9e651166be3673c9e3eec3e6234fda1a948ea9ca7f34f8a8fe6603557",
+  "audited_rust_source_sha256": "2865e0b007cad0c42b84689d2502304c2cc8773adf2be22d8bbb2c0f6a1ce030",
+  "trace_oracle_sha256": "a294dc50801f7624814fc8bc50c07125d8e50245c490bb8d71f34dcc160407f0",
+  "host_trace_test_passed": true,
+  "hardware_validated_by_this_test": false,
+  "semantic_proof": false,
+  "oracle": "bounded interpretation of actual GNU objdump RV32IMC instructions with modeled MMIO and stubbed PHY/OS callbacks; unknown instructions fail; identical traces independently obtained from both vendor baselines",
+  "assumptions": [
+    "Ready bit at 0x60033d14 is preset true",
+    "Initial register patterns: 0, 0xffffffff, 0xaaaaaaaa, 0x55555555",
+    "wDevCtrl[0] = 0 because Rust owns the RX descriptor list",
+    "Slow-clock callback returns 0x12345678",
+    "Bluetooth coexistence callbacks leave initialized priority bytes zero",
+    "MMIO is ordinary 32-bit register storage; hardware side effects are not emulated"
+  ],
+  "functions": {
+    "hal_init": {
+      "address": 1107540370,
+      "size": 300
+    },
+    "mac_txrx_init": {
+      "address": 1107539514,
+      "size": 366
+    },
+    "mac_rxbuf_init": {
+      "address": 1107539424,
+      "size": 90
+    },
+    "mac_last_rxbuf_init": {
+      "address": 1107539880,
+      "size": 210
+    },
+    "hal_mac_disable_low_rate": {
+      "address": 1107539366,
+      "size": 58
+    },
+    "hal_mac_rx_set_policy": {
+      "address": 1107540210,
+      "size": 160
+    },
+    "hal_crypto_init": {
+      "address": 1107540768,
+      "size": 58
+    },
+    "hal_attenna_init": {
+      "address": 1107540826,
+      "size": 94
+    },
+    "hal_mac_rate_autoack_init": {
+      "address": 1107540920,
+      "size": 28
+    },
+    "hal_coex_pti_init": {
+      "address": 1107540670,
+      "size": 18
+    },
+    "hal_set_rx_active_pti": {
+      "address": 1107540688,
+      "size": 20
+    },
+    "hal_set_rx_ack_pti": {
+      "address": 1107540708,
+      "size": 26
+    },
+    "hal_set_wifi_default_pti": {
+      "address": 1107540734,
+      "size": 34
+    },
+    "hal_timer_update_by_rtc": {
+      "address": 1107540948,
+      "size": 52
+    }
+  },
+  "integrated_rust_source_sha256": "e2fa92d50dd5d5924a1f42afb58e95590fb0bf1aa0ea2c2566dce494644810d7"
+}

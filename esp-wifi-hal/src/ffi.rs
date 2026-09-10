@@ -265,7 +265,7 @@ unsafe extern "C" {
             pub fn chip_v7_set_chan(channel: u8, bandwidth: u8);
         }
     }
-    #[cfg(not(feature = "esp32s3"))]
+    #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
     pub fn hal_init();
     pub fn tx_pwctrl_background(_: u8, _: u8);
     #[cfg_attr(

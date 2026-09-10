@@ -30,3 +30,5 @@ rustc +stable --edition 2024 --test --cfg 'feature="esp32s3"' \
 rustc +stable --edition 2024 --test --cfg 'feature="esp32c3"' \
     "$test_dir/rust_dma.rs" -o "$test_out/rust-dma-c3"
 "$test_out/rust-dma-c3"
+
+sh "$repo_dir/docs/esp32c3/tests/run-tests.sh"
