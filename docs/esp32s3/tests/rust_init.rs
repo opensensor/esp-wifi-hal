@@ -17,6 +17,14 @@ mod s3_mac_helpers {
     }
 }
 
+// Preserve this test's PHY call boundary; s3_phy.rs tests the actual MMIO.
+mod s3_phy {
+    unsafe extern "C" {
+        #[link_name = "phy_disable_low_rate"]
+        pub fn disable_low_rate();
+    }
+}
+
 mod ffi {
     pub unsafe fn slowclk_cal_get() -> u32 {
         0x12345678

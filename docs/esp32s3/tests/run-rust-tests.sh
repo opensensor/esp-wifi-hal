@@ -17,6 +17,9 @@ rustc +stable --edition 2024 --test "$test_dir/rust_init.rs" \
 rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_mac_helpers.rs" \
     -o "$test_out/rust-mac-helpers"
 "$test_out/rust-mac-helpers"
+rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_phy.rs" \
+    -o "$test_out/rust-phy"
+"$test_out/rust-phy"
 rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/ht20.rs" \
     -o "$test_out/rust-tx"
 "$test_out/rust-tx"

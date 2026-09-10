@@ -1,0 +1,1156 @@
+{
+  "inputs": {
+    "prior_station_sha256": "9e4509483e602b6b9063358f40a2fa45ce3a3d777ff9d57b656df412cc003193",
+    "rom_elf_release": "20241011",
+    "rom_elf_sha256": "c0ce0f338d1de1bdc6efbef1591779a2a42c1ab7d759d3c6ae8ae63a7dd34cfd",
+    "phy_crate": "esp-wifi-sys-esp32s3=0.2.0",
+    "libphy_sha256": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd"
+  },
+  "functions": [
+    {
+      "name": "phy_disable_low_rate",
+      "address": "0x42037b10",
+      "size": 56,
+      "image": "prior_station"
+    },
+    {
+      "name": "ram_disable_wifi_agc",
+      "address": "0x4037b3a0",
+      "size": 67,
+      "image": "prior_station"
+    },
+    {
+      "name": "ram_enable_wifi_agc",
+      "address": "0x4037b3e8",
+      "size": 67,
+      "image": "prior_station"
+    },
+    {
+      "name": "phy_get_romfunc_addr",
+      "address": "0x42035fb0",
+      "size": 203,
+      "image": "prior_station"
+    },
+    {
+      "name": "chip_v7_set_chan",
+      "address": "0x42038164",
+      "size": 192,
+      "image": "prior_station"
+    },
+    {
+      "name": "rom_disable_wifi_agc",
+      "address": "0x40038020",
+      "size": 67,
+      "image": "rom"
+    },
+    {
+      "name": "rom_enable_wifi_agc",
+      "address": "0x40038068",
+      "size": 67,
+      "image": "rom"
+    }
+  ],
+  "finding": "Direct ROM AGC uses0x6001c038; internal RAM AGC uses0x6001c034 via PHY table slots8/12. Hardware RX-drain comparison rejects substituting RAM contract into direct driver calls; final Rust preserves ROM behavior.",
+  "base_commit": "be22c0b",
+  "agc_single_literal_isolation": {
+    "images": [
+      "wifi-source",
+      "wifi-rom-contract"
+    ],
+    "image_bytes": 136096,
+    "changed_bytes_total": 66,
+    "register_literal_file_offset": "0x10d70",
+    "before_byte": "0x34",
+    "after_byte": "0x38",
+    "other_changed_ranges": [
+      "0xb0..0xcf (application descriptor ELF SHA-256)",
+      "final33bytes (image checksum and SHA-256)"
+    ],
+    "payload_changes_excluding_hashes_and_checksum": 1
+  },
+  "scope": "Rust low-rate helper and driver AGC pair preserving direct ROM behavior at0x6001c038; vendor PHY calibration and internal RAM AGC at0x6001c034 remain.",
+  "host_tests": {
+    "phy_tests": 5,
+    "initial_patterns_per_routine": 260,
+    "other_s3_and_c3_tests": "all passed"
+  },
+  "images": [
+    {
+      "name": "baseline",
+      "elf_sha256": "965326b7747bafaf3ec07d121950a1cdf58e804b27a398daa2fb0ea079333ecc",
+      "signed_image_sha256": "861362bae10e6da6bb285687ac8c53941da374e6d1dd11503514b4d35fe77a7a",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_mac.rs": "bbb3a4966d904029bb1efd2a13daa5134170df2f332afd4e09f463f90b1628ad",
+        "esp-wifi-hal/src/ffi.rs": "f52218c2d90a70a928f22c5355e7a23d2be7b0da62d292dac97187770406dbbb",
+        "esp-wifi-hal/src/lib.rs": "c41a6aeda70e1f776ab2bd8b9e945adde383d72ba7e42add985c343a57b08d8b",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3122,
+          "phy_feature.o": 578,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2061,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1876,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 11981
+        }
+      },
+      "low_rate_blob_symbol_present": true,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 2,
+      "runs": [
+        {
+          "complete": false,
+          "completed_cycles": 9,
+          "application_offset": "0x20000",
+          "gateway_pings": [
+            {
+              "cycle": 1,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 2,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 3,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 4,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 5,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 6,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 7,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 8,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 9,
+              "sent": 20,
+              "received": 20
+            }
+          ],
+          "host_pings": [
+            {
+              "cycle": 1,
+              "sent": 20,
+              "received": 20,
+              "missing_sequences": []
+            },
+            {
+              "cycle": 2,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 3,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 4,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 5,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 6,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 7,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 8,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 9,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            }
+          ],
+          "failure": "DHCP timeout"
+        }
+      ],
+      "role": "unchanged station baseline",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 8,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcmp": 6,
+        "memcpy": 285,
+        "memmove": 3,
+        "memset": 62,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_disable_wifi_agc": 1,
+        "rom_enable_wifi_agc": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    },
+    {
+      "name": "source",
+      "elf_sha256": "794f69d034307f9456c7ad63b7f9ec5e28075aed7e2fa67a7ce5f9ca360a6c8f",
+      "signed_image_sha256": "8bc13c7b3cbeece7613950cbbd3a6c6d1f41acf0e0507ddcff095abbab7bb2e9",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_phy.rs": "45367950f7d2194ea3f9886f2cf9eedbb6269796a63a35f0366c0ede5b1d9e20",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/ffi.rs": "593d95e5ca157fb27cb776d0c4c4cdb98a69ccba66d4cc3eef03a4e70f9501ad",
+        "esp-wifi-hal/src/lib.rs": "0ac0eb22ee59458e2d3693633f2742889f76a15e28c8eea6b872cbb9eceb5bfb",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3122,
+          "phy_feature.o": 514,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2057,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1876,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 11981
+        }
+      },
+      "low_rate_blob_symbol_present": false,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 0,
+      "runs": [
+        {
+          "complete": true,
+          "completed_cycles": 10,
+          "application_offset": "0x20000",
+          "gateway_pings": [
+            {
+              "cycle": 1,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 2,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 3,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 4,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 5,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 6,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 7,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 8,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 9,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 10,
+              "sent": 20,
+              "received": 20
+            }
+          ],
+          "host_pings": [
+            {
+              "cycle": 1,
+              "sent": 20,
+              "received": 20,
+              "missing_sequences": []
+            },
+            {
+              "cycle": 2,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 3,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 4,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 5,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 6,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 7,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 8,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 9,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 10,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "role": "rejected RAM AGC contract station comparison",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcmp": 6,
+        "memcpy": 285,
+        "memmove": 3,
+        "memset": 62,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    },
+    {
+      "name": "wifi-baseline",
+      "elf_sha256": "02e8afde6b815906b283c8a9005b26bc38a2e4c8629f507065656d713b7ca001",
+      "signed_image_sha256": "18771028c291bad0fbe72b6ce587ff5e53d88c67d46ac33a65a75fe8217cb481",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_mac.rs": "bbb3a4966d904029bb1efd2a13daa5134170df2f332afd4e09f463f90b1628ad",
+        "esp-wifi-hal/src/ffi.rs": "f52218c2d90a70a928f22c5355e7a23d2be7b0da62d292dac97187770406dbbb",
+        "esp-wifi-hal/src/lib.rs": "c41a6aeda70e1f776ab2bd8b9e945adde383d72ba7e42add985c343a57b08d8b",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3126,
+          "phy_feature.o": 578,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2065,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1880,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 4742
+        }
+      },
+      "low_rate_blob_symbol_present": true,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 2,
+      "runs": [
+        {
+          "complete": true,
+          "completed_cycles": 0,
+          "application_offset": "0x20000",
+          "gateway_pings": [],
+          "host_pings": [],
+          "wifi_smoke": {
+            "frames": 10,
+            "ofdm_frames": 2,
+            "held_buffers": 10,
+            "pending_buffer_preserved": true,
+            "rx_recovered": true,
+            "tx_complete": true,
+            "timer_advanced": true
+          }
+        }
+      ],
+      "role": "unchanged smoke baseline",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcpy": 29,
+        "memset": 12,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_disable_wifi_agc": 1,
+        "rom_enable_wifi_agc": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    },
+    {
+      "name": "wifi-source",
+      "elf_sha256": "1beb7167ac4dbc25ecaef213f26e0c4d4607fed5a3067c4819b9d1a0996ee3cf",
+      "signed_image_sha256": "ce049e4b83985bb13669d1e3165a142220bdfb706b4223c3ed81d799a766bbb6",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_phy.rs": "45367950f7d2194ea3f9886f2cf9eedbb6269796a63a35f0366c0ede5b1d9e20",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/ffi.rs": "593d95e5ca157fb27cb776d0c4c4cdb98a69ccba66d4cc3eef03a4e70f9501ad",
+        "esp-wifi-hal/src/lib.rs": "0ac0eb22ee59458e2d3693633f2742889f76a15e28c8eea6b872cbb9eceb5bfb",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3126,
+          "phy_feature.o": 514,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2061,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1880,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 4742
+        }
+      },
+      "low_rate_blob_symbol_present": false,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 0,
+      "runs": [
+        {
+          "complete": false,
+          "completed_cycles": 0,
+          "application_offset": "0x20000",
+          "gateway_pings": [],
+          "host_pings": [],
+          "failure": "RX drain timeout",
+          "wifi_smoke": {
+            "frames": null,
+            "ofdm_frames": null,
+            "held_buffers": 0,
+            "pending_buffer_preserved": true,
+            "rx_recovered": false,
+            "tx_complete": false,
+            "timer_advanced": false
+          }
+        },
+        {
+          "complete": false,
+          "completed_cycles": 0,
+          "application_offset": "0x20000",
+          "gateway_pings": [],
+          "host_pings": [],
+          "failure": "RX drain timeout",
+          "wifi_smoke": {
+            "frames": null,
+            "ofdm_frames": null,
+            "held_buffers": 0,
+            "pending_buffer_preserved": true,
+            "rx_recovered": false,
+            "tx_complete": false,
+            "timer_advanced": false
+          }
+        }
+      ],
+      "role": "rejected RAM AGC contract smoke comparison",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcpy": 29,
+        "memset": 12,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    },
+    {
+      "name": "wifi-rom-contract",
+      "elf_sha256": "8263324e6092ad72c7f87ce3fb2b23e9b47c6f5896852f232f5f4594a9dd2061",
+      "signed_image_sha256": "e619d5d2c857b125bd940580ebf337a99001e016dc9d4fb9563d614c974365cb",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_phy.rs": "dd7590998816d7689fe86f9869c258093b3267eb0c65f56c963c27334e454c28",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/ffi.rs": "593d95e5ca157fb27cb776d0c4c4cdb98a69ccba66d4cc3eef03a4e70f9501ad",
+        "esp-wifi-hal/src/lib.rs": "0ac0eb22ee59458e2d3693633f2742889f76a15e28c8eea6b872cbb9eceb5bfb",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3126,
+          "phy_feature.o": 514,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2061,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1880,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 4742
+        }
+      },
+      "low_rate_blob_symbol_present": false,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 0,
+      "runs": [
+        {
+          "complete": true,
+          "completed_cycles": 0,
+          "application_offset": "0x20000",
+          "gateway_pings": [],
+          "host_pings": [],
+          "wifi_smoke": {
+            "frames": 7,
+            "ofdm_frames": 1,
+            "held_buffers": 10,
+            "pending_buffer_preserved": true,
+            "rx_recovered": true,
+            "tx_complete": true,
+            "timer_advanced": true
+          }
+        }
+      ],
+      "role": "single-literal isolation: ROM AGC contract smoke",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcpy": 29,
+        "memset": 12,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    },
+    {
+      "name": "rom-contract",
+      "elf_sha256": "1c31e9ad15d175ce3c24f16f8c2b3e279d2d6a7333b5638aaa96f84adbabbc7b",
+      "signed_image_sha256": "34a6cb6846a0bc2de35b9bf2827f13a3a627fd2945189313ba155ff48ef7e3ec",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_phy.rs": "afb586fb6f9b5fc487f006f369d5df2734fd34be7aee7a118dbd4549539b9aa1",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/ffi.rs": "593d95e5ca157fb27cb776d0c4c4cdb98a69ccba66d4cc3eef03a4e70f9501ad",
+        "esp-wifi-hal/src/lib.rs": "0ac0eb22ee59458e2d3693633f2742889f76a15e28c8eea6b872cbb9eceb5bfb",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3122,
+          "phy_feature.o": 514,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2057,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1876,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 11981
+        }
+      },
+      "low_rate_blob_symbol_present": false,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 0,
+      "runs": [
+        {
+          "complete": true,
+          "completed_cycles": 10,
+          "application_offset": "0x20000",
+          "gateway_pings": [
+            {
+              "cycle": 1,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 2,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 3,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 4,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 5,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 6,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 7,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 8,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 9,
+              "sent": 20,
+              "received": 20
+            },
+            {
+              "cycle": 10,
+              "sent": 20,
+              "received": 20
+            }
+          ],
+          "host_pings": [
+            {
+              "cycle": 1,
+              "sent": 20,
+              "received": 20,
+              "missing_sequences": []
+            },
+            {
+              "cycle": 2,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 3,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 4,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 5,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 6,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 7,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 8,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 9,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            },
+            {
+              "cycle": 10,
+              "sent": 20,
+              "received": 19,
+              "missing_sequences": [
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "role": "final ROM-contract station",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcmp": 6,
+        "memcpy": 285,
+        "memmove": 3,
+        "memset": 62,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    },
+    {
+      "name": "wifi-final",
+      "elf_sha256": "354ebdb779d11b227ac71db4d0be5fcdf7a70052bb855bc5195dd2d21d39de70",
+      "signed_image_sha256": "7e86bb89fb7ed7e48185489f910c60143eec6b2ccf405e79f59ab2b0fab47743",
+      "source_sha256": {
+        "esp-wifi-hal/src/s3_phy.rs": "afb586fb6f9b5fc487f006f369d5df2734fd34be7aee7a118dbd4549539b9aa1",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/ffi.rs": "593d95e5ca157fb27cb776d0c4c4cdb98a69ccba66d4cc3eef03a4e70f9501ad",
+        "esp-wifi-hal/src/lib.rs": "0ac0eb22ee59458e2d3693633f2742889f76a15e28c8eea6b872cbb9eceb5bfb",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+        "examples/src/bin/wifi_smoke.rs": "03197e933794ca686401c4948227060cbc8e6b1b93b250df3a14ec3c0bb5f4d5"
+      },
+      "allocated_vendor_archive_members_bytes": {
+        "libphy.a": {
+          "phy_api.o": 179,
+          "phy_init.o": 4173,
+          "phy_hw_freq.o": 3126,
+          "phy_feature.o": 514,
+          "phy_basic.o": 395,
+          "phy_tx_gain.o": 1969,
+          "phy_reg.o": 3931,
+          "phy_i2c.o": 1985,
+          "phy_pbus.o": 972,
+          "phy_tsens.o": 585,
+          "phy_rx_gain.o": 2061,
+          "phy_rx_cal.o": 5459,
+          "phy_tx_cal.o": 3794,
+          "phy_debug.o": 306,
+          "phy_rfpll.o": 1880,
+          "phy_analog_cal.o": 633,
+          "phy_pwdet.o": 378,
+          "phy_track.o": 922
+        },
+        "libprintf.a": {
+          "printf.c.obj": 4742
+        }
+      },
+      "low_rate_blob_symbol_present": false,
+      "internal_ram_agc_symbols_present": true,
+      "direct_rom_agc_literal_references": 0,
+      "runs": [
+        {
+          "complete": true,
+          "completed_cycles": 0,
+          "application_offset": "0x20000",
+          "gateway_pings": [],
+          "host_pings": [],
+          "wifi_smoke": {
+            "frames": 6,
+            "ofdm_frames": 2,
+            "held_buffers": 10,
+            "pending_buffer_preserved": true,
+            "rx_recovered": true,
+            "tx_complete": true,
+            "timer_advanced": true
+          }
+        }
+      ],
+      "role": "final ROM-contract smoke",
+      "resolved_rom_call_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 6,
+        "__umoddi3": 1,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcpy": 29,
+        "memset": 12,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+    }
+  ],
+  "test_conditions": [
+    "ESP32-S3 rev0.1; secure boot and secure download enabled, flash encryption disabled.",
+    "Signed app-only images at0x20000; no bootloader/partitions/eFuse changes.",
+    "Single WPA2 access point; independent C3 work may scan/connect concurrently.",
+    "Rust1.97.0.0 esp toolchain; Xtensa GCC15.2.0_20250920; FoA0.2.0 and embassy-net/smoltcp0.13.1."
+  ],
+  "limitations": [
+    "RAM-contract source passed ten station cycles but failed RX drain twice; it is rejected. ROM-contract source preserves original direct-call semantics. The hardware reason for the differing internalRAM/directROM contracts remains unproven.",
+    "Current-main baseline reproduced DHCP timeout in cycle10 after9completed cycles. This work does not establish a fix for intermittent reconnect/DHCP failures.",
+    "Host echo first-reply loss after reconnect remains the previously reproduced smoltcp neighbor-resolution behavior; gateway ping is a separate socket test.",
+    "Five host PHY tests validate MMIO transactions, not analog behavior.",
+    "PHY calibration/channel tuning/power tracking and internal RAM AGC still depend on vendor code; ROM dependencies remain.",
+    "Only one S3 and one AP; no Bluetooth coexistence, full PHY teardown, all-rate RF or long-duration reliability coverage."
+  ]
+}

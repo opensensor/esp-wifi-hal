@@ -13,6 +13,9 @@ and smoke images allocate no `libpp.a` code or data. PHY calibration/channel
 control, power tracking and ROM routines remain external. The S3 ROM OS-adapter
 pointer is still installed before initialization. Bluetooth coexistence is not
 implemented; the priority callbacks leave their initialized zero values unchanged.
+Low-rate initialization and the driver's AGC register operations are now Rust;
+the [PHY helper review](PHY-ROM.md) explains the direct ROM contract, the differing internal RAM patches, and
+the remaining binary dependencies.
 
 The final station ELF has no `hal_init`, `mac_txrx_init`, `mac_rxbuf_init` or
 `mac_last_rxbuf_init` symbol. Its map discards the blob MAC initialization code.
@@ -38,7 +41,8 @@ C reference test, which retained IDF's station stack.
 - HT20 rate codes are 16..23 for long GI and 24..31 for short GI. S3's short-GI
   HT-SIG bit is 31, not 7. The S3 packing code avoids the overlapping short-GI
   rate codes produced by `esp-wifi-rates` 0.1.0.
-- S3 needs its own modem-clock enable mask and ROM AGC symbol names.
+- S3 needs its own modem-clock enable mask. Its direct AGC calls retain the
+  ROM register contract; the internal PHY RAM callbacks use a different address.
 
 The ROM adapter and TX port structure build on okhsunrog's
 [C3 driver draft](https://github.com/esp32-open-mac/esp-wifi-hal/pull/22).

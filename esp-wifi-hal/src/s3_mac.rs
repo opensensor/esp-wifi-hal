@@ -1,7 +1,7 @@
 //! S3 MAC initialization translated from the reviewed `hal_mac.o` reference.
 //!
 //! Register transactions keep the order and 32-bit widths of the original.
-//! PHY low-rate control remains external; MAC helpers are implemented in Rust.
+//! PHY low-rate control and MAC helpers are implemented in Rust.
 //! See `docs/esp32s3/REVIEW.md` for the original input and instruction evidence.
 
 #[inline(always)]
@@ -44,9 +44,7 @@ use crate::s3_mac_helpers::{
     hal_set_rx_ack_pti, hal_set_rx_active_pti, hal_set_wifi_default_pti, hal_timer_update_by_rtc,
 };
 
-unsafe extern "C" {
-    fn phy_disable_low_rate();
-}
+use crate::s3_phy::disable_low_rate as phy_disable_low_rate;
 
 fn init_tx_rx() {
     update(0x60033c6c, u32::MAX, 0x8080a000);
