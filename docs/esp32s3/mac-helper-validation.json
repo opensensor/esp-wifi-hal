@@ -88,6 +88,7 @@
         "hal_set_wifi_default_pti",
         "hal_timer_update_by_rtc"
       ],
+      "retained_original_helper_symbols": [],
       "allocated_vendor_archive_members": {
         "libphy.a": [
           "phy_analog_cal.o",
@@ -117,17 +118,24 @@
         {
           "cycle": 1,
           "sent": 20,
-          "received": 20
+          "received": 20,
+          "missing_sequences": []
         },
         {
           "cycle": 2,
           "sent": 20,
-          "received": 19
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
         },
         {
           "cycle": 3,
           "sent": 20,
-          "received": 19
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
         }
       ],
       "gateway_pings": [
@@ -165,6 +173,7 @@
         "hal_set_wifi_default_pti",
         "hal_timer_update_by_rtc"
       ],
+      "retained_original_helper_symbols": [],
       "allocated_vendor_archive_members": {
         "libphy.a": [
           "phy_analog_cal.o",
@@ -201,12 +210,346 @@
         "tx_complete": true,
         "timer_advanced": true
       }
+    },
+    {
+      "name": "sta-ten",
+      "elf_sha256": "c461c7171cadcd7deb191c4e44144c01a0714493c273f0bbb7c1c59e23c42fb6",
+      "signed_image_sha256": "980cccc0c90979829c0d7f4ded4c6fdb818067bd572e3fc37a4899769de36141",
+      "complete": false,
+      "application_offset": "0x20000",
+      "absent_original_helper_symbols": [
+        "hal_attenna_init",
+        "hal_coex_pti_init",
+        "hal_crypto_init",
+        "hal_mac_rate_autoack_init",
+        "hal_set_rx_ack_pti",
+        "hal_set_rx_active_pti",
+        "hal_set_wifi_default_pti",
+        "hal_timer_update_by_rtc"
+      ],
+      "retained_original_helper_symbols": [],
+      "allocated_vendor_archive_members": {
+        "libphy.a": [
+          "phy_analog_cal.o",
+          "phy_api.o",
+          "phy_basic.o",
+          "phy_debug.o",
+          "phy_feature.o",
+          "phy_hw_freq.o",
+          "phy_i2c.o",
+          "phy_init.o",
+          "phy_pbus.o",
+          "phy_pwdet.o",
+          "phy_reg.o",
+          "phy_rfpll.o",
+          "phy_rx_cal.o",
+          "phy_rx_gain.o",
+          "phy_track.o",
+          "phy_tsens.o",
+          "phy_tx_cal.o",
+          "phy_tx_gain.o"
+        ],
+        "libprintf.a": [
+          "printf.c.obj"
+        ]
+      },
+      "host_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "missing_sequences": []
+        }
+      ],
+      "gateway_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "completed_cycles": 1,
+      "failure": "DHCP timeout"
+    },
+    {
+      "name": "sta-ten-original",
+      "elf_sha256": "4c7f10424eb2068bba7c14e12cc707d8880f44275094c93773d64e0a4bfc3a9d",
+      "signed_image_sha256": "b3dc0b8f834aa6396c6d747762a827d82dddda516d1f4a40867baf3f6f044bea",
+      "complete": true,
+      "application_offset": "0x20000",
+      "absent_original_helper_symbols": [],
+      "retained_original_helper_symbols": [
+        "hal_attenna_init",
+        "hal_coex_pti_init",
+        "hal_crypto_init",
+        "hal_mac_rate_autoack_init",
+        "hal_set_rx_ack_pti",
+        "hal_set_rx_active_pti",
+        "hal_set_wifi_default_pti",
+        "hal_timer_update_by_rtc"
+      ],
+      "allocated_vendor_archive_members": {
+        "libphy.a": [
+          "phy_analog_cal.o",
+          "phy_api.o",
+          "phy_basic.o",
+          "phy_debug.o",
+          "phy_feature.o",
+          "phy_hw_freq.o",
+          "phy_i2c.o",
+          "phy_init.o",
+          "phy_pbus.o",
+          "phy_pwdet.o",
+          "phy_reg.o",
+          "phy_rfpll.o",
+          "phy_rx_cal.o",
+          "phy_rx_gain.o",
+          "phy_track.o",
+          "phy_tsens.o",
+          "phy_tx_cal.o",
+          "phy_tx_gain.o"
+        ],
+        "libprintf.a": [
+          "printf.c.obj"
+        ],
+        "libpp.a": [
+          "hal_coex.o",
+          "hal_crypto.o",
+          "hal_mac_tx.o",
+          "hal_tsf.o"
+        ]
+      },
+      "host_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "missing_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        }
+      ],
+      "gateway_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "completed_cycles": 10,
+      "comparison_scope": "Only s3_mac.rs restored to 752cdb8 source to call original eight archive helpers; same ten-cycle FoA application and toolchain."
+    },
+    {
+      "name": "sta-restored",
+      "elf_sha256": "5aeaee11517dd175413579131a72786468399ded7cd3919059f6cbeeebab0e28",
+      "signed_image_sha256": "dc6d102d2a30aaf7d631151ba49ce1206fe45814af1823081f0763910e9adae0",
+      "complete": true,
+      "application_offset": "0x20000",
+      "absent_original_helper_symbols": [
+        "hal_attenna_init",
+        "hal_coex_pti_init",
+        "hal_crypto_init",
+        "hal_mac_rate_autoack_init",
+        "hal_set_rx_ack_pti",
+        "hal_set_rx_active_pti",
+        "hal_set_wifi_default_pti",
+        "hal_timer_update_by_rtc"
+      ],
+      "retained_original_helper_symbols": [],
+      "allocated_vendor_archive_members": {
+        "libphy.a": [
+          "phy_analog_cal.o",
+          "phy_api.o",
+          "phy_basic.o",
+          "phy_debug.o",
+          "phy_feature.o",
+          "phy_hw_freq.o",
+          "phy_i2c.o",
+          "phy_init.o",
+          "phy_pbus.o",
+          "phy_pwdet.o",
+          "phy_reg.o",
+          "phy_rfpll.o",
+          "phy_rx_cal.o",
+          "phy_rx_gain.o",
+          "phy_track.o",
+          "phy_tsens.o",
+          "phy_tx_cal.o",
+          "phy_tx_gain.o"
+        ],
+        "libprintf.a": [
+          "printf.c.obj"
+        ]
+      },
+      "host_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "missing_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 19,
+          "missing_sequences": [
+            1
+          ]
+        }
+      ],
+      "gateway_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "completed_cycles": 3
     }
+  ],
+  "original_helper_comparison_s3_mac_sha256": "492e0ea7ec638a81650ba82409d01370faa64743a1a2b3a7e6dd238655a06608",
+  "test_conditions": [
+    "ESP32-S3 rev0.1, secure boot enabled, flash encryption disabled, signed app-only writes at0x20000.",
+    "One WPA2 access point; concurrent C3 scanning/baseline activity during extended comparison; distinct randomized station MACs."
   ],
   "limitations": [
     "PHY/calibration/channel/power tracking and ROM routines remain external.",
     "Host automatic ICMP first reply can be dropped during neighbor resolution; previous standalone smoltcp reproduction applies.",
-    "Earlier extended run had a connection timeout on cycle 8; these changes do not claim to fix it.",
+    "Rust-helper ten-cycle test stopped at DHCP timeout in cycle2; original-helper comparison completed10cycles. A helper-related or layout/timing-sensitive regression is unresolved.",
+    "Earlier extended run had a connection timeout on cycle8; these changes do not claim to fix it.",
     "No AP, Bluetooth coexistence, full PHY teardown or all-rate RF validation."
   ]
 }

@@ -10,6 +10,11 @@ channel control, power tracking and ROM routines still remain external. It does
 not make the complete ESP32-S3 radio firmware open source, replace every function
 in the archive, or remove the dependency on `esp-wifi-sys-esp32s3`.
 
+Three-cycle station and RX recovery tests pass. An extended comparison found a
+DHCP timeout with the Rust helpers while the original-helper build completed
+ten cycles. This remains an unresolved possible regression; see the device
+results below before relying on this experimental path.
+
 ## Reviewed input and behavior
 
 This increment was reviewed directly from Xtensa disassembly of the previous
@@ -33,7 +38,9 @@ archive-member hashes, tested images and source hashes.
 | `hal_set_wifi_default_pti` | `hal_coex.o` | `0x4203c4e4` | Update only bits 8..11 at `0x60035094`. |
 | `hal_timer_update_by_rtc` | `hal_tsf.o` | `0x4203c61c` | Enable bit 25 at `0x60035024`, then replace the low 18 calibration bits at `0x60035058`. Disable only clears the enable bit. |
 
-Every access remains a volatile 32-bit transaction. In particular, antenna
+Every access remains a volatile 32-bit transaction. The compiled Rust helper
+sequences were also inspected for the original Xtensa `memw` barriers before
+MMIO reads and writes. In particular, antenna
 initialization retains all 68 reads/writes in the original order: the first pass
 clears slot selection, then the second pass clears bit 3, sets bit 5 and clears
 bit 4 through three separate read/modify/write operations per slot. Combining
@@ -94,6 +101,18 @@ The bootloader, partition table and eFuses were not changed. See
 - The low-level smoke test received six frames, including three OFDM frames,
   loaned out all ten RX buffers, returned them in reverse order and observed RX
   recovery. OFDM 6 Mbps TX completion and an advancing MAC timer also passed.
+
+The subsequent ten-cycle build completed its first cycle with 20/20 gateway
+and host replies. Cycle 2 connected, then exceeded the 15-second DHCP timeout;
+the run is recorded as incomplete. The C3 was also active on the test network,
+with a separate station MAC. A comparison build restoring only the original helper calls completed all ten
+cycles with 200/200 gateway replies and 191/200 host replies (the nine first-ping
+ARP losses). A helper-related regression or a layout/timing-sensitive driver
+issue therefore remains possible; this limited comparison does not isolate the
+cause. Both successful and failed runs are retained in the evidence report.
+The exact three-cycle Rust-helper image was then restored and completed another
+three cycles with 60/60 gateway and 58/60 host replies. The board was left with
+that image, station disconnected and MAC/PHY still initialized.
 
 These checks do not test AP mode, Bluetooth coexistence, all PHY rates, full
 PHY/MAC teardown, or the actual provisioning workload. The earlier extended

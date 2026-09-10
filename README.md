@@ -28,6 +28,9 @@ in Rust with no `libpp.a` code/data in the tested images. PHY and ROM code remai
 a partial Wi-Fi deblob. The S3 feature requires the PAC patch pinned in the
 manifests; application workspaces also need that patch.
 
+The new MAC helper path has an unresolved DHCP timeout in an extended comparison
+against the original helpers; see its [validation limits](docs/esp32s3/MAC-HELPERS.md#device-validation).
+
 The recorded S3 hardware validation includes:
 
 - Three WPA2/FoA reconnect cycles with **60/60 device-to-gateway ping replies**.
