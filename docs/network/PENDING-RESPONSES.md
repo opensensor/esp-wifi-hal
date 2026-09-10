@@ -114,6 +114,14 @@ All 200 requests reached the embassy boundary, all 200 replies were submitted,
 and host capture received all 200. Nine responses were retained during ARP and
 all nine were subsequently dispatched. There were no exhausted-TX warnings.
 
+A byte-identical C3 image also passed a heavier ten-cycle run: 100 host requests
+per cycle at 50 ms intervals, **1000/1000 unique host replies** and **200/200
+gateway replies**. One additional duplicate reply occurred. All 1000 requests
+and reply submissions appear at the device boundary. The host packet capture
+missed one response that the ping log positively received, so it is recorded as
+a capture gap, not radio loss; capture socket drops were not measured in that run.
+No exhausted-TX warning occurred. This bounded test is not a throughput result.
+
 The first queue revision is retained as a failed integration test: ten cycles,
 200/200 gateway and 190/200 host replies. Ten replies were queued and zero were
 dispatched because of the repeated-MAC setter bug; one cold ARP exchange dropped

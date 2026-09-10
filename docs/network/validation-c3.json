@@ -273,5 +273,130 @@
     "Packet tracing adds latency; no throughput claim",
     "Earlier intermittent connection failures and later-packet losses are not retrospectively explained",
     "Host capture records host interface traffic, not over-the-air ACKs"
-  ]
+  ],
+  "stress_identical_image": {
+    "image_sha256": "711a21066192bdd1818bf044e4c55d70d479f83aa41452932059f3fc9e64f10e",
+    "host_requests_per_cycle": 100,
+    "host_interval_seconds": 0.05,
+    "payload_bytes": 512,
+    "cycles": [
+      {
+        "cycle": 1,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 1,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 2,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 0,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 3,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 1,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 4,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 0,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 5,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 0,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 6,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 1,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 7,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 1,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 8,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 1,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 99,
+        "not_seen_in_host_capture": [
+          10
+        ],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 9,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 1,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      },
+      {
+        "cycle": 10,
+        "sent": 100,
+        "host_unique_replies": 100,
+        "duplicates": 0,
+        "device_requests": 100,
+        "device_submitted_replies": 100,
+        "host_capture_unique_replies": 100,
+        "not_seen_in_host_capture": [],
+        "missing_in_ping_log": []
+      }
+    ],
+    "gateway_replies": 200,
+    "queued_responses": 9,
+    "dispatched_responses": 9,
+    "tx_exhausted_warnings": 0,
+    "capture_limitation": "Packet capture missed cycle8 sequence10, which ping positively logged as received. Socket drops were not measured for this capture; later capture helper now filters in kernel and records drop statistics."
+  }
 }
