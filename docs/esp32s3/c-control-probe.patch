@@ -1,0 +1,78 @@
+--- a/probe/main/main.c
++++ b/probe/main/main.c
+@@ -22,6 +22,9 @@
+ static esp_netif_ip_info_t network;
+ static const char *TAG = "s3_hal_e2e";
+ static unsigned replies;
++static unsigned active_cycle;
++static unsigned total_replies;
++static unsigned failed_gateway_cycles;
+ static void event(void *arg, esp_event_base_t base, int32_t id, void *data)
+ {
+     (void)arg;
+@@ -37,6 +40,12 @@
+ }
+ static void ping_ok(esp_ping_handle_t handle, void *arg)
+ { (void)handle; (void)arg; ++replies; }
++static void ping_timeout(esp_ping_handle_t handle, void *arg)
++{
++    (void)arg; uint16_t seq=0;
++    ESP_ERROR_CHECK(esp_ping_get_profile(handle, ESP_PING_PROF_SEQNO, &seq, sizeof(seq)));
++    ESP_LOGW(TAG,"stage=gateway_timeout cycle=%u sequence=%u",active_cycle,seq);
++}
+ static void ping_end(esp_ping_handle_t handle, void *arg)
+ { (void)handle; (void)arg; xEventGroupSetBits(events, PING_DONE); }
+ static void ping_gateway(void)
+@@ -45,7 +54,7 @@
+     IP_ADDR4(&config.target_addr, ip4_addr1(&network.gw), ip4_addr2(&network.gw),
+              ip4_addr3(&network.gw), ip4_addr4(&network.gw));
+     config.count = 20; config.interval_ms = 100; config.timeout_ms = 1000; config.data_size = 512;
+-    esp_ping_callbacks_t callbacks = {.on_ping_success=ping_ok, .on_ping_end=ping_end};
++    esp_ping_callbacks_t callbacks = {.on_ping_success=ping_ok, .on_ping_timeout=ping_timeout, .on_ping_end=ping_end};
+     esp_ping_handle_t handle; replies=0;
+     xEventGroupClearBits(events, PING_DONE);
+     ESP_ERROR_CHECK(esp_ping_new_session(&config, &callbacks, &handle));
+@@ -54,7 +63,10 @@
+     ESP_ERROR_CHECK(esp_ping_stop(handle));
+     ESP_ERROR_CHECK(esp_ping_delete_session(handle));
+     ESP_LOGI(TAG, "stage=traffic replies=%u sent=20 bytes=512 finished=%u", replies, !!(bits & PING_DONE));
+-    if (!(bits & PING_DONE) || replies < 18) {
++    total_replies += replies;
++    if (replies != 20) ++failed_gateway_cycles;
++    ESP_LOGI(TAG,"stage=gateway_ping cycle=%u sent=20 received=%u",active_cycle,replies);
++    if (!(bits & PING_DONE)) {
+         ESP_LOGE(TAG, "stage=fail test=traffic"); abort();
+     }
+ }
+@@ -73,7 +85,9 @@
+     events=xEventGroupCreate(); assert(events);
+     ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID, event, NULL));
+     ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, event, NULL));
+-    for (unsigned round=1; round<=3; ++round) {
++    for (unsigned round=1; round<=10; ++round) {
++        active_cycle=round;
++        ESP_LOGI(TAG,"stage=connecting cycle=%u",round);
+         wifi_init_config_t init=WIFI_INIT_CONFIG_DEFAULT();
+         ESP_ERROR_CHECK(esp_wifi_init(&init));
+         ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+@@ -96,6 +110,9 @@
+         if (!(bits & GOT_IP)) { ESP_LOGE(TAG,"stage=fail test=connect round=%u bits=%u",round,(unsigned)bits); abort(); }
+         wifi_ap_record_t ap; ESP_ERROR_CHECK(esp_wifi_sta_get_ap_info(&ap));
+         ESP_LOGI(TAG,"stage=associated round=%u auth=%u channel=%u rssi=%d",round,ap.authmode,ap.primary,ap.rssi);
++        vTaskDelay(pdMS_TO_TICKS(1000));
++        ESP_LOGI(TAG,"stage=traffic_ready cycle=%u address: " IPSTR,round,IP2STR(&network.ip));
++        vTaskDelay(pdMS_TO_TICKS(10000));
+         ping_gateway();
+         int64_t tsf1=esp_wifi_get_tsf_time(WIFI_IF_STA);
+         vTaskDelay(pdMS_TO_TICKS(100));
+@@ -108,5 +125,9 @@
+         ESP_LOGI(TAG,"stage=cycle_complete round=%u free_heap=%" PRIu32,round,esp_get_free_heap_size());
+         vTaskDelay(pdMS_TO_TICKS(1000));
+     }
+-    ESP_LOGI(TAG,"stage=complete variant=%s cycles=3",variant);
++    if(total_replies != 200 || failed_gateway_cycles != 0) {
++        ESP_LOGE(TAG,"stage=fail test=gateway_loss received=%u expected=200",total_replies);
++        abort();
++    }
++    ESP_LOGI(TAG,"stage=complete variant=%s cycles=10 gateway_replies=%u",variant,total_replies);
+ }
