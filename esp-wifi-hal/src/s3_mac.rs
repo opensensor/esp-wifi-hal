@@ -1,7 +1,7 @@
 //! S3 MAC initialization translated from the reviewed `hal_mac.o` reference.
 //!
 //! Register transactions keep the order and 32-bit widths of the original.
-//! PHY, auto-ACK rate, antenna, timer and coexistence helpers remain external.
+//! PHY low-rate control remains external; MAC helpers are implemented in Rust.
 //! See `docs/esp32s3/REVIEW.md` for the original input and instruction evidence.
 
 #[inline(always)]
@@ -39,16 +39,13 @@ fn update(address: usize, keep: u32, set: u32) {
     write(address, (read(address) & keep) | set);
 }
 
+use crate::s3_mac_helpers::{
+    hal_attenna_init, hal_coex_pti_init, hal_crypto_init, hal_mac_rate_autoack_init,
+    hal_set_rx_ack_pti, hal_set_rx_active_pti, hal_set_wifi_default_pti, hal_timer_update_by_rtc,
+};
+
 unsafe extern "C" {
-    fn hal_mac_rate_autoack_init();
-    fn hal_crypto_init();
-    fn hal_attenna_init();
     fn phy_disable_low_rate();
-    fn hal_timer_update_by_rtc(enable: u32, calibration: u32);
-    fn hal_coex_pti_init();
-    fn hal_set_rx_active_pti(priority: u32);
-    fn hal_set_rx_ack_pti(priority: u32);
-    fn hal_set_wifi_default_pti(priority: u32);
 }
 
 fn init_tx_rx() {

@@ -1,6 +1,22 @@
 #[path = "../../../esp-wifi-hal/src/s3_mac.rs"]
 mod s3_mac;
 
+// Keep this existing test scoped to the original hal_mac.o transaction/call
+// contract. The helper implementations have separate instruction-derived MMIO
+// trace tests in s3_mac_helpers.rs.
+mod s3_mac_helpers {
+    unsafe extern "C" {
+        pub fn hal_mac_rate_autoack_init();
+        pub fn hal_crypto_init();
+        pub fn hal_attenna_init();
+        pub fn hal_timer_update_by_rtc(enable: u32, calibration: u32);
+        pub fn hal_coex_pti_init();
+        pub fn hal_set_rx_active_pti(priority: u32);
+        pub fn hal_set_rx_ack_pti(priority: u32);
+        pub fn hal_set_wifi_default_pti(priority: u32);
+    }
+}
+
 mod ffi {
     pub unsafe fn slowclk_cal_get() -> u32 {
         0x12345678

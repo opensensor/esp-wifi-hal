@@ -1,0 +1,212 @@
+{
+  "baseline_elf_sha256": "80ffc2f17fc7af293150fe0475de51975c3b3d55acfb32701f1a29a4ec4c9e01",
+  "helpers": [
+    {
+      "symbol": "hal_attenna_init",
+      "address": "0x4203c568",
+      "size": 124
+    },
+    {
+      "symbol": "hal_coex_pti_init",
+      "address": "0x4203c480",
+      "size": 23
+    },
+    {
+      "symbol": "hal_crypto_init",
+      "address": "0x4203c51c",
+      "size": 68
+    },
+    {
+      "symbol": "hal_mac_rate_autoack_init",
+      "address": "0x4203c5f0",
+      "size": 26
+    },
+    {
+      "symbol": "hal_set_rx_ack_pti",
+      "address": "0x4203c4bc",
+      "size": 36
+    },
+    {
+      "symbol": "hal_set_rx_active_pti",
+      "address": "0x4203c49c",
+      "size": 29
+    },
+    {
+      "symbol": "hal_set_wifi_default_pti",
+      "address": "0x4203c4e4",
+      "size": 38
+    },
+    {
+      "symbol": "hal_timer_update_by_rtc",
+      "address": "0x4203c61c",
+      "size": 77
+    }
+  ],
+  "archive": {
+    "crate": "esp-wifi-sys-esp32s3",
+    "version": "0.2.0",
+    "file": "libpp.a",
+    "sha256": "0af323b9be8eeee7b40c43460535614cf7a9ef6be99600c4318523bf342fd8b4"
+  },
+  "members": {
+    "hal_coex.o": "f5312e071431b89aa8893f6362f224417ff36a4ca0704c4c6efc220c823914ff",
+    "hal_crypto.o": "169bcdfbbb74e87506c3688395bccb2f94719c1a7bd9afbd18950ce5dab6b46d",
+    "hal_mac_tx.o": "038e23a3261598fbabd05b94222bfe40b934a2ee251ef5987e89201545cf368d",
+    "hal_tsf.o": "23a0c9553dbd5813f7c57d145906bf6adb1488073ade674485411c61def5c2d9"
+  },
+  "scope": "Eight S3 MAC initialization helpers; no allocated libpp code/data in these examples. PHY and ROM remain external.",
+  "host_tests": {
+    "c_regression_groups": 10,
+    "rust_init_differential": 1,
+    "rust_mac_helper_trace_groups": 6,
+    "rust_tx": 3,
+    "rust_rx": 4,
+    "rust_dma": 4,
+    "result": "passed"
+  },
+  "source_sha256": {
+    "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+    "esp-wifi-hal/src/s3_mac.rs": "bbb3a4966d904029bb1efd2a13daa5134170df2f332afd4e09f463f90b1628ad",
+    "esp-wifi-hal/src/lib.rs": "145c53c0479e1832ed97e0791d5ef41c59d36dc38c30f62bbb2aee11a8c8d837",
+    "examples/src/bin/sta_smoke.rs": "89b439eadf064cb72c8fba918e0dfd4f297a602e59febcc347f49b4f46a8a749",
+    "examples/src/bin/wifi_smoke.rs": "d3cc19cc679327e231fd29f89d3d6ba0cac4e62fbcd504b748e8cab0403fdbfb"
+  },
+  "images": [
+    {
+      "name": "sta",
+      "elf_sha256": "5aeaee11517dd175413579131a72786468399ded7cd3919059f6cbeeebab0e28",
+      "signed_image_sha256": "dc6d102d2a30aaf7d631151ba49ce1206fe45814af1823081f0763910e9adae0",
+      "complete": true,
+      "application_offset": "0x20000",
+      "absent_original_helper_symbols": [
+        "hal_attenna_init",
+        "hal_coex_pti_init",
+        "hal_crypto_init",
+        "hal_mac_rate_autoack_init",
+        "hal_set_rx_ack_pti",
+        "hal_set_rx_active_pti",
+        "hal_set_wifi_default_pti",
+        "hal_timer_update_by_rtc"
+      ],
+      "allocated_vendor_archive_members": {
+        "libphy.a": [
+          "phy_analog_cal.o",
+          "phy_api.o",
+          "phy_basic.o",
+          "phy_debug.o",
+          "phy_feature.o",
+          "phy_hw_freq.o",
+          "phy_i2c.o",
+          "phy_init.o",
+          "phy_pbus.o",
+          "phy_pwdet.o",
+          "phy_reg.o",
+          "phy_rfpll.o",
+          "phy_rx_cal.o",
+          "phy_rx_gain.o",
+          "phy_track.o",
+          "phy_tsens.o",
+          "phy_tx_cal.o",
+          "phy_tx_gain.o"
+        ],
+        "libprintf.a": [
+          "printf.c.obj"
+        ]
+      },
+      "host_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 19
+        }
+      ],
+      "gateway_pings": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "completed_cycles": 3
+    },
+    {
+      "name": "wifi",
+      "elf_sha256": "e6ed0d0015db8299051c7dbcf04b4bfecaf8ea16920f44ea3215d043e8f08733",
+      "signed_image_sha256": "a93e9e6e19009d65cc4c0bdcc73809afea02d2f1d9450de42976df71ad104b2e",
+      "complete": true,
+      "application_offset": "0x20000",
+      "absent_original_helper_symbols": [
+        "hal_attenna_init",
+        "hal_coex_pti_init",
+        "hal_crypto_init",
+        "hal_mac_rate_autoack_init",
+        "hal_set_rx_ack_pti",
+        "hal_set_rx_active_pti",
+        "hal_set_wifi_default_pti",
+        "hal_timer_update_by_rtc"
+      ],
+      "allocated_vendor_archive_members": {
+        "libphy.a": [
+          "phy_analog_cal.o",
+          "phy_api.o",
+          "phy_basic.o",
+          "phy_debug.o",
+          "phy_feature.o",
+          "phy_hw_freq.o",
+          "phy_i2c.o",
+          "phy_init.o",
+          "phy_pbus.o",
+          "phy_pwdet.o",
+          "phy_reg.o",
+          "phy_rfpll.o",
+          "phy_rx_cal.o",
+          "phy_rx_gain.o",
+          "phy_track.o",
+          "phy_tsens.o",
+          "phy_tx_cal.o",
+          "phy_tx_gain.o"
+        ],
+        "libprintf.a": [
+          "printf.c.obj"
+        ]
+      },
+      "host_pings": [],
+      "gateway_pings": [],
+      "completed_cycles": 0,
+      "wifi_smoke": {
+        "received_frames": 6,
+        "ofdm_frames": 3,
+        "held_rx_buffers": 10,
+        "rx_recovered": true,
+        "tx_complete": true,
+        "timer_advanced": true
+      }
+    }
+  ],
+  "limitations": [
+    "PHY/calibration/channel/power tracking and ROM routines remain external.",
+    "Host automatic ICMP first reply can be dropped during neighbor resolution; previous standalone smoltcp reproduction applies.",
+    "Earlier extended run had a connection timeout on cycle 8; these changes do not claim to fix it.",
+    "No AP, Bluetooth coexistence, full PHY teardown or all-rate RF validation."
+  ]
+}

@@ -23,7 +23,8 @@ and applications are in `examples/`. Select exactly one chip feature:
 driver across cores; without it, the driver does not use critical sections.
 
 The S3 port adds Rust MAC initialization, RX/TX handling and hardware crypto
-integration. PHY calibration and several binary/ROM helpers remain, so this is
+integration. [S3 MAC helper initialization](docs/esp32s3/MAC-HELPERS.md) now runs
+in Rust with no `libpp.a` code/data in the tested images. PHY and ROM code remain, so this is
 a partial Wi-Fi deblob. The S3 feature requires the PAC patch pinned in the
 manifests; application workspaces also need that patch.
 

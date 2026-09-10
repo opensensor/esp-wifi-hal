@@ -70,6 +70,8 @@ pub mod ll;
 #[cfg(feature = "esp32s3")]
 mod s3_mac;
 #[cfg(feature = "esp32s3")]
+mod s3_mac_helpers;
+#[cfg(feature = "esp32s3")]
 mod s3_rx;
 #[cfg(feature = "esp32s3")]
 mod s3_tx;
