@@ -119,10 +119,10 @@ static g_osi_funcs_p: &crate::esp_wifi_sys::include::wifi_osi_funcs_t =
         _coex_wifi_release: None,
         _coex_wifi_channel_set: None,
         _coex_event_duration_get: None,
-        // Called by `hal_init` (via `hal_coex_pti_init`) on the ESP32-S3.
-        #[cfg(esp32s3)]
+        // Called by `hal_init` (via `hal_coex_pti_init`) on the ESP32-S3 and ESP32-C3.
+        #[cfg(any(esp32s3, esp32c3))]
         _coex_pti_get: Some(coex_pti_get),
-        #[cfg(not(esp32s3))]
+        #[cfg(not(any(esp32s3, esp32c3)))]
         _coex_pti_get: None,
         _coex_schm_status_bit_clear: None,
         _coex_schm_status_bit_set: None,
@@ -234,7 +234,7 @@ pub unsafe extern "C" fn slowclk_cal_get() -> u32 {
     #[cfg(esp32s2)]
     return 44462;
 
-    #[cfg(esp32s3)]
+    #[cfg(any(esp32s3, esp32c3))]
     return 44462;
 
     #[cfg(esp32c3)]
@@ -268,8 +268,14 @@ unsafe extern "C" {
     #[cfg(not(feature = "esp32s3"))]
     pub fn hal_init();
     pub fn tx_pwctrl_background(_: u8, _: u8);
-    #[cfg_attr(feature = "esp32s3", link_name = "rom_enable_wifi_agc")]
+    #[cfg_attr(
+        any(feature = "esp32s3", feature = "esp32c3"),
+        link_name = "rom_enable_wifi_agc"
+    )]
     pub fn enable_wifi_agc();
-    #[cfg_attr(feature = "esp32s3", link_name = "rom_disable_wifi_agc")]
+    #[cfg_attr(
+        any(feature = "esp32s3", feature = "esp32c3"),
+        link_name = "rom_disable_wifi_agc"
+    )]
     pub fn disable_wifi_agc();
 }

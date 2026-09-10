@@ -14,12 +14,16 @@ cc -std=c11 -O2 -Wall -Wextra -Werror -I"$test_dir" \
 rustc +stable --edition 2024 --test "$test_dir/rust_init.rs" \
     -C "link-arg=$test_out/init-reference.o" -o "$test_out/rust-init"
 "$test_out/rust-init"
-rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_tx.rs" \
+rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/ht20.rs" \
     -o "$test_out/rust-tx"
 "$test_out/rust-tx"
-rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_rx.rs" \
+rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/rx.rs" \
     -o "$test_out/rust-rx"
 "$test_out/rust-rx"
 rustc +stable --edition 2024 --test --cfg 'feature="esp32s3"' \
     "$test_dir/rust_dma.rs" -o "$test_out/rust-dma"
 "$test_out/rust-dma"
+
+rustc +stable --edition 2024 --test --cfg 'feature="esp32c3"' \
+    "$test_dir/rust_dma.rs" -o "$test_out/rust-dma-c3"
+"$test_out/rust-dma-c3"

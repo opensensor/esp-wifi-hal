@@ -1,4 +1,4 @@
-//! S3 HT20 encodings checked against `mac_tx_set_plcp1` and `mac_tx_set_htsig`.
+//! C3/S3 HT20 encodings checked against `mac_tx_set_plcp1` and `mac_tx_set_htsig`.
 //! Keep these independent of MMIO so the encoding boundaries can be tested on a host.
 
 pub(crate) const fn ht_rate(mcs: u8, short_gi: bool) -> u8 {
@@ -8,7 +8,7 @@ pub(crate) const fn ht_rate(mcs: u8, short_gi: bool) -> u8 {
 
 pub(crate) const fn ht_sig(mcs: u8, short_gi: bool, length: usize) -> u32 {
     assert!(mcs < 8);
-    // Bit 7 is not the short-GI bit on S3. The blob selects 0x87/0x07 in
+    // Bit 7 is not the short-GI bit on C3/S3. The blob selects 0x87/0x07 in
     // the high byte for rate codes 24..31/16..23 respectively (HT20, no STBC).
     mcs as u32 | ((length as u32 & 0xffff) << 8) | 0x07000000 | ((short_gi as u32) << 31)
 }

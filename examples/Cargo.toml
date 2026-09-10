@@ -42,6 +42,11 @@ name = "sta_smoke"
 path = "src/bin/sta_smoke.rs"
 required-features = ["foa-smoke"]
 
+[[bin]]
+name = "tsf_timer_test"
+path = "src/bin/tsf_timer_test.rs"
+required-features = ["esp32c3"]
+
 [features]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net"]
 network-trace = ["foa-smoke", "dep:smoltcp", "embassy-net/log"]
@@ -58,6 +63,13 @@ esp32s2 = [
     "esp-rtos/esp32s2",
     "esp-backtrace/esp32s2",
     "esp-bootloader-esp-idf/esp32s2",
+]
+esp32c3 = [
+    "esp-wifi-hal/esp32c3",
+    "esp-hal/esp32c3",
+    "esp-rtos/esp32c3",
+    "esp-backtrace/esp32c3",
+    "esp-bootloader-esp-idf/esp32c3",
 ]
 
 esp32s3 = [
@@ -87,3 +99,5 @@ overflow-checks = false
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # S3 Wi-Fi registers pending an upstream PAC release (0.35 compatibility branch).
 esp32s3 = { git = "https://github.com/opensensor/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
+# esp32c3 PAC with the Wi-Fi MAC register block (esp-rs/esp-pacs#510), on top of the 0.32.3 release.
+esp32c3 = { git = "https://github.com/opensensor/esp-pacs", rev = "9be190016260ef195c97f7aa5aa7c576a1646890" }

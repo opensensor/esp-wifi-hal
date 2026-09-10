@@ -182,9 +182,9 @@ impl DmaList {
 
                 self.ll_driver.reload_hw_rx_descriptors();
 
-                #[cfg(feature = "esp32s3")]
+                #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
                 let hardware_has_next = self.ll_driver.next_rx_descriptor().is_some();
-                #[cfg(not(feature = "esp32s3"))]
+                #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
                 let hardware_has_next = self.ll_driver.next_rx_descriptor().map(NonNull::as_ptr)
                     != Some(0x3ff00000 as *mut _);
                 if hardware_has_next

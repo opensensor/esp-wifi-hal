@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-10",
+  "chip": "ESP32-C3 rev0.4",
+  "reference_port_commit": "e65264ae992a02a4d776b33ad3e3784cf8f33260",
+  "source_sha256": {
+    "esp-wifi-hal/src/lib.rs": "9f4fd4bdbda67cf7c2d501416c291bffd63d142b2a14de9de917e727714078ef",
+    "esp-wifi-hal/src/ll.rs": "59b63fa9193e50871f877091d652adcf2f568377535208f5413ae9f6acbede92",
+    "esp-wifi-hal/src/async_driver.rs": "a10b9bdcb74c0e93a97b31dbdea825e3518c0cd028ae44208820197cd985c199",
+    "esp-wifi-hal/src/dma_list.rs": "04ca4bdf22a4386df71a7d432c43468e5afcd5aa916d25145b970751880a7e70",
+    "esp-wifi-hal/src/ffi.rs": "ad69b7c7fa16abcce065d17ab939ec54bfe1f2ef846491888dfde8087a3befbf",
+    "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+    "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+    "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b"
+  },
+  "stock": {
+    "cycles": 3,
+    "gateway_sent": 60,
+    "gateway_received": 60,
+    "full_stop_deinit": true,
+    "image_sha256": "2c74862f83e856b91612edc5d728eaa84df2ed4635fc03d9fc6f974c83e669fb"
+  },
+  "rust_wifi_smoke": {
+    "complete": true,
+    "received": 8,
+    "ofdm_received": 3,
+    "rx_held_descriptors": 10,
+    "reverse_return_recovered": true,
+    "ofdm6_tx_complete": true,
+    "timer_advanced": true,
+    "image_sha256": "055612c0acdf90000720520864db1cb506795857325fb76097ba83784dbe27ed"
+  },
+  "rust_station": {
+    "cycles": 3,
+    "gateway_sent": 60,
+    "gateway_received": 60,
+    "host_sent": 60,
+    "host_received_by_cycle": [
+      20,
+      19,
+      19
+    ],
+    "image_sha256": "ff05b6a7c538930b46642b06157a3210256b04394b3e32d426ada868d4cd8dd5",
+    "full_stop_deinit": false
+  },
+  "limits": [
+    "Vendor C3 hal_init and PHY still linked",
+    "Provisioner workload not ported",
+    "No long-duration reliability claim",
+    "No HT rate sweep or TSF/TBTT interrupt timing validation"
+  ]
+}

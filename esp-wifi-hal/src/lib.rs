@@ -66,13 +66,13 @@ pub mod borrowed_buffer;
 pub mod crypto;
 mod dma_list;
 mod ffi;
+#[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+mod ht20;
 pub mod ll;
+#[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+mod rx;
 #[cfg(feature = "esp32s3")]
 mod s3_mac;
-#[cfg(feature = "esp32s3")]
-mod s3_rx;
-#[cfg(feature = "esp32s3")]
-mod s3_tx;
 /// Support structures for data rates.
 pub use esp_wifi_rates as rates;
 mod sync;
@@ -90,6 +90,10 @@ cfg_select! {
     feature = "esp32s3" => {
         use esp32s3 as esp_pac;
         use esp_wifi_sys_esp32s3 as esp_wifi_sys;
+    }
+    feature = "esp32c3" => {
+        use esp32c3 as esp_pac;
+        use esp_wifi_sys_esp32c3 as esp_wifi_sys;
     }
     _ => {
         compile_error!("Adjust this for a new chip.");
@@ -110,6 +114,8 @@ pub mod prelude {
     pub use crate::async_driver::*;
     pub use crate::borrowed_buffer::*;
     pub use crate::crypto::*;
+    #[cfg(tsf_timer_present)]
+    pub use crate::ll::TSF_TIMER_COUNT;
     pub use crate::ll::{
         ChannelAccessError, ControlFrameFilterConfig, EdcaAccessCategory, HardwareTxQueue,
         INTERFACE_COUNT, KEY_SLOT_COUNT, MacProtocolError, RxFilterBank,

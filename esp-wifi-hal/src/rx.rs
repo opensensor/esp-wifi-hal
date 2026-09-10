@@ -1,14 +1,15 @@
-//! ESP32-S3 RX length checks, independent of DMA and MMIO.
+//! ESP32-C3/S3 RX header and descriptor-address checks, independent of MMIO.
 
 pub(crate) const CONTROL_HEADER_LENGTH: usize = 48;
 
-/// The S3 descriptor registers expose a DRAM offset and upper status bits.
-pub(crate) const fn descriptor_address(raw: u32) -> Option<usize> {
+/// Decode the low 20-bit DRAM offset; S3 upper status bits are excluded.
+/// C3 supplies the high bits from its configured RX address register.
+pub(crate) const fn descriptor_address(raw: u32, high_bits: u32) -> Option<usize> {
     let offset = raw & 0xfffff;
     if offset == 0 {
         None
     } else {
-        Some((0x3fc00000 | offset) as usize)
+        Some(((high_bits & 0xfff00000) | offset) as usize)
     }
 }
 
@@ -29,10 +30,11 @@ mod tests {
 
     #[test]
     fn descriptor_offsets_exclude_status_bits_and_zero_is_empty() {
-        assert_eq!(descriptor_address(0x0009b3d4), Some(0x3fc9b3d4));
-        assert_eq!(descriptor_address(0x0109b3e0), Some(0x3fc9b3e0));
-        assert_eq!(descriptor_address(0), None);
-        assert_eq!(descriptor_address(0x01000000), None);
+        assert_eq!(descriptor_address(0x0009b3d4, 0x3fc00000), Some(0x3fc9b3d4));
+        assert_eq!(descriptor_address(0x0109b3e0, 0x3fc00000), Some(0x3fc9b3e0));
+        assert_eq!(descriptor_address(0x1234, 0x3fc54321), Some(0x3fc01234));
+        assert_eq!(descriptor_address(0, 0x3fc00000), None);
+        assert_eq!(descriptor_address(0x01000000, 0x3fc00000), None);
     }
 
     #[test]
