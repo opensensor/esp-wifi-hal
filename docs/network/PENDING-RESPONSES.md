@@ -1,7 +1,7 @@
 # Retain automatic replies while the neighbor resolves
 
 The FoA examples now use OpenSensor's smoltcp 0.13.1 fork at
-[`4b4b1bcc`](https://github.com/opensensor/smoltcp/commit/4b4b1bcc4894539e1b9f7f6f24dbc3d5c455320f)
+[`517222f7`](https://github.com/opensensor/smoltcp/commit/517222f7318c092d82197e2e68cfccca0f460b09)
 and enable `iface-pending-responses` whenever `foa-smoke` is enabled.
 The Cargo patch applies to embassy-net's smoltcp dependency as well as the example's
 direct dependency. Tracing is optional and does not enable or disable the fix.
@@ -44,6 +44,16 @@ neighbors are serviced in arrival order. The queue applies to Ethernet, which is
 the medium exposed by FoA's station device; it does not change IP-only or 802.15.4
 dispatch.
 
+## Adapter integration regression
+
+The initial queue revision (`4b4b1bcc`) passed standalone tests but still lost replies
+on both boards. embassy-net 0.9.1 calls `Interface::set_hardware_addr` with the same
+address before every poll. Unconditionally clearing retained packets there discarded
+them before ARP completed. The pinned revision clears the queue only when that
+address actually changes. A new regression fails before the fix and passes after it;
+the application reproduction also performs the repeated setter calls. The earlier
+hardware results remain recorded, rather than being counted as successful validation.
+
 ## Host validation
 
 Both commands require a host Rust toolchain at least 1.91. `+esp` supplies a suitable
@@ -69,11 +79,12 @@ cargo +esp test --locked --target x86_64-unknown-linux-gnu \
 The companion smoltcp commit also passed:
 
 - All 656 upstream library tests with the feature enabled.
-- Fourteen packet regressions covering original payload ownership, lost ARP retry,
+- Fifteen packet regressions covering original payload ownership, lost ARP retry,
   a six-reply burst, capacity/oversize behavior, expiry, route/configuration changes,
   TX backpressure, split polling, independent neighbors, discovery fairness,
-  TCP reset, IPv6 NDISC/checksum, and two concurrent fragmented IPv4 replies.
-- Eleven of those regressions with the minimal IPv4 feature set and no raw socket.
+  TCP reset, IPv6 NDISC/checksum, two concurrent fragmented IPv4 replies, and
+  repeated unchanged MAC refreshes as performed by embassy-net.
+- Twelve of those regressions with the minimal IPv4 feature set and no raw socket.
 - `no_std` builds for RV32IMC and Xtensa ESP32-S3; the S3 check used IPv6-only plus
   `defmt`, exercising a separate feature configuration.
 
@@ -87,7 +98,7 @@ For the upstream suite and expanded regressions:
 ```sh
 git clone https://github.com/opensensor/smoltcp.git
 cd smoltcp
-git checkout 4b4b1bcc4894539e1b9f7f6f24dbc3d5c455320f
+git checkout 517222f7318c092d82197e2e68cfccca0f460b09
 cargo +esp test --lib --features iface-pending-responses \
   --target x86_64-unknown-linux-gnu
 cargo +esp test --test pending_responses --features iface-pending-responses \

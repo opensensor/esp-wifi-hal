@@ -104,7 +104,7 @@ mod tests {
     }
 
     #[test]
-    fn automatic_echo_reply_survives_arp_and_next_echo_succeeds() {
+    fn automatic_reply_survives_arp_and_embassy_hardware_address_refresh() {
         let mut device = MockDevice::default();
         let mut iface = Interface::new(Config::new(DEVICE_MAC.into()), &mut device, Instant::ZERO);
         iface.update_ip_addrs(|addrs| {
@@ -115,6 +115,7 @@ mod tests {
         let mut sockets = SocketSet::new(vec![]);
 
         device.rx.push_back(echo(1));
+        iface.set_hardware_addr(DEVICE_MAC.into());
         iface.poll(Instant::from_millis(1), &mut device, &mut sockets);
         assert_eq!(device.tx.len(), 1);
         let arp = ArpPacket::new_checked(&device.tx[0][14..]).unwrap();
@@ -122,7 +123,9 @@ mod tests {
         device.tx.clear();
 
         device.rx.push_back(arp_reply());
+        iface.set_hardware_addr(DEVICE_MAC.into());
         iface.poll(Instant::from_millis(2), &mut device, &mut sockets);
+        iface.set_hardware_addr(DEVICE_MAC.into());
         iface.poll(Instant::from_millis(100), &mut device, &mut sockets);
         assert_eq!(
             device.tx.len(),
@@ -148,6 +151,7 @@ mod tests {
         );
 
         device.rx.push_back(echo(2));
+        iface.set_hardware_addr(DEVICE_MAC.into());
         iface.poll(Instant::from_millis(200), &mut device, &mut sockets);
         assert_eq!(device.tx.len(), 1);
         let ip = Ipv4Packet::new_checked(&device.tx[0][14..]).unwrap();

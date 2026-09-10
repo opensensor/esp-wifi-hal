@@ -11,4 +11,4 @@ smoltcp = { version = "=0.13.1", default-features = false, features = [
 ] }
 
 [patch.crates-io]
-smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "4b4b1bcc4894539e1b9f7f6f24dbc3d5c455320f" }
+smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "517222f7318c092d82197e2e68cfccca0f460b09" }
