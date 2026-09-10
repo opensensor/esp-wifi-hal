@@ -1,0 +1,277 @@
+{
+  "schema": "esp-wifi-pending-responses-c3-v1",
+  "date": "2026-09-10",
+  "payload_bytes": 512,
+  "host_interval_seconds": 0.2,
+  "host_requests_per_cycle": 20,
+  "phy_controls": "Rust direct-ROM-compatible AGC and low-rate; calibrated C3 slow clock",
+  "initial_queue": {
+    "smoltcp": "4b4b1bcc4894539e1b9f7f6f24dbc3d5c455320f",
+    "image_sha256": "aa42a807a599749558d6af9d525081097108578780bc09f0ae94b892441ff2eb",
+    "complete": true,
+    "serial_sha256": "6a07f92d4be12bad6b3ed42bfd696426680a003f9f9931c2778f954fb78f3e28",
+    "cycles": [
+      {
+        "cycle": 1,
+        "identifier": 1659,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 2,
+        "identifier": 1660,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 3,
+        "identifier": 1661,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 4,
+        "identifier": 1662,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 18,
+        "host_replies": 18,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1,
+          2
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 5,
+        "identifier": 1664,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 6,
+        "identifier": 1666,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 7,
+        "identifier": 1667,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 8,
+        "identifier": 1669,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 9,
+        "identifier": 1671,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 10,
+        "identifier": 1673,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 19,
+        "host_replies": 19,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [
+          1
+        ],
+        "missing_after_device_tx": []
+      }
+    ],
+    "gateway_replies": 200,
+    "queued_responses": 10,
+    "dispatched_responses": 0,
+    "tx_exhausted_warnings": 0
+  },
+  "corrected_queue": {
+    "smoltcp": "517222f7318c092d82197e2e68cfccca0f460b09",
+    "image_sha256": "711a21066192bdd1818bf044e4c55d70d479f83aa41452932059f3fc9e64f10e",
+    "complete": true,
+    "serial_sha256": "39644bfe56ce83cd9ecdaab10cb7eb31f5691786a6d8de1881c8bd86cee54271",
+    "cycles": [
+      {
+        "cycle": 1,
+        "identifier": 1679,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 2,
+        "identifier": 1680,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 3,
+        "identifier": 1681,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 4,
+        "identifier": 1683,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 5,
+        "identifier": 1685,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 6,
+        "identifier": 1687,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 7,
+        "identifier": 1689,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 8,
+        "identifier": 1691,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 9,
+        "identifier": 1693,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      },
+      {
+        "cycle": 10,
+        "identifier": 1695,
+        "host_requests": 20,
+        "device_requests": 20,
+        "device_replies": 20,
+        "host_replies": 20,
+        "missing_before_device_rx": [],
+        "missing_device_replies": [],
+        "missing_after_device_tx": []
+      }
+    ],
+    "gateway_replies": 200,
+    "queued_responses": 9,
+    "dispatched_responses": 9,
+    "tx_exhausted_warnings": 0
+  },
+  "limitations": [
+    "One C3 and one WPA2 access point; reconnects do not fully deinitialize PHY",
+    "Packet tracing adds latency; no throughput claim",
+    "Earlier intermittent connection failures and later-packet losses are not retrospectively explained",
+    "Host capture records host interface traffic, not over-the-air ACKs"
+  ]
+}

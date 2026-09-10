@@ -105,10 +105,25 @@ cargo +esp test --test pending_responses --features iface-pending-responses \
   --target x86_64-unknown-linux-gnu
 ```
 
-These host tests establish the stack behavior. They do not establish radio
-reliability, PHY replacement, or zero loss on a physical board. Device validation
-must still correlate host capture with embassy-net RX/TX and MAC completion, with
-the first host ping included.
+## Device validation, 2026-09-10
+
+The corrected C3 image completed ten WPA2/DHCP/reconnect cycles with **200/200
+host replies and 200/200 gateway replies**, all with 512-byte payloads. The host
+sent twenty pings per cycle at 200 ms intervals. Every first ping was included.
+All 200 requests reached the embassy boundary, all 200 replies were submitted,
+and host capture received all 200. Nine responses were retained during ARP and
+all nine were subsequently dispatched. There were no exhausted-TX warnings.
+
+The first queue revision is retained as a failed integration test: ten cycles,
+200/200 gateway and 190/200 host replies. Ten replies were queued and zero were
+dispatched because of the repeated-MAC setter bug; one cold ARP exchange dropped
+two replies. Metadata and image hashes are in [validation-c3.json](validation-c3.json).
+
+These tests establish the observed stack behavior on this board and network.
+They do not establish sustained radio reliability. Earlier intermittent connection
+failures and isolated later-packet losses remain separate observations. Raw captures,
+serial logs and images are private. The host interface capture is not an over-the-air
+capture of ACKs or retries; `tx` at the embassy boundary is a submission, not a MAC ACK.
 
 ## Separate connection-handshake observations
 

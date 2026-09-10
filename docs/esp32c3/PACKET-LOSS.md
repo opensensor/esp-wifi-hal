@@ -36,3 +36,11 @@ This locates the cold-neighbor loss inside the network stack. It does not
 explain the earlier isolated later-packet loss, six-packet burst loss, or
 intermittent connection/DHCP timeouts. Those failures remain part of the record.
 Raw captures, firmware and serial logs remain private.
+
+## Corrected queue
+
+The pending-response fix now passes the ten-cycle C3 test with **200/200 host**
+and **200/200 gateway** replies. Its first revision exposed and then fixed an
+embassy-net integration issue: refreshing the same hardware address must preserve
+pending replies. See [implementation and complete before/after evidence](../network/PENDING-RESPONSES.md).
+This result includes the first ping and does not use ARP warming.
