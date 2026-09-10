@@ -19,8 +19,9 @@ the remaining binary dependencies.
 
 The final station ELF has no `hal_init`, `mac_txrx_init`, `mac_rxbuf_init` or
 `mac_last_rxbuf_init` symbol. Its map discards the blob MAC initialization code.
-WPA2 authentication and network traffic in this example use the published FoA
-and embassy-net Rust crates. This result is distinct from the earlier ESP-IDF
+WPA2 authentication and network traffic in this example use FoA and embassy-net
+Rust crates, with the OpenSensor dependency patches described below.
+This result is distinct from the earlier ESP-IDF
 C reference test, which retained IDF's station stack.
 
 ## S3 data-path differences
@@ -53,7 +54,11 @@ were checked against the S3 blob; C3 TSF latch definitions were not copied.
 
 Install the esp Xtensa Rust toolchain with espup and source its export script.
 The tested toolchain is esp Rust 1.97.0.0 with Xtensa GCC 15.2.0_20250920.
-The example lockfile selects esp-hal 1.1.2 and FoA/foa_sta 0.2.0.
+The example lockfile selects esp-hal 1.1.2 and OpenSensor's FoA/foa_sta 0.2.0
+fork. The root example manifest pins the [TX queue correction](../network/TX-QUEUE.md)
+and [smoltcp pending-response fix](../network/PENDING-RESPONSES.md). External
+applications need those dependency patches and the pending-response feature too
+to obtain the same network behavior.
 
 The S3 PAC mapping is pending in [esp-pacs #511](https://github.com/esp-rs/esp-pacs/pull/511).
 The manifests pin the same Wi-Fi mapping on a PAC 0.35.2 compatibility branch,

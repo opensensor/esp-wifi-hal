@@ -97,6 +97,9 @@ opt-level = 's'
 overflow-checks = false
 
 [patch.crates-io]
+# Generation-safe completion ownership and cancellation recovery in the TX queue.
+foa = { git = "https://github.com/opensensor/FoA", rev = "2985c2e5105a11047494885f75f33c3bcb3192e5" }
+foa_sta = { git = "https://github.com/opensensor/FoA", rev = "2985c2e5105a11047494885f75f33c3bcb3192e5" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Retain automatic ICMP/TCP responses while ARP resolves, including embassy-net's stack.

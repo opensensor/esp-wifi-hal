@@ -36,10 +36,24 @@ HT20 corrections. On the provisioner board, Rust WPA2/DHCP testing passed three
 cycles with 60/60 gateway replies; RX buffer recovery and OFDM TX also passed.
 C3 now also has Rust MAC initialization, with no allocated `libpp.a` sections
 in the tested station image. Its final ten-cycle repeat passed 200/200 gateway
-echoes and 185/200 host echoes, following an initial connection timeout. PHY/ROM
-remain external; connection and host echo failures remain unresolved. See the
+echoes and 185/200 host echoes, following an initial connection timeout. Those
+are pre-network-fix results; the reports retain the failures. See the
 [C3 build and attribution notes](docs/esp32c3/README.md) and
 [initialization evidence](docs/esp32c3/MAC-INIT.md).
+
+Further work replaces direct AGC and low-rate PHY helpers in Rust on both chips
+and uses measured C3 slow-clock calibration. RF initialization/calibration,
+channel tuning, power tracking and internal PHY ROM dependencies remain external;
+see the [C3](docs/esp32c3/PHY-ROM.md) and [S3](docs/esp32s3/PHY-ROM.md) inventories.
+
+The examples now pin OpenSensor stack corrections for
+[replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
+[TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
+The smoltcp correction passed ten cycles on each chip with 200/200 host and
+200/200 gateway replies; a C3 stress run received all 1,000 unique replies plus
+six duplicates. Later combined tests still observed isolated gateway loss.
+Connection timeouts, duplicate reception and sustained radio reliability remain
+under investigation; the linked evidence records each image and failed run.
 
 The recorded S3 hardware validation includes:
 

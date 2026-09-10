@@ -116,8 +116,9 @@ all nine were subsequently dispatched. There were no exhausted-TX warnings.
 
 A byte-identical C3 image also passed a heavier ten-cycle run: 100 host requests
 per cycle at 50 ms intervals, **1000/1000 unique host replies** and **200/200
-gateway replies**. One additional duplicate reply occurred. All 1000 requests
-and reply submissions appear at the device boundary. The host packet capture
+gateway replies**. Six additional duplicate replies occurred. All 1000 unique
+requests and reply submissions appear at the device boundary, together with six
+repeated requests and their replies. The host packet capture
 missed one response that the ping log positively received, so it is recorded as
 a capture gap, not radio loss; capture socket drops were not measured in that run.
 No exhausted-TX warning occurred. This bounded test is not a throughput result.
@@ -154,3 +155,7 @@ outer connection timeout still bounds the overall attempt.
 None of those observations explains an already-connected automatic reply being
 dropped on `NeighborPending`. This change does not alter WPA2 or connection retry
 handling; those need separate tests and review.
+
+The examples also pin a separately tested [FoA TX queue correction](TX-QUEUE.md)
+for completion ownership and buffer recovery. Its combined device results are
+recorded separately from the smoltcp-only runs above.

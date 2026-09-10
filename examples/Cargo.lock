@@ -1202,8 +1202,7 @@ checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
 [[package]]
 name = "foa"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1f1e2ec010b79387eac05a2ca4b7f95a32fdd36311fe21cc4911e0b40377cc07"
+source = "git+https://github.com/opensensor/FoA?rev=2985c2e5105a11047494885f75f33c3bcb3192e5#2985c2e5105a11047494885f75f33c3bcb3192e5"
 dependencies = [
  "critical-section",
  "defmt-or-log",
@@ -1223,8 +1222,7 @@ dependencies = [
 [[package]]
 name = "foa_sta"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "543dba2ebe3352cf3e4eb5a2df8855fb70e4d554d268bb2886226a6e740de598"
+source = "git+https://github.com/opensensor/FoA?rev=2985c2e5105a11047494885f75f33c3bcb3192e5#2985c2e5105a11047494885f75f33c3bcb3192e5"
 dependencies = [
  "defmt-or-log",
  "embassy-futures",

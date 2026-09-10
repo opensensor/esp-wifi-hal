@@ -289,7 +289,12 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [
+          60
+        ],
+        "device_request_events": 101,
+        "device_submitted_reply_events": 101
       },
       {
         "cycle": 2,
@@ -300,7 +305,10 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [],
+        "device_request_events": 100,
+        "device_submitted_reply_events": 100
       },
       {
         "cycle": 3,
@@ -311,7 +319,12 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [
+          15
+        ],
+        "device_request_events": 101,
+        "device_submitted_reply_events": 101
       },
       {
         "cycle": 4,
@@ -322,7 +335,10 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [],
+        "device_request_events": 100,
+        "device_submitted_reply_events": 100
       },
       {
         "cycle": 5,
@@ -333,7 +349,10 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [],
+        "device_request_events": 100,
+        "device_submitted_reply_events": 100
       },
       {
         "cycle": 6,
@@ -344,7 +363,12 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [
+          55
+        ],
+        "device_request_events": 101,
+        "device_submitted_reply_events": 101
       },
       {
         "cycle": 7,
@@ -355,7 +379,12 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [
+          39
+        ],
+        "device_request_events": 101,
+        "device_submitted_reply_events": 101
       },
       {
         "cycle": 8,
@@ -368,7 +397,12 @@
         "not_seen_in_host_capture": [
           10
         ],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [
+          19
+        ],
+        "device_request_events": 101,
+        "device_submitted_reply_events": 101
       },
       {
         "cycle": 9,
@@ -379,7 +413,12 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [
+          76
+        ],
+        "device_request_events": 101,
+        "device_submitted_reply_events": 101
       },
       {
         "cycle": 10,
@@ -390,13 +429,19 @@
         "device_submitted_replies": 100,
         "host_capture_unique_replies": 100,
         "not_seen_in_host_capture": [],
-        "missing_in_ping_log": []
+        "missing_in_ping_log": [],
+        "duplicate_sequences": [],
+        "device_request_events": 100,
+        "device_submitted_reply_events": 100
       }
     ],
     "gateway_replies": 200,
     "queued_responses": 9,
     "dispatched_responses": 9,
     "tx_exhausted_warnings": 0,
-    "capture_limitation": "Packet capture missed cycle8 sequence10, which ping positively logged as received. Socket drops were not measured for this capture; later capture helper now filters in kernel and records drop statistics."
+    "capture_limitation": "Packet capture missed cycle8 sequence10, which ping positively logged as received. Socket drops were not measured for this capture; later capture helper now filters in kernel and records drop statistics.",
+    "host_unique_replies": 1000,
+    "host_duplicate_replies": 6,
+    "duplicate_observation": "Six repeated echo requests and their six replies appear at the embassy boundary. No over-the-air trace is available to attribute the repeated reception."
   }
 }
