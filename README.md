@@ -49,6 +49,9 @@ see the [C3](docs/esp32c3/PHY-ROM.md) and [S3](docs/esp32s3/PHY-ROM.md) inventor
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
+MAC completion tracing also exposed [constant-zero station sequences](docs/network/STA-SEQUENCES.md);
+generated data, EAPOL and authentication/association frames now request driver
+sequence assignment.
 The smoltcp correction passed ten cycles on each chip with 200/200 host and
 200/200 gateway replies; a C3 stress run received all 1,000 unique replies plus
 six duplicates. Later combined tests still observed isolated gateway loss.

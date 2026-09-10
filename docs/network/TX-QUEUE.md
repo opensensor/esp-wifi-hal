@@ -1,8 +1,11 @@
 # Preserve TX completion ownership and recover cancelled buffers
 
 The examples pin both `foa` and `foa_sta` to OpenSensor FoA
-[`2985c2e5`](https://github.com/opensensor/FoA/commit/2985c2e5105a11047494885f75f33c3bcb3192e5).
-This revision corrects transmit queue ownership independently of the
+[`c83717ee`](https://github.com/opensensor/FoA/commit/c83717eeeeaa8c5b6e53743b868e27de4e55e9be).
+This includes the queue ownership correction from
+[`2985c2e5`](https://github.com/opensensor/FoA/commit/2985c2e5105a11047494885f75f33c3bcb3192e5)
+and optional MAC completion tracing from `ff26efec`, plus the
+[generated station sequence correction](STA-SEQUENCES.md). The queue correction is independent of the
 [smoltcp pending-neighbor response fix](PENDING-RESPONSES.md), which remains
 pinned at `517222f7318c092d82197e2e68cfccca0f460b09`.
 
@@ -64,6 +67,7 @@ Each run used ten WPA2/DHCP/reconnect cycles with twenty 512-byte host pings
 per cycle at 200 ms intervals, followed by twenty gateway pings. The first host
 ping was always included; there was no explicit ARP warm-up. Repeats used the
 same image bytes as their first run.
+These four runs used `2985c2e5`, before completion tracing was added.
 
 | Target/run | Unique host replies | Gateway replies | Host duplicates | Final assertion |
 | --- | --- | --- | --- | --- |
@@ -88,3 +92,34 @@ tests rather than throughput or long-duration reliability measurements.
 Image hashes, per-cycle outcomes and capture limits are in
 [C3 results](tx-queue-validation-c3.json) and
 [S3 results](../esp32s3/combined-queue-validation.json).
+
+## Optional MAC completion trace
+
+The default-off `foa/tx-trace` feature adds `FOA_TX start` and `FOA_TX finish`
+events under the `foa::tx_queue` logger target. The pair shares hardware queue
+and generation identifiers. It records interface index, length and bounded
+802.11 type/subtype/protected/sequence fields; the finish event rereads the
+sequence after the driver assigns it and reports the actual endpoint result.
+`Ok(n)` means successful driver completion after `n` retries. `Err(...)` is
+the final driver error; the endpoint API does not provide its retry count.
+Successful MAC completion still does not establish IP delivery.
+
+Enable the feature and logger filter at build time, for example from `examples/`
+with station credentials already supplied in the environment:
+
+```sh
+S3_SMOKE_CYCLES=10 \
+ESP_LOG='info,foa::tx_queue=trace,embassy_net=trace,smoltcp=trace' \
+cargo +esp build --locked --release --target riscv32imc-unknown-none-elf \
+  --features esp32c3,network-trace,foa/tx-trace --bin sta_smoke
+```
+
+For S3, select `xtensa-esp32s3-none-elf` and replace `esp32c3` with `esp32s3`.
+`esp-println` can compile away trace events when its build-time filter remains
+at Info. Broad FoA-station debug logging is unnecessary; completion events
+exclude addresses, packet contents and key material. Tracing affects timing.
+
+The feature-on host suite has seventeen passing tests at both pool capacities,
+including exact captured events, header bounds and payload exclusion. The fifteen
+default-off queue tests still pass, and independent review confirmed no change
+to default queue behavior. Its CI also runs both feature configurations.

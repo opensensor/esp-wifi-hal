@@ -28,8 +28,9 @@ This is the same PAC source tested earlier, now available from the organization.
 The current-PAC version of that mapping is on `esp-pacs/main` and
 `research/esp32s3-wifi`.
 
-The station example pins OpenSensor's tested FoA TX queue correction and smoltcp
-pending-response fix. See [queue ownership](docs/network/TX-QUEUE.md) and
+The station example pins OpenSensor's FoA TX queue and
+[station sequence corrections](docs/network/STA-SEQUENCES.md), together with
+the smoltcp pending-response fix. See [queue ownership](docs/network/TX-QUEUE.md) and
 [neighbor discovery](docs/network/PENDING-RESPONSES.md) for exact revisions,
 host regressions and device results, including failed runs. The smoltcp fork's
 `main` is based on the tested 0.13.1 release; newer upstream history is retained
