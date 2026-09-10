@@ -119,7 +119,13 @@ The first queue revision is retained as a failed integration test: ten cycles,
 dispatched because of the repeated-MAC setter bug; one cold ARP exchange dropped
 two replies. Metadata and image hashes are in [validation-c3.json](validation-c3.json).
 
-These tests establish the observed stack behavior on this board and network.
+The secured S3 also completed ten cycles with **200/200 host and 200/200
+gateway** replies. All nine reconnect traces show the first reply submitted after
+ARP resolution (39–51 ms from request to submission). Its earlier failed revision
+returned 190/200 host and 199/200 gateway; the later missing host request never
+reached the embassy boundary. See [S3 comparison](../esp32s3/PENDING-RESPONSES.md).
+
+These tests establish the observed stack behavior on these boards and network.
 They do not establish sustained radio reliability. Earlier intermittent connection
 failures and isolated later-packet losses remain separate observations. Raw captures,
 serial logs and images are private. The host interface capture is not an over-the-air

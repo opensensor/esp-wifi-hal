@@ -29,3 +29,7 @@ jobs:
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu
           --manifest-path docs/esp32s3/tests/neighbor-repro/Cargo.toml
+      - name: Retain replies through ARP and embassy MAC refreshes
+        run: >-
+          cargo +stable test --locked --target x86_64-unknown-linux-gnu
+          --manifest-path docs/network/tests/pending-response-repro/Cargo.toml
