@@ -113,7 +113,7 @@ the first host ping included.
 ## Separate connection-handshake observations
 
 Reading the installed FoA/foa_sta 0.2.0 release's
-[`operations/connect.rs`](https://github.com/opensensor/FoA/blob/a1e259083d635b0917541ffe2569f76060a4a217/foa_sta/src/operations/connect.rs)
+[`operations/connect.rs`](https://github.com/opensensor/FoA/blob/cf2415b982b268730c50ea1059798fa3a6e1c197/foa_sta/src/operations/connect.rs)
 revealed separate connection-path questions for follow-up.
 Authentication/association performs bounded operation
 retries and requests seven MAC retries, but discards the returned TX result before
