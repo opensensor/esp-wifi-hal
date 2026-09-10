@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a reproducible problem with the OpenSensor fork.
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Include the steps needed to reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Revision and environment
+      description: Source commit, chip/board, enabled features and toolchain versions.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs and test results
+      description: Include failures and test counts. Remove credentials, keys and private network details.

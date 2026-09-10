@@ -1,6 +1,7 @@
 {
   "date": "2026-09-10",
   "status": "experimental",
+  "tested_source_revision": "909be7021787f0dfb074072a9ea8563c511ba137",
   "board": {
     "chip": "ESP32-S3",
     "revision": "0.1",

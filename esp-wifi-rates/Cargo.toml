@@ -6,8 +6,8 @@ authors = ["Frostie314159 <frostie.neuenhausen@gmail.com>"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 description = "Type-safe Wi-Fi PHY rate handling for the ESP32-series chips."
-homepage = "https://esp32-open-mac.be/"
-repository = "https://github.com/esp32-open-mac/esp-wifi-hal"
+homepage = "https://github.com/opensensor/esp-wifi-hal"
+repository = "https://github.com/opensensor/esp-wifi-hal"
 
 [dependencies]
 defmt = { version = "1.1.0", default-features = false, optional = true }

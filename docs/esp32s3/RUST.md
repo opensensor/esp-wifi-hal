@@ -56,7 +56,7 @@ targets upstream main (0.36.0). An external application's root manifest needs:
 
 ```toml
 [patch.crates-io]
-esp32s3 = { git = "https://github.com/matteius/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
+esp32s3 = { git = "https://github.com/opensensor/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
 # When testing published FoA against this checkout:
 esp-wifi-hal = { path = "/path/to/esp-wifi-hal/esp-wifi-hal" }
 ```

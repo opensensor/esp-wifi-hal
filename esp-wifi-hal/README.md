@@ -1,5 +1,10 @@
 # esp-wifi-hal
 An experimental asynchronous driver for the Wi-Fi peripheral of the ESP32-series chips.
+
+This checkout is maintained by OpenSensor Engineering at
+[opensensor/esp-wifi-hal](https://github.com/opensensor/esp-wifi-hal).
+[AI-assisted and AI-generated contributions are welcome](../CONTRIBUTING.md#ai-assisted-contributions).
+Use the Git checkout for this fork's changes; existing crates.io releases are separate.
 ## DISCLAIMER
 This is experimental software. USE AT YOUR OWN RISK! We'll not take any liability for damage to the hardware. We do not condone the use of this for malicious purposes.
 ## Usage

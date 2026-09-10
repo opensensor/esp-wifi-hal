@@ -1124,7 +1124,7 @@ dependencies = [
 [[package]]
 name = "esp32s3"
 version = "0.35.2"
-source = "git+https://github.com/matteius/esp-pacs?rev=37b54bd9ad62de17b17a8d7984a2ace5e73d63dd#37b54bd9ad62de17b17a8d7984a2ace5e73d63dd"
+source = "git+https://github.com/opensensor/esp-pacs?rev=37b54bd9ad62de17b17a8d7984a2ace5e73d63dd#37b54bd9ad62de17b17a8d7984a2ace5e73d63dd"
 dependencies = [
  "vcell",
 ]

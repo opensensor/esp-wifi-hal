@@ -1,0 +1,31 @@
+name: Host regressions
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  host-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install stable Rust
+        run: rustup toolchain install stable --profile minimal
+      - name: C and Rust HAL regressions
+        run: sh docs/esp32s3/tests/run-rust-tests.sh
+      - name: Reproduce smoltcp neighbor-cache behavior
+        run: >-
+          cargo +stable test --locked --target x86_64-unknown-linux-gnu
+          --manifest-path docs/esp32s3/tests/neighbor-repro/Cargo.toml

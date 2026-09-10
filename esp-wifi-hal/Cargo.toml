@@ -6,8 +6,8 @@ edition = "2024"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 description = "An experimental driver for the Wi-Fi peripheral on ESP32-series chips."
-homepage = "https://esp32-open-mac.be/"
-repository = "https://github.com/esp32-open-mac/esp-wifi-hal"
+homepage = "https://github.com/opensensor/esp-wifi-hal"
+repository = "https://github.com/opensensor/esp-wifi-hal"
 
 [dependencies]
 esp-hal = { version = "1.1.1", features = ["unstable"] }
@@ -93,4 +93,4 @@ critical_section = []
 
 [patch.crates-io]
 # S3 Wi-Fi registers pending an upstream PAC release (0.35 compatibility branch).
-esp32s3 = { git = "https://github.com/matteius/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
+esp32s3 = { git = "https://github.com/opensensor/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }

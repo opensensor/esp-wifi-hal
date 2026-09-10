@@ -86,4 +86,4 @@ overflow-checks = false
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # S3 Wi-Fi registers pending an upstream PAC release (0.35 compatibility branch).
-esp32s3 = { git = "https://github.com/matteius/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
+esp32s3 = { git = "https://github.com/opensensor/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
