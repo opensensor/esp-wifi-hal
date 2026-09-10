@@ -169,8 +169,10 @@ window so gateway traffic cannot prime that window's ARP state.
 
 To reproduce the board-side diagnosis, enable `network-trace` instead of
 `foa-smoke` and build with `ESP_LOG=info,smoltcp=trace,embassy_net=debug`.
-This leaves FoA security debug logging disabled. The port does not change
-smoltcp's automatic responder or disguise missing replies with warm-up pings.
+This leaves FoA security debug logging disabled. The measurements above used the
+unmodified smoltcp automatic responder, with the first ping included. Subsequent
+`foa-smoke` builds enable a bounded pending-response queue in the pinned OpenSensor
+smoltcp fork; see [the fix and its separate host regression](../network/PENDING-RESPONSES.md).
 
 An extended test also exposed intermittent loss of all reception. Two exploratory
 builds stopped receiving after initial successful traffic; an attempted ten-cycle

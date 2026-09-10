@@ -1,0 +1,14 @@
+[package]
+name = "smoltcp-pending-response-repro"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+smoltcp = { version = "=0.13.1", default-features = false, features = [
+    "std", "medium-ethernet", "proto-ipv4", "socket-icmp", "auto-icmp-echo-reply",
+    "iface-pending-responses",
+] }
+
+[patch.crates-io]
+smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "4b4b1bcc4894539e1b9f7f6f24dbc3d5c455320f" }
