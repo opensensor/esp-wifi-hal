@@ -6,11 +6,13 @@ implemented in `esp-wifi-hal/src/s3_mac.rs`, translated from the separately
 interrupt defaults and low-rate tables using ordered 32-bit register accesses.
 The Rust driver owns the DMA list and installs it after initialization.
 
-This is a partial Wi-Fi deblob. PHY calibration/channel control, auto-ACK rates,
-crypto initialization, antenna, timer and coexistence-priority helpers still
-come from `esp-phy`, `esp-wifi-sys-esp32s3` or ROM. The S3 ROM OS-adapter pointer
-is installed before those helpers run. Bluetooth coexistence is not implemented;
-the priority callbacks leave their initialized zero values unchanged.
+This is a partial Wi-Fi deblob. Auto-ACK defaults, crypto initialization, antenna,
+timer and coexistence-priority defaults are now implemented in Rust; see the
+[MAC helper review and follow-up validation](MAC-HELPERS.md). The tested station
+and smoke images allocate no `libpp.a` code or data. PHY calibration/channel
+control, power tracking and ROM routines remain external. The S3 ROM OS-adapter
+pointer is still installed before initialization. Bluetooth coexistence is not
+implemented; the priority callbacks leave their initialized zero values unchanged.
 
 The final station ELF has no `hal_init`, `mac_txrx_init`, `mac_rxbuf_init` or
 `mac_last_rxbuf_init` symbol. Its map discards the blob MAC initialization code.

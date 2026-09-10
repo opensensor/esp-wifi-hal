@@ -73,6 +73,8 @@ pub mod ll;
 mod rx;
 #[cfg(feature = "esp32s3")]
 mod s3_mac;
+#[cfg(feature = "esp32s3")]
+mod s3_mac_helpers;
 /// Support structures for data rates.
 pub use esp_wifi_rates as rates;
 mod sync;
