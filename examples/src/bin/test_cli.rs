@@ -492,7 +492,7 @@ fn m_mod<'a>(uart0_tx: &mut impl embedded_io::Write, mut args: impl Iterator<Ite
             let _ = writeln!(uart0_tx, "Misaligned offset.");
             return;
         }
-        unsafe { esp_hal::peripherals::WIFI::PTR.byte_add(offset) as *mut u32 }
+        unsafe { core::ptr::from_ref(&*LowLevelDriver::regs()).byte_add(offset).cast_mut().cast::<u32>() }
     } else {
         let Ok(address) = usize::from_str_radix(offset_or_address, 16) else {
             let _ = writeln!(uart0_tx, "Invalid address.");
@@ -606,8 +606,10 @@ async fn main(_spawner: Spawner) {
 
     #[cfg(feature = "esp32")]
     let (rx_pin, tx_pin) = (peripherals.GPIO3, peripherals.GPIO1);
-    #[cfg(feature = "esp32s2")]
+    #[cfg(any(feature = "esp32s2", feature = "esp32s3"))]
     let (rx_pin, tx_pin) = (peripherals.GPIO44, peripherals.GPIO43);
+    #[cfg(feature = "esp32c3")]
+    let (rx_pin, tx_pin) = (peripherals.GPIO20, peripherals.GPIO21);
 
     let (mut uart0_rx, mut uart0_tx) = Uart::new(
         peripherals.UART0,
