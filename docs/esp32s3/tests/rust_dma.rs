@@ -60,10 +60,14 @@ mod borrowed_buffer {
 }
 mod ll {
     use super::dma::DmaDescriptor;
-    use std::{cell::Cell, ptr::NonNull};
+    use std::{
+        cell::{Cell, RefCell},
+        ptr::NonNull,
+    };
     #[derive(Default)]
     pub struct LowLevelDriver {
         pub base: Cell<Option<NonNull<DmaDescriptor>>>,
+        pub reloads: RefCell<Vec<Option<NonNull<DmaDescriptor>>>>,
         pub next: Cell<Option<NonNull<DmaDescriptor>>>,
         pub last: Cell<Option<NonNull<DmaDescriptor>>>,
     }
@@ -76,11 +80,14 @@ mod ll {
         }
         pub fn set_base_rx_descriptor(&self, base: NonNull<DmaDescriptor>) {
             self.base.set(Some(base));
+            self.reloads.borrow_mut().push(Some(base));
         }
         pub fn clear_base_rx_descriptor(&self) {
             self.base.set(None);
         }
-        pub fn reload_hw_rx_descriptors(&self) {}
+        pub fn reload_hw_rx_descriptors(&self) {
+            self.reloads.borrow_mut().push(self.base.get());
+        }
         pub fn next_rx_descriptor(&self) -> Option<NonNull<DmaDescriptor>> {
             self.next.get()
         }
@@ -137,12 +144,18 @@ fn incomplete_descriptor_is_left_for_hardware() {
 
 #[test]
 fn empty_s3_hardware_queue_restarts_from_returned_descriptor() {
-    let (mut list, driver, mut first) = setup();
+    let (mut list, driver, first) = setup();
     unsafe {
-        first.as_mut().set_length(72);
-        first.as_mut().flags.0 |= 1 << 30;
+        let mut current = Some(first);
+        while let Some(mut ptr) = current {
+            ptr.as_mut().set_length(72);
+            ptr.as_mut().flags.0 |= 1 << 30;
+            current = NonNull::new(ptr.as_ref().next);
+        }
     }
     let returned = list.take_first().unwrap();
+    let _held_second = list.take_first().unwrap();
+    let _held_third = list.take_first().unwrap();
     driver.next.set(None); // S3 zero offset means hardware queue empty.
     driver.last.set(None);
     list.recycle(returned);
@@ -230,4 +243,84 @@ fn returns_never_link_to_borrowed_descriptors_or_form_a_cycle() {
             );
         }
     }
+}
+
+#[test]
+fn consuming_completions_does_not_rewind_active_dma_or_replay_unread_frames() {
+    let (mut list, driver, first) = setup();
+    let second = unsafe { NonNull::new(first.as_ref().next).unwrap() };
+    let third = unsafe { NonNull::new(second.as_ref().next).unwrap() };
+    unsafe {
+        for ptr in [first, second] {
+            (*ptr.as_ptr()).set_length(72);
+            (*ptr.as_ptr()).flags.0 |= 1 << 30;
+        }
+    }
+    driver.next.set(Some(third));
+    driver.last.set(Some(second));
+    let a = list.take_first().unwrap();
+    assert_eq!(a as *mut _, first.as_ptr());
+    assert!(
+        driver.reloads.borrow().is_empty(),
+        "Dequeue rewound DMA onto an unread completion"
+    );
+    list.recycle(a);
+    assert!(
+        driver.reloads.borrow().is_empty(),
+        "Append replayed the completed software head"
+    );
+    unsafe {
+        assert_eq!(third.as_ref().next, first.as_ptr());
+        (*third.as_ptr()).set_length(84);
+        (*third.as_ptr()).flags.0 |= 1 << 30;
+    }
+    // Hardware had cached the old null tail before the append. Its completion
+    // wakes the consumer, which must restart at the fresh returned descriptor.
+    driver.next.set(None);
+    driver.last.set(Some(third));
+    let b = list.take_first().unwrap();
+    assert_eq!(b as *mut _, second.as_ptr());
+    assert_eq!(*driver.reloads.borrow(), vec![Some(first)]);
+    assert!(unsafe { third.as_ref().flags.suc_eof() });
+}
+
+#[test]
+fn exhausted_dma_waits_when_only_unread_completions_remain() {
+    let (mut list, driver, first) = setup();
+    let second = unsafe { NonNull::new(first.as_ref().next).unwrap() };
+    let third = unsafe { NonNull::new(second.as_ref().next).unwrap() };
+    for ptr in [first, second, third] {
+        unsafe {
+            (*ptr.as_ptr()).set_length(72);
+            (*ptr.as_ptr()).flags.0 |= 1 << 30;
+        }
+    }
+    driver.next.set(None);
+    driver.last.set(Some(third));
+    let held_first = list.take_first().unwrap();
+    let held_second = list.take_first().unwrap();
+    assert!(driver.reloads.borrow().is_empty());
+    assert!(unsafe { third.as_ref().flags.suc_eof() });
+    list.recycle(held_second);
+    assert_eq!(*driver.reloads.borrow(), vec![Some(second)]);
+    assert_eq!(list.take_first().unwrap() as *mut _, third.as_ptr());
+    assert!(held_first.next.is_null());
+}
+
+#[test]
+fn exhausted_dma_restarts_the_oldest_available_buffer() {
+    let (mut list, driver, first) = setup();
+    let second = unsafe { NonNull::new(first.as_ref().next).unwrap() };
+    unsafe {
+        (*first.as_ptr()).set_length(72);
+        (*first.as_ptr()).flags.0 |= 1 << 30;
+    }
+    driver.next.set(Some(second));
+    let held = list.take_first().unwrap();
+    driver.next.set(None);
+    list.recycle(held);
+    assert_eq!(*driver.reloads.borrow(), vec![Some(second)]);
+    driver.reloads.borrow_mut().clear();
+    assert!(list.take_first().is_none());
+    assert_eq!(*driver.reloads.borrow(), vec![Some(second)]);
 }

@@ -71,6 +71,9 @@ pub fn report_failure(cycle: u32) {
     report_inner(cycle, true);
 }
 fn report_inner(cycle: u32, _failed: bool) {
+    #[cfg(feature = "neighbor-probe")]
+    esp_println::println!("stage=neighbor cycle={} counts={:?}", cycle,
+        smoltcp::iface::pending_response_probe::snapshot());
     #[cfg(feature = "handshake-probe")]
     {
         let h = foa_sta::handshake_probe::snapshot();

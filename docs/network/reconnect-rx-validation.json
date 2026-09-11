@@ -1,0 +1,4501 @@
+{
+  "validation_complete": false,
+  "builds": [
+    {
+      "chip": "esp32s3",
+      "label": "arp-delay-burst32-sta_smoke",
+      "features": "esp32s3,neighbor-probe,smoltcp/iface-pending-response-count-32",
+      "requested_reconnects": "2",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "5ca245dc887a1d9d12570040fd93e0698b2b9752937a91da57442c51dde7225e",
+      "build_log_sha256": "6dcc27119aee69a4f5438bc278d1629183134b8cd6a56f48d7bee7d7839cb596",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "arp-delay-v1-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "2",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "3656bf1696600b355268c04cbdc3196a23cc41f15107278aed38865b89024aa8",
+      "build_log_sha256": "7f018f7bedeb69867e02751f73e95d8304fd9f28bf06f3e2d40d1e10611db362",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "burst32-final-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "3f5cbb5400ae21d362fa690e47dce7c6fcc3969aa8872ce1be3394d486a263f4",
+      "build_log_sha256": "bab7e7c6a310eeb54735742de8ba51e4264764f48d5480836ec7e9cf7490cd65",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "cursor-final-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "bbafb2e75a5b6e9b79ae82f03719e72fcb101210d3ac7c0a2febfffd55c88325",
+      "build_log_sha256": "9a252493ac4954bf484f40dfd2f15a2da952844b926c2ab31fa87b80f52e8d29",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "cursor-station-v1-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "0cc8ff3ed2fe83e9340cfc0a883ad15d8ba1aaba013c900c6f9ecbdd0418af9d",
+      "build_log_sha256": "89d5805ae5624a23b908cc2d6d7312cfa4e4e68b4fced86f0b81436959c2e224",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "neighbor-observe-v1-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": null,
+      "elf_sha256": "51827834ecf858267e485253a0347ec964d77684b7fcd47abe8346e503b45874",
+      "build_log_sha256": "90f842178208355e8bccd303d70c4925bd519bb912028c47e1ed5888ac61d0af",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-cursor-final-wifi_smoke",
+      "features": "esp32s3,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": "300",
+      "elf_sha256": "eba84cfd75fb7bbedb16ef312da6f28a9d3795d5010b150ffe179a1a9509d01a",
+      "build_log_sha256": "1409ddbbc0f34b4afd1b659ae35031d2c62f3cb210eb3cbb8a7f1fb7594afd25",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-cursor-v1-wifi_smoke",
+      "features": "esp32s3,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": "300",
+      "elf_sha256": "864f9f6fa621fe0f1805aba59200dfe61d84ebef1ea1008abbb666c55278b33d",
+      "build_log_sha256": "0c315c840f46419bc774928259a9fab153945e70b2bbdb4f43d1cc6cd72c62ce",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-cursor-v2-wifi_smoke",
+      "features": "esp32s3,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": "300",
+      "elf_sha256": "05bafcc6540ee8cbf5c43ad696991b1d2bc4b458bb48dede0fbe80d209fd1214",
+      "build_log_sha256": "ae3f6daf64e3cda69349602355c277e841da53a59c2b4e3b6c6f38bd07a1c6e8",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-snapshot-v1-wifi_smoke",
+      "features": "esp32s3,printf-smoke,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": null,
+      "elf_sha256": "6a8810bc48ea3f2b6e6cbd64a0a657cc83a775c8bfab4c9207a0f94297055234",
+      "build_log_sha256": "c5aaf92e48b8664c6cf008fe87d7e4e85cefa59763a37d1c5df9cfe7bdbca905",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-snapshot-v2-wifi_smoke",
+      "features": "esp32s3,printf-smoke,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": null,
+      "elf_sha256": "518893b91b76fad19f90ac9e56bcbc0c13e1b4fe7d931a01803c3ce8a2b2e7de",
+      "build_log_sha256": "a1ef881731c2bda06a4054bec01988ce68b034af68e60084494dbec79dc0e86d",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-snapshot-v3-wifi_smoke",
+      "features": "esp32s3,printf-smoke,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": null,
+      "elf_sha256": "26cad93d202e4e991ced431db426732e7c71a5ba408c5571feffd82ff8e087f3",
+      "build_log_sha256": "8805fa818f71a169b7540b092b140059af56319387b681df6b4dfae9a10414fe",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "arp-delay-burst32-sta_smoke",
+      "features": "esp32c3,neighbor-probe,smoltcp/iface-pending-response-count-32",
+      "requested_reconnects": "2",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "cbb88f228192bb48b30e9708ba0600dbed52dfb55a899a64c5675c5eaab2f570",
+      "build_log_sha256": "0b1d8295b1822e145e18f775642e7850508410f6d77b478664fefe877637104f",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "arp-delay-v1-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "2",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "14ff6029f8bd6a22f8df254460f5cb341df5d5db89bfb81e1b794b7fbd723543",
+      "build_log_sha256": "ace03a5d0ab2e99f0efe61b5c438464fbc5cd79fab162053270789ac0d3fff6f",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "burst32-disabled-sta_smoke",
+      "features": "esp32c3,foa-smoke",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "9c219cfb9588c1b9474ffc7f81ea5e8101e1b055719f4071755180b63061905c",
+      "build_log_sha256": "8ac6e3dd2ab357078e7c144c948e23828d0ee35c452b5831f574039de5eca0a6",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "burst32-final-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "2972c407a727c5aadbba5a910142bf45b08154e7b4809e7b57ba5221c70b475a",
+      "build_log_sha256": "09b09b33e597db14d12ebb349f7f582a19112ff59e9e3b8442aeea868601bf5d",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "cursor-final-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "c9ec43d79c022cda89289903786a10b681ed6a9b88f2bc702882bbd92f36b63b",
+      "build_log_sha256": "c3300e668d0bcfe4c3427ed395ce4cfe17a1ec8137ca82144bed5c99f139095c",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "cursor-station-v1-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "e13964897e1660a695aaf94b4289fb11910e279f027ae4e8a69549a2718eba69",
+      "build_log_sha256": "e176db2784a1f51234cb712286ab58b2f82b597dea080688b150b7e7ef1563d3",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "neighbor-observe-v2-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": null,
+      "elf_sha256": "b66908796d9da8eb747244dad51b13c75a028a5bc321f986b5941bb9c2bcf9ea",
+      "build_log_sha256": "c615fdcd95e56aaf010ddb5a982cea0ebd2f2a311bfdf0c9c3d7dac36b07efe3",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "rx-cursor-final-wifi_smoke",
+      "features": "esp32c3,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": "300",
+      "elf_sha256": "57dfbbf1246d3cd6837fcd651ab1a6cc360c3be70e66901128a0a14ab7eb26e2",
+      "build_log_sha256": "54979e3de9fc0e095dd01409fb4da71f668d10c7b3682fe078d2845c8cf9201a",
+      "device_test_recorded": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "rx-cursor-v2-wifi_smoke",
+      "features": "esp32c3,rx-probe",
+      "requested_reconnects": "10",
+      "requested_rx_cycles": "300",
+      "elf_sha256": "77adfaf450686d83936dcc13181c70d92c888a031d2a6eb8e5ffc0069d1f1472",
+      "build_log_sha256": "9c2c3d010ea717f2f9a8366081a05f8e7125cfff8659826d9d5032d1cae18b3b",
+      "device_test_recorded": false
+    }
+  ],
+  "host_checks": [
+    {
+      "name": "allocation-host.log",
+      "sha256": "df9163ebe1ba2177e19c42e4f6dfea67370ff0937a5280cb6eb1c2b4ae4de78d",
+      "test_results": []
+    },
+    {
+      "name": "burst32-host.log",
+      "sha256": "2156f00ca50af444c05de818a00d1fadfbe8a16412948e441ace1af156aa9db0",
+      "test_results": [
+        "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "hal-host-final.log",
+      "sha256": "0e8633bceee6e987fa1e662e5b6d5d9fc930d88da4d1afb87c041db9d96f564c",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "hal-host-v1.log",
+      "sha256": "8d1c3550a266efd28060acf4bb03520e51732519200605fc1c2cd28833dd1269",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+        "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "neighbor-host.log",
+      "sha256": "3163f51a0071941f82eeec4d61e4b6d8aebb3eb7f08d31a44d33be4d193376dc",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "pending-final-host.log",
+      "sha256": "994a7ca9806d31435ed18bad69bdcec0ac441567c7d338ec6d705742e0e95c93",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "pending-host.log",
+      "sha256": "3c73f7043a91894264d0284d939817f2e7ed573ac505757a06c1131fc4013369",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "phy-host.log",
+      "sha256": "6f95963fa8b63c27e5ca2da51ac0010f1a8bbd0fd60b6b122f648be90dd6d4ba",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.38s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.61s",
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s"
+      ]
+    },
+    {
+      "name": "probe-host-final.log",
+      "sha256": "0961424a0d4a49c748aaad3669fb47201e2e17f6b532f82f90e36e7682cbf3af",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "probe-host-v1.log",
+      "sha256": "a9e619abdcd5f355e4ce4f17236324423ab8c6a3f8e134ad4b01986b6af3610a",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "probe-host-v2.log",
+      "sha256": "0624ed6fe7ae908036c01521bfb47296f2bffd9f5679727ae6495701b4fc2975",
+      "test_results": [
+        "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    },
+    {
+      "name": "retry-host.log",
+      "sha256": "ee72267bd2bae932350a57527f3515645ef00413cd196eef723a151f0f89fa3b",
+      "test_results": [
+        "test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+        "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+      ]
+    }
+  ],
+  "schema": "opensensor-reconnect-rx-validation-v1",
+  "date_utc": "2026-09-11",
+  "baseline_hal": "49e83291a056a9b894222201f199c98dfeb151d7",
+  "smoltcp": "bfb11dea0d3ade3d8b1289d6f0a2e4cf220830ff",
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "label": "arp-delay-burst32-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 2,
+      "completed_reconnects": 2,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            10,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            10,
+            2007,
+            3,
+            0,
+            9,
+            4,
+            2,
+            2
+          ]
+        }
+      ],
+      "arp_injection": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          21639
+        ]
+      ],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "be1233f2be23fe4bfbf0bc029e0383fca07fa122e039e92c1b2925aa00308046",
+        "elf": "5ca245dc887a1d9d12570040fd93e0698b2b9752937a91da57442c51dde7225e",
+        "serial": "e51d489614819281468315b4cf024a3645a481adcb7ca73b6d64fe217d02816d",
+        "build_metadata": "a813a3cd48c536a7108c396ad4eb875245d38bb9564273df15754e9137420bf9",
+        "lockfile": "b39d1cc8fa08b28255db718826aed31a1e89cedb9c2ae7665dcef6ac97e69b7b"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c727cf1bd4891de55693c3ff291ce1bf5fd9c64c82d6a6527eba3b5fcb319019"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "1ac2c6792971aa662ea5cfdc38224b02ad9db9ff3ca078f4ef3b780d8ddf9d0c"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "fcefb049fcffcafad7948a8a70d80f048d68b8e1dcc3dccb519bbe1410c26ff7",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "1fb00bf1aa75d58db4d01dbe8877f3718e64db82bfe4215166289986f2c5ce49",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "d1b64ba7124b4a630c8d7e1a02cc609841c806a8cc1b37790cae320d6299dfe6"
+      },
+      "application_offset": "0x20000",
+      "host_capture": {
+        "chip": "esp32s3",
+        "label": "arp-delay-burst32",
+        "pcap_sha256": "2ed90d8f60b7887df51cbde56828900290d07aa5a68ab1abe5cbb01b3e754023",
+        "capture": {
+          "written_packets": 282,
+          "socket_packets": 282,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 282,
+        "socket_packets": 282,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "arp-delay-v1-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 2,
+      "completed_reconnects": 2,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            10,
+            8,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1602,
+            3,
+            0,
+            9,
+            4,
+            2,
+            1
+          ]
+        }
+      ],
+      "arp_injection": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          21841
+        ]
+      ],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "6862947db627b32ce7b990d1f60c78c550fa3b4db9ab016d0a967fba28714268",
+        "elf": "3656bf1696600b355268c04cbdc3196a23cc41f15107278aed38865b89024aa8",
+        "serial": "f3e1797eea8624d6e18a8a0783ae28169707cb1d60c20c89efc1f65d122a00e4",
+        "build_metadata": "edfbfdad9c6de60ab23a717393ff417f9bd967027d92d64d8ed9fad9743cdfa3",
+        "lockfile": "b39d1cc8fa08b28255db718826aed31a1e89cedb9c2ae7665dcef6ac97e69b7b"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "490ac7abfe68ffa7d40a32e33a4d4f68e0e5d5e6299904ab9d576c2914f727c1"
+        },
+        {
+          "sent": 20,
+          "received": 18,
+          "duplicates": 0,
+          "log_sha256": "6f3b4f59b7f198459bdbd0e1e45ca1898f1fdb5e594192dd98a34a42d8fe93c1"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "fcefb049fcffcafad7948a8a70d80f048d68b8e1dcc3dccb519bbe1410c26ff7",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "1fb00bf1aa75d58db4d01dbe8877f3718e64db82bfe4215166289986f2c5ce49",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "d1b64ba7124b4a630c8d7e1a02cc609841c806a8cc1b37790cae320d6299dfe6"
+      },
+      "application_offset": "0x20000",
+      "host_capture": {
+        "chip": "esp32s3",
+        "label": "arp-delay-v1",
+        "pcap_sha256": "e2eb6d4975541e60f33bfc425166275e233c3ac647887b6d0af62bd29d889bfd",
+        "capture": {
+          "written_packets": 273,
+          "socket_packets": 274,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 18,
+            "unanswered_sequences": [
+              1,
+              2
+            ],
+            "missing_outgoing_sequences": [],
+            "events_relative_to_first_request_seconds": [
+              {
+                "seconds": 0.0,
+                "event": "request",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.201529,
+                "event": "request",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.409601,
+                "event": "request",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.617562,
+                "event": "request",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.826542,
+                "event": "request",
+                "sequence": 5
+              },
+              {
+                "seconds": 1.034538,
+                "event": "request",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.241554,
+                "event": "request",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.449556,
+                "event": "request",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.658568,
+                "event": "request",
+                "sequence": 9
+              },
+              {
+                "seconds": 1.865591,
+                "event": "request",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.0315,
+                "event": "reply",
+                "sequence": 3
+              },
+              {
+                "seconds": 2.031528,
+                "event": "reply",
+                "sequence": 4
+              },
+              {
+                "seconds": 2.033495,
+                "event": "reply",
+                "sequence": 5
+              },
+              {
+                "seconds": 2.033544,
+                "event": "reply",
+                "sequence": 6
+              },
+              {
+                "seconds": 2.035465,
+                "event": "reply",
+                "sequence": 7
+              },
+              {
+                "seconds": 2.039246,
+                "event": "reply",
+                "sequence": 8
+              },
+              {
+                "seconds": 2.042109,
+                "event": "reply",
+                "sequence": 9
+              },
+              {
+                "seconds": 2.042126,
+                "event": "reply",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.066231,
+                "event": "request",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.073885,
+                "event": "reply",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.267158,
+                "event": "request",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.300589,
+                "event": "reply",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.467836,
+                "event": "request",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.488652,
+                "event": "reply",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.668903,
+                "event": "request",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.674161,
+                "event": "reply",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.869447,
+                "event": "request",
+                "sequence": 15
+              },
+              {
+                "seconds": 2.911645,
+                "event": "reply",
+                "sequence": 15
+              },
+              {
+                "seconds": 3.069846,
+                "event": "request",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.101218,
+                "event": "reply",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.27046,
+                "event": "request",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.283344,
+                "event": "reply",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.471559,
+                "event": "request",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.527696,
+                "event": "reply",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.671924,
+                "event": "request",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.721225,
+                "event": "reply",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.872498,
+                "event": "request",
+                "sequence": 20
+              },
+              {
+                "seconds": 3.879445,
+                "event": "reply",
+                "sequence": 20
+              }
+            ],
+            "nearby_arp": [
+              {
+                "seconds": 0.009797,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 0.009813,
+                "event": "reply",
+                "station_role": "station_target"
+              },
+              {
+                "seconds": 1.058911,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 1.05893,
+                "event": "reply",
+                "station_role": "station_target"
+              },
+              {
+                "seconds": 2.013966,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 2.013993,
+                "event": "reply",
+                "station_role": "station_target"
+              }
+            ]
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 273,
+        "socket_packets": 274,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "cursor-station-v1-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 50,
+      "completed_reconnects": 50,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ],
+        [
+          3,
+          20,
+          20
+        ],
+        [
+          4,
+          20,
+          20
+        ],
+        [
+          5,
+          20,
+          20
+        ],
+        [
+          6,
+          20,
+          20
+        ],
+        [
+          7,
+          20,
+          20
+        ],
+        [
+          8,
+          20,
+          20
+        ],
+        [
+          9,
+          20,
+          20
+        ],
+        [
+          10,
+          20,
+          20
+        ],
+        [
+          11,
+          20,
+          20
+        ],
+        [
+          12,
+          20,
+          20
+        ],
+        [
+          13,
+          20,
+          20
+        ],
+        [
+          14,
+          20,
+          20
+        ],
+        [
+          15,
+          20,
+          20
+        ],
+        [
+          16,
+          20,
+          20
+        ],
+        [
+          17,
+          20,
+          20
+        ],
+        [
+          18,
+          20,
+          20
+        ],
+        [
+          19,
+          20,
+          20
+        ],
+        [
+          20,
+          20,
+          20
+        ],
+        [
+          21,
+          20,
+          20
+        ],
+        [
+          22,
+          20,
+          20
+        ],
+        [
+          23,
+          20,
+          20
+        ],
+        [
+          24,
+          20,
+          20
+        ],
+        [
+          25,
+          20,
+          20
+        ],
+        [
+          26,
+          20,
+          20
+        ],
+        [
+          27,
+          20,
+          20
+        ],
+        [
+          28,
+          20,
+          20
+        ],
+        [
+          29,
+          20,
+          20
+        ],
+        [
+          30,
+          20,
+          20
+        ],
+        [
+          31,
+          20,
+          20
+        ],
+        [
+          32,
+          20,
+          20
+        ],
+        [
+          33,
+          20,
+          20
+        ],
+        [
+          34,
+          20,
+          20
+        ],
+        [
+          35,
+          20,
+          20
+        ],
+        [
+          36,
+          20,
+          20
+        ],
+        [
+          37,
+          20,
+          20
+        ],
+        [
+          38,
+          20,
+          20
+        ],
+        [
+          39,
+          20,
+          20
+        ],
+        [
+          40,
+          20,
+          20
+        ],
+        [
+          41,
+          20,
+          20
+        ],
+        [
+          42,
+          20,
+          20
+        ],
+        [
+          43,
+          20,
+          20
+        ],
+        [
+          44,
+          20,
+          20
+        ],
+        [
+          45,
+          20,
+          20
+        ],
+        [
+          46,
+          20,
+          20
+        ],
+        [
+          47,
+          20,
+          20
+        ],
+        [
+          48,
+          20,
+          20
+        ],
+        [
+          49,
+          20,
+          20
+        ],
+        [
+          50,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            7,
+            1,
+            0,
+            0,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "counts": [
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            2,
+            0,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "counts": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            3,
+            0,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "counts": [
+            4,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            14,
+            4,
+            0,
+            0,
+            11,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "counts": [
+            5,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            5,
+            0,
+            0,
+            14,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "counts": [
+            6,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            6,
+            0,
+            0,
+            16,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "counts": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            7,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "counts": [
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            8,
+            0,
+            0,
+            21,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "counts": [
+            9,
+            9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            9,
+            0,
+            0,
+            23,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 11,
+          "counts": [
+            10,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            10,
+            0,
+            0,
+            25,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 12,
+          "counts": [
+            11,
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            11,
+            0,
+            0,
+            28,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 13,
+          "counts": [
+            21,
+            19,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            14,
+            0,
+            9,
+            30,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 14,
+          "counts": [
+            22,
+            20,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            15,
+            0,
+            9,
+            32,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 15,
+          "counts": [
+            23,
+            21,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            16,
+            0,
+            9,
+            35,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 16,
+          "counts": [
+            24,
+            22,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            17,
+            0,
+            9,
+            37,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 17,
+          "counts": [
+            25,
+            23,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            18,
+            0,
+            9,
+            39,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 18,
+          "counts": [
+            26,
+            24,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            19,
+            0,
+            9,
+            42,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 19,
+          "counts": [
+            27,
+            25,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            20,
+            0,
+            9,
+            44,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 20,
+          "counts": [
+            28,
+            26,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            21,
+            0,
+            9,
+            47,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 21,
+          "counts": [
+            29,
+            27,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            22,
+            0,
+            9,
+            49,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 22,
+          "counts": [
+            30,
+            28,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            23,
+            0,
+            9,
+            51,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 23,
+          "counts": [
+            31,
+            29,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            24,
+            0,
+            9,
+            54,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 24,
+          "counts": [
+            32,
+            30,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            25,
+            0,
+            9,
+            56,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 25,
+          "counts": [
+            33,
+            31,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            26,
+            0,
+            9,
+            59,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 26,
+          "counts": [
+            34,
+            32,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            27,
+            0,
+            9,
+            61,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 27,
+          "counts": [
+            35,
+            33,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            28,
+            0,
+            9,
+            63,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 28,
+          "counts": [
+            36,
+            34,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            29,
+            0,
+            9,
+            66,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 29,
+          "counts": [
+            37,
+            35,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            30,
+            0,
+            9,
+            68,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 30,
+          "counts": [
+            38,
+            36,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            31,
+            0,
+            9,
+            71,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 31,
+          "counts": [
+            39,
+            37,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            32,
+            0,
+            9,
+            73,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 32,
+          "counts": [
+            40,
+            38,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            33,
+            0,
+            9,
+            75,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 33,
+          "counts": [
+            41,
+            39,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            34,
+            0,
+            9,
+            78,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 34,
+          "counts": [
+            42,
+            40,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            35,
+            0,
+            9,
+            80,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 35,
+          "counts": [
+            43,
+            41,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            36,
+            0,
+            9,
+            83,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 36,
+          "counts": [
+            44,
+            42,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            37,
+            0,
+            9,
+            85,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 37,
+          "counts": [
+            45,
+            43,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            38,
+            0,
+            9,
+            88,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 38,
+          "counts": [
+            46,
+            44,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            39,
+            0,
+            9,
+            90,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 39,
+          "counts": [
+            47,
+            45,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            40,
+            0,
+            9,
+            92,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 40,
+          "counts": [
+            48,
+            46,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            41,
+            0,
+            9,
+            94,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 41,
+          "counts": [
+            49,
+            47,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            42,
+            0,
+            9,
+            97,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 42,
+          "counts": [
+            50,
+            48,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            43,
+            0,
+            9,
+            99,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 43,
+          "counts": [
+            51,
+            49,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            44,
+            0,
+            9,
+            101,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 44,
+          "counts": [
+            52,
+            50,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            45,
+            0,
+            9,
+            104,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 45,
+          "counts": [
+            53,
+            51,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            46,
+            0,
+            9,
+            106,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 46,
+          "counts": [
+            54,
+            52,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            47,
+            0,
+            9,
+            108,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 47,
+          "counts": [
+            55,
+            53,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            48,
+            0,
+            9,
+            110,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 48,
+          "counts": [
+            56,
+            54,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            49,
+            0,
+            9,
+            113,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 49,
+          "counts": [
+            57,
+            55,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            50,
+            0,
+            9,
+            115,
+            2,
+            1
+          ]
+        },
+        {
+          "cycle": 50,
+          "counts": [
+            58,
+            56,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1586,
+            51,
+            0,
+            9,
+            117,
+            2,
+            1
+          ]
+        }
+      ],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "f244853e7e83a18b1221d5dc88ffc63cd9557c25e1f90abbe9d8f4f5e400567e",
+        "elf": "0cc8ff3ed2fe83e9340cfc0a883ad15d8ba1aaba013c900c6f9ecbdd0418af9d",
+        "serial": "c83d1fe42ec99fb40219e7a78624e7bb2918b5776d01ff8c402493abc24020e3",
+        "build_metadata": "08465e5d1d5c0d26a6b12a0879ee7b796454768f5f606f185d10766794c027b5",
+        "lockfile": "2b3358ff56af926eb199049262dcb0310c61505c36769a1c5458e8ca32218dbb"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "9f0470579e611553d87574cac791862e8f42d7b0a89a83f1758ed2242bec5e6f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c853ebb956f70df17241fd6939a1756accb271b9ed86e30d7bc413846bc0c9a4"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "56ae04efb324a35cbcd60a9800fe21abe19c89221a3d458a332be738e1b2de3b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "cfe04a1ae2fea5b0050e0e9494aa31d038af0932eeff6c8469177909926b5e35"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d2e04144d50fca1b8557b5f9d3865258581bb0d9b0503a9d437c10597e17ab87"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "ddfe9628e8be9e50f19f3e23990b7a9763e3e4c3512bcaa863f0f75eb94184a5"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "ba428ca90ff31540617a39db85bc041b3142994d0587a37035c4669ead6f07f6"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "adbdd0b7d51c8cff04b36741fc51576ee62c3955f6bba341948c6ab02046f39a"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "bf1e49038f79f30db1eeef1e85a8f0578464e816403c558923237a00581bd46d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f5560a9a140a3d012c17b2ad509e82c01d6a45a4299a00fb4e55328c5c539112"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "0e43a10fb47907d084cb602c3897431dfc2a07c7cefe32fa134d7ba1bbb7e6b6"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "fa7df8fe5cb26212fcba09dc9be7fb0d0ad9c121ea677563c6ceb8b4d368d4e0"
+        },
+        {
+          "sent": 20,
+          "received": 18,
+          "duplicates": 0,
+          "log_sha256": "0a85c8cac424b8f245ee5445fb12ac7b572677433338a127e0f4bce5fa4f0116"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "57ed48e4e5215064d3c9b46f2deb274194afa5b611f93e75505dee1962653bb4"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3e8ce59456c282634ecc0dcbf5b58a95feff650d427fc74f7844785be864b5ba"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "bd7047d461231335dddefe2e94004fa5604a77b0fce5245093e82fcaa80e5797"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "ede4e145873b7e9a6f08e9874657db8344f65d3bc72651d2058f5cd130004c07"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "08b02d676fd93ff9220c1350abdc429cc5a3c1a17e025c4c7714b49500b7948c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f26dc074f31eb726e917b786adf6e4b08dcc8504a7dda2c1a1fc69c5bcb09901"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "486b90296299c68cb99e35c34275b7bfcb2cb93504fc3394cf38c1fd7f06c994"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "8e805969ef370999e54f0a8d19c5de2f62d735311991e857c164cca3833c53d9"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "0d9a6a9841ae15de5ed8371a03ba3e25b9009737972cef61f46b40182c181443"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "b1bae7ecadeb96160eebfc4d274074f643a2a85e02981bb59496aa785acfc600"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "9b6c3127f2a20779906cbf7366cf796aed1b9ac427c867c3108fb2ff85cf4281"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "e603d95b3741cf00b13f4810fc8ed189b418aa825946c7d6d56fc3cd41b8da23"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "270d8c0f3b52f05531e5d1e0e8235e203f15ea29a6295d2c02b9d083aabb9c68"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c5a3215a002e5d52098357a4262d67a1165c7b4f7cfd3ff59ecceb423d8fa6c4"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "274d961efa6920629ce99b5c7a07acdbb6a8d8149db236abd6543a3473fb1686"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "bc5ec7fee57b20a397054f707a3f12d77f094600a671ecddf7716f2a59e2e7e3"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "962db5b151fb7a4cb65c2ed1026307380712ffbd877b8e6371d0b1325419dc9c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "2020964c8c435c291e841f7de945f3cfaf65ba8de39451943c92af6b6dc77a29"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "8123fdd5cab6608e5d3ed7afa105d2a15af4741164808e4c44450c8daf651c68"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "7fb7ae58b709f183e57bc6a47758a11b12b1e4d4c6ed67480c6194ca37e57d66"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f6f6fb7c62200ed774f6535fdf6d15004066124c25605e8d8673446cf906246b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "7493d838d1c031f9a2c947fcc6378b0b690813c17c4ba327f173a8ae26c1febb"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "8e75a1b2ced2e82d82d2aa6cb471480498aeeb41a6dfdc7cbd798d7f89398dd5"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "cb96e18e1bb8fba4cfaa2a2433a50eccdd7d103346425f95c22fe35400b459a2"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c8a305d36e37ad61567b161c144d85aa4d18afb067b5e582b4137e3a01e3e51e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a6371cd2519fa1a86296624eaa285ed659bc67f3fa2770dd74ceb054785da0f0"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "81c80d616d03353dd3b2cb4d9f697bb3263cbb2b2232a447b3e79d4379e5c9c3"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "fb78298e2dfd48cc2a0786d6e42b61269d39dfa5746f61eb940370e759688e47"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f550ee62e3c71cf0d38612113f2162951a68e398f5635541cdb6f69ae1d00ca3"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "40c09895699e26fb02678cacc91d4526e50e4fc40250a70214f6c2cce798346d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "5a7ede85be0773005fc7204d6457226fbd7f41fbe7796b910e062a8d7fcbfc8e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d9fd82b0d7f4a46f5ae5f58774deb3200522e2451f52fce37059b5c95646a00a"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "86be650744e3a6ea12f2b928b1f01fd1fedc3cf93e274e8649f186e06b024b6a"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "2d4cfe8312afe0947ff20a845d860b8bdfeda1a8234bedbc9f86d145704aa9b5"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6ac2d4606277cfd183186d70158c247d0ed76c52cc82d4fc497aaa9274ecb08e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "315bd4b99c1c45552dbec3ec9230455ed6ae28953f91929f86ce184a0b1de1d9"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "ffc3518cc555fb2f534efca0d4b3e27222aba779e4b33768d1b6e666bcdbf233"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "fcefb049fcffcafad7948a8a70d80f048d68b8e1dcc3dccb519bbe1410c26ff7",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000",
+      "host_capture": {
+        "chip": "esp32s3",
+        "label": "cursor-station-v1",
+        "pcap_sha256": "374343e99ae0ac31c2c42d817613adb0fd920cb6ee0ffd15b8892d43afdfa67b",
+        "capture": {
+          "written_packets": 5504,
+          "socket_packets": 5504,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 3,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 4,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 5,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 6,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 7,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 8,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 9,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 10,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 11,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 12,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 13,
+            "requests": 20,
+            "replies": 18,
+            "unanswered_sequences": [
+              1,
+              2
+            ],
+            "missing_outgoing_sequences": [],
+            "events_relative_to_first_request_seconds": [
+              {
+                "seconds": 0.0,
+                "event": "request",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.204904,
+                "event": "request",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.413905,
+                "event": "request",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.621887,
+                "event": "request",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.828925,
+                "event": "request",
+                "sequence": 5
+              },
+              {
+                "seconds": 1.037916,
+                "event": "request",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.244926,
+                "event": "request",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.453888,
+                "event": "request",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.661931,
+                "event": "request",
+                "sequence": 9
+              },
+              {
+                "seconds": 1.869902,
+                "event": "request",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.075135,
+                "event": "reply",
+                "sequence": 3
+              },
+              {
+                "seconds": 2.075188,
+                "event": "request",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.079542,
+                "event": "reply",
+                "sequence": 4
+              },
+              {
+                "seconds": 2.082014,
+                "event": "reply",
+                "sequence": 5
+              },
+              {
+                "seconds": 2.082028,
+                "event": "reply",
+                "sequence": 6
+              },
+              {
+                "seconds": 2.083234,
+                "event": "reply",
+                "sequence": 7
+              },
+              {
+                "seconds": 2.083243,
+                "event": "reply",
+                "sequence": 8
+              },
+              {
+                "seconds": 2.085327,
+                "event": "reply",
+                "sequence": 9
+              },
+              {
+                "seconds": 2.087772,
+                "event": "reply",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.097223,
+                "event": "reply",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.275503,
+                "event": "request",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.325086,
+                "event": "reply",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.47636,
+                "event": "request",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.517053,
+                "event": "reply",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.677313,
+                "event": "request",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.69997,
+                "event": "reply",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.878266,
+                "event": "request",
+                "sequence": 15
+              },
+              {
+                "seconds": 2.940117,
+                "event": "reply",
+                "sequence": 15
+              },
+              {
+                "seconds": 3.079353,
+                "event": "request",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.132198,
+                "event": "reply",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.280421,
+                "event": "request",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.288318,
+                "event": "reply",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.481578,
+                "event": "request",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.488247,
+                "event": "reply",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.682535,
+                "event": "request",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.688438,
+                "event": "reply",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.883729,
+                "event": "request",
+                "sequence": 20
+              },
+              {
+                "seconds": 3.891122,
+                "event": "reply",
+                "sequence": 20
+              }
+            ],
+            "nearby_arp": [
+              {
+                "seconds": 2.059296,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 2.05936,
+                "event": "reply",
+                "station_role": "station_target"
+              }
+            ]
+          },
+          {
+            "cycle": 14,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 15,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 16,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 17,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 18,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 19,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 20,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 21,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 22,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 23,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 24,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 25,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 26,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 27,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 28,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 29,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 30,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 31,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 32,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 33,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 34,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 35,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 36,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 37,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 38,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 39,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 40,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 41,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 42,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 43,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 44,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 45,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 46,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 47,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 48,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 49,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 50,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 5504,
+        "socket_packets": 5504,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "neighbor-observe-v1-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 10,
+      "completed_reconnects": 10,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ],
+        [
+          3,
+          20,
+          20
+        ],
+        [
+          4,
+          20,
+          20
+        ],
+        [
+          5,
+          20,
+          20
+        ],
+        [
+          6,
+          20,
+          20
+        ],
+        [
+          7,
+          20,
+          20
+        ],
+        [
+          8,
+          20,
+          20
+        ],
+        [
+          9,
+          20,
+          20
+        ],
+        [
+          10,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            1,
+            0,
+            0,
+            5,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "counts": [
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            2,
+            0,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "counts": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            3,
+            0,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "counts": [
+            4,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            4,
+            0,
+            0,
+            11,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "counts": [
+            5,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            5,
+            0,
+            0,
+            14,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "counts": [
+            6,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            6,
+            0,
+            0,
+            16,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "counts": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            7,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "counts": [
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            8,
+            0,
+            0,
+            21,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "counts": [
+            9,
+            9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            9,
+            0,
+            0,
+            23,
+            0,
+            0
+          ]
+        }
+      ],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "de77ee4e323f03f664640d8cc45f80ec67acb95c77d967a3ba9010cca3444564",
+        "elf": "51827834ecf858267e485253a0347ec964d77684b7fcd47abe8346e503b45874",
+        "serial": "d5fd324d1a6f7f41c1def933ae30285a489963f1f8a5d260b9b64253280fba97",
+        "build_metadata": "333c3195e467b6f9b4cc952d60e4457705dd814a9bee23393742486178431fbf",
+        "lockfile": "1232b95d9875e6dd684aaffee0b32954502961c69ab4e37739550f1adf459d80"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a7b35ed7e6827416cb4e623e56dba642c54d723743db020d204ac1610edd4b3b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f2dbd90bbd5694d9515defae26d2c7dd143df5ef965de75c26daabe0369dcae4"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c6ee7f7ce724c487251cda7a54c484dafd32dc1e4437bb90de154dc4d22ef362"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "5dbf73e2fce28c223801bfca3d8ffbf224017a4ed1369c789f474e21e490cd9d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "0d61703c1f4c9f01f806bb372bc3f8d903a18f651a851d1b8a90eb780c70d6ef"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "fcd9a78581deda609992e322e498ca4397fb6f3082ab50533ba3b40fc6154b1e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "62f356b5f1c0bb0723ed0688a492834cb7fb2e4d9d3688acb08203f0e82115a1"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "840f5d8050c7530581097481fd5498565afc091de02640e5b75380706008fd94"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "4455bd1c955580677f86fb5e8cf002d808007110d8c4ba935eeaaa3e9dbb6280"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "64a348089701cf23ccef1fb7782d501d0ee5b33856ef2f250d883ff5fd3062b0"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "73646fd9dce4fbdeb1905c8a58cbcfc9b678d325eefe795ed191dd9cf68fb43e",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "93a5b08823604552a7c0188eae8db9bb0f5a15055db3b09cfe9dd25925a39908",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000",
+      "capture_stats": {
+        "written_packets": 1065,
+        "socket_packets": 1065,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-cursor-final-wifi_smoke",
+      "complete": true,
+      "requested_reconnects": null,
+      "completed_reconnects": 0,
+      "rx_completed_cycles": 300,
+      "rx_pending_preserved": 300,
+      "gateway": [],
+      "neighbor": [],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "c2945aeca0ad01969c5a84168adbbe94ce766bb1919de22187d3aed280a83613",
+        "elf": "eba84cfd75fb7bbedb16ef312da6f28a9d3795d5010b150ffe179a1a9509d01a",
+        "serial": "2fb39cc0b108c88ac320a747da51a8d28eb0a96a1d4f9a34a52c93f810dcbe91",
+        "build_metadata": "ec754aded3e7db38556579e02b660d34b62a5325d2050a3d5254e4fa24c9653d",
+        "lockfile": "b1a528653d16c7a2adc111efc779d9003b50ff3685f0f1a3f48b35ae30424d55"
+      },
+      "host": [],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000"
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-cursor-v2-wifi_smoke",
+      "complete": true,
+      "requested_reconnects": null,
+      "completed_reconnects": 0,
+      "rx_completed_cycles": 300,
+      "rx_pending_preserved": 300,
+      "gateway": [],
+      "neighbor": [],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "0e3e869d4c5afd7483e6888913fba508bc974aa3ef390a44841a1e02917943fd",
+        "elf": "05bafcc6540ee8cbf5c43ad696991b1d2bc4b458bb48dede0fbe80d209fd1214",
+        "serial": "f729a9c620a3d770aa8057433c4b31585faeb51e1775b86cdfe6226ac2c7db02",
+        "build_metadata": "bb35918613d4f8e3b555ad8d7fc7ac4bd1b1dfdec9e504085a7beeb859ba42b5",
+        "lockfile": "62410689be2249a148ea88b74594f082087376d49a57621c2e84ae2e269bb773"
+      },
+      "host": [],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "fcefb049fcffcafad7948a8a70d80f048d68b8e1dcc3dccb519bbe1410c26ff7",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000"
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-repeat-v1-wifi_smoke",
+      "complete": false,
+      "requested_reconnects": null,
+      "completed_reconnects": 0,
+      "rx_completed_cycles": 50,
+      "rx_pending_preserved": 50,
+      "gateway": [],
+      "neighbor": [],
+      "arp_injection": [],
+      "assertion_failed": true,
+      "hashes": {
+        "image": "1fb56c004ebf0a25addcf2dae02d21a7002197bde4174b56628616abea6167fc",
+        "elf": "b2118aeb58f1cefe62707a38a9581d5406f39303da59450138d2ae8fe588af22",
+        "serial": "7f8a39aa9c6c2bc7fd01a5b29b5c5a524df5eae156a6a367db1053246c54facb",
+        "build_metadata": "2e50dae86a755f29f4e6796d05d07fee963153033036e8cda780c796f8e90086",
+        "lockfile": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      },
+      "host": [],
+      "source_files": {},
+      "application_offset": "0x20000"
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-snapshot-v2-wifi_smoke",
+      "complete": false,
+      "requested_reconnects": null,
+      "completed_reconnects": 0,
+      "rx_completed_cycles": 159,
+      "rx_pending_preserved": 160,
+      "gateway": [],
+      "neighbor": [],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "13481da9c0eca1689a7dace1196d37a0c8c607f132b9e5da45d86c6bdc1e270b",
+        "elf": "518893b91b76fad19f90ac9e56bcbc0c13e1b4fe7d931a01803c3ce8a2b2e7de",
+        "serial": "dd60f82248d83d7074643d6999ee3d4cbaa2ef23a60120a425729495c7717f90",
+        "build_metadata": "679ba3dfbe1564262b9f5152adfe5dbe5140605fe6d117a6ebe4d80b4e6c659a",
+        "lockfile": "1232b95d9875e6dd684aaffee0b32954502961c69ab4e37739550f1adf459d80"
+      },
+      "host": [],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "85c49e1d26f7f94d0d36f4a74dabc99ee7e3eae10313a6772fb1fd4f74d648bb",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "a9dab7fff13e4317496dfd889bcfa244569e0f9da505075502cd1b49720700e9",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000"
+    },
+    {
+      "chip": "esp32s3",
+      "label": "rx-snapshot-v3-wifi_smoke",
+      "complete": false,
+      "requested_reconnects": null,
+      "completed_reconnects": 0,
+      "rx_completed_cycles": 20,
+      "rx_pending_preserved": 20,
+      "gateway": [],
+      "neighbor": [],
+      "arp_injection": [],
+      "assertion_failed": true,
+      "hashes": {
+        "image": "7581cbb4c6813bc40cd1b5f5aec7c22718b788eb84bd286aab2f7c141b625bfc",
+        "elf": "26cad93d202e4e991ced431db426732e7c71a5ba408c5571feffd82ff8e087f3",
+        "serial": "31912431bb489c2f573b79f50281557f7fe858153e36229e0a4eb81800fb61a1",
+        "build_metadata": "bbbb52b0741e3fb919ab8ab391e09b29fa837f3d3ae9ca835e9b854f95b04cab",
+        "lockfile": "1232b95d9875e6dd684aaffee0b32954502961c69ab4e37739550f1adf459d80"
+      },
+      "host": [],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "85c49e1d26f7f94d0d36f4a74dabc99ee7e3eae10313a6772fb1fd4f74d648bb",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "3d45cc07b0c77abfec07f81d52d8b2d178bd6fef4be2d73821a39ea81b185e87",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000"
+    },
+    {
+      "chip": "esp32c3",
+      "label": "arp-delay-burst32-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 2,
+      "completed_reconnects": 2,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            10,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            10,
+            2007,
+            3,
+            0,
+            9,
+            4,
+            2,
+            2
+          ]
+        }
+      ],
+      "arp_injection": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          21436
+        ]
+      ],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "9280a8dc4771fdddb6df259e831bf27fec4782bc74db2d6797da21398340b214",
+        "elf": "cbb88f228192bb48b30e9708ba0600dbed52dfb55a899a64c5675c5eaab2f570",
+        "serial": "439131f3a721f3ed41ce8cacac41fd71bb48b83203fe6ffd452224fe8f65998c",
+        "build_metadata": "ab2071fae1af6bde34984515e8e551c9d5f86d6dfdfa7fa3298a5679607d5283",
+        "lockfile": "b39d1cc8fa08b28255db718826aed31a1e89cedb9c2ae7665dcef6ac97e69b7b"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "9b0f4629feb40fbc431d3db0edbb9c6b35ec00f2ec4c5f01b84a89ffcc0837e8"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "2b989cfca5d2925f17e0fc16945de6ff75833dece0328a8db2b6d745bd20cb4c"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "fcefb049fcffcafad7948a8a70d80f048d68b8e1dcc3dccb519bbe1410c26ff7",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "1fb00bf1aa75d58db4d01dbe8877f3718e64db82bfe4215166289986f2c5ce49",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "d1b64ba7124b4a630c8d7e1a02cc609841c806a8cc1b37790cae320d6299dfe6"
+      },
+      "application_offset": "0x10000",
+      "host_capture": {
+        "chip": "esp32c3",
+        "label": "arp-delay-burst32",
+        "pcap_sha256": "b0626828ad02399f7a479673030f16fd64c1b772c38bf7feb668f33d517bf1ac",
+        "capture": {
+          "written_packets": 274,
+          "socket_packets": 274,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 274,
+        "socket_packets": 274,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "arp-delay-v1-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 2,
+      "completed_reconnects": 2,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            10,
+            8,
+            2,
+            0,
+            0,
+            0,
+            0,
+            8,
+            1591,
+            3,
+            0,
+            9,
+            4,
+            2,
+            1
+          ]
+        }
+      ],
+      "arp_injection": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          22037
+        ]
+      ],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "ae8ca1f80c000409cd298e187e28b795957dbc80985c29bb8e2113f90dcb57c7",
+        "elf": "14ff6029f8bd6a22f8df254460f5cb341df5d5db89bfb81e1b794b7fbd723543",
+        "serial": "a4f408900076cdc68d43d603f3c97e5acc220f20b851966247bb8274cfd7b966",
+        "build_metadata": "44a2da4720232edcac5c71115aaab175dcde01f918865aced067069732ccbcdd",
+        "lockfile": "b39d1cc8fa08b28255db718826aed31a1e89cedb9c2ae7665dcef6ac97e69b7b"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "69ce85982d8d88169f13a246d8ffc6ef326a1859fd1f030fa572565daf2bc108"
+        },
+        {
+          "sent": 20,
+          "received": 18,
+          "duplicates": 0,
+          "log_sha256": "a82af63263c8df1b6c7eb0a1ac5729e0ab5fb00996ad5bb3ad24b62ab4e1a0f2"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "fcefb049fcffcafad7948a8a70d80f048d68b8e1dcc3dccb519bbe1410c26ff7",
+        "esp-wifi-hal/src/async_driver.rs": "93e5d5a82ca07963c9810d05111dea58ca215ba48e275c121c019095bf00bca9",
+        "examples/src/packet_trace.rs": "1fb00bf1aa75d58db4d01dbe8877f3718e64db82bfe4215166289986f2c5ce49",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "d1b64ba7124b4a630c8d7e1a02cc609841c806a8cc1b37790cae320d6299dfe6"
+      },
+      "application_offset": "0x10000",
+      "host_capture": {
+        "chip": "esp32c3",
+        "label": "arp-delay-v1",
+        "pcap_sha256": "c222a00d11e4c26643649873b384610180fa23dcd8f4ad5b6f71c3b391a80c40",
+        "capture": {
+          "written_packets": 272,
+          "socket_packets": 272,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 18,
+            "unanswered_sequences": [
+              1,
+              2
+            ],
+            "missing_outgoing_sequences": [],
+            "events_relative_to_first_request_seconds": [
+              {
+                "seconds": 0.0,
+                "event": "request",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.205669,
+                "event": "request",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.414664,
+                "event": "request",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.62263,
+                "event": "request",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.829672,
+                "event": "request",
+                "sequence": 5
+              },
+              {
+                "seconds": 1.037662,
+                "event": "request",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.245653,
+                "event": "request",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.453662,
+                "event": "request",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.661654,
+                "event": "request",
+                "sequence": 9
+              },
+              {
+                "seconds": 1.869644,
+                "event": "request",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.019029,
+                "event": "reply",
+                "sequence": 3
+              },
+              {
+                "seconds": 2.020987,
+                "event": "reply",
+                "sequence": 4
+              },
+              {
+                "seconds": 2.02299,
+                "event": "reply",
+                "sequence": 5
+              },
+              {
+                "seconds": 2.023006,
+                "event": "reply",
+                "sequence": 6
+              },
+              {
+                "seconds": 2.025976,
+                "event": "reply",
+                "sequence": 7
+              },
+              {
+                "seconds": 2.025998,
+                "event": "reply",
+                "sequence": 8
+              },
+              {
+                "seconds": 2.028998,
+                "event": "reply",
+                "sequence": 9
+              },
+              {
+                "seconds": 2.031005,
+                "event": "reply",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.070133,
+                "event": "request",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.077949,
+                "event": "reply",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.271235,
+                "event": "request",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.279279,
+                "event": "reply",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.471394,
+                "event": "request",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.47749,
+                "event": "reply",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.671776,
+                "event": "request",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.680187,
+                "event": "reply",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.87246,
+                "event": "request",
+                "sequence": 15
+              },
+              {
+                "seconds": 2.881891,
+                "event": "reply",
+                "sequence": 15
+              },
+              {
+                "seconds": 3.073159,
+                "event": "request",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.082437,
+                "event": "reply",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.273705,
+                "event": "request",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.286303,
+                "event": "reply",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.474584,
+                "event": "request",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.484849,
+                "event": "reply",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.67514,
+                "event": "request",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.688724,
+                "event": "reply",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.87598,
+                "event": "request",
+                "sequence": 20
+              },
+              {
+                "seconds": 3.889902,
+                "event": "reply",
+                "sequence": 20
+              }
+            ],
+            "nearby_arp": [
+              {
+                "seconds": 0.007334,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 0.007349,
+                "event": "reply",
+                "station_role": "station_target"
+              },
+              {
+                "seconds": 1.00634,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 1.006392,
+                "event": "reply",
+                "station_role": "station_target"
+              },
+              {
+                "seconds": 2.007501,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 2.007592,
+                "event": "reply",
+                "station_role": "station_target"
+              }
+            ]
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 272,
+        "socket_packets": 272,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "rx-cursor-final-wifi_smoke",
+      "complete": true,
+      "requested_reconnects": null,
+      "completed_reconnects": 0,
+      "rx_completed_cycles": 300,
+      "rx_pending_preserved": 300,
+      "gateway": [],
+      "neighbor": [],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "c2578020f5c78409fc1e5a5aafdd20033e6402dfc26327f741712343e5115267",
+        "elf": "57dfbbf1246d3cd6837fcd651ab1a6cc360c3be70e66901128a0a14ab7eb26e2",
+        "serial": "f49d6ceca14d2d1187879decfedce2d216906736d8195668af6319e83b21dd28",
+        "build_metadata": "209aa2b9cfb90e9ba7bb2d4167e58d9eaded0b68cb1dcb0d126e945a539c01d3",
+        "lockfile": "b1a528653d16c7a2adc111efc779d9003b50ff3685f0f1a3f48b35ae30424d55"
+      },
+      "host": [],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x10000"
+    }
+  ],
+  "source_sha256": {
+    "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+    "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+    "examples/Cargo.toml": "aad1d278f23de3e79f6b40c7567b952c8e71e657b4adbbb02c008495d86290f6",
+    "examples/Cargo.lock": "b1a528653d16c7a2adc111efc779d9003b50ff3685f0f1a3f48b35ae30424d55",
+    "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+    "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc",
+    "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce"
+  },
+  "memory": {
+    "esp32c3": [
+      {
+        "label": "cursor-final",
+        "writable_allocated_bytes": 109136,
+        "sections": {
+          ".data": 4772,
+          ".data.wifi": 0,
+          ".bss": 104364,
+          ".noinit": 0
+        }
+      },
+      {
+        "label": "burst32-final",
+        "writable_allocated_bytes": 146000,
+        "sections": {
+          ".data": 4772,
+          ".data.wifi": 0,
+          ".bss": 141228,
+          ".noinit": 0
+        }
+      }
+    ],
+    "esp32s3": [
+      {
+        "label": "cursor-final",
+        "writable_allocated_bytes": 407276,
+        "sections": {
+          ".rwdata_dummy": 14600,
+          ".data": 8868,
+          ".data.wifi": 0,
+          ".bss": 106032,
+          ".noinit": 0,
+          ".rodata.wifi": 0,
+          ".rotext_dummy": 65536,
+          ".stack": 212240
+        }
+      },
+      {
+        "label": "burst32-final",
+        "writable_allocated_bytes": 407276,
+        "sections": {
+          ".rwdata_dummy": 14600,
+          ".data": 8868,
+          ".data.wifi": 0,
+          ".bss": 142896,
+          ".noinit": 0,
+          ".rodata.wifi": 0,
+          ".rotext_dummy": 65536,
+          ".stack": 175376
+        }
+      }
+    ]
+  },
+  "build_failures": [
+    {
+      "chip": "esp32c3",
+      "label": "neighbor-observe-v1-sta_smoke",
+      "cause": "Forced portable-atomic critical-section feature conflicted with esp-hal single-core backend; corrected in smoltcp bfb11de and actual C3 link/device tests passed."
+    }
+  ],
+  "limitations": [
+    "Ethernet capture cannot locate an earlier lost ARP exchange on the radio path.",
+    "Finite queues can still lose responses at higher rates, after expiry, or under TX congestion.",
+    "Private ARP omission builds are separate from published source.",
+    "C3/S3 production DMA logic is unchanged by the final removal of unreachable legacy cfg blocks and a duplicate doc comment. Final RX and burst32 images use the listed final source hashes."
+  ]
+}

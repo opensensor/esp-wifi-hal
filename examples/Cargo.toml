@@ -37,7 +37,9 @@ embassy-net-driver = { version = "0.2", optional = true }
 embassy-net = { version = "0.9.1", features = [
     "proto-ipv4", "dhcpv4", "icmp", "auto-icmp-echo-reply", "medium-ethernet",
 ], optional = true }
-smoltcp = { version = "=0.13.1", default-features = false, features = ["iface-pending-responses"], optional = true }
+# At five host echoes/s, cover the 5s neighbor-response lifetime (25 frames).
+# 32 slots cost 36 KiB extra static RAM, including slot metadata.
+smoltcp = { version = "=0.13.1", default-features = false, features = ["iface-pending-responses", "iface-pending-response-count-32"], optional = true }
 
 [build-dependencies]
 cc = { version = "=1.4.0", optional = true }
@@ -58,11 +60,13 @@ path = "src/bin/phy_lifetime_smoke.rs"
 required-features = ["phy-smoke"]
 
 [features]
+rx-probe = ["esp-wifi-hal/rx-probe"]
 phy-smoke = ["dep:esp-phy"]
 printf-smoke = ["dep:cc"]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net", "dep:smoltcp"]
 network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver", "foa_sta/connection-trace"]
 handshake-probe = ["timing-probe", "foa_sta/handshake-probe"]
+neighbor-probe = ["handshake-probe", "smoltcp/iface-pending-response-probe"]
 timing-probe = ["network-trace", "foa/tx-trace", "esp-wifi-hal/timing-probe"]
 
 esp32 = [
@@ -121,7 +125,7 @@ esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Keep transitive users on the reviewed PHY initialization adapter too.
 esp-phy = { path = "../vendor/esp-phy" }
 # Retain automatic ICMP/TCP responses while ARP resolves, including embassy-net's stack.
-smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "517222f7318c092d82197e2e68cfccca0f460b09" }
+smoltcp = { git = "https://github.com/opensensor/smoltcp.git", rev = "bfb11dea0d3ade3d8b1289d6f0a2e4cf220830ff" }
 # S3 Wi-Fi registers pending an upstream PAC release (0.35 compatibility branch).
 esp32s3 = { git = "https://github.com/opensensor/esp-pacs", rev = "37b54bd9ad62de17b17a8d7984a2ace5e73d63dd" }
 # esp32c3 PAC with the Wi-Fi MAC register block (esp-rs/esp-pacs#510), on top of the 0.32.3 release.

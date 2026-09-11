@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2024"
 publish = false
 
+[features]
+burst32 = ["smoltcp/iface-pending-response-count-32", "smoltcp/iface-pending-response-probe"]
+
 [dependencies]
 smoltcp = { version = "=0.13.1", default-features = false, features = [
     "std", "medium-ethernet", "proto-ipv4", "socket-icmp", "auto-icmp-echo-reply",
@@ -11,4 +14,4 @@ smoltcp = { version = "=0.13.1", default-features = false, features = [
 ] }
 
 [patch.crates-io]
-smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "517222f7318c092d82197e2e68cfccca0f460b09" }
+smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "bfb11dea0d3ade3d8b1289d6f0a2e4cf220830ff" }

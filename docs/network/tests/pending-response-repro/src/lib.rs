@@ -165,4 +165,60 @@ mod tests {
             })
         ));
     }
+    #[cfg(feature = "burst32")]
+    #[test]
+    fn five_echoes_per_second_survive_arp_until_the_existing_expiry_boundary() {
+        let mut device = MockDevice::default();
+        let mut iface = Interface::new(Config::new(DEVICE_MAC.into()), &mut device, Instant::ZERO);
+        iface.update_ip_addrs(|addrs| {
+            addrs
+                .push(IpCidr::new(IpAddress::Ipv4(DEVICE_IP), 24))
+                .unwrap()
+        });
+        let mut sockets = SocketSet::new(vec![]);
+        for sequence in 1..=25 {
+            device.rx.push_back(echo(sequence));
+            iface.set_hardware_addr(DEVICE_MAC.into());
+            iface.poll(
+                Instant::from_millis((sequence as i64 - 1) * 200),
+                &mut device,
+                &mut sockets,
+            );
+        }
+        // Discovery transmissions are allowed; no unicast echo reply can be
+        // sent before the neighbor has been resolved.
+        for frame in &device.tx {
+            assert_eq!(
+                EthernetFrame::new_checked(&frame[..]).unwrap().ethertype(),
+                EthernetProtocol::Arp
+            );
+        }
+        device.tx.clear();
+        device.rx.push_back(arp_reply());
+        iface.poll(Instant::from_millis(4999), &mut device, &mut sockets);
+        assert_eq!(device.tx.len(), 25);
+        for (index, bytes) in device.tx.iter().enumerate() {
+            let frame = EthernetFrame::new_checked(&bytes[..]).unwrap();
+            assert_eq!(frame.src_addr(), DEVICE_MAC);
+            assert_eq!(frame.dst_addr(), HOST_MAC);
+            let ip = Ipv4Packet::new_checked(frame.payload()).unwrap();
+            assert!(ip.verify_checksum());
+            assert_eq!(ip.src_addr(), DEVICE_IP);
+            assert_eq!(ip.dst_addr(), HOST_IP);
+            let packet = Icmpv4Packet::new_checked(ip.payload()).unwrap();
+            assert_eq!(
+                Icmpv4Repr::parse(&packet, &ChecksumCapabilities::default()).unwrap(),
+                Icmpv4Repr::EchoReply {
+                    ident: 42,
+                    seq_no: index as u16 + 1,
+                    data: &[0x5a; 512]
+                }
+            );
+        }
+        let counts = smoltcp::iface::pending_response_probe::snapshot();
+        assert_eq!(counts[2], 0, "Queue capacity lost a reply before expiry");
+        assert_eq!(counts[3], 0);
+        assert_eq!(counts[7], 25);
+        assert_eq!(counts[8], 4999);
+    }
 }

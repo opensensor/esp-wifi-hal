@@ -15,9 +15,12 @@ impl DmaDescriptorExt for DmaDescriptor {
         unsafe { self.next.as_mut() }
     }
     fn set_next(&mut self, next: Option<&mut DmaDescriptor>) {
-        self.next = next
+        let next = next
             .map(|next| next as *mut DmaDescriptor)
             .unwrap_or_default();
+        // Publish the initialized descriptor before exposing it to DMA.
+        core::sync::atomic::fence(core::sync::atomic::Ordering::Release);
+        unsafe { (&raw mut self.next).write_volatile(next) };
     }
 }
 
@@ -128,11 +131,20 @@ impl DmaList {
         trace!("Taking buffer: {:x} from DMA list.", first as *mut _ as u32);
         // Every completed descriptor must leave the head, including malformed
         // short completions. The receive layer validates and recycles those.
-        if first.flags.suc_eof() {
+        if unsafe { (&raw const first.flags).read_volatile() }.suc_eof() {
+            core::sync::atomic::fence(core::sync::atomic::Ordering::Acquire);
             let next = first.next();
             if next.is_none() {
                 debug!("RX: Next DMA descriptor was none.");
             };
+            #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+            if let Some(next) = next {
+                self.rx_chain_ptrs.as_mut().unwrap().0 = NonNull::from(next);
+                self.restart_exhausted_rx();
+            } else {
+                self.set_rx_chain_base(None);
+            }
+            #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
             self.set_rx_chain_base(next.map(NonNull::from));
             first.set_owner(Owner::Cpu);
             // A borrowed descriptor must not retain a link into the live queue.
@@ -140,7 +152,30 @@ impl DmaList {
 
             Some(first)
         } else {
+            #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+            self.restart_exhausted_rx();
             None
+        }
+    }
+    /// Restart an exhausted hardware chain at its first available buffer.
+    /// Completed frames can remain at the software head while DMA is farther
+    /// ahead. Reloading that head would overwrite unread frames. A completion
+    /// also calls this path, covering DMA having cached the old null tail just
+    /// before a returned buffer was appended.
+    #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+    fn restart_exhausted_rx(&self) {
+        if self.ll_driver.next_rx_descriptor().is_some() {
+            return;
+        }
+        let mut current = self.rx_chain_ptrs.map(|ptrs| ptrs.0);
+        while let Some(ptr) = current {
+            let descriptor = unsafe { ptr.as_ptr().read_volatile() };
+            if !descriptor.flags.suc_eof() {
+                core::sync::atomic::fence(core::sync::atomic::Ordering::Release);
+                self.ll_driver.set_base_rx_descriptor(ptr);
+                return;
+            }
+            current = NonNull::new(descriptor.next);
         }
     }
     /// Clear the DMA list.
@@ -174,39 +209,77 @@ impl DmaList {
             dma_list_descriptor as *mut _ as u32
         );
 
-        // If the DMA list is not empty, we attach the descriptor to the end, reload the hardware
-        // descriptors and set the last pointer to the descriptor, under some weird conditions.
-        if let Some((_, ref mut last_ptr)) = self.rx_chain_ptrs {
-            unsafe {
-                last_ptr.as_mut().set_next(Some(dma_list_descriptor));
-
-                self.ll_driver.reload_hw_rx_descriptors();
-
-                #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
-                let hardware_has_next = self.ll_driver.next_rx_descriptor().is_some();
-                #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
-                let hardware_has_next = self.ll_driver.next_rx_descriptor().map(NonNull::as_ptr)
-                    != Some(0x3ff00000 as *mut _);
-                if hardware_has_next
-                    || self.ll_driver.last_rx_descriptor().map(NonNull::as_ptr)
-                        == Some(dma_list_descriptor)
-                {
-                    *last_ptr = NonNull::new(dma_list_descriptor).unwrap();
-                    return;
-                }
-                #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
-                {
-                    // Hardware exhaustion does not imply an empty software queue:
-                    // completed frames can still precede this returned buffer.
-                    // Restart hardware here, retaining those frames and the new tail.
-                    *last_ptr = NonNull::from(&mut *dma_list_descriptor);
-                    self.ll_driver.set_base_rx_descriptor(*last_ptr);
-                    return;
-                }
+        #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+        {
+            if let Some((_, last)) = self.rx_chain_ptrs.as_mut() {
+                unsafe { last.as_mut().set_next(Some(dma_list_descriptor)) };
+                *last = NonNull::from(dma_list_descriptor);
+                self.restart_exhausted_rx();
+            } else {
+                self.set_rx_chain_base(Some(NonNull::from(dma_list_descriptor)));
             }
         }
-        // If the DMA list is empty, we make this descriptor the base.
-        self.set_rx_chain_base(NonNull::new(dma_list_descriptor));
+
+        #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
+        {
+            // If the DMA list is not empty, we attach the descriptor to the end, reload the hardware
+            // descriptors and set the last pointer to the descriptor, under some weird conditions.
+            if let Some((_, ref mut last_ptr)) = self.rx_chain_ptrs {
+                unsafe {
+                    last_ptr.as_mut().set_next(Some(dma_list_descriptor));
+
+                    self.ll_driver.reload_hw_rx_descriptors();
+
+                    let hardware_has_next =
+                        self.ll_driver.next_rx_descriptor().map(NonNull::as_ptr)
+                            != Some(0x3ff00000 as *mut _);
+                    if hardware_has_next
+                        || self.ll_driver.last_rx_descriptor().map(NonNull::as_ptr)
+                            == Some(dma_list_descriptor)
+                    {
+                        *last_ptr = NonNull::new(dma_list_descriptor).unwrap();
+                        return;
+                    }
+                }
+            }
+            // If the DMA list is empty, we make this descriptor the base.
+            self.set_rx_chain_base(NonNull::new(dma_list_descriptor));
+        }
+    }
+    /// Snapshot queue ownership and completion metadata without changing it.
+    #[cfg(all(feature = "rx-probe", any(feature = "esp32s3", feature = "esp32c3")))]
+    pub(crate) fn snapshot(&self) -> [usize; 10] {
+        let mut out = [0; 10];
+        if let Some((head, tail)) = self.rx_chain_ptrs {
+            let descriptor = unsafe { head.as_ptr().read_volatile() };
+            out[0] = head.as_ptr() as usize;
+            out[1] = tail.as_ptr() as usize;
+            out[2] = descriptor.buffer as usize;
+            out[3] = descriptor.flags.0 as usize;
+            out[4] = descriptor.next as usize;
+            out[8] = descriptor.len();
+            if descriptor.flags.suc_eof()
+                && (48..=1600).contains(&descriptor.len())
+                && !descriptor.buffer.is_null()
+            {
+                out[9] = unsafe { descriptor.buffer.add(44).cast::<u32>().read_volatile() }
+                    as usize
+                    & 0xfff;
+            }
+        }
+        out[5] = self
+            .ll_driver
+            .base_rx_descriptor()
+            .map_or(0, |p| p.as_ptr() as usize);
+        out[6] = self
+            .ll_driver
+            .next_rx_descriptor()
+            .map_or(0, |p| p.as_ptr() as usize);
+        out[7] = self
+            .ll_driver
+            .last_rx_descriptor()
+            .map_or(0, |p| p.as_ptr() as usize);
+        out
     }
     /// Log the stats about the DMA list.
     pub fn log_stats(&self) {

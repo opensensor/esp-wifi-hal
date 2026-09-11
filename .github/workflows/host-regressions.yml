@@ -39,6 +39,10 @@ jobs:
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu
           --manifest-path docs/network/tests/pending-response-repro/Cargo.toml
+      - name: Retain a five-per-second echo burst until ARP expiry
+        run: >-
+          cargo +stable test --locked --target x86_64-unknown-linux-gnu
+          --manifest-path docs/network/tests/pending-response-repro/Cargo.toml --features burst32
       - name: Preserve MAC retry identity and duplicate suppression
         run: |
           sh docs/network/tests/run-mac-retry.sh

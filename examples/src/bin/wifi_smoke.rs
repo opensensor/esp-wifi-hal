@@ -55,77 +55,183 @@ async fn main(_spawner: Spawner) {
     }
     assert!(received > 0, "No frames received");
     wifi.set_channel(busiest_channel).unwrap();
-    // Exhaust the ten descriptors supplied by examples::wifi_init, then return
-    // them in reverse order. RX must recover after all buffers were loaned out.
-    let mut held: [Option<BorrowedBuffer<'_>>; 10] = core::array::from_fn(|_| None);
-    for entry in &mut held[..9] {
-        *entry = Some(
+    let rx_cycles: u32 = option_env!("RX_SMOKE_CYCLES")
+        .unwrap_or("1")
+        .parse()
+        .unwrap();
+    assert!(rx_cycles > 0 && rx_cycles <= 1000);
+    for rx_cycle in 1..=rx_cycles {
+        info!("stage=rx_cycle_begin cycle={}", rx_cycle);
+        #[cfg(feature = "rx-probe")]
+        let mut snapshots = [[0usize; 10]; 3];
+        // Exhaust the ten descriptors supplied by examples::wifi_init, then return
+        // them in reverse order. RX must recover after all buffers were loaned out.
+        let mut held: [Option<BorrowedBuffer<'_>>; 10] = core::array::from_fn(|_| None);
+        for entry in &mut held[..9] {
+            *entry = Some(
+                with_timeout(Duration::from_secs(2), wifi.receive())
+                    .await
+                    .unwrap_or_else(|_| {
+                        #[cfg(feature = "rx-probe")]
+                        {
+                            info!(
+                                "stage=rx_failure_snapshots cycle={} history={:?} current={:?}",
+                                rx_cycle,
+                                snapshots,
+                                wifi.rx_queue_snapshot()
+                            );
+                        }
+                        panic!("RX drain timed out")
+                    }),
+            );
+        }
+        #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+        {
+            // Leave the tenth descriptor completed but unread while hardware runs
+            // out of buffers. Returning one must not discard that pending frame.
+            let pending_buffer = with_timeout(Duration::from_secs(2), async {
+                loop {
+                    let registers = unsafe { LowLevelDriver::regs() };
+                    let dma = registers.rx_dma_list();
+                    // BASE is a reload address, not the software queue head.
+                    // At exhaustion LAST identifies the completed hardware tail.
+                    let base_offset = dma.rx_descr_last().read().bits() & 0xfffff;
+                    if base_offset != 0 {
+                        #[cfg(feature = "esp32s3")]
+                        let high = 0x3fc00000;
+                        #[cfg(feature = "esp32c3")]
+                        let high =
+                            unsafe { (0x60033c64 as *const u32).read_volatile() } & 0xfff00000;
+                        let descriptor = unsafe {
+                            ((high | base_offset) as *const esp_hal::dma::DmaDescriptor)
+                                .read_volatile()
+                        };
+                        if descriptor.flags.suc_eof()
+                            && descriptor.len() >= BorrowedBuffer::RX_CONTROL_HEADER_LENGTH + 24
+                            && dma.rx_descr_next().read().bits() & 0xfffff == 0
+                        {
+                            let sig =
+                                unsafe { descriptor.buffer.add(44).cast::<u32>().read_volatile() }
+                                    & 0xfff;
+                            info!(
+                                "stage=pending_diagnostic length={} sig={} buffer={:x}",
+                                descriptor.len(),
+                                sig,
+                                descriptor.buffer as usize
+                            );
+                            break descriptor.buffer;
+                        }
+                    }
+                    embassy_time::Timer::after_millis(10).await;
+                }
+            })
+            .await
+            .unwrap_or_else(|_| {
+                #[cfg(feature = "rx-probe")]
+                {
+                    info!(
+                        "stage=rx_failure_snapshots cycle={} history={:?} current={:?}",
+                        rx_cycle,
+                        snapshots,
+                        wifi.rx_queue_snapshot()
+                    );
+                }
+                panic!("Hardware did not reach an unread completed tail")
+            });
+            info!("stage=rx_pending_exhausted held=9 pending=1");
+            #[cfg(feature = "rx-probe")]
+            {
+                snapshots[0] = wifi.rx_queue_snapshot();
+            }
+            drop(held[0].take());
+            #[cfg(feature = "rx-probe")]
+            {
+                snapshots[1] = wifi.rx_queue_snapshot();
+            }
+            let pending = with_timeout(Duration::from_secs(2), wifi.receive())
+                .await
+                .unwrap_or_else(|_| {
+                    #[cfg(feature = "rx-probe")]
+                    {
+                        info!(
+                            "stage=rx_failure_snapshots cycle={} history={:?} current={:?}",
+                            rx_cycle,
+                            snapshots,
+                            wifi.rx_queue_snapshot()
+                        );
+                    }
+                    panic!("Returning a buffer discarded the pending frame")
+                });
+            info!(
+                "stage=delivered_diagnostic length={} buffer={:x}",
+                pending.padded_buffer().len(),
+                pending.padded_buffer().as_ptr() as usize
+            );
+            #[cfg(feature = "rx-probe")]
+            {
+                snapshots[2] = wifi.rx_queue_snapshot();
+                if pending.padded_buffer().as_ptr() != pending_buffer as *const u8 {
+                    info!(
+                        "stage=rx_snapshot cycle={} when=before_return values={:?}",
+                        rx_cycle, snapshots[0]
+                    );
+                    info!(
+                        "stage=rx_snapshot cycle={} when=after_return values={:?}",
+                        rx_cycle, snapshots[1]
+                    );
+                    info!(
+                        "stage=rx_snapshot cycle={} when=after_receive values={:?}",
+                        rx_cycle, snapshots[2]
+                    );
+                }
+            }
+            assert_eq!(
+                pending.padded_buffer().as_ptr(),
+                pending_buffer as *const u8,
+                "Returning a buffer changed which completed frame was delivered"
+            );
+            held[0] = Some(pending);
+            info!("stage=rx_pending_preserved");
+        }
+        held[9] = Some(
             with_timeout(Duration::from_secs(2), wifi.receive())
                 .await
-                .expect("RX drain timed out"),
-        );
-    }
-    #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
-    {
-        // Leave the tenth descriptor completed but unread while hardware runs
-        // out of buffers. Returning one must not discard that pending frame.
-        let pending_buffer = with_timeout(Duration::from_secs(2), async {
-            loop {
-                let registers = unsafe { LowLevelDriver::regs() };
-                let dma = registers.rx_dma_list();
-                let base_offset = dma.rx_descr_base().read().bits() & 0xfffff;
-                if base_offset != 0 {
-                    #[cfg(feature = "esp32s3")]
-                    let high = 0x3fc00000;
-                    #[cfg(feature = "esp32c3")]
-                    let high = unsafe { (0x60033c64 as *const u32).read_volatile() } & 0xfff00000;
-                    let descriptor = unsafe {
-                        ((high | base_offset) as *const esp_hal::dma::DmaDescriptor)
-                            .read_volatile()
-                    };
-                    if descriptor.flags.suc_eof()
-                        && descriptor.len() >= BorrowedBuffer::RX_CONTROL_HEADER_LENGTH + 24
-                        && dma.rx_descr_next().read().bits() & 0xfffff == 0
+                .unwrap_or_else(|_| {
+                    #[cfg(feature = "rx-probe")]
                     {
-                        let sig = unsafe { descriptor.buffer.add(44).cast::<u32>().read_volatile() } & 0xfff;
-                        info!("stage=pending_diagnostic length={} sig={} buffer={:x}", descriptor.len(), sig, descriptor.buffer as usize);
-                        break descriptor.buffer;
+                        info!(
+                            "stage=rx_failure_snapshots cycle={} history={:?} current={:?}",
+                            rx_cycle,
+                            snapshots,
+                            wifi.rx_queue_snapshot()
+                        );
                     }
-                }
-                embassy_time::Timer::after_millis(10).await;
-            }
-        })
-        .await
-        .expect("Hardware did not reach an unread completed tail");
-        info!("stage=rx_pending_exhausted held=9 pending=1");
-        drop(held[0].take());
-        let pending = with_timeout(Duration::from_secs(2), wifi.receive())
-            .await
-            .expect("Returning a buffer discarded the pending frame");
-        info!("stage=delivered_diagnostic length={} buffer={:x}", pending.padded_buffer().len(), pending.padded_buffer().as_ptr() as usize);
-        assert_eq!(
-            pending.padded_buffer().as_ptr(),
-            pending_buffer as *const u8,
-            "Returning a buffer changed which completed frame was delivered"
+                    panic!("RX drain timed out")
+                }),
         );
-        held[0] = Some(pending);
-        info!("stage=rx_pending_preserved");
+        info!("stage=rx_exhausted buffers=10");
+        for entry in held.iter_mut().rev() {
+            drop(entry.take());
+        }
+        drop(
+            with_timeout(Duration::from_secs(2), wifi.receive())
+                .await
+                .unwrap_or_else(|_| {
+                    #[cfg(feature = "rx-probe")]
+                    {
+                        info!(
+                            "stage=rx_failure_snapshots cycle={} history={:?} current={:?}",
+                            rx_cycle,
+                            snapshots,
+                            wifi.rx_queue_snapshot()
+                        );
+                    }
+                    panic!("RX did not recover")
+                }),
+        );
+        info!("stage=rx_recovered");
+        info!("stage=rx_cycle_complete cycle={}", rx_cycle);
     }
-    held[9] = Some(
-        with_timeout(Duration::from_secs(2), wifi.receive())
-            .await
-            .expect("RX drain timed out"),
-    );
-    info!("stage=rx_exhausted buffers=10");
-    for entry in held.iter_mut().rev() {
-        drop(entry.take());
-    }
-    drop(
-        with_timeout(Duration::from_secs(2), wifi.receive())
-            .await
-            .expect("RX did not recover"),
-    );
-    info!("stage=rx_recovered");
     wifi.set_channel(examples::get_test_channel()).unwrap();
     // Broadcast probe request with wildcard SSID and the four basic DSSS rates.
     let mut probe = [0u8; 32];

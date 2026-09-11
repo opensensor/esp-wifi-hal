@@ -86,6 +86,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0ca88d725a0a943b096803bd34e73a4437208b6077654cc4ecb2947a5f91618d"
 
 [[package]]
+name = "portable-atomic"
+version = "1.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05c8b63e8d9609db387f0324918f81d68fe27748f084ef092fb35954d0539a85"
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.107"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -106,7 +112,7 @@ dependencies = [
 [[package]]
 name = "smoltcp"
 version = "0.13.1"
-source = "git+https://github.com/opensensor/smoltcp?rev=517222f7318c092d82197e2e68cfccca0f460b09#517222f7318c092d82197e2e68cfccca0f460b09"
+source = "git+https://github.com/opensensor/smoltcp?rev=bfb11dea0d3ade3d8b1289d6f0a2e4cf220830ff#bfb11dea0d3ade3d8b1289d6f0a2e4cf220830ff"
 dependencies = [
  "bitflags",
  "byteorder",
@@ -114,6 +120,7 @@ dependencies = [
  "defmt 0.3.100",
  "heapless",
  "managed",
+ "portable-atomic",
 ]
 
 [[package]]

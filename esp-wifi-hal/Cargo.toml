@@ -62,6 +62,7 @@ opt-level = 's'
 overflow-checks = false
 
 [features]
+rx-probe = []
 esp32 = [
   "dep:esp32",
   "esp-hal/esp32",

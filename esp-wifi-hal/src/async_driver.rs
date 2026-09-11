@@ -1291,6 +1291,14 @@ pub trait AsyncReceive<'res>: HasDmaList<'res> {
             LowLevelDriver::set_rx_enable(enabled);
         }
     }
+    /// Snapshot software head/tail, head buffer/flags/next, hardware base/next/last,
+    /// head length and SIG_LEN. Zero means absent. Hardware can advance while
+    /// sampling; the mutex only stabilizes the software queue. No packet bytes
+    /// are exported and no queue state is changed.
+    #[cfg(all(feature = "rx-probe", any(feature = "esp32s3", feature = "esp32c3")))]
+    fn rx_queue_snapshot(&self) -> [usize; 10] {
+        self.dma_list_ref().lock(|list| list.borrow().snapshot())
+    }
     /// Log stats about the DMA list.
     fn log_dma_list_stats(&self) {
         self.dma_list_ref()
