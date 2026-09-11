@@ -25,11 +25,11 @@ esp32c3 = { version = "0.32", optional = true, features = [
 ] }
 
 esp32s3 = { version = "=0.35.2", optional = true, features = ["critical-section"] }
-esp-wifi-sys-esp32s3 = { version = "=0.2.0", optional = true }
+esp-wifi-sys-esp32s3 = { version = "=0.2.0", git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0", optional = true }
 
 esp-wifi-sys-esp32 = { version = "=0.2.0", optional = true }
 esp-wifi-sys-esp32s2 = { version = "=0.2.0", optional = true }
-esp-wifi-sys-esp32c3 = { version = "=0.2.0", optional = true }
+esp-wifi-sys-esp32c3 = { version = "=0.2.0", git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0", optional = true }
 
 # Embassy dependencies
 embassy-futures = "0.1.2"

@@ -12,3 +12,4 @@ for chip in esp32c3 esp32s3; do
         "$test_out/$chip-$optimization"
     done
 done
+python3 "$test_dir/phy-wrapper-oracle/verify.py"

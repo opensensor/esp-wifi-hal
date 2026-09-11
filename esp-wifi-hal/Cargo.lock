@@ -73,6 +73,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b"
 
 [[package]]
+name = "cc"
+version = "1.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5add81bb678e6cb321aff7fa0dc7689ad82b112dbc032cea19f91d6b8e3582b9"
+dependencies = [
+ "find-msvc-tools",
+ "shlex",
+]
+
+[[package]]
 name = "cfg-if"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -723,8 +733,10 @@ checksum = "2556f38f5292d9735d4e156e276815fc001c9a0a2be0544a575c5fb867129d24"
 [[package]]
 name = "esp-wifi-sys-esp32c3"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b290846b53db9a3965866964260220b67f2c41cc2dbc0b377e7136239fe168a7"
+source = "git+https://github.com/opensensor/esp-wifi-sys?rev=73add8985cec3b7582e6df80a4273022deb844b0#73add8985cec3b7582e6df80a4273022deb844b0"
+dependencies = [
+ "esp-wifi-sys-printf",
+]
 
 [[package]]
 name = "esp-wifi-sys-esp32s2"
@@ -735,8 +747,18 @@ checksum = "c2a9a7f1bc51e7026c3012cda4f11d8799e5e0c0bb3be85797462219def6c26e"
 [[package]]
 name = "esp-wifi-sys-esp32s3"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5d8321f44b57d8112cbd8607cc83b85783b9195289acb45532728e3e229e7786"
+source = "git+https://github.com/opensensor/esp-wifi-sys?rev=73add8985cec3b7582e6df80a4273022deb844b0#73add8985cec3b7582e6df80a4273022deb844b0"
+dependencies = [
+ "esp-wifi-sys-printf",
+]
+
+[[package]]
+name = "esp-wifi-sys-printf"
+version = "0.1.0"
+source = "git+https://github.com/opensensor/esp-wifi-sys?rev=73add8985cec3b7582e6df80a4273022deb844b0#73add8985cec3b7582e6df80a4273022deb844b0"
+dependencies = [
+ "cc",
+]
 
 [[package]]
 name = "esp32"
@@ -834,6 +856,12 @@ checksum = "ab08eb1f516ba72b7eb272cdd88cd74899552292a294b831b2143a3e60f1666a"
 dependencies = [
  "vcell",
 ]
+
+[[package]]
+name = "find-msvc-tools"
+version = "0.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5baebc0774151f905a1a2cc41989300b1e6fbb29aff0ceffa1064fdd3088d582"
 
 [[package]]
 name = "fnv"
@@ -1301,6 +1329,12 @@ dependencies = [
  "cpufeatures",
  "digest",
 ]
+
+[[package]]
+name = "shlex"
+version = "2.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
 
 [[package]]
 name = "somni-expr"

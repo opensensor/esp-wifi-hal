@@ -144,6 +144,8 @@ optional = true
 
 [dependencies.esp-wifi-sys-esp32c3]
 version = "=0.2.0"
+git = "https://github.com/opensensor/esp-wifi-sys"
+rev = "73add8985cec3b7582e6df80a4273022deb844b0"
 optional = true
 
 [dependencies.esp-wifi-sys-esp32c5]
@@ -168,6 +170,8 @@ optional = true
 
 [dependencies.esp-wifi-sys-esp32s3]
 version = "=0.2.0"
+git = "https://github.com/opensensor/esp-wifi-sys"
+rev = "73add8985cec3b7582e6df80a4273022deb844b0"
 optional = true
 
 [dependencies.esp32]

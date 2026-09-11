@@ -14,7 +14,12 @@ original manifest and an empty `esp-phy` file are omitted.
 
 The normalized registry manifest is retained so sibling workspace crates stay
 on their published versions. Its two C3/S3 `esp-wifi-sys` requirements are
-tightened to `=0.2.0` to pin the private data layout. The only source changes are the C3/S3 USB-enable
+tightened to `=0.2.0` and the OpenSensor Git revision
+`73add8985cec3b7582e6df80a4273022deb844b0` to pin the private data layout
+and build printf from source. That revision preserves every other C3/S3
+archive and public binding from the published 0.2.0 packages. The driver uses
+the same Git dependencies, so downstream consumers do not need a Cargo patch
+to get source-built printf. The only Rust source changes are the C3/S3 USB-enable
 wrapper in `src/usb_phy.rs` and its call site in `src/lib.rs`. Other chips keep
 their original FFI call. Configuration, PHY lifetime management, calibration
 selection and the call ordering are unchanged.
