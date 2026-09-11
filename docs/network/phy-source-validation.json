@@ -1,0 +1,1714 @@
+{
+  "schema": "opensensor-phy-source-device-validation-v1",
+  "date": "2026-09-11",
+  "baseline_hal_revision": "4885cb7c3027f113038f76641c15173fdf83b3a4",
+  "combined_implementation_revision": "4e7ece5959f0e25ea588332ae8eee648d58f5fc2",
+  "corrected_lifetime_probe_revision": "b527b7e7501d63872ac8a0dc529555423a8d9ed2",
+  "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+  "foa_revision": "39f44767178462e0c5e02aa8a8bd220c8cfd1bd3",
+  "smoltcp_revision": "517222f7318c092d82197e2e68cfccca0f460b09",
+  "allocation_method": "Live input ranges wholly within ELF SHF_ALLOC outputs, including COMMON; excludes debug, discarded sections and padding. Observed archive hashes are audit-time checks; pair them with pinned source/build provenance.",
+  "station": [
+    {
+      "chip": "esp32c3",
+      "label": "baseline-sta_smoke",
+      "elf_sha256": "5683c430fa1660e7c761d6f87b1db95f26300951272911baad505d642de310d1",
+      "map_sha256": "aaa62820a1420c8a02d863770422b5601fc767f34093247ecdee93b87ac52419",
+      "flashed_image_sha256": "67543e8fbe5a1d276f5e89f34f5398966c35400f3f70e129a817eace412ba714",
+      "serial_sha256": "bf30b3196fd90233a502f006eb06ccdb3fd983ae05ee1864133d544dc3d079ad",
+      "complete": true,
+      "application_offset": "0x10000",
+      "starts": 503,
+      "finishes": 503,
+      "unpaired_starts": 0,
+      "result_histogram": {
+        "Ok(0)": 447,
+        "Ok(1)": 49,
+        "Ok(2)": 5,
+        "Ok(3)": 1,
+        "Ok(4)": 1
+      },
+      "protected_completions": 453,
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [],
+      "tx_exhausted_warnings": 0,
+      "host_capture_stats": {
+        "written_packets": 1221,
+        "socket_packets": 1221,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_sent": 200,
+      "host_unique_replies": 200,
+      "host_duplicate_replies": 0,
+      "gateway_sent": 200,
+      "gateway_replies": 200,
+      "pending_response_queued": 9,
+      "pending_response_dispatched": 9,
+      "allocations": {
+        "libphy.a": {
+          "bytes": 35605,
+          "input_sections": 167,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 741,
+            "phy_api.o": 186,
+            "phy_basic.o": 328,
+            "phy_debug.o": 370,
+            "phy_feature.o": 764,
+            "phy_hw_freq.o": 3036,
+            "phy_i2c.o": 2418,
+            "phy_init.o": 4815,
+            "phy_pbus.o": 1090,
+            "phy_pwdet.o": 588,
+            "phy_reg.o": 2664,
+            "phy_rfpll.o": 2064,
+            "phy_rx_cal.o": 5402,
+            "phy_rx_gain.o": 2323,
+            "phy_track.o": 1230,
+            "phy_tsens.o": 578,
+            "phy_tx_cal.o": 5028,
+            "phy_tx_gain.o": 1980
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 4992,
+          "input_sections": 13,
+          "member_count": 1,
+          "members": {
+            "printf.c.obj": 4992
+          }
+        },
+        "source_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": {
+          "address": "0x4203c7d6",
+          "size_bytes": 2
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203c7c6",
+          "size_bytes": 10
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cc2c",
+          "size_bytes": 122
+        },
+        "phy_param": {
+          "address": "0x3fc83118",
+          "size_bytes": 848
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203d75a",
+          "size_bytes": 398
+        },
+        "vsnprintf": {
+          "address": "0x42044f0a",
+          "size_bytes": 18
+        }
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "fe8e81bea309259e0f4d749ec796bb2a90e36202ae200af9441915f2e61bc472",
+          "members_referenced_in_selected_map_rows": [
+            "printf.c.obj"
+          ]
+        }
+      ]
+    },
+    {
+      "chip": "esp32c3",
+      "label": "printf-v2-sta_smoke",
+      "elf_sha256": "e990e74fecb4334546afe1e082b0bd9403dfcccc5575a94bb6eb4edbb612eccb",
+      "map_sha256": "d76a4a15ff9a1c6b8062f748644cb41f66d46caae6cb4d7aa117593f4d5de029",
+      "flashed_image_sha256": "33e9fc1f110307536d7115dae2af00b40e4708ad1ea35ca53390539624f0835f",
+      "serial_sha256": "ebbc39e4452ae5c002d6b8fd75514e3298684ad287e8d5fdbef02e8459ce28c0",
+      "complete": true,
+      "application_offset": "0x10000",
+      "starts": 503,
+      "finishes": 503,
+      "unpaired_starts": 0,
+      "result_histogram": {
+        "Ok(0)": 453,
+        "Ok(1)": 34,
+        "Ok(4)": 5,
+        "Ok(6)": 1,
+        "Ok(2)": 7,
+        "Ok(3)": 3
+      },
+      "protected_completions": 452,
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "unique_replies": 19,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [],
+      "tx_exhausted_warnings": 0,
+      "host_capture_stats": {
+        "written_packets": 1372,
+        "socket_packets": 1372,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_sent": 200,
+      "host_unique_replies": 199,
+      "host_duplicate_replies": 0,
+      "gateway_sent": 200,
+      "gateway_replies": 200,
+      "pending_response_queued": 9,
+      "pending_response_dispatched": 9,
+      "allocations": {
+        "libphy.a": {
+          "bytes": 35605,
+          "input_sections": 167,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 741,
+            "phy_api.o": 186,
+            "phy_basic.o": 328,
+            "phy_debug.o": 370,
+            "phy_feature.o": 764,
+            "phy_hw_freq.o": 3036,
+            "phy_i2c.o": 2418,
+            "phy_init.o": 4815,
+            "phy_pbus.o": 1090,
+            "phy_pwdet.o": 588,
+            "phy_reg.o": 2664,
+            "phy_rfpll.o": 2064,
+            "phy_rx_cal.o": 5402,
+            "phy_rx_gain.o": 2323,
+            "phy_track.o": 1230,
+            "phy_tsens.o": 578,
+            "phy_tx_cal.o": 5028,
+            "phy_tx_gain.o": 1980
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 5700,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 5700
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": {
+          "address": "0x4203c7d6",
+          "size_bytes": 2
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203c7c6",
+          "size_bytes": 10
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cc2c",
+          "size_bytes": 122
+        },
+        "phy_param": {
+          "address": "0x3fc83118",
+          "size_bytes": 848
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203d75a",
+          "size_bytes": 398
+        },
+        "vsnprintf": {
+          "address": "0x42045164",
+          "size_bytes": 32
+        }
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    {
+      "chip": "esp32c3",
+      "label": "combined-sta_smoke",
+      "elf_sha256": "58aa75c5c6f8b2c52fd9e10c2219a3a9b8412dd18cad469fd214ba87585aa87a",
+      "map_sha256": "b75822bc88e038d69602c1f220f490ff9cf074f767df2780fd94fd40d504dfaa",
+      "flashed_image_sha256": "5943a242f27457f63401c4ef91a16054187b45b39f80f991dbad61f32e398931",
+      "serial_sha256": "9a0d7a9d98c62365ec9d9febc579455f8df53d8b61f2d1c05d6af19c75e1eebc",
+      "complete": true,
+      "application_offset": "0x10000",
+      "starts": 504,
+      "finishes": 504,
+      "unpaired_starts": 0,
+      "result_histogram": {
+        "Ok(0)": 457,
+        "Ok(1)": 38,
+        "Ok(5)": 2,
+        "Ok(3)": 3,
+        "Ok(2)": 4
+      },
+      "protected_completions": 454,
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [],
+      "tx_exhausted_warnings": 0,
+      "host_capture_stats": {
+        "written_packets": 1168,
+        "socket_packets": 1168,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_sent": 200,
+      "host_unique_replies": 200,
+      "host_duplicate_replies": 0,
+      "gateway_sent": 200,
+      "gateway_replies": 200,
+      "pending_response_queued": 9,
+      "pending_response_dispatched": 9,
+      "allocations": {
+        "libphy.a": {
+          "bytes": 35593,
+          "input_sections": 165,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 741,
+            "phy_api.o": 174,
+            "phy_basic.o": 328,
+            "phy_debug.o": 370,
+            "phy_feature.o": 764,
+            "phy_hw_freq.o": 3036,
+            "phy_i2c.o": 2418,
+            "phy_init.o": 4815,
+            "phy_pbus.o": 1090,
+            "phy_pwdet.o": 588,
+            "phy_reg.o": 2664,
+            "phy_rfpll.o": 2064,
+            "phy_rx_cal.o": 5402,
+            "phy_rx_gain.o": 2323,
+            "phy_track.o": 1230,
+            "phy_tsens.o": 578,
+            "phy_tx_cal.o": 5028,
+            "phy_tx_gain.o": 1980
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 5700,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 5700
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": null,
+        "phy_bbpll_en_usb": null,
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cc1c",
+          "size_bytes": 122
+        },
+        "phy_param": {
+          "address": "0x3fc83118",
+          "size_bytes": 848
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203d750",
+          "size_bytes": 398
+        },
+        "vsnprintf": {
+          "address": "0x4204515a",
+          "size_bytes": 32
+        }
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "baseline-sta_smoke",
+      "elf_sha256": "7d1ed12053ec56717641f48425aa03c94dcdf79d65c7e6c8498d28f75487cfb3",
+      "map_sha256": "f70b3b654677d2a8063c746bb65f194e3d551511b575f827efd136721e6e1ebe",
+      "flashed_image_sha256": "d09af5ce543d141ce03684ef3bdfd31a72fba7ba62c96b5fdb0a78636fced81a",
+      "serial_sha256": "fbb606c347b28284072e18c366a3f7373258dde047f2a92fe9482d9b2b102881",
+      "complete": false,
+      "application_offset": "0x20000",
+      "starts": 505,
+      "finishes": 505,
+      "unpaired_starts": 0,
+      "result_histogram": {
+        "Ok(0)": 464,
+        "Ok(2)": 7,
+        "Ok(1)": 29,
+        "Ok(5)": 1,
+        "Ok(3)": 4
+      },
+      "protected_completions": 455,
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "unique_replies": 18,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 19
+        }
+      ],
+      "gateway_timeouts": [
+        {
+          "cycle": 10,
+          "sequence": 20
+        }
+      ],
+      "tx_exhausted_warnings": 0,
+      "host_capture_stats": {
+        "written_packets": 1160,
+        "socket_packets": 1161,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_sent": 200,
+      "host_unique_replies": 198,
+      "host_duplicate_replies": 0,
+      "gateway_sent": 200,
+      "gateway_replies": 199,
+      "pending_response_queued": 22,
+      "pending_response_dispatched": 20,
+      "allocations": {
+        "libphy.a": {
+          "bytes": 33250,
+          "input_sections": 166,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 633,
+            "phy_api.o": 179,
+            "phy_basic.o": 395,
+            "phy_debug.o": 306,
+            "phy_feature.o": 514,
+            "phy_hw_freq.o": 3122,
+            "phy_i2c.o": 1985,
+            "phy_init.o": 4173,
+            "phy_pbus.o": 972,
+            "phy_pwdet.o": 378,
+            "phy_reg.o": 3931,
+            "phy_rfpll.o": 1876,
+            "phy_rx_cal.o": 5459,
+            "phy_rx_gain.o": 2057,
+            "phy_track.o": 922,
+            "phy_tsens.o": 585,
+            "phy_tx_cal.o": 3794,
+            "phy_tx_gain.o": 1969
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 4738,
+          "input_sections": 19,
+          "member_count": 1,
+          "members": {
+            "printf.c.obj": 4738
+          }
+        },
+        "source_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": {
+          "address": "0x4203a1b4",
+          "size_bytes": 14
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203a1a4",
+          "size_bytes": 14
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x420408a4",
+          "size_bytes": 78
+        },
+        "phy_param": {
+          "address": "0x3fc8d414",
+          "size_bytes": 740
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203aaa4",
+          "size_bytes": 366
+        },
+        "vsnprintf": {
+          "address": "0x42041998",
+          "size_bytes": 28
+        }
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "97a6d961ed214d1b8f8a1646493f6f72c72191e52d6c678c436aca4c46fe053f",
+          "members_referenced_in_selected_map_rows": [
+            "printf.c.obj"
+          ]
+        }
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "printf-v2-sta_smoke",
+      "elf_sha256": "3ba038980b9eea06f2294a0b343aff721e861c3293c44be3295af88c82f27a3d",
+      "map_sha256": "b7b5d8c83194bcf03214181598e94dbdee23fe295902a530a2685199ff3a7788",
+      "flashed_image_sha256": "5dcfefe82e0b21a6e695c42e7e842c56bb5ff757045d848ee43f2ca147c4b566",
+      "serial_sha256": "8e745cb4227c2122daf18e3acf1ff4345df10b36c0b420597ae9aa07da4fa761",
+      "complete": false,
+      "application_offset": "0x20000",
+      "starts": 159,
+      "finishes": 159,
+      "unpaired_starts": 0,
+      "result_histogram": {
+        "Ok(0)": 138,
+        "Ok(1)": 13,
+        "Ok(2)": 7,
+        "Ok(3)": 1
+      },
+      "protected_completions": 140,
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 19
+        }
+      ],
+      "gateway_timeouts": [
+        {
+          "cycle": 2,
+          "sequence": 11
+        },
+        {
+          "cycle": 3,
+          "sequence": 17
+        }
+      ],
+      "tx_exhausted_warnings": 0,
+      "host_capture_stats": {
+        "written_packets": 869,
+        "socket_packets": 869,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_sent": 60,
+      "host_unique_replies": 60,
+      "host_duplicate_replies": 0,
+      "gateway_sent": 60,
+      "gateway_replies": 58,
+      "pending_response_queued": 6,
+      "pending_response_dispatched": 6,
+      "allocations": {
+        "libphy.a": {
+          "bytes": 33270,
+          "input_sections": 166,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 649,
+            "phy_api.o": 179,
+            "phy_basic.o": 395,
+            "phy_debug.o": 306,
+            "phy_feature.o": 514,
+            "phy_hw_freq.o": 3122,
+            "phy_i2c.o": 1985,
+            "phy_init.o": 4173,
+            "phy_pbus.o": 972,
+            "phy_pwdet.o": 378,
+            "phy_reg.o": 3931,
+            "phy_rfpll.o": 1876,
+            "phy_rx_cal.o": 5459,
+            "phy_rx_gain.o": 2057,
+            "phy_track.o": 922,
+            "phy_tsens.o": 589,
+            "phy_tx_cal.o": 3794,
+            "phy_tx_gain.o": 1969
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 4966,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 4966
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": {
+          "address": "0x4203a0f4",
+          "size_bytes": 14
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203a0e4",
+          "size_bytes": 14
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x420407f8",
+          "size_bytes": 78
+        },
+        "phy_param": {
+          "address": "0x3fc8d414",
+          "size_bytes": 740
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203a9e4",
+          "size_bytes": 366
+        },
+        "vsnprintf": {
+          "address": "0x42041a24",
+          "size_bytes": 32
+        }
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "combined-sta_smoke",
+      "elf_sha256": "5880e016e9e83f5eaab5204d371056b6e63c34bb199dee23f6874a96d3580f65",
+      "map_sha256": "d54e9389ca9f1510a327d6ad0f9ff17df9fd0008d9d394804a48c65df97a8899",
+      "flashed_image_sha256": "95f036d312acbaa8c58f055d37761b32d613a78b822a6527a73e1c4dd1089b00",
+      "serial_sha256": "6d7df0e6a65c46bf3a4d98be6ab80e390dfe9b76b53d2c9a3d3041fb385d2cf1",
+      "complete": false,
+      "application_offset": "0x20000",
+      "starts": 504,
+      "finishes": 504,
+      "unpaired_starts": 0,
+      "result_histogram": {
+        "Ok(0)": 452,
+        "Ok(1)": 39,
+        "Ok(2)": 6,
+        "Ok(4)": 3,
+        "Ok(5)": 1,
+        "Ok(3)": 3
+      },
+      "protected_completions": 453,
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "unique_replies": 20,
+          "duplicate_sequences": []
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 18
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [
+        {
+          "cycle": 1,
+          "sequence": 1
+        },
+        {
+          "cycle": 1,
+          "sequence": 17
+        },
+        {
+          "cycle": 9,
+          "sequence": 20
+        }
+      ],
+      "tx_exhausted_warnings": 0,
+      "host_capture_stats": {
+        "written_packets": 1109,
+        "socket_packets": 1109,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_sent": 200,
+      "host_unique_replies": 200,
+      "host_duplicate_replies": 0,
+      "gateway_sent": 200,
+      "gateway_replies": 197,
+      "pending_response_queued": 9,
+      "pending_response_dispatched": 9,
+      "allocations": {
+        "libphy.a": {
+          "bytes": 33238,
+          "input_sections": 164,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 649,
+            "phy_api.o": 147,
+            "phy_basic.o": 395,
+            "phy_debug.o": 306,
+            "phy_feature.o": 510,
+            "phy_hw_freq.o": 3118,
+            "phy_i2c.o": 1985,
+            "phy_init.o": 4169,
+            "phy_pbus.o": 972,
+            "phy_pwdet.o": 378,
+            "phy_reg.o": 3931,
+            "phy_rfpll.o": 1872,
+            "phy_rx_cal.o": 5459,
+            "phy_rx_gain.o": 2053,
+            "phy_track.o": 942,
+            "phy_tsens.o": 589,
+            "phy_tx_cal.o": 3794,
+            "phy_tx_gain.o": 1969
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 4966,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 4966
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": null,
+        "phy_bbpll_en_usb": null,
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203a3e4",
+          "size_bytes": 78
+        },
+        "phy_param": {
+          "address": "0x3fc8d414",
+          "size_bytes": 740
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203ad80",
+          "size_bytes": 366
+        },
+        "vsnprintf": {
+          "address": "0x42041a0c",
+          "size_bytes": 32
+        }
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    }
+  ],
+  "probes": [
+    {
+      "chip": "esp32c3",
+      "label": "printf-wifi_smoke",
+      "elf_sha256": "75018042bbc86d951e2e21081dc020c017f82986fbb65bc1ea2d38c6c1254b44",
+      "map_sha256": "3615cd54d297119caee7a3137dee423b9f231ee979395f6d6e95a1195eee38ee",
+      "flashed_image_sha256": "726c6b80d8b2500b92da6ee57be86184ed19e5549bc13f53cc74ae0cb97fc6a5",
+      "serial_sha256": "42be56f0243354a8287f3df15c62ac6b808680c420e1b16b614d204a9c57280f",
+      "complete": true,
+      "application_offset": "0x10000",
+      "sys_revision": "ffcc1a2a4807a8c782f08fb7c72076240b315888",
+      "printf_abi_result": 0,
+      "required_rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 9,
+      "ofdm_frames": 2
+    },
+    {
+      "chip": "esp32s3",
+      "label": "printf-v2-wifi_smoke",
+      "elf_sha256": "279221eb078b829eb9d88388a128573c653dbfd7228313f1593005799ecb54a3",
+      "map_sha256": "aaa0e62ee4bc9972e96c84ed85f98beabe42b545e0c466218d9b018df240ce99",
+      "flashed_image_sha256": "20adf299f2018255f37ac474058344f70b268f6f38a683b7835101a87790123e",
+      "serial_sha256": "97acfdc420ec46ceebf1f812abe5f7c83dc62fe9144bc3e41bb6b28404722921",
+      "complete": true,
+      "application_offset": "0x20000",
+      "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+      "printf_abi_result": 0,
+      "required_rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 8,
+      "ofdm_frames": 2
+    },
+    {
+      "chip": "esp32c3",
+      "label": "combined-wifi_smoke",
+      "elf_sha256": "092225743071d28b8096b8dacbc2a3153d4bcb8d534ffa67a2113ce016a7569c",
+      "map_sha256": "099b819e1e2ddf80f59e66c52eb7cb80d99e5e16c2b96095e303c35aff98ca28",
+      "flashed_image_sha256": "b004b5ec0da8ae25b5fc5c00ef7374fb33d045bd50891863373bf98aba215066",
+      "serial_sha256": "3a06a2eee7c4da39cc170739db11c2391a2ec7bd689847c4acefbec23b60d552",
+      "complete": true,
+      "application_offset": "0x10000",
+      "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+      "printf_abi_result": 0,
+      "required_rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 6,
+      "ofdm_frames": 1
+    },
+    {
+      "chip": "esp32c3",
+      "label": "combined-v2-phy_lifetime_smoke",
+      "elf_sha256": "61817d9e8a097790a6395a089c467cf6b3d98b25bd17c2b2e346ba798a71dea1",
+      "map_sha256": "6ede47eb32a4c253436380e9bfe3a21c0bf2601b022400ef2eb103da132afe46",
+      "flashed_image_sha256": "c49081628ea62dae5ba69de9834bd7ba5c50af7abe1c1914c9aadcd8f3ca57f3",
+      "serial_sha256": "612bbce02c3a2fdd59b244d5148801f7e62440e33e30269cd797105394cbdc06",
+      "complete": true,
+      "application_offset": "0x10000",
+      "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+      "phy_enable_cycles": [
+        1,
+        2,
+        3
+      ],
+      "phy_release_cycles": [
+        1,
+        2,
+        3
+      ],
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ],
+      "beacon_receives_after_wakeup": 3
+    },
+    {
+      "chip": "esp32s3",
+      "label": "combined-wifi_smoke",
+      "elf_sha256": "e8664c52af999b44c72a77be2c99f683b55b845740bdb2abce805865365aa85d",
+      "map_sha256": "5132c16c8142d3cc0abb8232e215b7ad591e4920a1377ba91130b18d9ff3b941",
+      "flashed_image_sha256": "a9fdc006d49eaf6627e9578833e0a67a177e5677b9f2467403776907f625e6eb",
+      "serial_sha256": "0730d5b6be6a88035995762cc3470b94e43e8b33ac63c02f32d0fa7098bd9ebd",
+      "complete": true,
+      "application_offset": "0x20000",
+      "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+      "printf_abi_result": 0,
+      "required_rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 10,
+      "ofdm_frames": 2
+    },
+    {
+      "chip": "esp32s3",
+      "label": "combined-v2-phy_lifetime_smoke",
+      "elf_sha256": "43b059388f44e8be3e532528d08df9750fa5837236e802cb989a05c8e7bf3978",
+      "map_sha256": "3ece855ebbc6318d85f005e73bb88d89e680824745ce4fa46106075933ec3da8",
+      "flashed_image_sha256": "a1de7415a71b694b91f55d9eb5b4cc2070fbd5c1bc42107976ee43f21b40de90",
+      "serial_sha256": "3f1122d2034c22e991e89ac85ca8057bc3110bddc7cda4e0bc3918fdc2cc4fa6",
+      "complete": true,
+      "application_offset": "0x20000",
+      "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+      "phy_enable_cycles": [
+        1,
+        2,
+        3
+      ],
+      "phy_release_cycles": [
+        1,
+        2,
+        3
+      ],
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ],
+      "beacon_receives_after_wakeup": 2
+    }
+  ],
+  "earlier_failed_probes": [
+    {
+      "chip": "esp32c3",
+      "label": "combined-phy_lifetime_smoke",
+      "elf_sha256": "a2c0e67e0d4a7a329e43c050b6f9c55d9e6f35eb4735b0d0841d5cd5e9c373ed",
+      "map_sha256": "f60139b4daf8cf2e0efbe30fe4abb7f4f560388e2f71b933de46cbe89e052bb3",
+      "flashed_image_sha256": "fbf6a734c2978683b58a4f8076121f0351f2efcfc875234515fd6fd40d925b09",
+      "serial_sha256": "2b7f62eb10c9cf96d8018d70a89725e90ae9b9b8eea36392c9997800b75fb834",
+      "complete": false,
+      "application_offset": "0x10000",
+      "interpretation": "Original probe incorrectly required Ok for fresh input calibration data; stopped before guard release. Preserved as failed evidence, not successful lifetime coverage.",
+      "observed_input_status": null
+    },
+    {
+      "chip": "esp32s3",
+      "label": "combined-phy_lifetime_smoke",
+      "elf_sha256": "02d96d1d0083dc60fabdb06132eef049ca67a113a65c7bb1810eb4c0e5a2f0de",
+      "map_sha256": "828ba2e22727f579690612f52597b76e210b6bf5294d21da0032041a4fb1ed04",
+      "flashed_image_sha256": "47ea2a33592ceee0d0316f35971c1dfb23b423527bc61e73f3d1ea983261112d",
+      "serial_sha256": "e3d4438f9d11e026faa030904faeb37bee3b365ae472388d042903607b57bd91",
+      "complete": false,
+      "application_offset": "0x20000",
+      "interpretation": "Original probe incorrectly required Ok for fresh input calibration data; stopped before guard release. Preserved as failed evidence, not successful lifetime coverage.",
+      "observed_input_status": null
+    },
+    {
+      "chip": "esp32c3",
+      "label": "printf-control-phy_lifetime_smoke",
+      "elf_sha256": "4be0be802d158c3b7ea79b234794a5392f6246f3d73629d1dffb813a2e07a7f1",
+      "map_sha256": "b095c48171113940174cc73efcb20d9f5832e9a0ad27244de24f85a1ec5c02fc",
+      "flashed_image_sha256": "322997fa3596dab51f81c9da3134c54a55764004865696eade19b3708f50d871",
+      "serial_sha256": "542f78178abe5ec3cae5b833eaab025de5c812234dbd64378ca61b8818941b62",
+      "complete": false,
+      "application_offset": "0x10000",
+      "interpretation": "Original probe incorrectly required Ok for fresh input calibration data; stopped before guard release. Preserved as failed evidence, not successful lifetime coverage.",
+      "observed_input_status": "Some(DataCheckFailed)"
+    }
+  ]
+}

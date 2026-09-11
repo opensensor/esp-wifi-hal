@@ -49,6 +49,15 @@ The [current dependency audit](docs/network/PHY-DEPENDENCIES.md) records exact
 allocated archive sizes and distinguishes direct ROM calls from installed RAM
 callbacks.
 
+The C3/S3 source milestone also replaces two small
+[PHY wrappers](docs/network/PHY-WRAPPERS.md) and builds the MIT-licensed
+printf support library from C source. Both the driver and its vendored
+`esp-phy` adapter pin the same reviewed OpenSensor sys revision; other radio
+archives retain the published 0.2.0 baseline. See the
+[combined source and device validation](docs/network/PHY-SOURCE-VALIDATION.md)
+for the remaining allocations, formatter ABI, RX recovery, PHY lifetime and
+station results. RF initialization and calibration are still vendor code.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
@@ -88,7 +97,14 @@ See [S3 build and validation notes](docs/esp32s3/RUST.md), the
 
 Install the esp Xtensa Rust toolchain using the
 [esp-rs installation guide](https://docs.esp-rs.org/book/installation/index.html)
-and source its export script. Then:
+and source its export script.
+
+C3/S3 also require the Espressif target C compiler and archiver to build printf:
+`riscv32-esp-elf-gcc` / `riscv32-esp-elf-ar`, or
+`xtensa-esp32s3-elf-gcc` / `xtensa-esp32s3-elf-ar`. Put them on PATH or set the
+target-specific `CC_*` and `AR_*` overrides described in the
+[source-build notes](docs/network/PHY-SOURCE-VALIDATION.md#reproduce-the-probes).
+Then:
 
 ```sh
 git clone https://github.com/opensensor/esp-wifi-hal.git

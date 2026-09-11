@@ -1,5 +1,11 @@
 # Remaining PHY and ROM dependencies
 
+This inventory records the exact historical images identified below. The later
+[source milestone](PHY-SOURCE-VALIDATION.md) implements the two small wrapper
+candidates and builds printf from source; it records the resulting allocations
+and device tests separately. The remaining RF/ROM dependency analysis still
+applies.
+
 The station driver has replaced the selected MAC member, low-rate PHY helper
 and its direct AGC calls. It still depends on vendor PHY initialization,
 calibration, channel selection and power tracking. This inventory distinguishes

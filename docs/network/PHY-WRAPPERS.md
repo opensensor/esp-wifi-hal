@@ -35,9 +35,11 @@ Other chips keep the original FFI path. Guard lifetime, calibration selection,
 backup, shutdown and wakeup paths are unchanged.
 
 The vendored adapter pins both chip-specific `esp-wifi-sys` versions to
-`=0.2.0`. Updating their private data layout requires reviewing these offsets
-again. Both the direct driver dependency and the examples' transitive patch
-select the same adapter; the lockfiles preserve all other dependency versions.
+`=0.2.0` at OpenSensor revision `73add8985cec3b7582e6df80a4273022deb844b0`.
+That revision builds printf from source while retaining the other published
+archives and bindings. Updating their private data layout requires reviewing
+these offsets again. The driver uses the same sys revision and adapter, and
+the examples redirect transitive registry dependencies to those sources.
 
 ## Validation
 
@@ -78,8 +80,8 @@ reduction: source instructions now occur in the Rust caller. Disassembly also
 confirms the byte store occurs before calibration and that TX calls the RAM
 callee using the expected C3 argument registers / S3 call8 register window.
 
-Fresh PHY initialization, USB serial continuity, station traffic and the
-existing RX recovery/lifetime checks must be recorded for the integrated
-device images. Station reconnect cycles keep the PHY guard alive; they do not
-by themselves validate full shutdown and wakeup. No packet-loss improvement
-is claimed for these wrappers.
+The [integrated validation](PHY-SOURCE-VALIDATION.md) records fresh PHY
+initialization, USB serial continuity, station traffic, RX recovery and a
+separate guard-lifetime probe on the source-printf images. Station reconnect
+cycles keep the PHY guard alive; they do not by themselves validate full
+shutdown and wakeup. No packet-loss improvement is claimed for these wrappers.

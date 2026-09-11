@@ -1,0 +1,241 @@
+{
+  "schema": "esp32s3-phy-literal-allocation-diff-v1",
+  "before_elf_sha256": "7d1ed12053ec56717641f48425aa03c94dcdf79d65c7e6c8498d28f75487cfb3",
+  "after_elf_sha256": "5880e016e9e83f5eaab5204d371056b6e63c34bb199dee23f6874a96d3580f65",
+  "same_libphy_archive_sha256": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+  "before_phy_bytes": 33250,
+  "after_phy_bytes": 33238,
+  "removed_inputs": [
+    {
+      "member": "phy_api.o",
+      "section": ".text.phy_bbpll_en_usb",
+      "address": "0x4203a1a0",
+      "size_bytes": 18,
+      "output_section": ".text"
+    },
+    {
+      "member": "phy_api.o",
+      "section": ".text.tx_pwctrl_background",
+      "address": "0x4203a1b4",
+      "size_bytes": 14,
+      "output_section": ".text"
+    }
+  ],
+  "added_inputs": [],
+  "retained_inputs_with_size_changes": [
+    {
+      "member": "phy_analog_cal.o",
+      "section": ".text.rc_cal",
+      "before": {
+        "input_address": "0x4203c8d8",
+        "input_size_bytes": 382,
+        "function_address": "0x4203c8f4",
+        "function_body_size_bytes": 354,
+        "leading_literal_bytes": 28
+      },
+      "after": {
+        "input_address": "0x4203cbac",
+        "input_size_bytes": 398,
+        "function_address": "0x4203cbd8",
+        "function_body_size_bytes": 354,
+        "leading_literal_bytes": 44
+      },
+      "delta_bytes": 16
+    },
+    {
+      "member": "phy_feature.o",
+      "section": ".text.phy_11p_set",
+      "before": {
+        "input_address": "0x4203bc08",
+        "input_size_bytes": 442,
+        "function_address": "0x4203bc14",
+        "function_body_size_bytes": 430,
+        "leading_literal_bytes": 12
+      },
+      "after": {
+        "input_address": "0x4203bee0",
+        "input_size_bytes": 438,
+        "function_address": "0x4203bee8",
+        "function_body_size_bytes": 430,
+        "leading_literal_bytes": 8
+      },
+      "delta_bytes": -4
+    },
+    {
+      "member": "phy_hw_freq.o",
+      "section": ".text.set_chan_freq_sw_start",
+      "before": {
+        "input_address": "0x4203bb10",
+        "input_size_bytes": 214,
+        "function_address": "0x4203bb20",
+        "function_body_size_bytes": 198,
+        "leading_literal_bytes": 16
+      },
+      "after": {
+        "input_address": "0x4203bdec",
+        "input_size_bytes": 210,
+        "function_address": "0x4203bdf8",
+        "function_body_size_bytes": 198,
+        "leading_literal_bytes": 12
+      },
+      "delta_bytes": -4
+    },
+    {
+      "member": "phy_init.o",
+      "section": ".text.phy_get_romfunc_addr",
+      "before": {
+        "input_address": "0x4203a1e8",
+        "input_size_bytes": 335,
+        "function_address": "0x4203a26c",
+        "function_body_size_bytes": 203,
+        "leading_literal_bytes": 132
+      },
+      "after": {
+        "input_address": "0x4203a4c8",
+        "input_size_bytes": 331,
+        "function_address": "0x4203a548",
+        "function_body_size_bytes": 203,
+        "leading_literal_bytes": 128
+      },
+      "delta_bytes": -4
+    },
+    {
+      "member": "phy_rfpll.o",
+      "section": ".text.rfpll_cap_correct",
+      "before": {
+        "input_address": "0x4203c034",
+        "input_size_bytes": 460,
+        "function_address": "0x4203c03c",
+        "function_body_size_bytes": 452,
+        "leading_literal_bytes": 8
+      },
+      "after": {
+        "input_address": "0x4203c308",
+        "input_size_bytes": 456,
+        "function_address": "0x4203c30c",
+        "function_body_size_bytes": 452,
+        "leading_literal_bytes": 4
+      },
+      "delta_bytes": -4
+    },
+    {
+      "member": "phy_rx_gain.o",
+      "section": ".text.gen_rx_gain_table",
+      "before": {
+        "input_address": "0x4203cbdc",
+        "input_size_bytes": 282,
+        "function_address": "0x4203cbec",
+        "function_body_size_bytes": 266,
+        "leading_literal_bytes": 16
+      },
+      "after": {
+        "input_address": "0x4203cec0",
+        "input_size_bytes": 278,
+        "function_address": "0x4203cecc",
+        "function_body_size_bytes": 266,
+        "leading_literal_bytes": 12
+      },
+      "delta_bytes": -4
+    },
+    {
+      "member": "phy_track.o",
+      "section": ".text.ram_txpwr_cal_track",
+      "before": {
+        "input_address": "0x420405e4",
+        "input_size_bytes": 286,
+        "function_address": "0x420405e8",
+        "function_body_size_bytes": 282,
+        "leading_literal_bytes": 4
+      },
+      "after": {
+        "input_address": "0x4203a114",
+        "input_size_bytes": 298,
+        "function_address": "0x4203a124",
+        "function_body_size_bytes": 282,
+        "leading_literal_bytes": 16
+      },
+      "delta_bytes": 12
+    },
+    {
+      "member": "phy_track.o",
+      "section": ".text.ulp_code_track",
+      "before": {
+        "input_address": "0x42040798",
+        "input_size_bytes": 108,
+        "function_address": "0x4204079c",
+        "function_body_size_bytes": 104,
+        "leading_literal_bytes": 4
+      },
+      "after": {
+        "input_address": "0x4203a2d4",
+        "input_size_bytes": 112,
+        "function_address": "0x4203a2dc",
+        "function_body_size_bytes": 104,
+        "leading_literal_bytes": 8
+      },
+      "delta_bytes": 4
+    },
+    {
+      "member": "phy_track.o",
+      "section": ".text.wait_hw_freq_busy",
+      "before": {
+        "input_address": "0x420405c0",
+        "input_size_bytes": 34,
+        "function_address": "0x420405c0",
+        "function_body_size_bytes": 34,
+        "leading_literal_bytes": 0
+      },
+      "after": {
+        "input_address": "0x4203a0ec",
+        "input_size_bytes": 38,
+        "function_address": "0x4203a0f0",
+        "function_body_size_bytes": 34,
+        "leading_literal_bytes": 4
+      },
+      "delta_bytes": 4
+    },
+    {
+      "member": "phy_tsens.o",
+      "section": ".text.ram_temp_to_power",
+      "before": {
+        "input_address": "0x4203c6b4",
+        "input_size_bytes": 56,
+        "function_address": "0x4203c6b4",
+        "function_body_size_bytes": 56,
+        "leading_literal_bytes": 0
+      },
+      "after": {
+        "input_address": "0x4203c984",
+        "input_size_bytes": 60,
+        "function_address": "0x4203c988",
+        "function_body_size_bytes": 56,
+        "leading_literal_bytes": 4
+      },
+      "delta_bytes": 4
+    }
+  ],
+  "removed_wrapper_bytes": 32,
+  "retained_leading_literal_net_delta_bytes": 20,
+  "unchanged_body_sizes_for_all_changed_inputs": true,
+  "interpretation": "Both images use byte-identical vendor archive inputs. Only selected wrapper sections disappear. Every size change in a retained input is wholly in its leading literal pool, consistent with linker literal sharing/placement changes. No further analog code removal is claimed. This allocation comparison is not functional equivalence or RF validation.",
+  "literal_examples": [
+    {
+      "function": "wait_hw_freq_busy",
+      "body_size_bytes": 34,
+      "before_local_literal_bytes": 0,
+      "after_local_literal_bytes": 4,
+      "literal_word": "0x6000e168",
+      "before_shared_literal_address": "0x4203bb18",
+      "after_local_literal_address": "0x4203a0ec"
+    },
+    {
+      "function": "ram_temp_to_power",
+      "body_size_bytes": 56,
+      "before_local_literal_bytes": 0,
+      "after_local_literal_bytes": 4,
+      "literal_word": "0x66666667",
+      "before_shared_literal_address": "0x42012634",
+      "after_local_literal_address": "0x4203c984"
+    }
+  ]
+}
