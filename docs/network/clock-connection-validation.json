@@ -4,9 +4,165 @@
   "limitations": [
     "Individual comparisons do not establish loss rates or causality.",
     "Host Ethernet-view captures do not establish on-air delivery.",
-    "Clock capture continues through subsequent nonassociated RX/lifetime probes; station totals use its own serial/ping window."
+    "Clock capture continues through the subsequent nonassociated RX smoke; station totals use its own serial/ping window."
   ],
   "runs": [
+    {
+      "chip": "esp32s3",
+      "variant": "c-control",
+      "complete": true,
+      "image_sha256": "9d24b745ee7a57629f39e1c3e3c0d4a905b2e0b4cca44b1c04c225aaeb492553",
+      "serial_sha256": "787ccd0ca6257f725c4b04af1817f3988f0d59771e143faef07588921f371980",
+      "result_sha256": "9baa6695cadf86000d8cbd5f97388bd8b8bde720308d17a235ac8d95c0a38cf9",
+      "application_offset": "0x20000",
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "a6587542c885ccc3bbc916c1eaf57809afff43d1cdf40c3f694eb29ea616d463"
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "d7bb0d32310409ae4bed565f3312dbe76f9f06621be76c918a656e00fceac4e5"
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "c67d33718d7f26accdd5199530f5cd3d9c682ecb0534d81c6e6a8ca0e1853186"
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "9ee89907d3549238eaa8cf1f5ff60d8a7dbc13c1af7f758e7adb054d67970ad8"
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "712829631239b54685760ca81f15ac0d89a4e30b49ab83cb14d4ed5e4f202ee9"
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "cb1804f7aed9792ef5d7a538ec9c9c5bda2abcf831bb91c3e27065466a5250c4"
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "84b71441bcdd3a55a396ed654540115cd0c6da13c3bf01b77e73e35a6e9b7fd7"
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "70ccacfa1417f3a1346cde9e05a4c224cb5e0ce4250213d61f143d650c2f9d81"
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "6e89583def1b22b85f6390d898a909dc3d6c9e69a1e7df6202f4af72e8b7f868"
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "501ed85b9fdb68183177488d6dac211d3ec4cb3cb9783f9e546c9ecc19f3ffb9"
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [],
+      "clock": [],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": null,
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": []
+      },
+      "capture": {
+        "written_packets": 1109,
+        "socket_packets": 1109,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608,
+        "pcap_sha256": "f3514e4986f496a2349e26eb1775a815759c18c9f611de01b29e46e173b6a2bb"
+      }
+    },
     {
       "chip": "esp32s3",
       "variant": "clock-phy_lifetime_smoke",
@@ -71,6 +227,11 @@
         "revision": "9a8d5d3315cfedb30e7ad246840fa6792977b15a",
         "features": "esp32s3,network-trace,foa/tx-trace,foa_sta/connection-trace",
         "cycles": "10"
+      },
+      "source_override": {
+        "hal_base": "9a8d5d3315cfedb30e7ad246840fa6792977b15a",
+        "hal_patch_sha256": "292e6fb1a5ffb84f89f3eb799596dada02b0f58f26742bde1149814ded5d4280",
+        "foa": "ef17d9ff36e34d1867625fd9dc37c9626d824817"
       },
       "host_cycles": [
         {
@@ -208,6 +369,230 @@
     },
     {
       "chip": "esp32s3",
+      "variant": "revalidate-sta_smoke",
+      "complete": false,
+      "image_sha256": "340ad3a1393d9d738901a9736a7150741e23d934f3cd978cc0e985fe8dfa5f1d",
+      "serial_sha256": "dddade1f22c78ee556bbc2b513faf6c00e74aa2ae7802d90050497bc5a80aa9d",
+      "result_sha256": "7931ebc69997c20f2df94f2c829643706aa33f63dd9360a0f2d13b882d5020ad",
+      "application_offset": "0x20000",
+      "elf_sha256": "ac124fb64b7512610f9e75f91d978ffcb27286c582fe8d37c87e1162d4382d89",
+      "map_sha256": "2c2a306698b0e31f76dba194d12fe1507409233b5c6a6795e0fa725e2f988980",
+      "Cargo_lock_sha256": "9fbde7d5465e1ee649eb79fdca094206bbfa5b68819249ee8f85bcc283612f27",
+      "build": {
+        "revision": "38502134741396b200b02a34847b6332a4a9cb5f",
+        "features": "esp32s3,network-trace,foa/tx-trace",
+        "cycles": "10"
+      },
+      "source_override": {
+        "hal_base": "38502134741396b200b02a34847b6332a4a9cb5f",
+        "hal_patch_sha256": "7df401cd8fe979109eafe69596befbe97b8f774c9783620880dd24b2ec3ba2ba",
+        "foa": "20d1b34384e410ac716aacd008d08fec170fde92"
+      },
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "a0a9714837ee25adc66515e91152828ed9738824a788a4afcab73d3727d2bbeb"
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "ea668ae5d89e81819db4b6fd438721a5a8fff8ef12981c3119486be83b870a20"
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "69c80843b467b3636cd25a033b2f7c5795478980ddeffdb16eb7b90231acdb5b"
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "ba13343ddf46b0196704dd4478e3bd352800313eb035c4461fcaced53689f16d"
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "88dec257cb198854a2c4d1d043eb16aaea229b3094c969f21c09a1af365d54a3"
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "fa3e900d3abfdfa577213c35bab5b90e279f62cba5e5b515948e3c1bc06fd9de"
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "2ac2efe1af7be18ba7df7c246c77b6ed189719eefd11bb5db04612f3bbcbf702"
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "d06f1754468b21aecaf16eba8cd78054eaaa5c9fcf58c31b7683554a8901e291"
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "9850e54a5460872f3b9b61800c89f4a1f95d5ee05fb6b6f4a3cbb03c78cff14d"
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "25cb1485eddac97fe9078b73f0b6a35e540a14de2ffca0989883b9927cd23c79"
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 18
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [
+        {
+          "cycle": 3,
+          "sequence": 20
+        },
+        {
+          "cycle": 5,
+          "sequence": 8
+        },
+        {
+          "cycle": 5,
+          "sequence": 17
+        },
+        {
+          "cycle": 9,
+          "sequence": 20
+        }
+      ],
+      "clock": [
+        {
+          "selector": 16781313,
+          "rtc_q19": 3735347,
+          "mac_q12": 29182,
+          "mac_clock_enabled": true
+        }
+      ],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user"
+      ],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [
+        {
+          "us": 61592244,
+          "rx_timestamp": 61561323,
+          "operation": "associating",
+          "frame_type": "Some(Management(Authentication))"
+        }
+      ],
+      "failure": "gateway_echo_loss",
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": []
+      },
+      "capture": {
+        "written_packets": 1036,
+        "socket_packets": 1036,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608,
+        "pcap_sha256": "79efa2d43031e510f2512482c5d2ebc9b7f4639578e084d955a1ba041f043d7b"
+      },
+      "tx": {
+        "starts": 506,
+        "finishes": 506,
+        "unpaired_starts": 0,
+        "result_histogram": {
+          "Ok(0)": 464,
+          "Ok(1)": 36,
+          "Ok(2)": 4,
+          "Ok(3)": 1,
+          "Ok(4)": 1
+        },
+        "tx_exhausted_warnings": 0
+      }
+    },
+    {
+      "chip": "esp32s3",
       "variant": "trace-sta_smoke",
       "complete": false,
       "image_sha256": "9ec143c296d38724dc468fff02f86622afe586c5dd1cd0331b5e6c104fbccde2",
@@ -221,6 +606,11 @@
         "revision": "99e6617b7af6c126eaa7eb7b3c40dacc82de93e2",
         "features": "esp32s3,network-trace,foa/tx-trace,foa_sta/connection-trace",
         "cycles": "10"
+      },
+      "source_override": {
+        "hal_base": "99e6617b7af6c126eaa7eb7b3c40dacc82de93e2",
+        "hal_patch_sha256": "e5c5b8695dc69a68179766397b212814b0f51f4fa1468d39de07786b1b4d3928",
+        "foa": "52b5c864aa12f03fdb509f4fc9fb9dbff50488a4"
       },
       "host_cycles": [
         {
@@ -330,6 +720,408 @@
         },
         "tx_exhausted_warnings": 0
       }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "revalidate-sta_smoke",
+      "complete": false,
+      "image_sha256": "5118a3972cc1d5d368618bcc1690c21338e2a2e4b8cf658dd02665ca3ec65a4c",
+      "serial_sha256": "d8daf9ac98615bed473d1ace91c83f06c2d795d24b3fd88f30255e7f11fa5e15",
+      "result_sha256": "da155fac5f97c3b63a4da31971899a3521e2206347e074e789ee2bb46272b10e",
+      "application_offset": "0x10000",
+      "elf_sha256": "0b75a95a36617348e59caeb6191a89b59e9e60e4b907c5b6614c2e168bab6802",
+      "map_sha256": "a66c846d46f6a6426d979e9f4805ea41d96175f61e3be0396d3c264be9021f81",
+      "Cargo_lock_sha256": "9fbde7d5465e1ee649eb79fdca094206bbfa5b68819249ee8f85bcc283612f27",
+      "build": {
+        "revision": "38502134741396b200b02a34847b6332a4a9cb5f",
+        "features": "esp32c3,network-trace,foa/tx-trace",
+        "cycles": "10"
+      },
+      "source_override": {
+        "hal_base": "38502134741396b200b02a34847b6332a4a9cb5f",
+        "hal_patch_sha256": "7df401cd8fe979109eafe69596befbe97b8f774c9783620880dd24b2ec3ba2ba",
+        "foa": "20d1b34384e410ac716aacd008d08fec170fde92"
+      },
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "19f34b773f348d3059fab7d12cba59827303b2c9583a1c129266c927dc212595"
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "093304fa6d20bd8635c85e9901d828e0ac6e0b46331e777fcf6f7d67790e5380"
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "a4151073402a5bdbf66fa3aa608336662fba7335de076dd94875e1eacc25a286"
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "71e3cb58417ceb62188e84c516ee411670ffd309af269b8709ca411be3117a91"
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "1431c7ee8ba501dd08d3777da575dce3630d8d03c612248a701cbdc0c7b7e274"
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "cfa8938473370a78ad5a71c58f306ff7c187355fa3d40ac6bf9ffd38ba3bf8b2"
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "f6f64e9a9400839081cb1baa32d3ce5228e755b7adbf14c61ae67fe18872041e"
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "6eea567c8ffa9a6d4e28561852c00e50d8a7d837442a1b2209df03a6af23e5c8"
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "43886d2ba2cf426505f5319b526912b86ceb2c979e2e1da657e9328827666c6f"
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [],
+      "clock": [
+        {
+          "selector": 16781313,
+          "rtc_q19": 3527808,
+          "mac_q12": null,
+          "mac_clock_enabled": null
+        }
+      ],
+      "management_ingress_events": 1,
+      "deauth_handling_events": 0,
+      "link_down_causes": [
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user"
+      ],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": "connection_timeout",
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": []
+      },
+      "capture": {
+        "written_packets": 916,
+        "socket_packets": 916,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608,
+        "pcap_sha256": "a5d35670c0c88e33900bc16997c90545119507b53f9b389a150cf68358c9d9f9"
+      },
+      "tx": {
+        "starts": 456,
+        "finishes": 456,
+        "unpaired_starts": 0,
+        "result_histogram": {
+          "Ok(0)": 412,
+          "Ok(1)": 34,
+          "Ok(2)": 6,
+          "Ok(3)": 3,
+          "Ok(4)": 1
+        },
+        "tx_exhausted_warnings": 0
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "trace-sta_smoke",
+      "complete": true,
+      "image_sha256": "0e112284f3fd9471fac831cdfa94954035e1775eb9307303abe23c34ee36788f",
+      "serial_sha256": "68cdb963b0ea79ff2b7d933e250f9fa1a767b831725721f28a9e0aa31f2f8e6b",
+      "result_sha256": "0327d140ab3514534a8faa8a97b0c4226e1e8eb6fcff44bd89736b26eb9d9495",
+      "application_offset": "0x10000",
+      "elf_sha256": "1ae1dc3c7981f54ede055845b41c6e8e97a37ebcf169e90ecccc2ac416a31318",
+      "map_sha256": "7d3bfb99deb8aa3b44fed2913bc5027027e3015e8af46089eadf147b15091897",
+      "Cargo_lock_sha256": "9fbde7d5465e1ee649eb79fdca094206bbfa5b68819249ee8f85bcc283612f27",
+      "build": {
+        "revision": "99e6617b7af6c126eaa7eb7b3c40dacc82de93e2",
+        "features": "esp32c3,network-trace,foa/tx-trace,foa_sta/connection-trace",
+        "cycles": "10"
+      },
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "824082f56601507dc432b294776a4756e8f92775ff8934f6549436391a97d978"
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "26942326d53b34de0c791ba0def6044f2d71e09c08b61d909eee4143d9856396"
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "5268f2ef1b157a8ef1e951cc11207cd605c7cd4e04fc13395a7392f4ced08576"
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "4d86329b8620e73b9031e0499337298dc7deab7ed412e00ec24b55dcfa8ac381"
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "edb79d55a2cf380a9415f02e831ffe079f5e072085271367a79a967f3a570007"
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "7c7d19ed0b2017e186bb2faa36f7ef06b43c307499b5a027f4e936072d0e648f"
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "eea3f1651e0ffadb8d654df781d7d41dac8802eb36e10ec64ee1cb0d8ad7d6d3"
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "084f4bcdbbca4e1d0d907047e37ec16d5996ad2c3c5cf6858be33b40c618909e"
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "160b6504c28d636e54e03610ef2908d2242c12e42ff1edd8ceef3e871b54e7f0"
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "150ac6e8180dc3dded13a0aae9b7292a19cecf2640b2783380683888005815c8"
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [],
+      "clock": [
+        {
+          "selector": 16781313,
+          "rtc_q19": 3533222,
+          "mac_q12": null,
+          "mac_clock_enabled": null
+        }
+      ],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user",
+        "user"
+      ],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": null,
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": []
+      },
+      "capture": {
+        "written_packets": 955,
+        "socket_packets": 955,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608,
+        "pcap_sha256": "04837c1b0ed452f9a4bab806159b13ccf68bf39811b86b41c3d6a39e6af71410"
+      },
+      "tx": {
+        "starts": 505,
+        "finishes": 505,
+        "unpaired_starts": 0,
+        "result_histogram": {
+          "Ok(0)": 477,
+          "Ok(1)": 21,
+          "Ok(2)": 4,
+          "Ok(4)": 2,
+          "Ok(3)": 1
+        },
+        "tx_exhausted_warnings": 0
+      }
+    }
+  ],
+  "final_git_pin_crossbuilds": [
+    {
+      "chip": "esp32s3",
+      "device_run": false,
+      "foa_revision": "20d1b34384e410ac716aacd008d08fec170fde92",
+      "elf_sha256": "3ce6eea18c6c99aeda2f2787bb50b690116936e57322cead66d8c4fa29c02c8d",
+      "map_sha256": "db62f9e85b2d214500d7c0e309144a727ddb2d3c0ebbb1bc88ba6a112343e5a7",
+      "lock_sha256": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153",
+      "build_log_sha256": "a2924c733f393c7a88353c56bad5b58dc76ef5a23e71f7252b643364f9e8c6a8"
+    },
+    {
+      "chip": "esp32c3",
+      "device_run": false,
+      "foa_revision": "20d1b34384e410ac716aacd008d08fec170fde92",
+      "elf_sha256": "6a6b4beb9b82c34925de8c74eb494af708d34bc0115be0b8b9b8a1410f15a01a",
+      "map_sha256": "c74595bd8c3326296cbfd2606f0240d5baf9a400bf0536436191fff577471a05",
+      "lock_sha256": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153",
+      "build_log_sha256": "02469ac5670d7fd0f44a3e40569b8145820655f23ba8732172c9f2a914d99724"
     }
   ]
 }

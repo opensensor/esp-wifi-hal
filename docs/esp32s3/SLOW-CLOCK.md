@@ -104,6 +104,7 @@ correction, not a demonstrated packet-loss or reconnect fix.
 
 Exact image/map/log hashes and probe results are in the
 [device report](../network/clock-connection-validation.json). The following
-connection investigation is testing whether a queued authentication response
-can be misparsed as an association response; it is independent of this clock
-correction.
+[connection report](../network/CONNECTION-RESPONSE-VALIDATION.md) records the
+subsequent host reproduction and device observation of a queued authentication
+frame during association. That response-revalidation correction is independent
+of this clock change; remaining gateway losses are still recorded separately.

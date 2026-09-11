@@ -111,9 +111,9 @@ overflow-checks = false
 # Published 0.2.0 radio baseline with printf built from reviewed MIT source.
 esp-wifi-sys-esp32c3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
 esp-wifi-sys-esp32s3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
-# TX ownership, station sequences/replay protection and optional connection diagnostics.
-foa = { git = "https://github.com/opensensor/FoA", rev = "ef17d9ff36e34d1867625fd9dc37c9626d824817" }
-foa_sta = { git = "https://github.com/opensensor/FoA", rev = "ef17d9ff36e34d1867625fd9dc37c9626d824817" }
+# TX ownership, replay protection, connection diagnostics and response subtype validation.
+foa = { git = "https://github.com/opensensor/FoA", rev = "20d1b34384e410ac716aacd008d08fec170fde92" }
+foa_sta = { git = "https://github.com/opensensor/FoA", rev = "20d1b34384e410ac716aacd008d08fec170fde92" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Keep transitive users on the reviewed PHY initialization adapter too.
