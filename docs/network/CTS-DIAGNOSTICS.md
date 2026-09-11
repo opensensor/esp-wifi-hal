@@ -108,7 +108,7 @@ changing RTS or retry policy. Add these narrow targets to the **build-time**
 environment for a bounded diagnostic image:
 
 ```sh
-ESP_LOG='info,foa::tx_queue=trace,embassy_net=trace,smoltcp=trace,esp_wifi_hal::ll=trace,esp_wifi_hal::async_driver::private=trace'
+ESP_LOG='info,examples::packet_trace=trace,foa::tx_queue=trace,embassy_net=trace,smoltcp=trace,esp_wifi_hal::ll=trace,esp_wifi_hal::async_driver::private=trace'
 ```
 
 `esp_wifi_hal::ll` currently emits raw PMD and AIFSN/backoff values. The
@@ -119,6 +119,9 @@ broaden this to `foa_sta` debug logging. Existing application/network logs
 remain private.
 Keep the existing chip, `network-trace` and `foa/tx-trace` Cargo features;
 changing the environment alone does not enable those optional trace sites.
+The [timing audit](RUST-TIMING.md) measured substantial synchronous console
+delays. Keep this verbose profile for bounded diagnostics, and use the quiet
+timing counters when measuring radio servicing latency.
 
 With only queue 2 active, the PMD records between a FoA start/finish pair
 identify MAC-result classes, while the setup/backoff records count attempts

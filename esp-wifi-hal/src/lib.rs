@@ -86,6 +86,8 @@ mod s3_phy;
 /// Support structures for data rates.
 pub use esp_wifi_rates as rates;
 mod sync;
+#[cfg(feature = "timing-probe")]
+pub mod timing;
 
 mod edca;
 cfg_select! {

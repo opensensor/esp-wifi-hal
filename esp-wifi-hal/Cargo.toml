@@ -101,6 +101,8 @@ defmt = [
 ]
 log = ["dep:log", "defmt-or-log/log", "esp-phy/log-04", "esp-sync/log-04"]
 critical_section = []
+# Optional in-memory latency counters; no output in interrupt/packet paths.
+timing-probe = []
 
 [patch.crates-io]
 # S3 Wi-Fi registers pending an upstream PAC release (0.35 compatibility branch).

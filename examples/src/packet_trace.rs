@@ -1,5 +1,7 @@
 //! Packet metadata at the FoA/embassy boundary, enabled only for network tracing.
 //! No payload bytes or network credentials are logged.
+//! Opt in with `ESP_LOG=info,examples::packet_trace=trace`. Synchronous packet
+//! output can substantially delay radio servicing; keep it off for timing tests.
 use core::task::Context;
 use embassy_net_driver::{Capabilities, Driver, HardwareAddress, LinkState, RxToken, TxToken};
 
@@ -54,7 +56,7 @@ fn word(b: &[u8], p: usize) -> u16 {
     u16::from_be_bytes([b[p], b[p + 1]])
 }
 fn record(direction: &str, b: &[u8]) {
-    if b.len() < 14 {
+    if !log::log_enabled!(log::Level::Trace) || b.len() < 14 {
         return;
     }
     let now = embassy_time::Instant::now().as_micros();
@@ -66,7 +68,7 @@ fn record(direction: &str, b: &[u8]) {
                 && b[18] == 6
                 && b[19] == 4 =>
         {
-            log::info!(
+            log::trace!(
                 "stage=packet us={} dir={} arp={} from={:?} to={:?}",
                 now,
                 direction,
@@ -84,7 +86,7 @@ fn record(direction: &str, b: &[u8]) {
                 && word(b, 20) & 0x1fff == 0
                 && matches!(b[offset], 0 | 8)
             {
-                log::info!(
+                log::trace!(
                     "stage=packet us={} dir={} icmp={} id={} seq={} len={} from={:?} to={:?}",
                     now,
                     direction,

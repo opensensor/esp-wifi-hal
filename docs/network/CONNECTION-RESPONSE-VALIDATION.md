@@ -116,6 +116,10 @@ and RX path, while keeping the current source-clock and response-parser
 corrections. Increasing the response queue or changing RF tracking based only on
 these ping counts would not identify the missing frame's path.
 
+The subsequent [timing investigation](RUST-TIMING.md) measured long synchronous
+console calls and improved latency with packet output disabled. Its quiet-mode
+connection failure is retained; logging overhead does not explain every failure.
+
 ## Reproduce
 
 Run `sh tests/run-stale-deauth.sh` and the same command with `--release` in
@@ -125,10 +129,12 @@ optional `network-trace` feature. Build `sta_smoke` for C3 or S3 with
 credentials. Keep this log filter when comparing the recorded Rust runs:
 
 ```text
-info,embassy_net=trace,smoltcp=trace,foa=debug,foa::tx_queue=trace,foa_sta=info
+info,examples::packet_trace=trace,embassy_net=trace,smoltcp=trace,foa=debug,foa::tx_queue=trace,foa_sta=info
 ```
 
 This exposes compact connection events without enabling handshake debug logs.
+The explicit packet target is needed after the timing follow-up moved packet
+metadata from INFO to TRACE; the recorded runs used the earlier INFO sites.
 The hardware scripts update only the boards' existing application slots; S3
 images use the existing signing key. No bootloader, partition or eFuse changes
 are part of this validation.

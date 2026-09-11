@@ -72,8 +72,18 @@ pub fn insert_key(
 }
 pub fn common_init() -> Peripherals {
     esp_bootloader_esp_idf::esp_app_desc!();
-    let peripherals = esp_hal::init(esp_hal::Config::default());
+    let config = esp_hal::Config::default();
+    #[cfg(feature = "timing-probe")]
+    let config = match option_env!("TIMING_CPU_MHZ") {
+        None | Some("80") => config,
+        Some("160") => config.with_cpu_clock(esp_hal::clock::CpuClock::_160MHz),
+        _ => panic!("TIMING_CPU_MHZ must be 80 or 160"),
+    };
+    let peripherals = esp_hal::init(config);
+    #[cfg(not(feature = "timing-probe"))]
     esp_println::logger::init_logger_from_env();
+    #[cfg(feature = "timing-probe")]
+    timing_probe::init();
 
     peripherals
 }
@@ -99,3 +109,5 @@ macro_rules! mk_static {
 
 #[cfg(feature = "network-trace")]
 pub mod packet_trace;
+#[cfg(feature = "timing-probe")]
+pub mod timing_probe;

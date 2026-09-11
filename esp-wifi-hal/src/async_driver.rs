@@ -39,6 +39,8 @@ fn mac_handler() {
         let tx_queue_status = Ok(());
         unsafe {
             LowLevelDriver::process_tx_status(tx_queue_status, |queue| {
+                #[cfg(feature = "timing-probe")]
+                crate::timing::tx_irq(queue.hardware_slot());
                 HARDWARE_TX_RESULT_SIGNALS[queue.hardware_slot()].signal(tx_queue_status);
             })
         };
@@ -969,8 +971,14 @@ mod private {
                     .wait()
                     .await
                     .inspect(|_| {
+                        #[cfg(feature = "timing-probe")]
+                        crate::timing::tx_resume(queue.hardware_slot());
                         if FRAMES_SINCE_LAST_TXPWR_CTRL.fetch_add(1, Ordering::Relaxed) == 4 {
+                            #[cfg(feature = "timing-probe")]
+                            let tracking_start = crate::timing::now();
                             ll_driver.run_power_control();
+                            #[cfg(feature = "timing-probe")]
+                            crate::timing::PHY_TRACKING.record(crate::timing::now().wrapping_sub(tracking_start));
                             FRAMES_SINCE_LAST_TXPWR_CTRL.store(0, Ordering::Relaxed);
                         }
                     })
@@ -1251,10 +1259,15 @@ pub trait AsyncReceive<'res>: HasDmaList<'res> {
                 trace!("Received empty packet.");
             };
 
-            BorrowedBuffer {
+            let buffer = BorrowedBuffer {
                 dma_list: self.dma_list_ref(),
                 dma_descriptor: dma_list_item,
-            }
+            };
+            #[cfg(feature = "timing-probe")]
+            crate::timing::RX_AGE.record(
+                (unsafe { LowLevelDriver::mac_time() }.duration_since_epoch().as_micros() as u32)
+                    .wrapping_sub(buffer.timestamp()));
+            buffer
         }
     }
     /// Clear all currently pending frames in the RX queue.

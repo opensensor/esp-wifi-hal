@@ -197,11 +197,14 @@ async fn main(spawner: Spawner) {
         if !matches!(connected, Ok(Ok(_))) {
             log_rx_state();
         }
+        #[cfg(feature = "timing-probe")]
+        if !matches!(connected, Ok(Ok(_))) { examples::timing_probe::report(cycle); }
         connected.expect("Connection timed out").expect("Connection failed");
         info!("stage=connected cycle={}", cycle);
-        with_timeout(Duration::from_secs(15), stack.wait_config_up())
-            .await
-            .expect("DHCP timed out");
+        let dhcp = with_timeout(Duration::from_secs(15), stack.wait_config_up()).await;
+        #[cfg(feature = "timing-probe")]
+        if dhcp.is_err() { examples::timing_probe::report(cycle); }
+        dhcp.expect("DHCP timed out");
         info!(
             "stage=dhcp cycle={} address={:?}",
             cycle,
@@ -222,6 +225,8 @@ async fn main(spawner: Spawner) {
         gateway_received += ping_gateway(stack, cycle).await;
         control.disconnect().await.expect("Disconnect failed");
         Timer::after_millis(500).await;
+        #[cfg(feature = "timing-probe")]
+        examples::timing_probe::report(cycle);
         info!("stage=cycle_complete cycle={}", cycle);
     }
     assert_eq!(gateway_received, cycles as usize * 20, "Gateway echo loss");

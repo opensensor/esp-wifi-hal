@@ -1,0 +1,2391 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-11",
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "label": "measured-trace",
+      "profile": "trace",
+      "configured_cpu_mhz": 80,
+      "application_complete": false,
+      "failure_messages": [
+        "DHCP timed out"
+      ],
+      "host": {
+        "cycles": [
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "86aea91419a9e7a1f14c9f09ffbc1f9b76cf9434324301569da50ca9c91a4fc3"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "4477ee4907f5ea125e03678ba68311f367fecd502c49d2d30210f9265115be78"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "2f6f755c319f7b3f9afac05463c9e7f527cd6ad3c30dda7f4b13bc19257d6986"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "70e63bad787d055933ba8a43a9b8f1018d34da2e89db81840c7b78dcefd30d3e"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "5937f0557931eba32dd7eaf3f9c2106d4f24db6188cd1cf18c610a9243a4919f"
+          }
+        ],
+        "received": 100,
+        "sent": 100,
+        "duplicates": 0,
+        "rtt_ms": {
+          "n": 100,
+          "median": 38.2,
+          "p95_nearest_rank": 104.0,
+          "maximum": 195.0
+        }
+      },
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 19
+        }
+      ],
+      "packet_info_records": 509,
+      "capture_counts": {
+        "written_packets": 589,
+        "socket_packets": 589,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "timing_samples": [
+        {
+          "cycle": 1,
+          "sys_us": 20667581,
+          "mac_us": 20667593,
+          "print": {
+            "count": 371,
+            "total_us": 2556802,
+            "max_us": 40790,
+            "buckets": [
+              0,
+              8,
+              257,
+              106,
+              0
+            ]
+          },
+          "phy": {
+            "count": 11,
+            "total_us": 815,
+            "max_us": 76,
+            "buckets": [
+              11,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 59,
+            "total_us": 50407,
+            "max_us": 42569,
+            "buckets": [
+              55,
+              1,
+              2,
+              1,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 374,
+            "total_us": 1702406,
+            "max_us": 89387,
+            "buckets": [
+              2,
+              50,
+              281,
+              41,
+              0
+            ]
+          }
+        },
+        {
+          "cycle": 2,
+          "sys_us": 39523141,
+          "mac_us": 39523149,
+          "print": {
+            "count": 770,
+            "total_us": 5246762,
+            "max_us": 41167,
+            "buckets": [
+              0,
+              16,
+              540,
+              214,
+              0
+            ]
+          },
+          "phy": {
+            "count": 22,
+            "total_us": 1647,
+            "max_us": 80,
+            "buckets": [
+              22,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 114,
+            "total_us": 100846,
+            "max_us": 42569,
+            "buckets": [
+              104,
+              4,
+              4,
+              2,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 788,
+            "total_us": 3996004,
+            "max_us": 95167,
+            "buckets": [
+              4,
+              120,
+              567,
+              97,
+              0
+            ]
+          }
+        },
+        {
+          "cycle": 3,
+          "sys_us": 58093832,
+          "mac_us": 58093841,
+          "print": {
+            "count": 1147,
+            "total_us": 7847604,
+            "max_us": 41167,
+            "buckets": [
+              0,
+              26,
+              801,
+              320,
+              0
+            ]
+          },
+          "phy": {
+            "count": 35,
+            "total_us": 2625,
+            "max_us": 80,
+            "buckets": [
+              35,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 178,
+            "total_us": 148032,
+            "max_us": 42569,
+            "buckets": [
+              165,
+              5,
+              5,
+              3,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1129,
+            "total_us": 6626787,
+            "max_us": 1157649,
+            "buckets": [
+              5,
+              178,
+              811,
+              134,
+              1
+            ]
+          }
+        },
+        {
+          "cycle": 4,
+          "sys_us": 86146625,
+          "mac_us": 86146635,
+          "print": {
+            "count": 1701,
+            "total_us": 11064440,
+            "max_us": 41177,
+            "buckets": [
+              0,
+              33,
+              1239,
+              429,
+              0
+            ]
+          },
+          "phy": {
+            "count": 47,
+            "total_us": 3509,
+            "max_us": 80,
+            "buckets": [
+              47,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 239,
+            "total_us": 197885,
+            "max_us": 43287,
+            "buckets": [
+              221,
+              8,
+              6,
+              4,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1904,
+            "total_us": 9624701,
+            "max_us": 1157649,
+            "buckets": [
+              10,
+              270,
+              1432,
+              191,
+              1
+            ]
+          }
+        },
+        {
+          "cycle": 5,
+          "sys_us": 104974632,
+          "mac_us": 104974639,
+          "print": {
+            "count": 2092,
+            "total_us": 13714773,
+            "max_us": 42503,
+            "buckets": [
+              0,
+              40,
+              1514,
+              538,
+              0
+            ]
+          },
+          "phy": {
+            "count": 62,
+            "total_us": 4624,
+            "max_us": 80,
+            "buckets": [
+              62,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 310,
+            "total_us": 240079,
+            "max_us": 43287,
+            "buckets": [
+              284,
+              15,
+              6,
+              5,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2302,
+            "total_us": 12667056,
+            "max_us": 1157649,
+            "buckets": [
+              11,
+              338,
+              1704,
+              247,
+              2
+            ]
+          }
+        },
+        {
+          "cycle": 6,
+          "sys_us": 123497081,
+          "mac_us": 123497083,
+          "print": {
+            "count": 2156,
+            "total_us": 14084629,
+            "max_us": 42503,
+            "buckets": [
+              0,
+              44,
+              1559,
+              553,
+              0
+            ]
+          },
+          "phy": {
+            "count": 63,
+            "total_us": 4696,
+            "max_us": 80,
+            "buckets": [
+              63,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 316,
+            "total_us": 281147,
+            "max_us": 43287,
+            "buckets": [
+              288,
+              15,
+              7,
+              6,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2419,
+            "total_us": 14233702,
+            "max_us": 1157649,
+            "buckets": [
+              11,
+              353,
+              1799,
+              253,
+              3
+            ]
+          }
+        }
+      ],
+      "serial_sha256": "58f6886f42e09f914b55f3f88e28f611f7b3a383f5ac4fd3de28442a8863de99",
+      "capture_sha256": "054d592f207dfb8b48100d909f18206d294d3073767a432ab83ff83d91fc4d57",
+      "image_sha256": "a8a82bd26d4de9b8bb255c87cfc13de3f1265ce58ceebbcf089c8f7764c9aa68",
+      "build_files": {
+        "measured-trace-sta_smoke.elf": "1c19301046504be3718acef02b3a77c42b9fbffaef54c6348fa1870a1e4a4a76",
+        "measured-trace-sta_smoke.map": "04ee6fa30829d50d7d2c4a575ce195f81560ddc1f2d9d53963a1bd7edf8b915d",
+        "measured-trace-sta_smoke.build.log": "325d5e8a13c2cd220b803c365979c9e8f6a518971f12e06164d4cee10e7fd891",
+        "measured-trace-sta_smoke.Cargo.lock": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153"
+      },
+      "base_revision": "4841632fdab7163aca046ba28ddccb377ed19fdb",
+      "source_sha256": {
+        "esp-wifi-hal/src/timing.rs": "a45d3775ae8bc535bdb2d22bef685c05833a67c590957e75d7ee679a9259090f",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "esp-wifi-hal/src/lib.rs": "d23074cbda5da20ab899411fccf5ffe0a3b7403a9642ec74b8a4ac44a9be25e9",
+        "esp-wifi-hal/Cargo.toml": "3949ea749ad3295b7171f6f3da666f80496b04fbd79f16d28d09d6144232a086",
+        "examples/src/timing_probe.rs": "74f586f05568b4861e516a52cbdec9f40957afb7ebd26ea8d92e99f23a092ae8",
+        "examples/src/lib.rs": "9b45817b0603b05a14da28c11fe0ee2ceff1fb01bae89878f456b70522c25e4a",
+        "examples/src/bin/sta_smoke.rs": "eb934aaab4e70a4dbeb214daec0b6646610a29e4bbe0a9de07df346ee17e2eb3",
+        "examples/Cargo.toml": "804e171d2fe6d6478ca272852ff7fdebb4e7b1cbefcc1958d2079ba95aef0272"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "measured-info",
+      "profile": "info",
+      "configured_cpu_mhz": 80,
+      "application_complete": true,
+      "failure_messages": [],
+      "host": {
+        "cycles": [
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "eff55c0ee7eb03404075bbe732009354dd90f6477449fb57a1a354272b915f46"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "a157d9b36b4d405280b7aeb709b9867b98840ca8f654beb529a5e4b2729dccdc"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "515ca59dd188ddd69d243bf7f57b76e8f336b0e9bc7ec25c950913222ba672af"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "64b0fa777b6e12a757f29b48f7149c3b2b6ac3a6018043ff7b7aa052bc1e4c6d"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "2c66c7c5515c814fcc629159768501e062603b1d06351d022a5c763c03a61332"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "0f50a55289e711204028a245d413810ed1004c3a628a0e33507f867619342c24"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "cc522d30d7b21ce21aca6c235724e85b97197efdceeb33c3147970993d86c75f"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "3be3794cd843f074307aa8b18954e65773e7fcac6d9813be89a95508e58a84e3"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "a60f5a4b9e5caca25890fbd3ba8bacb5056743fa801509689cf612bda3328ade"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "a825141fbe59d4932f5f9d328dd92e1758ff043e7ff3b236dbff6fed25c517b5"
+          }
+        ],
+        "received": 200,
+        "sent": 200,
+        "duplicates": 0,
+        "rtt_ms": {
+          "n": 200,
+          "median": 26.1,
+          "p95_nearest_rank": 63.0,
+          "maximum": 124.0
+        }
+      },
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "packet_info_records": 929,
+      "capture_counts": {
+        "written_packets": 933,
+        "socket_packets": 933,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "timing_samples": [
+        {
+          "cycle": 1,
+          "sys_us": 19674029,
+          "mac_us": 19674041,
+          "print": {
+            "count": 109,
+            "total_us": 774178,
+            "max_us": 10117,
+            "buckets": [
+              0,
+              3,
+              105,
+              1,
+              0
+            ]
+          },
+          "phy": {
+            "count": 10,
+            "total_us": 630,
+            "max_us": 70,
+            "buckets": [
+              10,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 53,
+            "total_us": 5822,
+            "max_us": 2396,
+            "buckets": [
+              51,
+              0,
+              2,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 443,
+            "total_us": 2145596,
+            "max_us": 1135037,
+            "buckets": [
+              2,
+              96,
+              342,
+              2,
+              1
+            ]
+          }
+        },
+        {
+          "cycle": 2,
+          "sys_us": 36160676,
+          "mac_us": 36160685,
+          "print": {
+            "count": 213,
+            "total_us": 1535597,
+            "max_us": 10117,
+            "buckets": [
+              0,
+              5,
+              207,
+              1,
+              0
+            ]
+          },
+          "phy": {
+            "count": 22,
+            "total_us": 1423,
+            "max_us": 77,
+            "buckets": [
+              22,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 111,
+            "total_us": 12599,
+            "max_us": 3036,
+            "buckets": [
+              106,
+              1,
+              4,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 767,
+            "total_us": 4056935,
+            "max_us": 1135154,
+            "buckets": [
+              4,
+              178,
+              578,
+              5,
+              2
+            ]
+          }
+        },
+        {
+          "cycle": 3,
+          "sys_us": 52677654,
+          "mac_us": 52677660,
+          "print": {
+            "count": 318,
+            "total_us": 2297241,
+            "max_us": 10117,
+            "buckets": [
+              0,
+              8,
+              308,
+              2,
+              0
+            ]
+          },
+          "phy": {
+            "count": 33,
+            "total_us": 2148,
+            "max_us": 78,
+            "buckets": [
+              33,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 167,
+            "total_us": 17001,
+            "max_us": 3036,
+            "buckets": [
+              161,
+              1,
+              5,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1106,
+            "total_us": 5971931,
+            "max_us": 1135154,
+            "buckets": [
+              5,
+              276,
+              813,
+              9,
+              3
+            ]
+          }
+        },
+        {
+          "cycle": 4,
+          "sys_us": 68679946,
+          "mac_us": 68679960,
+          "print": {
+            "count": 416,
+            "total_us": 2996810,
+            "max_us": 10117,
+            "buckets": [
+              0,
+              11,
+              403,
+              2,
+              0
+            ]
+          },
+          "phy": {
+            "count": 45,
+            "total_us": 2929,
+            "max_us": 78,
+            "buckets": [
+              45,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 225,
+            "total_us": 21838,
+            "max_us": 3036,
+            "buckets": [
+              217,
+              2,
+              6,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1427,
+            "total_us": 6670461,
+            "max_us": 1135154,
+            "buckets": [
+              9,
+              358,
+              1047,
+              10,
+              3
+            ]
+          }
+        },
+        {
+          "cycle": 5,
+          "sys_us": 85195951,
+          "mac_us": 85195961,
+          "print": {
+            "count": 520,
+            "total_us": 3738852,
+            "max_us": 10117,
+            "buckets": [
+              0,
+              13,
+              505,
+              2,
+              0
+            ]
+          },
+          "phy": {
+            "count": 57,
+            "total_us": 3698,
+            "max_us": 78,
+            "buckets": [
+              57,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 286,
+            "total_us": 26931,
+            "max_us": 3036,
+            "buckets": [
+              276,
+              3,
+              7,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1755,
+            "total_us": 8584786,
+            "max_us": 1135154,
+            "buckets": [
+              10,
+              449,
+              1280,
+              12,
+              4
+            ]
+          }
+        },
+        {
+          "cycle": 6,
+          "sys_us": 101745574,
+          "mac_us": 101745580,
+          "print": {
+            "count": 627,
+            "total_us": 4528902,
+            "max_us": 10479,
+            "buckets": [
+              0,
+              15,
+              609,
+              3,
+              0
+            ]
+          },
+          "phy": {
+            "count": 70,
+            "total_us": 4528,
+            "max_us": 78,
+            "buckets": [
+              70,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 351,
+            "total_us": 31537,
+            "max_us": 3036,
+            "buckets": [
+              338,
+              5,
+              8,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2081,
+            "total_us": 10491663,
+            "max_us": 1135154,
+            "buckets": [
+              12,
+              532,
+              1516,
+              16,
+              5
+            ]
+          }
+        },
+        {
+          "cycle": 7,
+          "sys_us": 118314568,
+          "mac_us": 118314576,
+          "print": {
+            "count": 731,
+            "total_us": 5290218,
+            "max_us": 10604,
+            "buckets": [
+              0,
+              17,
+              709,
+              5,
+              0
+            ]
+          },
+          "phy": {
+            "count": 82,
+            "total_us": 5320,
+            "max_us": 78,
+            "buckets": [
+              82,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 411,
+            "total_us": 36301,
+            "max_us": 3036,
+            "buckets": [
+              396,
+              6,
+              9,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2411,
+            "total_us": 12422303,
+            "max_us": 1135154,
+            "buckets": [
+              14,
+              621,
+              1750,
+              20,
+              6
+            ]
+          }
+        },
+        {
+          "cycle": 8,
+          "sys_us": 134823874,
+          "mac_us": 134823880,
+          "print": {
+            "count": 837,
+            "total_us": 6064303,
+            "max_us": 10604,
+            "buckets": [
+              0,
+              20,
+              812,
+              5,
+              0
+            ]
+          },
+          "phy": {
+            "count": 92,
+            "total_us": 5968,
+            "max_us": 78,
+            "buckets": [
+              92,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 462,
+            "total_us": 38310,
+            "max_us": 3036,
+            "buckets": [
+              445,
+              8,
+              9,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2724,
+            "total_us": 14291452,
+            "max_us": 1135154,
+            "buckets": [
+              15,
+              704,
+              1976,
+              22,
+              7
+            ]
+          }
+        },
+        {
+          "cycle": 9,
+          "sys_us": 150076780,
+          "mac_us": 150076791,
+          "print": {
+            "count": 951,
+            "total_us": 6884531,
+            "max_us": 10604,
+            "buckets": [
+              0,
+              23,
+              923,
+              5,
+              0
+            ]
+          },
+          "phy": {
+            "count": 103,
+            "total_us": 6692,
+            "max_us": 78,
+            "buckets": [
+              103,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 515,
+            "total_us": 44100,
+            "max_us": 3036,
+            "buckets": [
+              496,
+              8,
+              11,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 3043,
+            "total_us": 15057370,
+            "max_us": 1135154,
+            "buckets": [
+              17,
+              802,
+              2191,
+              26,
+              7
+            ]
+          }
+        },
+        {
+          "cycle": 10,
+          "sys_us": 166002760,
+          "mac_us": 166002767,
+          "print": {
+            "count": 1053,
+            "total_us": 7600904,
+            "max_us": 10604,
+            "buckets": [
+              0,
+              26,
+              1022,
+              5,
+              0
+            ]
+          },
+          "phy": {
+            "count": 114,
+            "total_us": 7403,
+            "max_us": 78,
+            "buckets": [
+              114,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 572,
+            "total_us": 47584,
+            "max_us": 3036,
+            "buckets": [
+              552,
+              8,
+              12,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 3386,
+            "total_us": 15842013,
+            "max_us": 1135154,
+            "buckets": [
+              18,
+              894,
+              2439,
+              28,
+              7
+            ]
+          }
+        }
+      ],
+      "serial_sha256": "9cf5b7441832340342deeb1f6ff7bd5013168be827fcb4465a0b440cb1e24c5d",
+      "capture_sha256": "8c729ce4b3179e4e337f88d453124a5a3b9df2dfebc8f6411df6e75047b28d4d",
+      "image_sha256": "905401a408b922f293a8510ceeed4b54936ed246337e9730eb9ee20569836e1d",
+      "build_files": {
+        "measured-info-sta_smoke.elf": "1056dd1dbed8a3bdfcfb5d576370563dea0b8bf1dec2125010becc848e2d3e7d",
+        "measured-info-sta_smoke.map": "c958602df230bc10734486ad65e09c4aed279ca6202155a5f997cd08e52cf007",
+        "measured-info-sta_smoke.build.log": "a051393a57b75033f1ef8dcfd2bb9cd68bf3f4d0213b90063231f0c4c1ee2b12",
+        "measured-info-sta_smoke.Cargo.lock": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153"
+      },
+      "base_revision": "4841632fdab7163aca046ba28ddccb377ed19fdb",
+      "source_sha256": {
+        "esp-wifi-hal/src/timing.rs": "a45d3775ae8bc535bdb2d22bef685c05833a67c590957e75d7ee679a9259090f",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "esp-wifi-hal/src/lib.rs": "d23074cbda5da20ab899411fccf5ffe0a3b7403a9642ec74b8a4ac44a9be25e9",
+        "esp-wifi-hal/Cargo.toml": "3949ea749ad3295b7171f6f3da666f80496b04fbd79f16d28d09d6144232a086",
+        "examples/src/timing_probe.rs": "74f586f05568b4861e516a52cbdec9f40957afb7ebd26ea8d92e99f23a092ae8",
+        "examples/src/lib.rs": "9b45817b0603b05a14da28c11fe0ee2ceff1fb01bae89878f456b70522c25e4a",
+        "examples/src/bin/sta_smoke.rs": "eb934aaab4e70a4dbeb214daec0b6646610a29e4bbe0a9de07df346ee17e2eb3",
+        "examples/Cargo.toml": "804e171d2fe6d6478ca272852ff7fdebb4e7b1cbefcc1958d2079ba95aef0272"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "measured-quiet",
+      "profile": "quiet",
+      "configured_cpu_mhz": 80,
+      "application_complete": false,
+      "failure_messages": [
+        "Connection timed out"
+      ],
+      "host": {
+        "cycles": [
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "641d82b40ea16b6eac85010d673a9ace78bbba4e697f53790420fca69871aa06"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "2b5be57e62865f198e53562f6705dbee24b7b6fbfdca56440f8babcd1e7bad74"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "a9de92c4ac68da2cd8520bda60b58b23b33c492777cd5ab62b659dcaf05a2339"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "8ca7ff9c2b55b6a7f8ab43dae36f160fa36f7f341946fe1827675801ccea7f28"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "e150f5d5b955a2e0a7fb495761d22d164dc44dbdd308a060a910960303d60562"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "4a8b7e932701a5e60413d4e984870fedaa4adb5783599ae7fdc6b2837fd15d95"
+          }
+        ],
+        "received": 120,
+        "sent": 120,
+        "duplicates": 0,
+        "rtt_ms": {
+          "n": 120,
+          "median": 9.455,
+          "p95_nearest_rank": 63.3,
+          "maximum": 165.0
+        }
+      },
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "packet_info_records": 0,
+      "capture_counts": {
+        "written_packets": 688,
+        "socket_packets": 688,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "timing_samples": [
+        {
+          "cycle": 1,
+          "cpu_mhz": 80,
+          "sys_us": 19442628,
+          "mac_us": 19442633,
+          "print": {
+            "count": 14,
+            "total_us": 28429,
+            "max_us": 4963,
+            "buckets": [
+              0,
+              2,
+              12,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 11,
+            "total_us": 711,
+            "max_us": 72,
+            "buckets": [
+              11,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 56,
+            "total_us": 4932,
+            "max_us": 3043,
+            "buckets": [
+              55,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 378,
+            "total_us": 1960971,
+            "max_us": 1135001,
+            "buckets": [
+              3,
+              100,
+              274,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "cycle": 2,
+          "cpu_mhz": 80,
+          "sys_us": 35676096,
+          "mac_us": 35676097,
+          "print": {
+            "count": 27,
+            "total_us": 53576,
+            "max_us": 5120,
+            "buckets": [
+              0,
+              5,
+              22,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 21,
+            "total_us": 1386,
+            "max_us": 74,
+            "buckets": [
+              21,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 107,
+            "total_us": 9722,
+            "max_us": 3043,
+            "buckets": [
+              104,
+              0,
+              3,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 703,
+            "total_us": 3800136,
+            "max_us": 1135001,
+            "buckets": [
+              5,
+              195,
+              501,
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "cycle": 3,
+          "cpu_mhz": 80,
+          "sys_us": 51767056,
+          "mac_us": 51767058,
+          "print": {
+            "count": 39,
+            "total_us": 77783,
+            "max_us": 5120,
+            "buckets": [
+              0,
+              9,
+              30,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 32,
+            "total_us": 2129,
+            "max_us": 74,
+            "buckets": [
+              32,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 160,
+            "total_us": 15582,
+            "max_us": 3043,
+            "buckets": [
+              155,
+              0,
+              5,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1017,
+            "total_us": 5605096,
+            "max_us": 1135862,
+            "buckets": [
+              7,
+              280,
+              727,
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "cycle": 4,
+          "cpu_mhz": 80,
+          "sys_us": 67983918,
+          "mac_us": 67983925,
+          "print": {
+            "count": 51,
+            "total_us": 100925,
+            "max_us": 5120,
+            "buckets": [
+              0,
+              10,
+              41,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 42,
+            "total_us": 2791,
+            "max_us": 74,
+            "buckets": [
+              42,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 214,
+            "total_us": 21723,
+            "max_us": 3043,
+            "buckets": [
+              206,
+              2,
+              6,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1336,
+            "total_us": 7398748,
+            "max_us": 1135862,
+            "buckets": [
+              8,
+              389,
+              935,
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "cycle": 5,
+          "cpu_mhz": 80,
+          "sys_us": 84229485,
+          "mac_us": 84229490,
+          "print": {
+            "count": 63,
+            "total_us": 126157,
+            "max_us": 5120,
+            "buckets": [
+              0,
+              12,
+              51,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 53,
+            "total_us": 3532,
+            "max_us": 74,
+            "buckets": [
+              53,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 268,
+            "total_us": 28042,
+            "max_us": 3043,
+            "buckets": [
+              258,
+              2,
+              8,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1667,
+            "total_us": 9222447,
+            "max_us": 1135862,
+            "buckets": [
+              11,
+              489,
+              1162,
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "cycle": 6,
+          "cpu_mhz": 80,
+          "sys_us": 99863497,
+          "mac_us": 99863503,
+          "print": {
+            "count": 75,
+            "total_us": 151204,
+            "max_us": 5120,
+            "buckets": [
+              0,
+              14,
+              61,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 65,
+            "total_us": 4345,
+            "max_us": 74,
+            "buckets": [
+              65,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 327,
+            "total_us": 34658,
+            "max_us": 3043,
+            "buckets": [
+              315,
+              2,
+              10,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2003,
+            "total_us": 9969277,
+            "max_us": 1135862,
+            "buckets": [
+              13,
+              589,
+              1396,
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "cycle": 7,
+          "cpu_mhz": 80,
+          "sys_us": 124894703,
+          "mac_us": 124894704,
+          "print": {
+            "count": 81,
+            "total_us": 172530,
+            "max_us": 9091,
+            "buckets": [
+              0,
+              15,
+              66,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 66,
+            "total_us": 4419,
+            "max_us": 74,
+            "buckets": [
+              66,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 330,
+            "total_us": 34781,
+            "max_us": 3043,
+            "buckets": [
+              318,
+              2,
+              10,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2472,
+            "total_us": 12256499,
+            "max_us": 1135862,
+            "buckets": [
+              13,
+              682,
+              1771,
+              0,
+              6
+            ]
+          }
+        }
+      ],
+      "serial_sha256": "d5fe9024e4c1d21d6790ce3aeb8dd14dffae3cfd080aa317d784826ef05312ed",
+      "capture_sha256": "b82eb57a7bb515e06f009e7e203e33137e277514bc18f728283fc26464d3528a",
+      "image_sha256": "ae2c9b0ce3bdcc3ac390afa62929a57e151fa96d5cbc0b41cf26f62414f6a03c",
+      "build_files": {
+        "measured-quiet-sta_smoke.elf": "a94677d8f2dcd7b34e9f3212eea800e8b079d6010611ae6d3808eb0ca0e6bf60",
+        "measured-quiet-sta_smoke.map": "944419afbf6bd5ceb264132cb831f8c49a90df742aba141d85318a38a1dd915e",
+        "measured-quiet-sta_smoke.build.log": "aa0744f884e94a48658b7a7e2ba556c2c2753988fa3dc4983149666144c673a4",
+        "measured-quiet-sta_smoke.Cargo.lock": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153"
+      },
+      "base_revision": "4841632fdab7163aca046ba28ddccb377ed19fdb",
+      "source_sha256": {
+        "esp-wifi-hal/src/timing.rs": "a45d3775ae8bc535bdb2d22bef685c05833a67c590957e75d7ee679a9259090f",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "esp-wifi-hal/src/lib.rs": "d23074cbda5da20ab899411fccf5ffe0a3b7403a9642ec74b8a4ac44a9be25e9",
+        "esp-wifi-hal/Cargo.toml": "3949ea749ad3295b7171f6f3da666f80496b04fbd79f16d28d09d6144232a086",
+        "examples/src/timing_probe.rs": "745b42e634dd54dbb5d5a2afc65f04afae2db00b08602924410708e9ce512a40",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/sta_smoke.rs": "eb934aaab4e70a4dbeb214daec0b6646610a29e4bbe0a9de07df346ee17e2eb3",
+        "examples/Cargo.toml": "804e171d2fe6d6478ca272852ff7fdebb4e7b1cbefcc1958d2079ba95aef0272"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "measured-quiet-160",
+      "profile": "quiet",
+      "configured_cpu_mhz": 160,
+      "application_complete": true,
+      "failure_messages": [],
+      "host": {
+        "cycles": [
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "f8d66a8b0989bcf2dffb5d78fc121f349ce4a9d050298f5cc164763f40e038fa"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "0de34808af7aa4a21ba1003d5ccbae3dc57029cd8fc7b023f7a3613cba9667b5"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "9a3dace3e43242ef2d4d1ed549c6233e06f46dd7a810b26a916b82c4b484ae16"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "f7a01003eb5e6b1b19fb253750a5f093569377397aed2ca832b867821f230ae6"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "d148bedee5608a24b07e805647869380c34f75ad29d895d97e3140f507954976"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "919c9577e1d5083d0d9317889c38f9e196b6b5be292c122cbd086fbd03b38d0e"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "4146994919104f981b5093f500848f64b967204b8625663631f9abbaaa772417"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "df1062a4df1e6be29db61f53d1ceea6b5a4cb307db95b58030c8663cff699edd"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "a845fa4e4875087689c6d901bb8613d230a4828fd1187f7a534c1c275456682b"
+          },
+          {
+            "returncode": 0,
+            "transmitted": 20,
+            "received": 20,
+            "log_sha256": "cede920a0983c02352e2be9eb570a512b7e00dc840953619b579ebb55cb20420"
+          }
+        ],
+        "received": 200,
+        "sent": 200,
+        "duplicates": 0,
+        "rtt_ms": {
+          "n": 200,
+          "median": 10.3,
+          "p95_nearest_rank": 31.8,
+          "maximum": 81.6
+        }
+      },
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "packet_info_records": 0,
+      "capture_counts": {
+        "written_packets": 980,
+        "socket_packets": 980,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "timing_samples": [
+        {
+          "cycle": 1,
+          "cpu_mhz": 160,
+          "sys_us": 18802507,
+          "mac_us": 18802514,
+          "print": {
+            "count": 14,
+            "total_us": 26037,
+            "max_us": 4137,
+            "buckets": [
+              0,
+              5,
+              9,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 10,
+            "total_us": 664,
+            "max_us": 74,
+            "buckets": [
+              10,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 53,
+            "total_us": 2820,
+            "max_us": 1615,
+            "buckets": [
+              52,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 773,
+            "total_us": 1229918,
+            "max_us": 3928,
+            "buckets": [
+              3,
+              208,
+              562,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "cycle": 2,
+          "cpu_mhz": 160,
+          "sys_us": 34537551,
+          "mac_us": 34537558,
+          "print": {
+            "count": 27,
+            "total_us": 48835,
+            "max_us": 4137,
+            "buckets": [
+              0,
+              9,
+              18,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 22,
+            "total_us": 1476,
+            "max_us": 74,
+            "buckets": [
+              22,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 111,
+            "total_us": 8426,
+            "max_us": 2383,
+            "buckets": [
+              108,
+              0,
+              3,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1126,
+            "total_us": 2514491,
+            "max_us": 569819,
+            "buckets": [
+              8,
+              322,
+              795,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "cycle": 3,
+          "cpu_mhz": 160,
+          "sys_us": 50166470,
+          "mac_us": 50166476,
+          "print": {
+            "count": 39,
+            "total_us": 67739,
+            "max_us": 4137,
+            "buckets": [
+              0,
+              13,
+              26,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 33,
+            "total_us": 2217,
+            "max_us": 74,
+            "buckets": [
+              33,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 167,
+            "total_us": 13458,
+            "max_us": 2383,
+            "buckets": [
+              162,
+              0,
+              5,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1421,
+            "total_us": 3742312,
+            "max_us": 569819,
+            "buckets": [
+              11,
+              411,
+              997,
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "cycle": 4,
+          "cpu_mhz": 160,
+          "sys_us": 65737518,
+          "mac_us": 65737524,
+          "print": {
+            "count": 51,
+            "total_us": 90016,
+            "max_us": 4137,
+            "buckets": [
+              0,
+              15,
+              36,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 43,
+            "total_us": 2891,
+            "max_us": 76,
+            "buckets": [
+              43,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 219,
+            "total_us": 18959,
+            "max_us": 2383,
+            "buckets": [
+              212,
+              0,
+              7,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 1785,
+            "total_us": 5070211,
+            "max_us": 569819,
+            "buckets": [
+              13,
+              519,
+              1250,
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "cycle": 5,
+          "cpu_mhz": 160,
+          "sys_us": 81282295,
+          "mac_us": 81282300,
+          "print": {
+            "count": 64,
+            "total_us": 113524,
+            "max_us": 4193,
+            "buckets": [
+              0,
+              18,
+              46,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 55,
+            "total_us": 3696,
+            "max_us": 76,
+            "buckets": [
+              55,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 276,
+            "total_us": 22168,
+            "max_us": 2383,
+            "buckets": [
+              268,
+              0,
+              8,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2080,
+            "total_us": 6282823,
+            "max_us": 569838,
+            "buckets": [
+              16,
+              613,
+              1447,
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "cycle": 6,
+          "cpu_mhz": 160,
+          "sys_us": 96857236,
+          "mac_us": 96857240,
+          "print": {
+            "count": 76,
+            "total_us": 136026,
+            "max_us": 4193,
+            "buckets": [
+              0,
+              20,
+              56,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 66,
+            "total_us": 4431,
+            "max_us": 76,
+            "buckets": [
+              66,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 333,
+            "total_us": 27141,
+            "max_us": 2383,
+            "buckets": [
+              323,
+              0,
+              10,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2440,
+            "total_us": 7606861,
+            "max_us": 569838,
+            "buckets": [
+              18,
+              719,
+              1698,
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "cycle": 7,
+          "cpu_mhz": 160,
+          "sys_us": 112425169,
+          "mac_us": 112425175,
+          "print": {
+            "count": 88,
+            "total_us": 157911,
+            "max_us": 4193,
+            "buckets": [
+              0,
+              23,
+              65,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 78,
+            "total_us": 5243,
+            "max_us": 76,
+            "buckets": [
+              78,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 390,
+            "total_us": 30146,
+            "max_us": 2383,
+            "buckets": [
+              379,
+              0,
+              11,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 2740,
+            "total_us": 8930764,
+            "max_us": 569838,
+            "buckets": [
+              22,
+              804,
+              1908,
+              0,
+              6
+            ]
+          }
+        },
+        {
+          "cycle": 8,
+          "cpu_mhz": 160,
+          "sys_us": 127996401,
+          "mac_us": 127996406,
+          "print": {
+            "count": 100,
+            "total_us": 177998,
+            "max_us": 4193,
+            "buckets": [
+              0,
+              26,
+              74,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 89,
+            "total_us": 5967,
+            "max_us": 76,
+            "buckets": [
+              89,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 446,
+            "total_us": 32738,
+            "max_us": 2383,
+            "buckets": [
+              434,
+              0,
+              12,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 3088,
+            "total_us": 10245605,
+            "max_us": 569838,
+            "buckets": [
+              25,
+              903,
+              2153,
+              0,
+              7
+            ]
+          }
+        },
+        {
+          "cycle": 9,
+          "cpu_mhz": 160,
+          "sys_us": 143618934,
+          "mac_us": 143618939,
+          "print": {
+            "count": 112,
+            "total_us": 197743,
+            "max_us": 4193,
+            "buckets": [
+              0,
+              28,
+              84,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 100,
+            "total_us": 6709,
+            "max_us": 76,
+            "buckets": [
+              100,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 503,
+            "total_us": 38351,
+            "max_us": 2400,
+            "buckets": [
+              489,
+              0,
+              14,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 3379,
+            "total_us": 10888583,
+            "max_us": 569838,
+            "buckets": [
+              28,
+              1004,
+              2340,
+              0,
+              7
+            ]
+          }
+        },
+        {
+          "cycle": 10,
+          "cpu_mhz": 160,
+          "sys_us": 159304849,
+          "mac_us": 159304854,
+          "print": {
+            "count": 124,
+            "total_us": 221489,
+            "max_us": 4193,
+            "buckets": [
+              0,
+              30,
+              94,
+              0,
+              0
+            ]
+          },
+          "phy": {
+            "count": 112,
+            "total_us": 7523,
+            "max_us": 76,
+            "buckets": [
+              112,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "tx_resume": {
+            "count": 561,
+            "total_us": 43765,
+            "max_us": 2400,
+            "buckets": [
+              545,
+              0,
+              16,
+              0,
+              0
+            ]
+          },
+          "rx_age": {
+            "count": 3735,
+            "total_us": 12192241,
+            "max_us": 570947,
+            "buckets": [
+              30,
+              1108,
+              2589,
+              0,
+              8
+            ]
+          }
+        }
+      ],
+      "serial_sha256": "0a7d1f0c104de3e55e903ff547a261ca0e0e3b356957d7df3f35017b73e2b50e",
+      "capture_sha256": "9d0523fe561582cdd5c9a4a07d8e74a2f65257e83451e53d0cf20b723b6a8d6f",
+      "image_sha256": "ce243ab3b04cef458d0b3ccf2dd7d87ed4ab5a1ee327aafce7c13d6e514be6c5",
+      "build_files": {
+        "measured-quiet-160-sta_smoke.elf": "41a90b59b79065c516ab359eea72fc9696f1e6fafae7490c4a3f26a0a9e9fbcf",
+        "measured-quiet-160-sta_smoke.map": "a1978bfa6e81afb5c39bb262dd104955678b6161af848f3ac572babacae15c74",
+        "measured-quiet-160-sta_smoke.build.log": "fce61bef29b6ea9f0a83dad0bf635530abb3ba1cd5d07fbad0aac98ea0094e21",
+        "measured-quiet-160-sta_smoke.Cargo.lock": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153"
+      },
+      "base_revision": "4841632fdab7163aca046ba28ddccb377ed19fdb",
+      "source_sha256": {
+        "esp-wifi-hal/src/timing.rs": "a45d3775ae8bc535bdb2d22bef685c05833a67c590957e75d7ee679a9259090f",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "esp-wifi-hal/src/lib.rs": "d23074cbda5da20ab899411fccf5ffe0a3b7403a9642ec74b8a4ac44a9be25e9",
+        "esp-wifi-hal/Cargo.toml": "3949ea749ad3295b7171f6f3da666f80496b04fbd79f16d28d09d6144232a086",
+        "examples/src/timing_probe.rs": "745b42e634dd54dbb5d5a2afc65f04afae2db00b08602924410708e9ce512a40",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/sta_smoke.rs": "eb934aaab4e70a4dbeb214daec0b6646610a29e4bbe0a9de07df346ee17e2eb3",
+        "examples/Cargo.toml": "804e171d2fe6d6478ca272852ff7fdebb4e7b1cbefcc1958d2079ba95aef0272"
+      }
+    }
+  ],
+  "final_crossbuilds": [
+    {
+      "chip": "esp32c3",
+      "label": "final-quiet",
+      "build_files": {
+        "final-quiet-sta_smoke.elf": "b15b3b86e89bb225651bdd846b356f21277751932ee9dd5a170265d8fb47fa1d",
+        "final-quiet-sta_smoke.map": "a72e8edbc059acbf4cebe977a35f2ccab1df386895695b5ed7e4b4efe3a1c9f2",
+        "final-quiet-sta_smoke.build.log": "82b462bdfa3a3cf265fc771124d1a969f73ee2aba53d985903f8a673346bc708",
+        "final-quiet-sta_smoke.Cargo.lock": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153"
+      },
+      "source_sha256": {
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "esp-wifi-hal/src/lib.rs": "d23074cbda5da20ab899411fccf5ffe0a3b7403a9642ec74b8a4ac44a9be25e9",
+        "esp-wifi-hal/Cargo.toml": "3949ea749ad3295b7171f6f3da666f80496b04fbd79f16d28d09d6144232a086",
+        "examples/src/timing_probe.rs": "bcfc641e0b2599a9a8281e691549cb722377fc7a97cc13994dbb1cbdf247e618",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/sta_smoke.rs": "eb934aaab4e70a4dbeb214daec0b6646610a29e4bbe0a9de07df346ee17e2eb3",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/Cargo.toml": "804e171d2fe6d6478ca272852ff7fdebb4e7b1cbefcc1958d2079ba95aef0272"
+      },
+      "device_tested": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "final-quiet-160",
+      "build_files": {
+        "final-quiet-160-sta_smoke.elf": "466ea98ae5bf4bdc6e2a776ecbae564e31287d223dfdabf951c06063e1a9cc05",
+        "final-quiet-160-sta_smoke.map": "cbfddfafbca1eb3e81fdb9bbbd2beb1c42b620dd748dfd35d72f4e847e4f3d6b",
+        "final-quiet-160-sta_smoke.build.log": "66de2784824997415e6d94eba52a654d5cae73ab99583bb3317031a55c82215d",
+        "final-quiet-160-sta_smoke.Cargo.lock": "2e8371a0957acc5f3be4b4b4261a5fc960a123757964873feb8b862b1fca5153"
+      },
+      "source_sha256": {
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/async_driver.rs": "58d4ed488c790f2b11f9f21355da6036db01094b3e714b57870b717cad4c524d",
+        "esp-wifi-hal/src/lib.rs": "d23074cbda5da20ab899411fccf5ffe0a3b7403a9642ec74b8a4ac44a9be25e9",
+        "esp-wifi-hal/Cargo.toml": "3949ea749ad3295b7171f6f3da666f80496b04fbd79f16d28d09d6144232a086",
+        "examples/src/timing_probe.rs": "bcfc641e0b2599a9a8281e691549cb722377fc7a97cc13994dbb1cbdf247e618",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/sta_smoke.rs": "eb934aaab4e70a4dbeb214daec0b6646610a29e4bbe0a9de07df346ee17e2eb3",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/Cargo.toml": "804e171d2fe6d6478ca272852ff7fdebb4e7b1cbefcc1958d2079ba95aef0272"
+      },
+      "device_tested": false
+    }
+  ],
+  "bucket_upper_bounds_us_exclusive": [
+    100,
+    1000,
+    10000,
+    100000,
+    null
+  ],
+  "method": [
+    "Ten attempted reconnect cycles; twenty 512-byte host and gateway echoes per traffic cycle.",
+    "First ping included, no explicit ARP warmup, one active test station.",
+    "Cumulative counters sampled after disconnect or immediately before a connection/DHCP panic.",
+    "Print timing measures complete logger calls, including format, lock and transport wait. Summary output and direct vendor printf are excluded.",
+    "TX resume is latest success interrupt signal to task consumption; time before ISR entry is not measured.",
+    "RX age is wrapping MAC counter minus raw receive timestamp at driver delivery, including scan/connection traffic.",
+    "Histograms are diagnostic snapshots of separate atomics, not a transactional or permanent uptime counter.",
+    "Info still emits packet metadata at INFO. Quiet additionally filters examples::packet_trace.",
+    "The first two builds use the default 80-MHz CPU from esp-hal source. Later builds also log runtime CPU frequency.",
+    "All images retain the same clocks, queue/parser corrections, PHY tracking cadence and network timeouts except the explicit CPU comparison.",
+    "Final source formatting is separate from the exact hardware image hashes and saved build-source snapshots."
+  ]
+}
