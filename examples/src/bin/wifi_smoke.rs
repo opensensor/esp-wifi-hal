@@ -87,6 +87,8 @@ async fn main(_spawner: Spawner) {
                         && descriptor.len() >= BorrowedBuffer::RX_CONTROL_HEADER_LENGTH + 24
                         && dma.rx_descr_next().read().bits() & 0xfffff == 0
                     {
+                        let sig = unsafe { descriptor.buffer.add(44).cast::<u32>().read_volatile() } & 0xfff;
+                        info!("stage=pending_diagnostic length={} sig={} buffer={:x}", descriptor.len(), sig, descriptor.buffer as usize);
                         break descriptor.buffer;
                     }
                 }
@@ -100,6 +102,7 @@ async fn main(_spawner: Spawner) {
         let pending = with_timeout(Duration::from_secs(2), wifi.receive())
             .await
             .expect("Returning a buffer discarded the pending frame");
+        info!("stage=delivered_diagnostic length={} buffer={:x}", pending.padded_buffer().len(), pending.padded_buffer().as_ptr() as usize);
         assert_eq!(
             pending.padded_buffer().as_ptr(),
             pending_buffer as *const u8,

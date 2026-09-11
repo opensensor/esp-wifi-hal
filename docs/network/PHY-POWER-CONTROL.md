@@ -1,7 +1,7 @@
 # C3/S3 RAM power-control dispatcher inventory
 
-The next bounded source candidate is `ram_tx_pwctrl_background`, the routine
-still reached by the [source TX wrapper](PHY-WRAPPERS.md). On both chips it
+This inventory identified `ram_tx_pwctrl_background`, the routine then
+reached by the [source TX wrapper](PHY-WRAPPERS.md). On both chips it
 reads vendor state and dispatches temperature, power and PLL tracking calls.
 Its own body contains no direct MMIO accesses or vendor-state stores. This
 supports replacing the dispatcher while retaining its analog helpers; it does
@@ -9,8 +9,9 @@ not support removing calibration or changing when tracking runs.
 
 This is a static review of the published `esp-wifi-sys` 0.2.0 PHY archives and
 the exact combined station images from the [previous milestone](PHY-SOURCE-VALIDATION.md).
-It adds no production implementation or device result. The current driver
-continues to pass `(1, 0)` to the retained vendor routine.
+It records the original contract rather than an implementation or device result.
+The subsequent [Rust dispatcher milestone](PHY-DISPATCHER.md) implements this
+boundary, retaining the analog helpers and the driver's `(1, 0)` arguments.
 
 ## Evidence identity
 
@@ -137,7 +138,7 @@ through linker `PROVIDE` aliases; S3 has strong driver definitions using
 `critical_section::acquire` / `release`. Substituting either named pair for
 the table dispatch would change the original contract.
 
-## Proposed implementation and acceptance gates
+## Original implementation proposal and acceptance gates
 
 Implement only the dispatcher behind the current source wrapper. Keep the
 initialized vendor parameter object, function table, direct ROM entry and

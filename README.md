@@ -58,6 +58,11 @@ archives retain the published 0.2.0 baseline. See the
 for the remaining allocations, formatter ABI, RX recovery, PHY lifetime and
 station results. RF initialization and calibration are still vendor code.
 
+The next [source PHY dispatcher](docs/network/PHY-DISPATCHER.md) replaces the
+C3/S3 RAM dispatch body while retaining its analog helpers and callback table.
+Its original-instruction comparisons, target checks and device report include
+the observed S3 RX-probe failure and intermittent host echo loss.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).

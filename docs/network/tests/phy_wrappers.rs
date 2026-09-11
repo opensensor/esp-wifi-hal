@@ -12,9 +12,10 @@ thread_local! {
     static CALLS: RefCell<Vec<(u8, u8)>> = const { RefCell::new(Vec::new()) };
 }
 
-#[unsafe(no_mangle)]
-extern "C" fn ram_tx_pwctrl_background(enabled: u8, mode: u8) {
-    CALLS.with(|calls| calls.borrow_mut().push((enabled, mode)));
+mod phy_dispatcher {
+    pub(crate) unsafe fn tx_pwctrl_background(enabled: u8, mode: u8) {
+        super::CALLS.with(|calls| calls.borrow_mut().push((enabled, mode)));
+    }
 }
 
 #[cfg(esp32c3)]
@@ -29,7 +30,7 @@ static mut phy_param: [u8; PARAM_SIZE] = [0; PARAM_SIZE];
 static PARAM_LOCK: Mutex<()> = Mutex::new(());
 
 #[test]
-fn every_valid_c_byte_pair_reaches_the_retained_ram_callee_once_in_order() {
+fn every_valid_c_byte_pair_reaches_the_source_dispatcher_once_in_order() {
     for enabled in 0..=u8::MAX {
         CALLS.with(|calls| calls.borrow_mut().clear());
         for mode in 0..=u8::MAX {

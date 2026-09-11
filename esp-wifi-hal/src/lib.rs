@@ -73,6 +73,8 @@ mod ffi;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod phy_wrappers;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+mod phy_dispatcher;
+#[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]

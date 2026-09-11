@@ -1,9 +1,11 @@
 # Source replacements for two PHY wrappers
 
-C3 and S3 now bypass the vendor `tx_pwctrl_background` wrapper and implement
-`phy_bbpll_en_usb` in Rust. The RAM tracking callee, parameter data, calibration
-and RF configuration remain vendor code. This is a small integration milestone,
-not an open PHY implementation or a change to transmit power policy.
+This milestone bypassed the vendor `tx_pwctrl_background` wrapper and implemented
+`phy_bbpll_en_usb` in Rust on C3 and S3. It retained the RAM tracking callee,
+parameter data, calibration and RF configuration. The subsequent
+[Rust dispatcher milestone](PHY-DISPATCHER.md) replaces that RAM dispatch body;
+its analog helpers and vendor state remain. Neither change alters transmit
+power policy or implements a complete open PHY.
 
 ## Original contracts and integration
 
@@ -19,7 +21,7 @@ to the vendor-owned parameter object. Volatile byte access prevents combining
 this write with neighboring state; S3 emits the compiler's `memw` ordering
 instruction before the store.
 
-The driver's wrapper calls the retained RAM routine directly. It changes no
+At this milestone, the driver's wrapper called the retained RAM routine directly. It changed no
 transmission cadence, callback table, argument values or channel/AGC sequence.
 In particular, the direct AGC operations still use `0x6001c038`; internal RAM
 AGC callbacks keep their different `0x6001c034` contract.

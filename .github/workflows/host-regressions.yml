@@ -25,6 +25,8 @@ jobs:
         run: rustup toolchain install stable --profile minimal
       - name: C and Rust HAL regressions
         run: sh docs/esp32s3/tests/run-rust-tests.sh
+      - name: Compare PHY dispatcher to original instructions
+        run: sh docs/network/tests/run-phy-dispatcher.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py

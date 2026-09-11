@@ -7,14 +7,21 @@ COMMON allocations, and excludes discarded/non-SHF_ALLOC contributions.
 import argparse
 from collections import Counter
 import hashlib
+import io
 import json
 from pathlib import Path
 import re
+import subprocess
 
 
 CATEGORIES = ("libphy.a", "libpp.a", "prebuilt_printf", "source_printf", "unknown_printf")
 WRAPPERS = ("tx_pwctrl_background", "phy_bbpll_en_usb")
 RETAINED = ("ram_tx_pwctrl_background", "phy_param", "register_chipv7_phy")
+DISPATCH_HELPERS = {
+    "esp32c3": ("g_phyFuns", "rom1_tsens_temp_read", "ram2_rfpll_cap_track", "rfcal_track"),
+    "esp32s3": ("g_phyFuns", "ram_tsens_temp_read", "ram_wifi_track_tx_power",
+                "ram_txpwr_cal_track", "rfpll_cap_track"),
+}
 
 
 def classify(archive, member):
@@ -110,10 +117,39 @@ def sha256(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def audit(elf_path, map_path, label):
+def exclude_mergeable_strings(rows):
+    """GNU maps can retain pre-merge string sizes: never count those as ranges.
+
+    Verify MERGE|STRINGS on each named original object section before excluding
+    it. Other overlaps still fail in allocate(). Excluded strings cannot be
+    uniquely attributed to an archive after the linker's string deduplication.
+    """
+    from elftools.elf.elffile import ELFFile
+    flags = {}
+    kept, excluded = [], []
+    for row in rows:
+        category, member, section, address, size, archive = row
+        if not (section.startswith('.rodata') and '.str' in section):
+            kept.append(row)
+            continue
+        key = (archive, member)
+        if key not in flags:
+            obj = ELFFile(io.BytesIO(subprocess.check_output(['ar', 'p', archive, member])))
+            flags[key] = {s.name: s['sh_flags'] for s in obj.iter_sections()}
+        if flags[key].get(section, 0) & 0x30 != 0x30:
+            raise ValueError('Expected SHF_MERGE|SHF_STRINGS on excluded input')
+        excluded.append({'category': category, 'member': member, 'section': section,
+                         'map_address': hex(address), 'reported_input_bytes': size})
+    return kept, excluded
+
+
+def audit(elf_path, map_path, label, exclude_strings=False):
     from elftools.elf.elffile import ELFFile
 
     linker, rows = parse_map(map_path.read_text())
+    excluded = []
+    if exclude_strings:
+        rows, excluded = exclude_mergeable_strings(rows)
     archive_members = {}
     for _, member, _, _, _, archive in rows:
         archive_members.setdefault(archive, set()).add(member)
@@ -137,7 +173,7 @@ def audit(elf_path, map_path, label):
         if table is None:
             raise ValueError("Selected symbol audit requires .symtab")
         symbols = {}
-        for name in WRAPPERS + RETAINED + ("vsnprintf",):
+        for name in WRAPPERS + RETAINED + ("vsnprintf",) + DISPATCH_HELPERS[chip]:
             candidates = [symbol for symbol in table.get_symbol_by_name(name) or []
                           if isinstance(symbol["st_shndx"], int)
                           and elf.get_section(symbol["st_shndx"])["sh_flags"] & 2]
@@ -155,6 +191,9 @@ def audit(elf_path, map_path, label):
         "input_archives_observed": observed_archives,
         "allocations": {}, "selected_allocated_symbols": symbols,
     }
+    if exclude_strings:
+        result['method'] += ' Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.'
+        result['excluded_mergeable_string_inputs'] = excluded
     for name, inputs in groups.items():
         members = Counter()
         for row in inputs:
@@ -167,13 +206,18 @@ def audit(elf_path, map_path, label):
     return result
 
 
-def check_expectations(result, printf, wrappers):
+def check_expectations(result, printf, wrappers, dispatcher="vendor"):
     allocated = result["allocations"]
     symbols = result["selected_allocated_symbols"]
     if not allocated["libphy.a"]["bytes"] or allocated["libpp.a"]["bytes"]:
         raise ValueError("Expected retained PHY and no allocated libpp")
-    if any(symbols[name] is None for name in RETAINED):
+    required = RETAINED if dispatcher == "vendor" else RETAINED[1:] + DISPATCH_HELPERS[result["chip"]]
+    if any(symbols.get(name) is None for name in required):
         raise ValueError("Missing retained tracking, calibration or parameter symbol")
+    if dispatcher == "source":
+        if symbols["ram_tx_pwctrl_background"] is not None or any(
+                "ram_tx_pwctrl_background" in row["section"] for row in allocated["libphy.a"]["inputs"]):
+            raise ValueError("Original RAM dispatcher still allocated")
     if printf:
         live = "source_printf" if printf == "source" else "prebuilt_printf"
         absent = "prebuilt_printf" if printf == "source" else "source_printf"
@@ -197,9 +241,12 @@ if __name__ == "__main__":
     parser.add_argument("--label", required=True)
     parser.add_argument("--expect-printf", choices=("prebuilt", "source"))
     parser.add_argument("--expect-phy-wrappers", choices=("vendor", "source"))
+    parser.add_argument("--expect-phy-dispatcher", choices=("vendor", "source"), default="vendor")
+    parser.add_argument("--exclude-merged-strings", action="store_true",
+                        help="Count non-string inputs only; verify excluded sections in original archives")
     args = parser.parse_args()
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", args.label):
         parser.error("Label must be a simple artifact identifier")
-    result = audit(args.elf, args.map, args.label)
-    check_expectations(result, args.expect_printf, args.expect_phy_wrappers)
+    result = audit(args.elf, args.map, args.label, args.exclude_merged_strings)
+    check_expectations(result, args.expect_printf, args.expect_phy_wrappers, args.expect_phy_dispatcher)
     print(json.dumps(result, indent=2))

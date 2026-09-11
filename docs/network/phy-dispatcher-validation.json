@@ -1,0 +1,8066 @@
+{
+  "schema": "opensensor-phy-dispatcher-validation-v1",
+  "date_utc": "2026-09-11",
+  "baseline_hal": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+  "foa_revision": "90cfad9b20dcd4ae121690d71c5393c4287506f6",
+  "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+  "production_and_final_example_source_sha256": {
+    "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+    "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+    "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+    "examples/Cargo.toml": "ab98563798b571cb14fbc1b469350f19bbaf09504f0a05cd3ab27dea52f63bef",
+    "examples/Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e",
+    "examples/src/bin/wifi_smoke.rs": "69819ef6590538a72e0d641ffe469a8f8505c95730b61553ad07c07901bb30aa",
+    "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc",
+    "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a"
+  },
+  "baseline_report_sha256": "dfd51fccd0be6e32a7545fbae945834563dc11cdf0a243c357daf81ed07414e2",
+  "settings": {
+    "cpu_mhz": 80,
+    "profile": "quiet",
+    "cycles": 10,
+    "host_gateway_pings_per_cycle": 20,
+    "payload_bytes": 512,
+    "arp_warmup": false,
+    "one_active_station": true
+  },
+  "provenance_note": "Source builds use the listed HAL baseline plus the committed dispatcher changes. The snapshot identifies production code and final example files. Only the S3 rx-diagnostic device probes include the added wifi_smoke descriptor logging; C3 initial RX probes predate that diagnostic-only example change. No production source changes followed the tested builds.",
+  "host_oracle": {
+    "esp32c3": {
+      "chip": "esp32c3",
+      "cases": 137216,
+      "oracle_sha256": "975776377f68ddee5efbff03736cbeee0571b897cc99be8b9d060420943a3218"
+    },
+    "esp32s3": {
+      "chip": "esp32s3",
+      "cases": 268288,
+      "oracle_sha256": "d78a88212047d94d0d82cd46625fcc149c0ed9ce53190556f32d22053df850cc"
+    }
+  },
+  "host_optimization_levels": [
+    0,
+    2
+  ],
+  "native_dispatcher_review": [
+    {
+      "chip": "esp32c3",
+      "source_function_bytes": 138,
+      "disassembly_sha256": "259f37809595aa9b0f0e311e626199527aee7d932066cbd00a6a17de97d0b50f",
+      "scope": "Reviewed linked (1,0) specialization: volatile read widths/order, fresh callback table loads, native C ABI arguments and full exit token. S3 includes extra memw barriers."
+    },
+    {
+      "chip": "esp32s3",
+      "source_function_bytes": 110,
+      "disassembly_sha256": "e547ce109f6186bf659a0263221f7b999719f144ec5d54c83107ca0fc890fd3f",
+      "scope": "Reviewed linked (1,0) specialization: volatile read widths/order, fresh callback table loads, native C ABI arguments and full exit token. S3 includes extra memw barriers."
+    }
+  ],
+  "pending_queue_overflow_test": {
+    "smoltcp_revision": "517222f7318c092d82197e2e68cfccca0f460b09",
+    "test": "full_queue_evicts_oldest_and_oversize_does_not_evict_valid_packets",
+    "passed": true,
+    "compiler": "rustc 1.97.0-nightly (8ea53bcd7 2026-07-08) (1.97.0.0)",
+    "result_log_sha256": "9d2b6f1f3108b4f423503eb7355ae8ac3e768f036e3bae4b5175d517d682d022",
+    "limitation": "Host proof of bounded queue behavior, not proof that the quiet S3 trial evicted these two replies."
+  },
+  "legacy_chip_checks": [
+    {
+      "chip": "esp32",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32-none-elf",
+        "--features",
+        "esp32,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    },
+    {
+      "chip": "esp32s2",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32s2-none-elf",
+        "--features",
+        "esp32s2,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "retained_baseline_station_trials": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-m1-80",
+      "fault_injection": false,
+      "preparation_us": [
+        1128462
+      ],
+      "connection_us": [
+        36690,
+        31984,
+        31553,
+        30738,
+        54141,
+        34284,
+        31923,
+        32085,
+        29039,
+        33201
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.015000000000001,
+      "pmk_us_range": [
+        12,
+        17
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            28,
+            3682,
+            3699,
+            3723,
+            14041,
+            17301,
+            23391,
+            24790,
+            26471,
+            34942,
+            36718
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3646,
+            3658,
+            3684,
+            8966,
+            12288,
+            18270,
+            19658,
+            21284,
+            30301,
+            32009
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            27,
+            4879,
+            4891,
+            4915,
+            10257,
+            13574,
+            18955,
+            20345,
+            21992,
+            29875,
+            31580
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            37,
+            752,
+            764,
+            791,
+            10072,
+            13454,
+            17748,
+            19141,
+            21018,
+            29031,
+            30775
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3698,
+            3710,
+            3736,
+            14348,
+            20699,
+            25955,
+            27342,
+            30006,
+            50525,
+            54167
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            33,
+            4486,
+            4498,
+            4522,
+            13420,
+            16698,
+            20961,
+            22375,
+            24137,
+            32359,
+            34317
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3676,
+            3688,
+            3714,
+            10148,
+            14151,
+            18927,
+            20317,
+            21934,
+            30261,
+            31948
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 23
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3667,
+            3679,
+            3703,
+            9756,
+            13067,
+            17894,
+            19304,
+            22027,
+            30007,
+            32110
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3648,
+            3662,
+            3686,
+            8783,
+            12347,
+            16619,
+            18011,
+            19619,
+            27389,
+            29065
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3870,
+            3882,
+            3906,
+            12489,
+            15779,
+            20351,
+            21743,
+            23392,
+            31473,
+            33228
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19318781,
+          "mac_us": 19318785,
+          "print": [
+            15,
+            32731,
+            5188,
+            0,
+            2,
+            13,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            662,
+            78,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            53,
+            6076,
+            2103,
+            51,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            384,
+            829331,
+            6911,
+            3,
+            118,
+            263,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34307372,
+          "mac_us": 34307375,
+          "print": [
+            28,
+            60045,
+            5188,
+            0,
+            4,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1388,
+            78,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            109,
+            11842,
+            2103,
+            105,
+            0,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            672,
+            1471242,
+            8057,
+            4,
+            211,
+            457,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49257266,
+          "mac_us": 49257271,
+          "print": [
+            40,
+            84868,
+            5188,
+            0,
+            6,
+            34,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2142,
+            78,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            161,
+            17997,
+            2607,
+            155,
+            0,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1006,
+            2235775,
+            8057,
+            6,
+            300,
+            700,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63694428,
+          "mac_us": 63694431,
+          "print": [
+            52,
+            107556,
+            5188,
+            0,
+            8,
+            44,
+            0,
+            0
+          ],
+          "phy": [
+            43,
+            2867,
+            78,
+            43,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            216,
+            23710,
+            2607,
+            208,
+            0,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1286,
+            2853328,
+            8057,
+            8,
+            388,
+            890,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78665994,
+          "mac_us": 78666003,
+          "print": [
+            64,
+            131924,
+            5188,
+            0,
+            10,
+            54,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3545,
+            78,
+            53,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            267,
+            27693,
+            2607,
+            258,
+            0,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1600,
+            3514863,
+            8057,
+            9,
+            483,
+            1108,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93582329,
+          "mac_us": 93582335,
+          "print": [
+            76,
+            155506,
+            5188,
+            0,
+            13,
+            63,
+            0,
+            0
+          ],
+          "phy": [
+            63,
+            4216,
+            79,
+            63,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            318,
+            33660,
+            2607,
+            307,
+            0,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            1880,
+            4137434,
+            8057,
+            11,
+            569,
+            1300,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 108549801,
+          "mac_us": 108549804,
+          "print": [
+            88,
+            178525,
+            5188,
+            0,
+            16,
+            72,
+            0,
+            0
+          ],
+          "phy": [
+            74,
+            4981,
+            83,
+            74,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            372,
+            39975,
+            2607,
+            359,
+            0,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2231,
+            4903223,
+            8057,
+            14,
+            669,
+            1548,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 123496014,
+          "mac_us": 123496018,
+          "print": [
+            100,
+            202378,
+            5188,
+            0,
+            18,
+            82,
+            0,
+            0
+          ],
+          "phy": [
+            84,
+            5657,
+            83,
+            84,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            423,
+            45490,
+            2607,
+            408,
+            0,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            2525,
+            5540255,
+            8057,
+            15,
+            766,
+            1744,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 138449583,
+          "mac_us": 138449588,
+          "print": [
+            113,
+            228136,
+            5451,
+            0,
+            20,
+            93,
+            0,
+            0
+          ],
+          "phy": [
+            94,
+            6345,
+            83,
+            94,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            473,
+            49541,
+            2607,
+            457,
+            0,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            2845,
+            6221601,
+            8057,
+            17,
+            857,
+            1971,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 153401895,
+          "mac_us": 153401899,
+          "print": [
+            125,
+            252641,
+            5451,
+            0,
+            22,
+            103,
+            0,
+            0
+          ],
+          "phy": [
+            105,
+            7077,
+            83,
+            105,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            527,
+            56187,
+            3070,
+            509,
+            0,
+            18,
+            0,
+            0
+          ],
+          "rx_age": [
+            3124,
+            6856762,
+            8060,
+            20,
+            938,
+            2166,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 990,
+        "socket_packets": 990,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "bf203ec149283c1483c8befdc06e991fd36199ecc24be0172dea922293110739",
+      "elf_sha256": "afc867a0e31a3f860d58fc19c52e7dfc2e3df87b697435347001fc9ff09331a3",
+      "serial_sha256": "ab0c2e768774020ecd653064e14f4c34f3071acd662127b8dc04d3177727c23c"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-m1-80",
+      "fault_injection": false,
+      "preparation_us": [
+        933442
+      ],
+      "connection_us": [
+        31523,
+        30478,
+        29721,
+        40781,
+        38415,
+        34296,
+        31966,
+        32551,
+        53806,
+        30058
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.945,
+      "pmk_us_range": [
+        22,
+        28
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3712,
+            3740,
+            3764,
+            9086,
+            13116,
+            18870,
+            20075,
+            22284,
+            29506,
+            31554
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3748,
+            3773,
+            3798,
+            9225,
+            13522,
+            18120,
+            19326,
+            21357,
+            28603,
+            30513
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3742,
+            3764,
+            3788,
+            8929,
+            12949,
+            17488,
+            18691,
+            20709,
+            27783,
+            29758
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3792,
+            3816,
+            3840,
+            9425,
+            13328,
+            24068,
+            25275,
+            27797,
+            35074,
+            40818
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3843,
+            3866,
+            3890,
+            9739,
+            13645,
+            18328,
+            19535,
+            21395,
+            28463,
+            38448
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3748,
+            3774,
+            3797,
+            13036,
+            17009,
+            21890,
+            23094,
+            25055,
+            32354,
+            34332
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3342,
+            3369,
+            3393,
+            9617,
+            13646,
+            19152,
+            20354,
+            22514,
+            29779,
+            31999
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 24
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            38,
+            3412,
+            3435,
+            3459,
+            10830,
+            14709,
+            19845,
+            21047,
+            22999,
+            30716,
+            32589
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3939,
+            3963,
+            3987,
+            23785,
+            30934,
+            35854,
+            37064,
+            43569,
+            50886,
+            53843
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 3,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            34,
+            3359,
+            3384,
+            3408,
+            8712,
+            12745,
+            17707,
+            18914,
+            20941,
+            28206,
+            30092
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 7,
+          "index": 0,
+          "us": 33,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 1,
+          "us": 54,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 2,
+          "us": 3342,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 3,
+          "us": 3369,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 4,
+          "us": 3393,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 5,
+          "us": 9360,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 6,
+          "us": 9617,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 7,
+          "us": 13323,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 8,
+          "us": 13646,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 9,
+          "us": 18888,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 10,
+          "us": 18954,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 11,
+          "us": 19116,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 12,
+          "us": 19152,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 13,
+          "us": 20354,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 14,
+          "us": 22442,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 15,
+          "us": 22514,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 16,
+          "us": 25638,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 17,
+          "us": 25707,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 18,
+          "us": 29651,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 19,
+          "us": 29779,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 20,
+          "us": 31551,
+          "phase": 9,
+          "kind": 10,
+          "a": 5066,
+          "b": 2
+        },
+        {
+          "cycle": 7,
+          "index": 21,
+          "us": 31637,
+          "phase": 9,
+          "kind": 6,
+          "a": 257,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 22,
+          "us": 31930,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 23,
+          "us": 31999,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19039963,
+          "mac_us": 19039976,
+          "print": [
+            15,
+            11817,
+            1823,
+            0,
+            12,
+            3,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            676,
+            68,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            52,
+            4439,
+            1305,
+            49,
+            1,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            364,
+            825689,
+            4947,
+            0,
+            114,
+            250,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 33973945,
+          "mac_us": 33973958,
+          "print": [
+            27,
+            21168,
+            1891,
+            0,
+            21,
+            6,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1419,
+            68,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            105,
+            6857,
+            1305,
+            100,
+            3,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            699,
+            1588420,
+            4947,
+            0,
+            209,
+            490,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 48909928,
+          "mac_us": 48909941,
+          "print": [
+            39,
+            30199,
+            1891,
+            0,
+            30,
+            9,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2161,
+            68,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            161,
+            12073,
+            1334,
+            152,
+            5,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            992,
+            2246679,
+            6100,
+            0,
+            306,
+            686,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63893921,
+          "mac_us": 63893926,
+          "print": [
+            52,
+            40420,
+            1891,
+            0,
+            40,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            44,
+            2971,
+            68,
+            44,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            221,
+            15873,
+            1334,
+            210,
+            6,
+            5,
+            0,
+            0
+          ],
+          "rx_age": [
+            1317,
+            2961380,
+            6954,
+            1,
+            402,
+            914,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78830898,
+          "mac_us": 78830903,
+          "print": [
+            64,
+            50649,
+            1891,
+            0,
+            49,
+            15,
+            0,
+            0
+          ],
+          "phy": [
+            54,
+            3646,
+            68,
+            54,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            274,
+            20795,
+            1439,
+            260,
+            7,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1616,
+            3624881,
+            8129,
+            3,
+            505,
+            1108,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93817336,
+          "mac_us": 93817342,
+          "print": [
+            76,
+            60846,
+            1891,
+            0,
+            58,
+            18,
+            0,
+            0
+          ],
+          "phy": [
+            66,
+            4455,
+            70,
+            66,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            332,
+            25695,
+            1441,
+            314,
+            10,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1949,
+            4385805,
+            8129,
+            5,
+            599,
+            1345,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 108754370,
+          "mac_us": 108754382,
+          "print": [
+            88,
+            69717,
+            1891,
+            0,
+            67,
+            21,
+            0,
+            0
+          ],
+          "phy": [
+            77,
+            5198,
+            70,
+            77,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            388,
+            30728,
+            1441,
+            366,
+            12,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            2266,
+            5067105,
+            8129,
+            7,
+            711,
+            1548,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 123689298,
+          "mac_us": 123689311,
+          "print": [
+            101,
+            79776,
+            1891,
+            0,
+            77,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            88,
+            5946,
+            70,
+            88,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            442,
+            35178,
+            1441,
+            418,
+            12,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            2598,
+            5783070,
+            8129,
+            7,
+            818,
+            1773,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 138675827,
+          "mac_us": 138675840,
+          "print": [
+            113,
+            89389,
+            1891,
+            0,
+            85,
+            28,
+            0,
+            0
+          ],
+          "phy": [
+            99,
+            6690,
+            70,
+            99,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            497,
+            38641,
+            1441,
+            472,
+            12,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2905,
+            6443474,
+            8129,
+            8,
+            928,
+            1969,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 153628809,
+          "mac_us": 153628822,
+          "print": [
+            125,
+            98307,
+            1891,
+            0,
+            94,
+            31,
+            0,
+            0
+          ],
+          "phy": [
+            110,
+            7440,
+            70,
+            110,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            551,
+            43224,
+            1441,
+            523,
+            13,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            3247,
+            7212761,
+            8129,
+            10,
+            1030,
+            2207,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1066,
+        "socket_packets": 1066,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "a34289c11056c89033f7160fd6b925f8fe6cc00b98c3dfe92f7516101e6bf548",
+      "elf_sha256": "5f412f085a986609c0b2c45182d04b00daf44a74136cfbf6299ce7ddee0be062",
+      "serial_sha256": "ee25d1dcc77151203288a2e2fd63158d0eaec787cf445226a02bafa116235598"
+    }
+  ],
+  "station_trials": [
+    {
+      "chip": "esp32s3",
+      "variant": "baseline-dispatch-repeat-80",
+      "fault_injection": false,
+      "preparation_us": [
+        1128462
+      ],
+      "connection_us": [
+        30651,
+        40682,
+        31190,
+        31073,
+        36103,
+        39452,
+        31197,
+        29776,
+        30257,
+        32158
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 6.9,
+      "pmk_us_range": [
+        12,
+        17
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            32,
+            3343,
+            3360,
+            3384,
+            8883,
+            12363,
+            17548,
+            18947,
+            20635,
+            28562,
+            30683
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3381,
+            3393,
+            3419,
+            13467,
+            17417,
+            28284,
+            29679,
+            31220,
+            38935,
+            40708
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            26,
+            4570,
+            4582,
+            4606,
+            10517,
+            13970,
+            18597,
+            19994,
+            21687,
+            29518,
+            31216
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3698,
+            3710,
+            3736,
+            9284,
+            12542,
+            17315,
+            18705,
+            20287,
+            29336,
+            31100
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            25,
+            4534,
+            4546,
+            4572,
+            11029,
+            17506,
+            21508,
+            22898,
+            26546,
+            34348,
+            36128
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            28,
+            677,
+            689,
+            713,
+            7455,
+            14843,
+            19584,
+            20972,
+            23846,
+            37613,
+            39480
+          ],
+          "queues": [
+            1,
+            0
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 24
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            24,
+            3665,
+            3679,
+            3703,
+            9262,
+            12649,
+            17268,
+            18667,
+            21474,
+            29263,
+            31221
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            23,
+            3689,
+            3702,
+            3726,
+            9078,
+            12632,
+            17032,
+            18420,
+            19984,
+            28130,
+            29799
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3643,
+            3655,
+            3679,
+            8847,
+            12318,
+            17364,
+            18754,
+            20350,
+            28254,
+            30284
+          ],
+          "queues": [
+            0,
+            1
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 27
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            23,
+            3664,
+            3676,
+            3702,
+            8899,
+            12396,
+            17183,
+            18573,
+            21170,
+            29159,
+            32181
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 6,
+          "index": 0,
+          "us": 28,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 1,
+          "us": 45,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 2,
+          "us": 677,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 3,
+          "us": 689,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 4,
+          "us": 713,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 5,
+          "us": 7252,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65536
+        },
+        {
+          "cycle": 6,
+          "index": 6,
+          "us": 7455,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 7,
+          "us": 14648,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65536
+        },
+        {
+          "cycle": 6,
+          "index": 8,
+          "us": 14843,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 9,
+          "us": 19412,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 10,
+          "us": 19451,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65536
+        },
+        {
+          "cycle": 6,
+          "index": 11,
+          "us": 19559,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 12,
+          "us": 19584,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 13,
+          "us": 20972,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 14,
+          "us": 23805,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 15,
+          "us": 23846,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 16,
+          "us": 32901,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 17,
+          "us": 32965,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65536
+        },
+        {
+          "cycle": 6,
+          "index": 18,
+          "us": 37510,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 19,
+          "us": 37613,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 20,
+          "us": 39111,
+          "phase": 9,
+          "kind": 10,
+          "a": 5066,
+          "b": 2
+        },
+        {
+          "cycle": 6,
+          "index": 21,
+          "us": 39210,
+          "phase": 9,
+          "kind": 6,
+          "a": 257,
+          "b": 65536
+        },
+        {
+          "cycle": 6,
+          "index": 22,
+          "us": 39440,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 6,
+          "index": 23,
+          "us": 39480,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 0,
+          "us": 27,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 1,
+          "us": 44,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 2,
+          "us": 3643,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 3,
+          "us": 3655,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 4,
+          "us": 3679,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 5,
+          "us": 8671,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65537
+        },
+        {
+          "cycle": 9,
+          "index": 6,
+          "us": 8847,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 7,
+          "us": 12124,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65537
+        },
+        {
+          "cycle": 9,
+          "index": 8,
+          "us": 12318,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 9,
+          "us": 17201,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 10,
+          "us": 17236,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 9,
+          "index": 11,
+          "us": 17342,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 12,
+          "us": 17364,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 13,
+          "us": 18754,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 14,
+          "us": 20313,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 15,
+          "us": 20350,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 16,
+          "us": 23567,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 17,
+          "us": 23631,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 9,
+          "index": 18,
+          "us": 28149,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 19,
+          "us": 28254,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 20,
+          "us": 30242,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 21,
+          "us": 30284,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 22,
+          "us": 1035371,
+          "phase": 10,
+          "kind": 10,
+          "a": 5066,
+          "b": 1
+        },
+        {
+          "cycle": 9,
+          "index": 23,
+          "us": 1035402,
+          "phase": 10,
+          "kind": 6,
+          "a": 257,
+          "b": 1
+        },
+        {
+          "cycle": 9,
+          "index": 24,
+          "us": 1040152,
+          "phase": 10,
+          "kind": 12,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 25,
+          "us": 1041834,
+          "phase": 10,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 9,
+          "index": 26,
+          "us": 1041853,
+          "phase": 10,
+          "kind": 13,
+          "a": 0,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19262374,
+          "mac_us": 19262377,
+          "print": [
+            15,
+            29015,
+            4660,
+            0,
+            2,
+            13,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            663,
+            74,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            53,
+            6038,
+            2082,
+            51,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            381,
+            810520,
+            4554,
+            3,
+            117,
+            261,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34191329,
+          "mac_us": 34191333,
+          "print": [
+            27,
+            55231,
+            4933,
+            0,
+            3,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1404,
+            76,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            107,
+            12195,
+            2086,
+            102,
+            1,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            672,
+            1441628,
+            4566,
+            4,
+            215,
+            453,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49145670,
+          "mac_us": 49145675,
+          "print": [
+            39,
+            81654,
+            5270,
+            0,
+            4,
+            35,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2169,
+            79,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            161,
+            18895,
+            3074,
+            154,
+            1,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1004,
+            2117992,
+            5353,
+            6,
+            316,
+            682,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 64085439,
+          "mac_us": 64085445,
+          "print": [
+            51,
+            103741,
+            5270,
+            0,
+            6,
+            45,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            2846,
+            79,
+            42,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            212,
+            24423,
+            3074,
+            203,
+            1,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1323,
+            2845846,
+            5353,
+            7,
+            415,
+            901,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 79041027,
+          "mac_us": 79041031,
+          "print": [
+            63,
+            129911,
+            5270,
+            0,
+            8,
+            55,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3604,
+            79,
+            53,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            265,
+            30032,
+            3074,
+            254,
+            1,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            1676,
+            3570443,
+            5374,
+            10,
+            522,
+            1144,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 94077824,
+          "mac_us": 94077830,
+          "print": [
+            75,
+            154564,
+            5270,
+            0,
+            9,
+            66,
+            0,
+            0
+          ],
+          "phy": [
+            64,
+            4340,
+            79,
+            64,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            322,
+            36806,
+            3074,
+            309,
+            1,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            1980,
+            4212705,
+            5374,
+            11,
+            632,
+            1337,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 109040230,
+          "mac_us": 109040235,
+          "print": [
+            87,
+            180051,
+            5542,
+            0,
+            11,
+            76,
+            0,
+            0
+          ],
+          "phy": [
+            75,
+            5100,
+            79,
+            75,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            375,
+            42095,
+            3074,
+            360,
+            1,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            2325,
+            4914713,
+            6882,
+            13,
+            740,
+            1572,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 123987697,
+          "mac_us": 123987700,
+          "print": [
+            99,
+            204028,
+            5542,
+            0,
+            13,
+            86,
+            0,
+            0
+          ],
+          "phy": [
+            86,
+            5859,
+            79,
+            86,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            430,
+            47798,
+            3074,
+            413,
+            1,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            2648,
+            5681486,
+            8063,
+            15,
+            830,
+            1803,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 149056152,
+          "mac_us": 149056160,
+          "print": [
+            111,
+            230106,
+            5542,
+            0,
+            15,
+            96,
+            0,
+            0
+          ],
+          "phy": [
+            97,
+            6614,
+            79,
+            97,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            486,
+            53874,
+            3074,
+            467,
+            1,
+            18,
+            0,
+            0
+          ],
+          "rx_age": [
+            3205,
+            6927651,
+            8063,
+            18,
+            977,
+            2210,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 164102080,
+          "mac_us": 164102083,
+          "print": [
+            123,
+            252913,
+            5542,
+            0,
+            18,
+            105,
+            0,
+            0
+          ],
+          "phy": [
+            107,
+            7273,
+            79,
+            107,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            536,
+            59526,
+            3074,
+            515,
+            1,
+            20,
+            0,
+            0
+          ],
+          "rx_age": [
+            3497,
+            7564185,
+            8063,
+            21,
+            1068,
+            2408,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1165,
+        "socket_packets": 1165,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "bf203ec149283c1483c8befdc06e991fd36199ecc24be0172dea922293110739",
+      "elf_sha256": "afc867a0e31a3f860d58fc19c52e7dfc2e3df87b697435347001fc9ff09331a3",
+      "serial_sha256": "068163b1724c4d7613d9fe77fed3e319d83ce5aa113c7d311556414479d97dbb",
+      "dispatcher": "vendor",
+      "all_requested_traffic_received": true
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-dispatch-80",
+      "fault_injection": false,
+      "preparation_us": [
+        1128456
+      ],
+      "connection_us": [
+        29962,
+        29333,
+        30212,
+        31195,
+        30643,
+        135439,
+        35144,
+        30694,
+        28816,
+        34663
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": "Host echo loss",
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 18
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 6.995,
+      "pmk_us_range": [
+        19,
+        24
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            32,
+            3754,
+            3778,
+            3802,
+            8976,
+            13128,
+            17509,
+            18896,
+            20567,
+            28222,
+            29994
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3257,
+            3278,
+            3302,
+            8522,
+            11881,
+            17007,
+            18394,
+            20057,
+            27697,
+            29366
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3653,
+            3672,
+            3696,
+            8785,
+            12135,
+            17201,
+            18584,
+            20766,
+            28517,
+            30241
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3641,
+            3663,
+            3686,
+            8544,
+            12013,
+            16895,
+            18282,
+            19949,
+            29506,
+            31222
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            28,
+            3267,
+            3288,
+            3313,
+            9239,
+            12874,
+            17960,
+            19342,
+            20906,
+            28866,
+            30671
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 24
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3705,
+            3726,
+            3750,
+            110893,
+            116088,
+            120360,
+            121738,
+            123685,
+            133728,
+            135474
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3711,
+            3732,
+            3756,
+            11596,
+            15242,
+            19966,
+            21353,
+            22988,
+            33435,
+            35173
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3228,
+            3249,
+            3273,
+            8825,
+            12194,
+            18144,
+            19535,
+            21169,
+            28983,
+            30723
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3644,
+            3663,
+            3687,
+            8886,
+            12125,
+            16350,
+            17734,
+            19325,
+            27005,
+            28846
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3751,
+            3770,
+            3794,
+            10467,
+            14071,
+            19999,
+            21386,
+            23139,
+            31444,
+            34690
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 5,
+          "index": 0,
+          "us": 28,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 1,
+          "us": 47,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 2,
+          "us": 3267,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 3,
+          "us": 3288,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 4,
+          "us": 3313,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 5,
+          "us": 9102,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65539
+        },
+        {
+          "cycle": 5,
+          "index": 6,
+          "us": 9239,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 7,
+          "us": 12680,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65539
+        },
+        {
+          "cycle": 5,
+          "index": 8,
+          "us": 12874,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 9,
+          "us": 17796,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 10,
+          "us": 17827,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65539
+        },
+        {
+          "cycle": 5,
+          "index": 11,
+          "us": 17916,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 12,
+          "us": 17960,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 13,
+          "us": 19342,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 14,
+          "us": 20873,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 15,
+          "us": 20906,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 16,
+          "us": 24170,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 17,
+          "us": 24227,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65539
+        },
+        {
+          "cycle": 5,
+          "index": 18,
+          "us": 28758,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 19,
+          "us": 28866,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 20,
+          "us": 30365,
+          "phase": 9,
+          "kind": 10,
+          "a": 5066,
+          "b": 2
+        },
+        {
+          "cycle": 5,
+          "index": 21,
+          "us": 30427,
+          "phase": 9,
+          "kind": 6,
+          "a": 257,
+          "b": 65539
+        },
+        {
+          "cycle": 5,
+          "index": 22,
+          "us": 30623,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 5,
+          "index": 23,
+          "us": 30671,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19293475,
+          "mac_us": 19293479,
+          "print": [
+            15,
+            30522,
+            4835,
+            0,
+            3,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            665,
+            78,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            50,
+            6120,
+            2587,
+            48,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            375,
+            799918,
+            4555,
+            3,
+            112,
+            260,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34211264,
+          "mac_us": 34211267,
+          "print": [
+            28,
+            53449,
+            4835,
+            0,
+            8,
+            20,
+            0,
+            0
+          ],
+          "phy": [
+            20,
+            1331,
+            79,
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            102,
+            11795,
+            2587,
+            98,
+            0,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            678,
+            1512093,
+            4555,
+            6,
+            196,
+            476,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49286558,
+          "mac_us": 49286561,
+          "print": [
+            40,
+            75381,
+            4835,
+            0,
+            10,
+            30,
+            0,
+            0
+          ],
+          "phy": [
+            31,
+            2019,
+            82,
+            31,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            159,
+            17492,
+            2587,
+            153,
+            0,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1006,
+            2186751,
+            4555,
+            8,
+            298,
+            700,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 64241049,
+          "mac_us": 64241054,
+          "print": [
+            52,
+            99154,
+            4835,
+            0,
+            11,
+            41,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            2753,
+            82,
+            42,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            213,
+            24094,
+            3047,
+            205,
+            0,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1294,
+            2816650,
+            4555,
+            10,
+            390,
+            894,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 79261867,
+          "mac_us": 79261872,
+          "print": [
+            64,
+            122390,
+            4835,
+            0,
+            13,
+            51,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3460,
+            82,
+            53,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            266,
+            30329,
+            3047,
+            255,
+            1,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            1925,
+            3831648,
+            5144,
+            11,
+            509,
+            1405,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 94332356,
+          "mac_us": 94332359,
+          "print": [
+            76,
+            145952,
+            4835,
+            0,
+            15,
+            61,
+            0,
+            0
+          ],
+          "phy": [
+            64,
+            4209,
+            82,
+            64,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            321,
+            36490,
+            3047,
+            307,
+            2,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            2402,
+            4745919,
+            5144,
+            13,
+            618,
+            1771,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 109312249,
+          "mac_us": 109312254,
+          "print": [
+            88,
+            166925,
+            4835,
+            0,
+            18,
+            70,
+            0,
+            0
+          ],
+          "phy": [
+            74,
+            4880,
+            82,
+            74,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            372,
+            42114,
+            3047,
+            356,
+            2,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            2854,
+            5555784,
+            5144,
+            15,
+            733,
+            2106,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 124236716,
+          "mac_us": 124236721,
+          "print": [
+            100,
+            191081,
+            4835,
+            0,
+            19,
+            81,
+            0,
+            0
+          ],
+          "phy": [
+            85,
+            5612,
+            82,
+            85,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            426,
+            48805,
+            3052,
+            408,
+            2,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            3153,
+            6193530,
+            5144,
+            17,
+            838,
+            2298,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 139184504,
+          "mac_us": 139184508,
+          "print": [
+            112,
+            215575,
+            4835,
+            0,
+            21,
+            91,
+            0,
+            0
+          ],
+          "phy": [
+            95,
+            6280,
+            82,
+            95,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            477,
+            54624,
+            3052,
+            457,
+            2,
+            18,
+            0,
+            0
+          ],
+          "rx_age": [
+            3487,
+            6913842,
+            5144,
+            18,
+            935,
+            2534,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 154123911,
+          "mac_us": 154123915,
+          "print": [
+            124,
+            240194,
+            4835,
+            0,
+            23,
+            101,
+            0,
+            0
+          ],
+          "phy": [
+            105,
+            6948,
+            82,
+            105,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            529,
+            60863,
+            3052,
+            507,
+            2,
+            20,
+            0,
+            0
+          ],
+          "rx_age": [
+            3800,
+            7635343,
+            5144,
+            21,
+            1028,
+            2751,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1069,
+        "socket_packets": 1069,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "9907b09743a27df70e752a996c8421535cdcc4f2d668c0e4e67387835154fc50",
+      "elf_sha256": "4568bad18e80ca8d10853a9474f033fc4937a4b0d887ecd2325e9ee44692513a",
+      "serial_sha256": "67c1abd8f9f77c0f00169da7a508b1d702dc125457c92870057357857e510791",
+      "dispatcher": "source",
+      "all_requested_traffic_received": false
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-dispatch-repeat-80",
+      "fault_injection": false,
+      "preparation_us": [
+        1128457
+      ],
+      "connection_us": [
+        38029,
+        29156,
+        31114,
+        28204,
+        29595,
+        34181,
+        35435,
+        29179,
+        30309,
+        30433
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.13,
+      "pmk_us_range": [
+        19,
+        23
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            32,
+            3972,
+            3995,
+            4019,
+            17373,
+            20778,
+            25388,
+            26772,
+            28362,
+            36307,
+            38061
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3272,
+            3291,
+            3317,
+            8590,
+            11932,
+            16663,
+            18048,
+            19700,
+            27438,
+            29185
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3707,
+            3726,
+            3750,
+            9959,
+            13889,
+            18441,
+            19824,
+            21430,
+            29411,
+            31141
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            29,
+            722,
+            743,
+            767,
+            7613,
+            10965,
+            15943,
+            17330,
+            18862,
+            26550,
+            28233
+          ],
+          "queues": [
+            1,
+            0
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3244,
+            3266,
+            3290,
+            9256,
+            12588,
+            17360,
+            18746,
+            20383,
+            27986,
+            29626
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3755,
+            3778,
+            3802,
+            10129,
+            14477,
+            19246,
+            20635,
+            22297,
+            30292,
+            34214
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3820,
+            3839,
+            3864,
+            13663,
+            17556,
+            22706,
+            24095,
+            25899,
+            33801,
+            35462
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3771,
+            3790,
+            3814,
+            8725,
+            12019,
+            16397,
+            17784,
+            19560,
+            27585,
+            29208
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3689,
+            3708,
+            3732,
+            8731,
+            12004,
+            16817,
+            18200,
+            19777,
+            27959,
+            30338
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3661,
+            3680,
+            3704,
+            8932,
+            12312,
+            17398,
+            18781,
+            20447,
+            28427,
+            30463
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19264892,
+          "mac_us": 19264895,
+          "print": [
+            15,
+            32804,
+            5505,
+            0,
+            3,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            651,
+            78,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            51,
+            5603,
+            2088,
+            49,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            361,
+            783431,
+            4772,
+            3,
+            119,
+            239,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34186364,
+          "mac_us": 34186368,
+          "print": [
+            27,
+            58234,
+            5505,
+            0,
+            4,
+            23,
+            0,
+            0
+          ],
+          "phy": [
+            20,
+            1324,
+            82,
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            103,
+            12167,
+            3052,
+            99,
+            0,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            995,
+            1835923,
+            6889,
+            4,
+            226,
+            765,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49171669,
+          "mac_us": 49171671,
+          "print": [
+            39,
+            82821,
+            5505,
+            0,
+            5,
+            34,
+            0,
+            0
+          ],
+          "phy": [
+            30,
+            2006,
+            82,
+            30,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            154,
+            17697,
+            3052,
+            148,
+            0,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1491,
+            2774207,
+            8093,
+            5,
+            355,
+            1131,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63578981,
+          "mac_us": 63578987,
+          "print": [
+            51,
+            108787,
+            5505,
+            0,
+            7,
+            44,
+            0,
+            0
+          ],
+          "phy": [
+            41,
+            2753,
+            82,
+            41,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            205,
+            23781,
+            3052,
+            197,
+            0,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            2111,
+            3777400,
+            8093,
+            8,
+            467,
+            1636,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78529295,
+          "mac_us": 78529303,
+          "print": [
+            63,
+            132184,
+            5505,
+            0,
+            9,
+            54,
+            0,
+            0
+          ],
+          "phy": [
+            51,
+            3416,
+            82,
+            51,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            257,
+            29355,
+            3060,
+            247,
+            1,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            2467,
+            4470609,
+            8093,
+            10,
+            583,
+            1874,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93472882,
+          "mac_us": 93472886,
+          "print": [
+            75,
+            156394,
+            5505,
+            0,
+            11,
+            64,
+            0,
+            0
+          ],
+          "phy": [
+            62,
+            4168,
+            82,
+            62,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            313,
+            35868,
+            3060,
+            300,
+            2,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            2789,
+            5169374,
+            8093,
+            12,
+            669,
+            2108,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 108429193,
+          "mac_us": 108429198,
+          "print": [
+            87,
+            179330,
+            5505,
+            0,
+            13,
+            74,
+            0,
+            0
+          ],
+          "phy": [
+            72,
+            4845,
+            82,
+            72,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            364,
+            41461,
+            3060,
+            349,
+            2,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            3104,
+            5895349,
+            8093,
+            13,
+            761,
+            2330,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 123377564,
+          "mac_us": 123377570,
+          "print": [
+            100,
+            204355,
+            5505,
+            0,
+            14,
+            86,
+            0,
+            0
+          ],
+          "phy": [
+            84,
+            5658,
+            82,
+            84,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            420,
+            48125,
+            3060,
+            403,
+            2,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            3426,
+            6563431,
+            8093,
+            15,
+            858,
+            2553,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 138344867,
+          "mac_us": 138344875,
+          "print": [
+            112,
+            229682,
+            5505,
+            0,
+            14,
+            98,
+            0,
+            0
+          ],
+          "phy": [
+            95,
+            6385,
+            82,
+            95,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            475,
+            55228,
+            3060,
+            456,
+            2,
+            17,
+            0,
+            0
+          ],
+          "rx_age": [
+            3722,
+            7201458,
+            8093,
+            16,
+            955,
+            2751,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 153309414,
+          "mac_us": 153309423,
+          "print": [
+            124,
+            255103,
+            5505,
+            0,
+            16,
+            108,
+            0,
+            0
+          ],
+          "phy": [
+            106,
+            7120,
+            82,
+            106,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            530,
+            60999,
+            3060,
+            509,
+            2,
+            19,
+            0,
+            0
+          ],
+          "rx_age": [
+            4040,
+            7884397,
+            8093,
+            18,
+            1042,
+            2980,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1073,
+        "socket_packets": 1073,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "9907b09743a27df70e752a996c8421535cdcc4f2d668c0e4e67387835154fc50",
+      "elf_sha256": "4568bad18e80ca8d10853a9474f033fc4937a4b0d887ecd2325e9ee44692513a",
+      "serial_sha256": "842e87f12d46fd83b5b5b06b7aacd8b0fc90df6b97a934577b3756a05b99cf7c",
+      "dispatcher": "source",
+      "all_requested_traffic_received": true
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-dispatch-80",
+      "fault_injection": false,
+      "preparation_us": [
+        935907
+      ],
+      "connection_us": [
+        33904,
+        35420,
+        33586,
+        29829,
+        33475,
+        39724,
+        30801,
+        1044515,
+        30511,
+        53546
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.905,
+      "pmk_us_range": [
+        26,
+        31
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            38,
+            4150,
+            4176,
+            4200,
+            11115,
+            15332,
+            21905,
+            23111,
+            24982,
+            32031,
+            33942
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3361,
+            3390,
+            3414,
+            12192,
+            16133,
+            21102,
+            22301,
+            25986,
+            33566,
+            35456
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3769,
+            3798,
+            3822,
+            9684,
+            13527,
+            17702,
+            18906,
+            21670,
+            31668,
+            33621
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3749,
+            3778,
+            3802,
+            8950,
+            12860,
+            17720,
+            18922,
+            20899,
+            28009,
+            29866
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3760,
+            3789,
+            3813,
+            10925,
+            15222,
+            19759,
+            20960,
+            22774,
+            31625,
+            33512
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3760,
+            3790,
+            3814,
+            10424,
+            16345,
+            21411,
+            22613,
+            27810,
+            35247,
+            39761
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 23
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            39,
+            1396,
+            1425,
+            1449,
+            9454,
+            14077,
+            18292,
+            19496,
+            21338,
+            28656,
+            30840
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3801,
+            3830,
+            3855,
+            10090,
+            17840,
+            22412,
+            23616,
+            25604,
+            1042471,
+            1044554
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 19,
+          "events": 27
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            34,
+            3766,
+            3797,
+            3822,
+            9441,
+            13510,
+            18113,
+            19317,
+            21143,
+            28601,
+            30545
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3948,
+            3979,
+            4003,
+            30893,
+            34836,
+            40889,
+            42090,
+            44375,
+            51630,
+            53583
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 3,
+          "events": 22
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 8,
+          "index": 0,
+          "us": 39,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 1,
+          "us": 57,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 2,
+          "us": 3801,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 3,
+          "us": 3830,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 4,
+          "us": 3855,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 5,
+          "us": 9827,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65537
+        },
+        {
+          "cycle": 8,
+          "index": 6,
+          "us": 10090,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 7,
+          "us": 17507,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65537
+        },
+        {
+          "cycle": 8,
+          "index": 8,
+          "us": 17840,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 9,
+          "us": 22177,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 10,
+          "us": 22222,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 8,
+          "index": 11,
+          "us": 22371,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 12,
+          "us": 22412,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 13,
+          "us": 23616,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 14,
+          "us": 25544,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 15,
+          "us": 25604,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 16,
+          "us": 1031824,
+          "phase": 8,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 17,
+          "us": 1031865,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 8,
+          "index": 18,
+          "us": 1032016,
+          "phase": 8,
+          "kind": 14,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 19,
+          "us": 1035546,
+          "phase": 8,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 20,
+          "us": 1035581,
+          "phase": 8,
+          "kind": 15,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 21,
+          "us": 1038415,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 22,
+          "us": 1038482,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 8,
+          "index": 23,
+          "us": 1042342,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 24,
+          "us": 1042471,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 25,
+          "us": 1044491,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 8,
+          "index": 26,
+          "us": 1044554,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19031968,
+          "mac_us": 19031983,
+          "print": [
+            15,
+            11428,
+            1831,
+            0,
+            12,
+            3,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            714,
+            72,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            50,
+            4486,
+            1335,
+            48,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            378,
+            818146,
+            4876,
+            0,
+            123,
+            255,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 33957950,
+          "mac_us": 33957965,
+          "print": [
+            27,
+            20445,
+            1857,
+            0,
+            22,
+            5,
+            0,
+            0
+          ],
+          "phy": [
+            20,
+            1437,
+            74,
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            101,
+            8033,
+            1335,
+            97,
+            1,
+            3,
+            0,
+            0
+          ],
+          "rx_age": [
+            699,
+            1559271,
+            4876,
+            1,
+            220,
+            478,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 48910389,
+          "mac_us": 48910404,
+          "print": [
+            39,
+            30149,
+            1881,
+            0,
+            31,
+            8,
+            0,
+            0
+          ],
+          "phy": [
+            31,
+            2248,
+            74,
+            31,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            155,
+            12697,
+            1335,
+            149,
+            1,
+            5,
+            0,
+            0
+          ],
+          "rx_age": [
+            1020,
+            2240108,
+            4876,
+            1,
+            316,
+            703,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63876919,
+          "mac_us": 63876934,
+          "print": [
+            51,
+            39438,
+            1881,
+            0,
+            40,
+            11,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            3086,
+            103,
+            41,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            214,
+            17576,
+            1335,
+            205,
+            2,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1321,
+            2894495,
+            4878,
+            2,
+            416,
+            903,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78802902,
+          "mac_us": 78802917,
+          "print": [
+            64,
+            49252,
+            1881,
+            0,
+            51,
+            13,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3899,
+            103,
+            52,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            267,
+            21967,
+            1335,
+            256,
+            3,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1637,
+            3582742,
+            6949,
+            2,
+            505,
+            1130,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93773886,
+          "mac_us": 93773901,
+          "print": [
+            76,
+            59062,
+            1881,
+            0,
+            60,
+            16,
+            0,
+            0
+          ],
+          "phy": [
+            64,
+            4709,
+            103,
+            63,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            323,
+            25931,
+            1335,
+            309,
+            5,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1968,
+            4358297,
+            8128,
+            2,
+            604,
+            1362,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 108716869,
+          "mac_us": 108716884,
+          "print": [
+            88,
+            68224,
+            1881,
+            0,
+            69,
+            19,
+            0,
+            0
+          ],
+          "phy": [
+            75,
+            5516,
+            103,
+            74,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            375,
+            30445,
+            1342,
+            359,
+            5,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            2299,
+            5049507,
+            8128,
+            2,
+            705,
+            1592,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 124712251,
+          "mac_us": 124712264,
+          "print": [
+            100,
+            77090,
+            1881,
+            0,
+            79,
+            21,
+            0,
+            0
+          ],
+          "phy": [
+            87,
+            6398,
+            103,
+            86,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            435,
+            34435,
+            1342,
+            417,
+            6,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            2608,
+            5737136,
+            8128,
+            2,
+            808,
+            1798,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 139636358,
+          "mac_us": 139636373,
+          "print": [
+            112,
+            86651,
+            1881,
+            0,
+            88,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            97,
+            7135,
+            103,
+            96,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            489,
+            38557,
+            1342,
+            469,
+            7,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2934,
+            6426008,
+            8128,
+            3,
+            901,
+            2030,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 154604343,
+          "mac_us": 154604357,
+          "print": [
+            124,
+            95538,
+            1888,
+            0,
+            97,
+            27,
+            0,
+            0
+          ],
+          "phy": [
+            109,
+            8020,
+            103,
+            108,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            545,
+            43197,
+            1342,
+            522,
+            9,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            3255,
+            7168920,
+            8128,
+            3,
+            1000,
+            2252,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1047,
+        "socket_packets": 1047,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "451312c4d0b4ef36a697fd29d2c1b5b901671a304a7b5b3b6ae1905ea95368a6",
+      "elf_sha256": "37f83a949daaf1e495d5ec9f6071002229d84de8761c11f6379623e5c9aadf97",
+      "serial_sha256": "16e5607810c4421ddb02a5d19280de890b808b0b0ba9d96375fb5e7b202b003d",
+      "dispatcher": "source",
+      "all_requested_traffic_received": true
+    }
+  ],
+  "probes": [
+    {
+      "chip": "esp32c3",
+      "label": "baseline-lifetime-phy_lifetime_smoke",
+      "complete": true,
+      "elf_sha256": "7e073f9836a245e0cf84d48493a0681777748b9382df420df3213c5b7ca2e416",
+      "map_sha256": "1ff09a29c56ba570bbd23512fd10746eedd568e65662e75d15e0c4964f55219f",
+      "image_sha256": "b537aec2e2e180f243229b504dbb6a58640daad3749a14ff49a1c21e01da3c34",
+      "serial_sha256": "230217a1f7f8f4ed7527a7b451b90773e042d8f4eb6636b1caa4155e5a5710c6",
+      "application_offset": "0x10000",
+      "dispatcher": "vendor",
+      "phy_enable_cycles": [
+        1,
+        2,
+        3
+      ],
+      "phy_release_cycles": [
+        1,
+        2,
+        3
+      ],
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ],
+      "beacon_receives_after_wakeup": 3
+    },
+    {
+      "chip": "esp32c3",
+      "label": "baseline-probe-wifi_smoke",
+      "complete": true,
+      "elf_sha256": "172ab43e809e4030fc1d489ab8009f6055d8572588608014f7cb7f83c8891319",
+      "map_sha256": "664a704b75f48b083397826b4930228c335973d2da44119517b9db395140a61a",
+      "image_sha256": "d358a3e48c1fdb2e9c7fbaefb38cb9d2b147e471aa925898ef75d8493e14916f",
+      "serial_sha256": "3f75164667c3d9b81603e2061744c44192987dca2781c6e5c711402c4a3e0e7e",
+      "application_offset": "0x10000",
+      "dispatcher": "vendor",
+      "printf_abi_result": 0,
+      "rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 6,
+      "ofdm_frames": 2,
+      "diagnostic_logging": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-lifetime-phy_lifetime_smoke",
+      "complete": true,
+      "elf_sha256": "4006cd28d59ba92e2eb9a2ec13bd891d4e8c8b70d296d01c45b88edb750c164c",
+      "map_sha256": "162fde8d628c1dcabda3922a55109252919c3d491b17545120e2eb3383734717",
+      "image_sha256": "649936f889b3a20cd2e811e0de2f670c687ec8c910901319dbf78b51893b93f2",
+      "serial_sha256": "9f88d1adb980a33bd1b522229c735dc3f4daf820f161487c6309e1aaaf79c6bd",
+      "application_offset": "0x10000",
+      "dispatcher": "source",
+      "phy_enable_cycles": [
+        1,
+        2,
+        3
+      ],
+      "phy_release_cycles": [
+        1,
+        2,
+        3
+      ],
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ],
+      "beacon_receives_after_wakeup": 2
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-probe-wifi_smoke",
+      "complete": true,
+      "elf_sha256": "257a65ed5bd7e1e99cff9403da088726b9ee9b4bcf0423adee6c05f58e48e7d8",
+      "map_sha256": "26262584bddbe5bd4308b565c8760a806a305dc0fb2b8efe696aeb84587118d5",
+      "image_sha256": "71b2b6a510497648ee657f217739b0e3a65638231876508db1f232381f4b6fcd",
+      "serial_sha256": "52056ab33a8ae6161daee3cfcc9561cee831892a94f161c2b6274317b5533955",
+      "application_offset": "0x10000",
+      "dispatcher": "source",
+      "printf_abi_result": 0,
+      "rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 9,
+      "ofdm_frames": 2,
+      "diagnostic_logging": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "baseline-lifetime-phy_lifetime_smoke",
+      "complete": true,
+      "elf_sha256": "4deb33ef9b3d785d9d11e3082cec50c6424860898f9a5ddfee5912aa01250674",
+      "map_sha256": "cefc5542fdd95d612194f2cc04a65483f53e2cdfb4e1b79be8e56873b1c858e7",
+      "image_sha256": "65126eb82db1567d5a8c0fd06b971178bdb2585122ef3bb9c60b7aacec64e9c7",
+      "serial_sha256": "224386595cd6a86092eafa2110b5ad24b2929ecc3c442b722cdadfa2d193c758",
+      "application_offset": "0x20000",
+      "dispatcher": "vendor",
+      "phy_enable_cycles": [
+        1,
+        2,
+        3
+      ],
+      "phy_release_cycles": [
+        1,
+        2,
+        3
+      ],
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ],
+      "beacon_receives_after_wakeup": 2
+    },
+    {
+      "chip": "esp32s3",
+      "label": "baseline-probe-wifi_smoke",
+      "complete": false,
+      "elf_sha256": "607627409d5180a1b42d1ff0f7908c1dd3ff948b625d060ff266031153bafcc4",
+      "map_sha256": "5bc0915e26ff5f8d2371127d81228eba7a460648ace453bc70ba87149a319e46",
+      "image_sha256": "7de5e56d347863f54460d4e6e0ad89fd847c91003fb503e72bcbe3c543c08150",
+      "serial_sha256": "e78fbb55b12f4a87400900245891658760fa4d9363f02dad4d8ce96cc7e83bd5",
+      "application_offset": "0x20000",
+      "dispatcher": "vendor",
+      "printf_abi_result": 0,
+      "rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": false,
+        "rx_exhausted": false,
+        "rx_recovered": false,
+        "tx": false,
+        "complete": false
+      },
+      "tx_result_ok": false,
+      "scan_frames": null,
+      "ofdm_frames": null,
+      "diagnostic_logging": false,
+      "failure": "Pending RX buffer identity assertion failed on unchanged baseline; cause unresolved. Later diagnostic baseline/source passes retained separately."
+    },
+    {
+      "chip": "esp32s3",
+      "label": "baseline-rx-diagnostic-wifi_smoke",
+      "complete": true,
+      "elf_sha256": "672efef0c20b39be125e64d742bcbeca5407561cb1504a4791833fdee15780bc",
+      "map_sha256": "eb878815f4758bd28403eef7875433ef8e3893a13d74492547376c63cea61786",
+      "image_sha256": "7f7d32630f9e6da8b4b3917755ce270615e4d412c03777562320d74d31aa8586",
+      "serial_sha256": "1df8ca17235051ab225ef1b894a3be19292aca93e787cad24dfc56c822c0783d",
+      "application_offset": "0x20000",
+      "dispatcher": "vendor",
+      "printf_abi_result": 0,
+      "rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 7,
+      "ofdm_frames": 1,
+      "diagnostic_logging": true,
+      "pending_diagnostic": {
+        "length": 516,
+        "sig_len": 472,
+        "delivered_length": 516,
+        "same_buffer": true
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-lifetime-phy_lifetime_smoke",
+      "complete": true,
+      "elf_sha256": "7eccd4c2c795c934191f384e40cef14c351dd62cd1eecb448813d8502738d37e",
+      "map_sha256": "4d680ce6dad019e73fb3cd84a24fbb3ba42f0a5930598878892c85b9e3e4e412",
+      "image_sha256": "9720bb8fbc7d495c0a3c9ce1bef1209be87a783baf2bff754ea2f6328f6494fc",
+      "serial_sha256": "c0083cbfed15936b440ba8fcf8ea5f61fe27d8b4437f4a290bdb32756d9ecb8b",
+      "application_offset": "0x20000",
+      "dispatcher": "source",
+      "phy_enable_cycles": [
+        1,
+        2,
+        3
+      ],
+      "phy_release_cycles": [
+        1,
+        2,
+        3
+      ],
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ],
+      "beacon_receives_after_wakeup": 2
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-rx-diagnostic-wifi_smoke",
+      "complete": true,
+      "elf_sha256": "024be9b298f6aac9e1f7c89013d8790989731d57ca5e60a6b2be514f18bfbf28",
+      "map_sha256": "0afbf0d837841b33c6f6b35a2721aa554f8236f9c789586fe774082a0659c35b",
+      "image_sha256": "efedc5808164c90f35df2178429ab80896ee5aface4fc6ddb55660993a993c02",
+      "serial_sha256": "7cda581310496160ecc133d921d11a17298f0d7da645b141a34750e75fc0926a",
+      "application_offset": "0x20000",
+      "dispatcher": "source",
+      "printf_abi_result": 0,
+      "rx_tx_milestones": {
+        "initialized": true,
+        "rx_pending_exhausted": true,
+        "rx_pending_preserved": true,
+        "rx_exhausted": true,
+        "rx_recovered": true,
+        "tx": true,
+        "complete": true
+      },
+      "tx_result_ok": true,
+      "scan_frames": 7,
+      "ofdm_frames": 2,
+      "diagnostic_logging": true,
+      "pending_diagnostic": {
+        "length": 516,
+        "sig_len": 472,
+        "delivered_length": 516,
+        "same_buffer": true
+      }
+    }
+  ],
+  "host_capture_summaries": [
+    {
+      "chip": "esp32c3",
+      "label": "source-dispatch-80",
+      "pcap_sha256": "fd24fea8865520aa4a64f3aa8c603d574cd80c5d415da5d4d15e14aa4f193b63",
+      "capture": {
+        "written_packets": 1047,
+        "socket_packets": 1047,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 2,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 3,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 4,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 5,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 6,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 7,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 8,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 9,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 10,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        }
+      ],
+      "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+    },
+    {
+      "chip": "esp32s3",
+      "label": "baseline-dispatch-repeat-80",
+      "pcap_sha256": "fc0282d57fff9ba2a4e40203b7b6366616a65fe70914fd370cd86a64bc67e6bf",
+      "capture": {
+        "written_packets": 1165,
+        "socket_packets": 1165,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 2,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 3,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 4,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 5,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 6,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 7,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 8,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 9,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 10,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        }
+      ],
+      "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-dispatch-80",
+      "pcap_sha256": "f792534526f20e001c4531669f270fc3a4216cd160e5994c4eadb9b5ada07a58",
+      "capture": {
+        "written_packets": 1069,
+        "socket_packets": 1069,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 2,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 3,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 4,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 5,
+          "requests": 20,
+          "replies": 18,
+          "unanswered_sequences": [
+            1,
+            2
+          ],
+          "missing_outgoing_sequences": [],
+          "events_relative_to_first_request_seconds": [
+            {
+              "seconds": 0.0,
+              "event": "request",
+              "sequence": 1
+            },
+            {
+              "seconds": 0.206749,
+              "event": "request",
+              "sequence": 2
+            },
+            {
+              "seconds": 0.414704,
+              "event": "request",
+              "sequence": 3
+            },
+            {
+              "seconds": 0.622698,
+              "event": "request",
+              "sequence": 4
+            },
+            {
+              "seconds": 0.830793,
+              "event": "request",
+              "sequence": 5
+            },
+            {
+              "seconds": 1.039756,
+              "event": "request",
+              "sequence": 6
+            },
+            {
+              "seconds": 1.247738,
+              "event": "request",
+              "sequence": 7
+            },
+            {
+              "seconds": 1.455719,
+              "event": "request",
+              "sequence": 8
+            },
+            {
+              "seconds": 1.663764,
+              "event": "request",
+              "sequence": 9
+            },
+            {
+              "seconds": 1.871732,
+              "event": "request",
+              "sequence": 10
+            },
+            {
+              "seconds": 2.042892,
+              "event": "reply",
+              "sequence": 3
+            },
+            {
+              "seconds": 2.044821,
+              "event": "reply",
+              "sequence": 4
+            },
+            {
+              "seconds": 2.044852,
+              "event": "reply",
+              "sequence": 5
+            },
+            {
+              "seconds": 2.046805,
+              "event": "reply",
+              "sequence": 6
+            },
+            {
+              "seconds": 2.046819,
+              "event": "reply",
+              "sequence": 7
+            },
+            {
+              "seconds": 2.049185,
+              "event": "reply",
+              "sequence": 8
+            },
+            {
+              "seconds": 2.051332,
+              "event": "reply",
+              "sequence": 9
+            },
+            {
+              "seconds": 2.053082,
+              "event": "reply",
+              "sequence": 10
+            },
+            {
+              "seconds": 2.072291,
+              "event": "request",
+              "sequence": 11
+            },
+            {
+              "seconds": 2.087219,
+              "event": "reply",
+              "sequence": 11
+            },
+            {
+              "seconds": 2.27256,
+              "event": "request",
+              "sequence": 12
+            },
+            {
+              "seconds": 2.279157,
+              "event": "reply",
+              "sequence": 12
+            },
+            {
+              "seconds": 2.473404,
+              "event": "request",
+              "sequence": 13
+            },
+            {
+              "seconds": 2.529785,
+              "event": "reply",
+              "sequence": 13
+            },
+            {
+              "seconds": 2.674106,
+              "event": "request",
+              "sequence": 14
+            },
+            {
+              "seconds": 2.793689,
+              "event": "reply",
+              "sequence": 14
+            },
+            {
+              "seconds": 2.875013,
+              "event": "request",
+              "sequence": 15
+            },
+            {
+              "seconds": 2.884106,
+              "event": "reply",
+              "sequence": 15
+            },
+            {
+              "seconds": 3.075429,
+              "event": "request",
+              "sequence": 16
+            },
+            {
+              "seconds": 3.092363,
+              "event": "reply",
+              "sequence": 16
+            },
+            {
+              "seconds": 3.275765,
+              "event": "request",
+              "sequence": 17
+            },
+            {
+              "seconds": 3.32616,
+              "event": "reply",
+              "sequence": 17
+            },
+            {
+              "seconds": 3.476496,
+              "event": "request",
+              "sequence": 18
+            },
+            {
+              "seconds": 3.536406,
+              "event": "reply",
+              "sequence": 18
+            },
+            {
+              "seconds": 3.676795,
+              "event": "request",
+              "sequence": 19
+            },
+            {
+              "seconds": 3.737775,
+              "event": "reply",
+              "sequence": 19
+            },
+            {
+              "seconds": 3.877225,
+              "event": "request",
+              "sequence": 20
+            },
+            {
+              "seconds": 3.941453,
+              "event": "reply",
+              "sequence": 20
+            }
+          ],
+          "nearby_arp": [
+            {
+              "seconds": 2.027456,
+              "event": "request",
+              "station_role": "station_sender"
+            },
+            {
+              "seconds": 2.02764,
+              "event": "reply",
+              "station_role": "station_target"
+            }
+          ]
+        },
+        {
+          "cycle": 6,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 7,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 8,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 9,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 10,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        }
+      ],
+      "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-dispatch-repeat-80",
+      "pcap_sha256": "d6e0e43f5ed966f1f8177e7805e3bc92bbeed8959ceb16e7267355ecd418988c",
+      "capture": {
+        "written_packets": 1073,
+        "socket_packets": 1073,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 2,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 3,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 4,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 5,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 6,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 7,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 8,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 9,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        },
+        {
+          "cycle": 10,
+          "requests": 20,
+          "replies": 20,
+          "unanswered_sequences": [],
+          "missing_outgoing_sequences": []
+        }
+      ],
+      "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+    }
+  ],
+  "allocations": [
+    {
+      "chip": "esp32c3",
+      "dispatcher": "vendor",
+      "elf_sha256": "5f412f085a986609c0b2c45182d04b00daf44a74136cfbf6299ce7ddee0be062",
+      "map_sha256": "8f99182aab51f53a58d999f09b54f224c3b3576d9571c447926de64941333fc2",
+      "method": "Live archive input ranges wholly inside one ELF SHF_ALLOC output section; includes COMMON, excludes discarded/debug/nonallocated inputs and linker padding. Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ],
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": null,
+        "phy_bbpll_en_usb": null,
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203fbec",
+          "size_bytes": 122
+        },
+        "phy_param": {
+          "address": "0x3fc835c8",
+          "size_bytes": 848
+        },
+        "register_chipv7_phy": {
+          "address": "0x42040720",
+          "size_bytes": 398
+        },
+        "vsnprintf": {
+          "address": "0x4204812a",
+          "size_bytes": 32
+        },
+        "g_phyFuns": {
+          "address": "0x3fc9d084",
+          "size_bytes": 4
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x4204239e",
+          "size_bytes": 20
+        },
+        "ram2_rfpll_cap_track": {
+          "address": "0x4203fa16",
+          "size_bytes": 162
+        },
+        "rfcal_track": {
+          "address": "0x4203fb4e",
+          "size_bytes": 158
+        }
+      },
+      "excluded_mergeable_string_inputs": [],
+      "allocations": {
+        "libphy.a": {
+          "bytes": 35593,
+          "input_sections": 165,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 741,
+            "phy_api.o": 174,
+            "phy_basic.o": 328,
+            "phy_debug.o": 370,
+            "phy_feature.o": 764,
+            "phy_hw_freq.o": 3036,
+            "phy_i2c.o": 2418,
+            "phy_init.o": 4815,
+            "phy_pbus.o": 1090,
+            "phy_pwdet.o": 588,
+            "phy_reg.o": 2664,
+            "phy_rfpll.o": 2064,
+            "phy_rx_cal.o": 5402,
+            "phy_rx_gain.o": 2323,
+            "phy_track.o": 1230,
+            "phy_tsens.o": 578,
+            "phy_tx_cal.o": 5028,
+            "phy_tx_gain.o": 1980
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 5700,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 5700
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "dispatcher": "source",
+      "elf_sha256": "37f83a949daaf1e495d5ec9f6071002229d84de8761c11f6379623e5c9aadf97",
+      "map_sha256": "87a3d15a6285208264b558430ef095b11e39eece1eca803d58a17ae7a9f43f6b",
+      "method": "Live archive input ranges wholly inside one ELF SHF_ALLOC output section; includes COMMON, excludes discarded/debug/nonallocated inputs and linker padding. Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ],
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": null,
+        "phy_bbpll_en_usb": null,
+        "ram_tx_pwctrl_background": null,
+        "phy_param": {
+          "address": "0x3fc835c8",
+          "size_bytes": 848
+        },
+        "register_chipv7_phy": {
+          "address": "0x42040714",
+          "size_bytes": 398
+        },
+        "vsnprintf": {
+          "address": "0x4204811e",
+          "size_bytes": 32
+        },
+        "g_phyFuns": {
+          "address": "0x3fc9d084",
+          "size_bytes": 4
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x42042392",
+          "size_bytes": 20
+        },
+        "ram2_rfpll_cap_track": {
+          "address": "0x4203fa84",
+          "size_bytes": 162
+        },
+        "rfcal_track": {
+          "address": "0x4203fbbc",
+          "size_bytes": 158
+        }
+      },
+      "excluded_mergeable_string_inputs": [],
+      "allocations": {
+        "libphy.a": {
+          "bytes": 35471,
+          "input_sections": 164,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 741,
+            "phy_api.o": 174,
+            "phy_basic.o": 328,
+            "phy_debug.o": 370,
+            "phy_feature.o": 764,
+            "phy_hw_freq.o": 3036,
+            "phy_i2c.o": 2418,
+            "phy_init.o": 4815,
+            "phy_pbus.o": 1090,
+            "phy_pwdet.o": 588,
+            "phy_reg.o": 2664,
+            "phy_rfpll.o": 2064,
+            "phy_rx_cal.o": 5402,
+            "phy_rx_gain.o": 2323,
+            "phy_track.o": 1108,
+            "phy_tsens.o": 578,
+            "phy_tx_cal.o": 5028,
+            "phy_tx_gain.o": 1980
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 5700,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 5700
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "dispatcher": "vendor",
+      "elf_sha256": "afc867a0e31a3f860d58fc19c52e7dfc2e3df87b697435347001fc9ff09331a3",
+      "map_sha256": "6000b66f5d554294e2c5581342d9117a093f2c9c88e8fe440920a4e72f894949",
+      "method": "Live archive input ranges wholly inside one ELF SHF_ALLOC output section; includes COMMON, excludes discarded/debug/nonallocated inputs and linker padding. Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ],
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": null,
+        "phy_bbpll_en_usb": null,
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cd90",
+          "size_bytes": 78
+        },
+        "phy_param": {
+          "address": "0x3fc8d8c8",
+          "size_bytes": 740
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203d72c",
+          "size_bytes": 366
+        },
+        "vsnprintf": {
+          "address": "0x420443b8",
+          "size_bytes": 32
+        },
+        "g_phyFuns": {
+          "address": "0x3fca7984",
+          "size_bytes": 4
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x4203f324",
+          "size_bytes": 16
+        },
+        "ram_wifi_track_tx_power": {
+          "address": "0x4203cc04",
+          "size_bytes": 24
+        },
+        "ram_txpwr_cal_track": {
+          "address": "0x4203cad0",
+          "size_bytes": 282
+        },
+        "rfpll_cap_track": {
+          "address": "0x4203ccf4",
+          "size_bytes": 155
+        }
+      },
+      "excluded_mergeable_string_inputs": [
+        {
+          "category": "libphy.a",
+          "member": "phy_track.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c26c",
+          "reported_input_bytes": 81
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_rfpll.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c35c",
+          "reported_input_bytes": 50
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_rx_gain.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c37a",
+          "reported_input_bytes": 59
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_tx_gain.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c478",
+          "reported_input_bytes": 65
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_rx_cal.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c478",
+          "reported_input_bytes": 355
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_tx_cal.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c4a0",
+          "reported_input_bytes": 117
+        },
+        {
+          "category": "source_printf",
+          "member": "420925bbbd38959a-printf.o",
+          "section": ".rodata._ftoa.str1.1",
+          "map_address": "0x3c00c4a3",
+          "reported_input_bytes": 18
+        },
+        {
+          "category": "source_printf",
+          "member": "420925bbbd38959a-printf.o",
+          "section": ".rodata.rtc_printf.str1.1",
+          "map_address": "0x3c00c4e4",
+          "reported_input_bytes": 10
+        }
+      ],
+      "allocations": {
+        "libphy.a": {
+          "bytes": 33238,
+          "input_sections": 164,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 649,
+            "phy_api.o": 147,
+            "phy_basic.o": 395,
+            "phy_debug.o": 306,
+            "phy_feature.o": 510,
+            "phy_hw_freq.o": 3122,
+            "phy_i2c.o": 1985,
+            "phy_init.o": 4169,
+            "phy_pbus.o": 972,
+            "phy_pwdet.o": 378,
+            "phy_reg.o": 3931,
+            "phy_rfpll.o": 1872,
+            "phy_rx_cal.o": 5455,
+            "phy_rx_gain.o": 2053,
+            "phy_track.o": 942,
+            "phy_tsens.o": 589,
+            "phy_tx_cal.o": 3794,
+            "phy_tx_gain.o": 1969
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 4966,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 4966
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "dispatcher": "source",
+      "elf_sha256": "4568bad18e80ca8d10853a9474f033fc4937a4b0d887ecd2325e9ee44692513a",
+      "map_sha256": "54004a97a3576f64136a74ca34f0507f60b62cc7c4dbd6dfbed52102aa3fc9dd",
+      "method": "Live archive input ranges wholly inside one ELF SHF_ALLOC output section; includes COMMON, excludes discarded/debug/nonallocated inputs and linker padding. Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ],
+      "selected_allocated_symbols": {
+        "tx_pwctrl_background": null,
+        "phy_bbpll_en_usb": null,
+        "ram_tx_pwctrl_background": null,
+        "phy_param": {
+          "address": "0x3fc8d8c8",
+          "size_bytes": 740
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203d744",
+          "size_bytes": 366
+        },
+        "vsnprintf": {
+          "address": "0x420443d0",
+          "size_bytes": 32
+        },
+        "g_phyFuns": {
+          "address": "0x3fca7984",
+          "size_bytes": 4
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x4203f33c",
+          "size_bytes": 16
+        },
+        "ram_wifi_track_tx_power": {
+          "address": "0x4203cc6c",
+          "size_bytes": 24
+        },
+        "ram_txpwr_cal_track": {
+          "address": "0x4203cb38",
+          "size_bytes": 282
+        },
+        "rfpll_cap_track": {
+          "address": "0x4203cd5c",
+          "size_bytes": 155
+        }
+      },
+      "excluded_mergeable_string_inputs": [
+        {
+          "category": "libphy.a",
+          "member": "phy_track.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c2bc",
+          "reported_input_bytes": 81
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_rfpll.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c3ac",
+          "reported_input_bytes": 50
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_rx_gain.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c3ca",
+          "reported_input_bytes": 59
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_tx_gain.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c4c8",
+          "reported_input_bytes": 65
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_rx_cal.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c4c8",
+          "reported_input_bytes": 355
+        },
+        {
+          "category": "libphy.a",
+          "member": "phy_tx_cal.o",
+          "section": ".rodata.str1.1",
+          "map_address": "0x3c00c4f0",
+          "reported_input_bytes": 117
+        },
+        {
+          "category": "source_printf",
+          "member": "420925bbbd38959a-printf.o",
+          "section": ".rodata._ftoa.str1.1",
+          "map_address": "0x3c00c4f3",
+          "reported_input_bytes": 18
+        },
+        {
+          "category": "source_printf",
+          "member": "420925bbbd38959a-printf.o",
+          "section": ".rodata.rtc_printf.str1.1",
+          "map_address": "0x3c00c534",
+          "reported_input_bytes": 10
+        }
+      ],
+      "allocations": {
+        "libphy.a": {
+          "bytes": 33156,
+          "input_sections": 163,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 649,
+            "phy_api.o": 147,
+            "phy_basic.o": 395,
+            "phy_debug.o": 306,
+            "phy_feature.o": 510,
+            "phy_hw_freq.o": 3122,
+            "phy_i2c.o": 1985,
+            "phy_init.o": 4169,
+            "phy_pbus.o": 972,
+            "phy_pwdet.o": 378,
+            "phy_reg.o": 3931,
+            "phy_rfpll.o": 1872,
+            "phy_rx_cal.o": 5455,
+            "phy_rx_gain.o": 2053,
+            "phy_track.o": 860,
+            "phy_tsens.o": 589,
+            "phy_tx_cal.o": 3794,
+            "phy_tx_gain.o": 1969
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 4966,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 4966
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      }
+    }
+  ],
+  "crossbuilds": [
+    {
+      "chip": "esp32c3",
+      "variant": "baseline-lifetime",
+      "binary": "phy_lifetime_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32c3,phy-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "baseline-lifetime-phy_lifetime_smoke.elf": "7e073f9836a245e0cf84d48493a0681777748b9382df420df3213c5b7ca2e416",
+        "baseline-lifetime-phy_lifetime_smoke.map": "1ff09a29c56ba570bbd23512fd10746eedd568e65662e75d15e0c4964f55219f",
+        "baseline-lifetime-phy_lifetime_smoke.build.log": "226c71d747a447d7cc4ef692f5c7164056ca507348b5d3a83a753b88d8d9dd43",
+        "baseline-lifetime-phy_lifetime_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "baseline-probe",
+      "binary": "wifi_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32c3,printf-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "baseline-probe-wifi_smoke.elf": "172ab43e809e4030fc1d489ab8009f6055d8572588608014f7cb7f83c8891319",
+        "baseline-probe-wifi_smoke.map": "664a704b75f48b083397826b4930228c335973d2da44119517b9db395140a61a",
+        "baseline-probe-wifi_smoke.build.log": "cfc23d7343ac6e2ab821dd1fe99326c52ac800be86a7b987492d63a9eb64fea9",
+        "baseline-probe-wifi_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-dispatch-80",
+      "binary": "sta_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32c3,handshake-probe",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-dispatch-80-sta_smoke.elf": "37f83a949daaf1e495d5ec9f6071002229d84de8761c11f6379623e5c9aadf97",
+        "source-dispatch-80-sta_smoke.map": "87a3d15a6285208264b558430ef095b11e39eece1eca803d58a17ae7a9f43f6b",
+        "source-dispatch-80-sta_smoke.build.log": "520944b000cee7feda9b06522cd8bbfd1d5b82aad960cf89aea5cfe15ba4ad4d",
+        "source-dispatch-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-lifetime",
+      "binary": "phy_lifetime_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32c3,phy-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-lifetime-phy_lifetime_smoke.elf": "4006cd28d59ba92e2eb9a2ec13bd891d4e8c8b70d296d01c45b88edb750c164c",
+        "source-lifetime-phy_lifetime_smoke.map": "162fde8d628c1dcabda3922a55109252919c3d491b17545120e2eb3383734717",
+        "source-lifetime-phy_lifetime_smoke.build.log": "458a8b8a7b1759615307654d475e57fa782ed17e4c92b425c1b1cbf9c0cfaa7f",
+        "source-lifetime-phy_lifetime_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-no-probe-80",
+      "binary": "sta_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32c3,foa-smoke",
+      "requested_cycles": 10,
+      "device_tested": false,
+      "files": {
+        "source-no-probe-80-sta_smoke.elf": "67ce1d259fc9c2c2c83ba6c1e100d8ae035edba9fe9fd8d9826227c7891e5303",
+        "source-no-probe-80-sta_smoke.map": "0e7da2edffa039523dd4e441d31aace65412b86bd432fd2061c5827356bdc914",
+        "source-no-probe-80-sta_smoke.build.log": "eeac11fac48b4bfb7024d58d6733d399425c7f9fa4c1db2da7fdc0ab0d1f6c8d",
+        "source-no-probe-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-probe",
+      "binary": "wifi_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32c3,printf-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-probe-wifi_smoke.elf": "257a65ed5bd7e1e99cff9403da088726b9ee9b4bcf0423adee6c05f58e48e7d8",
+        "source-probe-wifi_smoke.map": "26262584bddbe5bd4308b565c8760a806a305dc0fb2b8efe696aeb84587118d5",
+        "source-probe-wifi_smoke.build.log": "bd6c5ba7473879b4dcee2e4b4013bfcca30905fbce6804de8f79b3d0b4417721",
+        "source-probe-wifi_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "baseline-dispatch-repeat-80",
+      "binary": "sta_smoke",
+      "baseline_revision": "bff9100c3b3d397a607fdf9dcd0cd80e55261605",
+      "features": "esp32s3,handshake-probe",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "baseline-dispatch-repeat-80-sta_smoke.elf": "afc867a0e31a3f860d58fc19c52e7dfc2e3df87b697435347001fc9ff09331a3",
+        "baseline-dispatch-repeat-80-sta_smoke.map": "6000b66f5d554294e2c5581342d9117a093f2c9c88e8fe440920a4e72f894949",
+        "baseline-dispatch-repeat-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e",
+        "baseline-dispatch-repeat-80-sta_smoke.build.log": "bc54149994dc186c80a3e240121b3aba93d55565acb58c39158ba986107fdd3b"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "baseline-lifetime",
+      "binary": "phy_lifetime_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,phy-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "baseline-lifetime-phy_lifetime_smoke.elf": "4deb33ef9b3d785d9d11e3082cec50c6424860898f9a5ddfee5912aa01250674",
+        "baseline-lifetime-phy_lifetime_smoke.map": "cefc5542fdd95d612194f2cc04a65483f53e2cdfb4e1b79be8e56873b1c858e7",
+        "baseline-lifetime-phy_lifetime_smoke.build.log": "2e8d02c17b28a9ca25aaa144855d553cd9d21d862d048b08bdcc756a106eb588",
+        "baseline-lifetime-phy_lifetime_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "baseline-probe",
+      "binary": "wifi_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,printf-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "baseline-probe-wifi_smoke.elf": "607627409d5180a1b42d1ff0f7908c1dd3ff948b625d060ff266031153bafcc4",
+        "baseline-probe-wifi_smoke.map": "5bc0915e26ff5f8d2371127d81228eba7a460648ace453bc70ba87149a319e46",
+        "baseline-probe-wifi_smoke.build.log": "cc43eaec48fd0880bcb53fba074c705eaa3eeae4e3d3f98a39b98399a4405769",
+        "baseline-probe-wifi_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "baseline-rx-diagnostic",
+      "binary": "wifi_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,printf-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "baseline-rx-diagnostic-wifi_smoke.elf": "672efef0c20b39be125e64d742bcbeca5407561cb1504a4791833fdee15780bc",
+        "baseline-rx-diagnostic-wifi_smoke.map": "eb878815f4758bd28403eef7875433ef8e3893a13d74492547376c63cea61786",
+        "baseline-rx-diagnostic-wifi_smoke.build.log": "1169c80443216fc97633716ea25074ed363f7c92583f6138a6d64d5eb66c3db0",
+        "baseline-rx-diagnostic-wifi_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-dispatch-80",
+      "binary": "sta_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,handshake-probe",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-dispatch-80-sta_smoke.elf": "4568bad18e80ca8d10853a9474f033fc4937a4b0d887ecd2325e9ee44692513a",
+        "source-dispatch-80-sta_smoke.map": "54004a97a3576f64136a74ca34f0507f60b62cc7c4dbd6dfbed52102aa3fc9dd",
+        "source-dispatch-80-sta_smoke.build.log": "ee46fa32dfea3c8ba3a6a34bfe6bfea36ab606fc68391720e9491ee3d72de7cc",
+        "source-dispatch-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-dispatch-repeat-80",
+      "binary": "sta_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,handshake-probe",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-dispatch-repeat-80-sta_smoke.elf": "4568bad18e80ca8d10853a9474f033fc4937a4b0d887ecd2325e9ee44692513a",
+        "source-dispatch-repeat-80-sta_smoke.map": "54004a97a3576f64136a74ca34f0507f60b62cc7c4dbd6dfbed52102aa3fc9dd",
+        "source-dispatch-repeat-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e",
+        "source-dispatch-repeat-80-sta_smoke.build.log": "ee46fa32dfea3c8ba3a6a34bfe6bfea36ab606fc68391720e9491ee3d72de7cc"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-lifetime",
+      "binary": "phy_lifetime_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,phy-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-lifetime-phy_lifetime_smoke.elf": "7eccd4c2c795c934191f384e40cef14c351dd62cd1eecb448813d8502738d37e",
+        "source-lifetime-phy_lifetime_smoke.map": "4d680ce6dad019e73fb3cd84a24fbb3ba42f0a5930598878892c85b9e3e4e412",
+        "source-lifetime-phy_lifetime_smoke.build.log": "cfc31b681b53ce0cc38843511b3bd04b2e5d39183580c89f95e0aae510345450",
+        "source-lifetime-phy_lifetime_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-probe",
+      "binary": "wifi_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,printf-smoke",
+      "requested_cycles": 10,
+      "device_tested": false,
+      "files": {
+        "source-probe-wifi_smoke.elf": "77d81499133cdbf4c673e011b594fe6a5fed4836c7a65f9e767597ee1ee72291",
+        "source-probe-wifi_smoke.map": "3ffe98c1248b1b55aa8c9df1be02656df72cee02eebc7517d6e5d71ed9d9812f",
+        "source-probe-wifi_smoke.build.log": "aea81e2c515cc6dde9f89bfded91dbf15d0e613114e2ad7e2a61f5c9955a868a",
+        "source-probe-wifi_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-rx-diagnostic",
+      "binary": "wifi_smoke",
+      "baseline_revision": "e6fce6cd8156ac9855a0cbde49c97046570c57e9",
+      "features": "esp32s3,printf-smoke",
+      "requested_cycles": 10,
+      "device_tested": true,
+      "files": {
+        "source-rx-diagnostic-wifi_smoke.elf": "024be9b298f6aac9e1f7c89013d8790989731d57ca5e60a6b2be514f18bfbf28",
+        "source-rx-diagnostic-wifi_smoke.map": "0afbf0d837841b33c6f6b35a2721aa554f8236f9c789586fe774082a0659c35b",
+        "source-rx-diagnostic-wifi_smoke.build.log": "a5df8c9b006054ff44b19bca5f09d3f134253830c4d9d32b694f07d1278d97f5",
+        "source-rx-diagnostic-wifi_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    }
+  ],
+  "limitations": [
+    "Analog helpers and ROM dependencies retained; no RF model or long-duration/temperature sweep.",
+    "S3 compiler emits additional memw barriers; no instruction or timing identity claim.",
+    "Initial unchanged S3 RX baseline failed; subsequent diagnostic baseline/source probes passed without production RX changes. Cause unresolved.",
+    "Allocation totals exclude verified mergeable strings, whose original map lengths are not uniquely attributable after merging.",
+    "Initial S3 source run lost host echoes 1 and 2 in cycle five, with eight later replies released after a roughly two-second ARP delay. Compatible with the pinned eight-entry pending-response queue eviction, but quiet logs do not prove eviction or locate an earlier ARP loss.",
+    "GTK rekey and new pairwise exchanges are outside this milestone."
+  ]
+}
