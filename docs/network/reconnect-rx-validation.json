@@ -531,7 +531,10 @@
         "socket_packets": 282,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 32,
+      "fault_injection": "ARP reply omission in cycle two"
     },
     {
       "chip": "esp32s3",
@@ -887,7 +890,10 @@
         "socket_packets": 274,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 8,
+      "fault_injection": "ARP reply omission in cycle two"
     },
     {
       "chip": "esp32s3",
@@ -2089,7 +2095,10 @@
         "socket_packets": 5476,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 32,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -3286,7 +3295,10 @@
         "socket_packets": 5504,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 8,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5133,7 +5145,10 @@
         "socket_packets": 5488,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 32,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5322,7 +5337,10 @@
         "socket_packets": 1065,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "original queue",
+      "pending_response_slots": 8,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5392,7 +5410,10 @@
         "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
         "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
       },
-      "application_offset": "0x20000"
+      "application_offset": "0x20000",
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": null,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5462,7 +5483,10 @@
         "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
         "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
       },
-      "application_offset": "0x20000"
+      "application_offset": "0x20000",
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": null,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5489,7 +5513,10 @@
       },
       "host": [],
       "source_files": {},
-      "application_offset": "0x20000"
+      "application_offset": "0x20000",
+      "dma_revision_scope": "original queue",
+      "pending_response_slots": null,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5559,7 +5586,10 @@
         "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
         "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
       },
-      "application_offset": "0x20000"
+      "application_offset": "0x20000",
+      "dma_revision_scope": "original queue",
+      "pending_response_slots": null,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32s3",
@@ -5629,7 +5659,10 @@
         "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
         "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
       },
-      "application_offset": "0x20000"
+      "application_offset": "0x20000",
+      "dma_revision_scope": "original queue",
+      "pending_response_slots": null,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32c3",
@@ -5761,7 +5794,10 @@
         "socket_packets": 274,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 32,
+      "fault_injection": "ARP reply omission in cycle two"
     },
     {
       "chip": "esp32c3",
@@ -6117,7 +6153,10 @@
         "socket_packets": 272,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 8,
+      "fault_injection": "ARP reply omission in cycle two"
     },
     {
       "chip": "esp32c3",
@@ -7319,7 +7358,10 @@
         "socket_packets": 5437,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 32,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32c3",
@@ -8965,7 +9007,10 @@
         "socket_packets": 5422,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
-      }
+      },
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": 32,
+      "fault_injection": "none"
     },
     {
       "chip": "esp32c3",
@@ -9035,7 +9080,10 @@
         "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
         "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
       },
-      "application_offset": "0x10000"
+      "application_offset": "0x10000",
+      "dma_revision_scope": "cursor fix (final or behavior-equivalent pre-cleanup source)",
+      "pending_response_slots": null,
+      "fault_injection": "none"
     }
   ],
   "source_sha256": {
@@ -9195,5 +9243,6 @@
       "sha256": "bca5ff7198a4a2000ca641246057e1969e63aa8f4b7f84de853de1055c026b31",
       "scope": "Private source snapshot verified against HAL and FoA source hashes; does not include network credentials."
     }
-  ]
+  ],
+  "queue_comparison_provenance": "The eight-slot cursor-station-v1 run and private ARP omission controls already contain the DMA cursor fix; they are response-capacity controls, not original-DMA station baselines."
 }

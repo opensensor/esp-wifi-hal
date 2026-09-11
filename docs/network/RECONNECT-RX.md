@@ -57,7 +57,8 @@ payloads and valid checksums. The smoltcp default-capacity test separately
 requires exactly two evictions and replies 3–10 for ten requests and a 2,030-ms
 ARP delay. Neither test extends the five-second expiry deadline.
 
-The eight-slot S3 station baseline completed 50 reconnects with 998/1,000 host
+With the DMA cursor fix already applied, the eight-slot S3 station baseline
+completed 50 reconnects with 998/1,000 host
 and 1,000/1,000 gateway replies, no duplicates and no capture socket drops.
 Separate two-cycle experiments on both S3 and C3 omitted their first two ARP
 replies during cycle two. On each board, eight slots produced exactly two
