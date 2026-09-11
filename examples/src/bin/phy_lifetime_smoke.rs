@@ -35,12 +35,23 @@ async fn main(_spawner: Spawner) {
 
     for cycle in 1..=3 {
         let guard = esp_phy::enable_phy();
-        // After the first full calibration this reports its cached result;
-        // later cycles exercise wakeup/restore without recalibrating.
-        assert!(matches!(
-            esp_phy::last_calibration_result(),
-            Some(esp_phy::CalibrationResult::Ok)
-        ));
+        // This describes the INPUT calibration data. The fresh zero-filled
+        // buffer can report DataCheckFailed even after FULL calibration has
+        // generated valid output (see PHY-SOURCE-VALIDATION.md). Later cycles
+        // report the cached status while exercising wakeup/restore.
+        let status =
+            esp_phy::last_calibration_result().expect("PHY did not record calibration completion");
+        info!(
+            "stage=phy_calibration cycle={} input_status={:?}",
+            cycle, status
+        );
+        let mut calibration = [0; esp_phy::PHY_CALIBRATION_DATA_LENGTH];
+        esp_phy::backup_phy_calibration_data(&mut calibration)
+            .expect("No output calibration data after initialization");
+        assert!(
+            calibration.iter().any(|&byte| byte != 0),
+            "Empty calibration output"
+        );
         info!("stage=phy_enabled cycle={}", cycle);
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
