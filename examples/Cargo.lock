@@ -1063,8 +1063,10 @@ checksum = "2556f38f5292d9735d4e156e276815fc001c9a0a2be0544a575c5fb867129d24"
 [[package]]
 name = "esp-wifi-sys-esp32c3"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b290846b53db9a3965866964260220b67f2c41cc2dbc0b377e7136239fe168a7"
+source = "git+https://github.com/opensensor/esp-wifi-sys?rev=ffcc1a2a4807a8c782f08fb7c72076240b315888#ffcc1a2a4807a8c782f08fb7c72076240b315888"
+dependencies = [
+ "esp-wifi-sys-printf",
+]
 
 [[package]]
 name = "esp-wifi-sys-esp32s2"
@@ -1075,8 +1077,18 @@ checksum = "c2a9a7f1bc51e7026c3012cda4f11d8799e5e0c0bb3be85797462219def6c26e"
 [[package]]
 name = "esp-wifi-sys-esp32s3"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5d8321f44b57d8112cbd8607cc83b85783b9195289acb45532728e3e229e7786"
+source = "git+https://github.com/opensensor/esp-wifi-sys?rev=ffcc1a2a4807a8c782f08fb7c72076240b315888#ffcc1a2a4807a8c782f08fb7c72076240b315888"
+dependencies = [
+ "esp-wifi-sys-printf",
+]
+
+[[package]]
+name = "esp-wifi-sys-printf"
+version = "0.1.0"
+source = "git+https://github.com/opensensor/esp-wifi-sys?rev=ffcc1a2a4807a8c782f08fb7c72076240b315888#ffcc1a2a4807a8c782f08fb7c72076240b315888"
+dependencies = [
+ "cc",
+]
 
 [[package]]
 name = "esp32"
@@ -1163,6 +1175,7 @@ dependencies = [
 name = "examples"
 version = "0.1.0"
 dependencies = [
+ "cc",
  "embassy-executor",
  "embassy-futures",
  "embassy-net",
@@ -1175,6 +1188,7 @@ dependencies = [
  "esp-backtrace",
  "esp-bootloader-esp-idf",
  "esp-hal",
+ "esp-phy",
  "esp-println",
  "esp-rtos",
  "esp-wifi-hal",

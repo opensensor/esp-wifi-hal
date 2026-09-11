@@ -13,6 +13,15 @@ use log::info;
 async fn main(_spawner: Spawner) {
     let peripherals = common_init();
     info!("stage=boot test=rust_wifi_smoke");
+    #[cfg(feature = "printf-smoke")]
+    {
+        unsafe extern "C" {
+            fn opensensor_printf_abi_selftest() -> u32;
+        }
+        let result = unsafe { opensensor_printf_abi_selftest() };
+        info!("stage=printf_abi result={}", result);
+        assert_eq!(result, 0, "Target C formatter ABI test failed");
+    }
     embassy_init(peripherals.TIMG0, peripherals.SW_INTERRUPT);
     info!("stage=initializing");
     let mut wifi = wifi_init(peripherals.WIFI);

@@ -29,6 +29,7 @@ embedded-io = "0.7.1"
 esp-rtos = { version = "0.3.0", features = ["embassy"] }
 esp-println = { version = "0.16.1", features = ["log-04"] }
 esp-bootloader-esp-idf = "0.5.0"
+esp-phy = { version = "=0.2.0", optional = true }
 ieee80211 = "0.5.9"
 foa = { version = "0.2.0", features = ["log"], optional = true }
 foa_sta = { version = "0.2.0", features = ["log"], optional = true }
@@ -37,6 +38,9 @@ embassy-net = { version = "0.9.1", features = [
     "proto-ipv4", "dhcpv4", "icmp", "auto-icmp-echo-reply", "medium-ethernet",
 ], optional = true }
 smoltcp = { version = "=0.13.1", default-features = false, features = ["iface-pending-responses"], optional = true }
+
+[build-dependencies]
+cc = { version = "=1.4.0", optional = true }
 
 [[bin]]
 name = "sta_smoke"
@@ -48,7 +52,14 @@ name = "tsf_timer_test"
 path = "src/bin/tsf_timer_test.rs"
 required-features = ["esp32c3"]
 
+[[bin]]
+name = "phy_lifetime_smoke"
+path = "src/bin/phy_lifetime_smoke.rs"
+required-features = ["phy-smoke"]
+
 [features]
+phy-smoke = ["dep:esp-phy"]
+printf-smoke = ["dep:cc"]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net", "dep:smoltcp"]
 network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver"]
 
@@ -97,6 +108,9 @@ opt-level = 's'
 overflow-checks = false
 
 [patch.crates-io]
+# Published 0.2.0 radio baseline with printf built from reviewed MIT source.
+esp-wifi-sys-esp32c3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "ffcc1a2a4807a8c782f08fb7c72076240b315888" }
+esp-wifi-sys-esp32s3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "ffcc1a2a4807a8c782f08fb7c72076240b315888" }
 # TX queue ownership, generated station sequences and strict received CCMP packet numbers.
 foa = { git = "https://github.com/opensensor/FoA", rev = "39f44767178462e0c5e02aa8a8bd220c8cfd1bd3" }
 foa_sta = { git = "https://github.com/opensensor/FoA", rev = "39f44767178462e0c5e02aa8a8bd220c8cfd1bd3" }
