@@ -93,7 +93,32 @@ The C3 and S3 `sta_smoke` release builds link with `foa-smoke` and
 `foa/tx-trace`, using compile-only dummy credentials. The S3 link retains the
 existing RWX LOAD-segment warning. These builds and host tests are
 preparation for a dedicated device check.
-Hardware validation of this patch is pending. Compare original versus
-retransmitted sequence/Retry values with a monitor capture when available,
-and retain host/gateway loss and duplicate counts separately. A clean ping
-run alone does not prove that the retransmission contract is correct.
+The first dedicated ten-cycle checks retain the same FoA `c83717ee`, smoltcp
+`517222f7`, packet/MAC tracing and traffic workload, changing only the HAL retry
+source. Neither failed run was repeated until it passed.
+
+| Chip | Unique host replies | Gateway replies | Extra host replies | Final MAC errors |
+| --- | --- | --- | --- | --- |
+| C3 | 199/200 | 199/200 | 2 | Two reported CTS timeouts |
+| S3 | 200/200 | 198/200 | 0 | None |
+
+C3's missing gateway reply (cycle 2, sequence 6) follows generation 85, which
+exhausted retries with `Err(MacProtocol(CtsTimeout))`. Its missing host reply
+(cycle 4, sequence 4) reaches both IP boundaries, but generation 163 ends in
+the same error. These are observed transmission failures; the underlying RF
+cause and on-air CTS exchange were not captured. All 506 starts/completions
+pair, with distinct assigned sequences 0 through 505. The two duplicate host
+receipts, cycle 2 sequence 1 and cycle 6 sequence 14, each have two request and
+reply copies at the device's IP boundaries. Host capture reports zero socket
+drops. See [C3 machine-readable evidence](mac-retry-validation-c3.json).
+
+S3's two missing gateway replies follow `Ok(0)` and `Ok(2)` respectively. All
+505 completions succeed and no duplicate appears at any observed packet
+boundary; see [the complete S3 report](../esp32s3/RETRY-FLAG.md).
+
+These short runs validate operation with the correction while preserving
+remaining losses. They do not establish all on-air Retry values or prove a
+causal reduction in duplicate frequency. The production-loop regression is
+the direct evidence that retransmitted buffers retain their identity and
+carry Retry. The separate receive-side equal-PN acceptance bug is tracked in
+[FoA's replay tests](https://github.com/opensensor/FoA/blob/39f44767178462e0c5e02aa8a8bd220c8cfd1bd3/tests/STA-REPLAY.md).
