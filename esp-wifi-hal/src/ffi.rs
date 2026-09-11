@@ -236,13 +236,11 @@ unsafe extern "C" fn phy_exit_critical(level: u32) {
 pub unsafe extern "C" fn slowclk_cal_get() -> u32 {
     trace!("slowclk_cal_get");
 
-    // TODO not hardcode this
-
     #[cfg(esp32s2)]
     return 44462;
 
     #[cfg(esp32s3)]
-    return 44462;
+    return crate::s3_phy::slowclk_cal_get();
 
     #[cfg(esp32c3)]
     return crate::c3_phy::slowclk_cal_get();

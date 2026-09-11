@@ -158,6 +158,11 @@ the board's post-initialization calibration, then perform controlled device
 testing. It is a configuration-correctness candidate, not further blob removal
 or an established explanation of lost packets.
 
+The subsequent [S3 measured-clock source correction](../esp32s3/SLOW-CLOCK.md)
+records the implemented branch, original SDK instruction evidence and host/link
+checks separately. The fixed-value observation above remains the historical
+state of the images in this inventory.
+
 None of these candidates justifies replacing `register_chipv7_phy`, channel
 tuning, calibration algorithms or the callback installer wholesale. Periodic
 power-control timing and the still-unexplained receive losses are separate

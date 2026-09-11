@@ -17,9 +17,14 @@ rustc +stable --edition 2024 --test "$test_dir/rust_init.rs" \
 rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_mac_helpers.rs" \
     -o "$test_out/rust-mac-helpers"
 "$test_out/rust-mac-helpers"
-rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_phy.rs" \
-    -o "$test_out/rust-phy"
-"$test_out/rust-phy"
+cc -std=c11 -O2 -Wall -Wextra -Werror \
+    -c "$test_dir/slowclk_reference.c" -o "$test_out/slowclk-reference.o"
+for optimization in 0 2; do
+    rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/s3_phy.rs" \
+        -C "opt-level=$optimization" -C "link-arg=$test_out/slowclk-reference.o" \
+        -o "$test_out/rust-phy-$optimization"
+    "$test_out/rust-phy-$optimization"
+done
 rustc +stable --edition 2024 --test "$repo_dir/esp-wifi-hal/src/ht20.rs" \
     -o "$test_out/rust-tx"
 "$test_out/rust-tx"

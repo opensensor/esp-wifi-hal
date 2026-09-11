@@ -53,6 +53,20 @@ pub(crate) unsafe fn enable_wifi_agc() {
     update(0x6001c038, u32::MAX, 0x80);
 }
 
+/// Wi-Fi light-sleep clock period in Q12 microseconds, following IDF's S3
+/// `esp_coex_common_clk_slowclk_cal_get_wrapper`.
+pub(crate) fn slowclk_cal_get() -> u32 {
+    if read(0x600c002c) & (1 << 26) != 0 {
+        // The divided XTAL source is one MHz: one microsecond in Q12.
+        1 << 12
+    } else {
+        // esp-hal writes the measured RTC slow-clock period into STORE1 in
+        // Q19 microseconds during clock initialization. Preserve IDF's
+        // truncating conversion, including a zero/uninitialized value.
+        read(0x60008054) >> 7
+    }
+}
+
 #[cfg(test)]
 mod tests {
     extern crate std;
@@ -110,6 +124,96 @@ mod tests {
         [0, u32::MAX, 0xaaaaaaaa, 0x55555555]
             .into_iter()
             .chain((0..=255u32).map(|byte| byte * 0x01010101))
+    }
+
+    unsafe extern "C" {
+        fn s3_idf_slowclk_cal_get_reference() -> u32;
+    }
+
+    #[unsafe(no_mangle)]
+    extern "C" fn s3_idf_test_read(address: usize) -> u32 {
+        assert!(matches!(address, 0x600c002c | 0x60008054));
+        read(address)
+    }
+
+    fn reset_clock(select: u32, period_q19: u32) {
+        reset(0);
+        STATE.with(|state| {
+            state.borrow_mut().registers =
+                BTreeMap::from([(0x600c002c, select), (0x60008054, period_q19)]);
+        });
+    }
+
+    #[test]
+    fn slow_clock_matches_original_idf_formula_and_register_transactions() {
+        // Include every individual selector bit and varied unrelated fields,
+        // plus values around the seven-bit truncation boundary and u32 limit.
+        let selectors = (0..32).map(|bit| 1u32 << bit).chain(seeds());
+        let periods = [
+            0,
+            1,
+            127,
+            128,
+            129,
+            (1 << 19) - 1,
+            1 << 19,
+            3_540_992,
+            5_691_136,
+            0x80000000,
+            u32::MAX,
+        ];
+        for select in selectors {
+            for period in periods {
+                reset_clock(select, period);
+                let expected = unsafe { s3_idf_slowclk_cal_get_reference() };
+                let expected_trace = STATE.with(|state| state.borrow().trace.clone());
+                reset_clock(select, period);
+                assert_eq!(
+                    slowclk_cal_get(),
+                    expected,
+                    "select={select:#x}, period={period}"
+                );
+                check(expected_trace);
+            }
+        }
+    }
+
+    #[test]
+    fn xtal_clock_skips_rtc_calibration_read_and_other_selector_bits_do_not_select_it() {
+        for period in [0, u32::MAX] {
+            reset_clock(1 << 26, period);
+            assert_eq!(slowclk_cal_get(), 4096);
+            check(vec![('r', 0x600c002c, 1 << 26)]);
+        }
+        // S3 bit 27 selects XTAL32K, not the divided one-MHz XTAL source.
+        reset_clock(1 << 27, 3_540_992);
+        assert_eq!(slowclk_cal_get(), 27_664);
+        check(vec![
+            ('r', 0x600c002c, 1 << 27),
+            ('r', 0x60008054, 3_540_992),
+        ]);
+    }
+
+    #[test]
+    fn slow_clock_reloads_calibration_on_each_call_without_writes() {
+        reset_clock(0, 128);
+        assert_eq!(slowclk_cal_get(), 1);
+        STATE.with(|state| {
+            state.borrow_mut().registers.insert(0x60008054, 255);
+        });
+        assert_eq!(slowclk_cal_get(), 1);
+        STATE.with(|state| {
+            state.borrow_mut().registers.insert(0x60008054, 256);
+        });
+        assert_eq!(slowclk_cal_get(), 2);
+        check(vec![
+            ('r', 0x600c002c, 0),
+            ('r', 0x60008054, 128),
+            ('r', 0x600c002c, 0),
+            ('r', 0x60008054, 255),
+            ('r', 0x600c002c, 0),
+            ('r', 0x60008054, 256),
+        ]);
     }
 
     #[test]

@@ -1,0 +1,65 @@
+{
+  "schema": "s3-slow-clock-evidence-v1",
+  "validation_status": "host_contract_tests_and_crossbuild_only_no_hardware",
+  "esp_idf_revision": "67c1de1eebe095d554d281952fde63c16ee2dca0",
+  "original_compiled_sdk": {
+    "wrapper": {
+      "object_sha256": "fceaa40938c0d0d873a09f4289e005d880b1b1c669c2b5db6a7b9f5d6b8e56b7",
+      "function": "esp_coex_common_clk_slowclk_cal_get_wrapper",
+      "body_hex": "3641008100000c12c020008808402211a7f808810000e00800a027411df0",
+      "literal_hex": "2c000c6000000000"
+    },
+    "getter": {
+      "object_sha256": "1c0aeb806a90a5f0b1209f78554410ca9ea2bb1a30dd2eb0165abcf09fd0b0a2",
+      "function": "esp_clk_slowclk_cal_get",
+      "body_hex": "364100810000c0200028081df0",
+      "literal_hex": "54800060"
+    }
+  },
+  "source_clock_build": {
+    "elf_sha256": "c4b08d9b10447fd96816906fd3228ba11659eecf21f6a44f1473b63b74121cec",
+    "map_sha256": "3743c359bdb63ec2dafccc2a3c375e0b93cd46759b5fd8bf7bb2586d8b1d2e4b",
+    "function": "_RNvNtCsdT8veyjMyZm_12esp_wifi_hal3ffi15slowclk_cal_get",
+    "address": "0x4202d4b0",
+    "size_bytes": 84,
+    "body_hex": "3681007d0181558b88080c4987b92181db9189471c18893791da91992789179907a1d8911cfb0c5cd2c70081508be00800813d8cc02000880891038d90881056c800815a8cc0200088088027411df0217a8b1df0",
+    "features": [
+      "esp32s3",
+      "foa-smoke"
+    ],
+    "cycles": 1,
+    "credentials": "dummy; not for device use",
+    "ESP_LOG": "info",
+    "source_printf_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+    "peripheral_reads": [
+      "0x600c002c",
+      "conditional 0x60008054"
+    ],
+    "memw_before_peripheral_loads": true,
+    "peripheral_writes": 0
+  },
+  "reference_source_sha256": {
+    "components/esp_coex/esp32s3/esp_coex_adapter.c": "7fb34f00fb22a158b73252f4be55800b429623153a050998b5e3a1fb015b5c1d",
+    "components/esp_hw_support/esp_clk.c": "d7e634ebae4562fdd663f31aba5ade5bfbe2c4941d7497c4edcd2bdf8a7ea77b",
+    "components/hal/esp32s3/include/hal/clk_tree_ll.h": "df215658b1538ce20fb37799d2dbd560a6b291d993ab8cc2128ecfab326567c4",
+    "components/soc/esp32s3/register/soc/system_reg.h": "83439de5edf634caa160c8ca925cc0867f04faa9b01ac3ef5d7970bba2ac6f3c",
+    "components/soc/esp32s3/register/soc/rtc_cntl_reg.h": "880be337dc3df83525745d31b099425de368c738a529b4a81a22dbd5fc5f03b8",
+    "components/esp_hw_support/port/esp32s3/include/soc/rtc.h": "9a2223afabfbc983fede455c2203df0fca504b44518d42d712748d74cd946bdc",
+    "components/soc/esp32s3/include/soc/soc_caps.h": "edf0eb56023acbe3a6a0f1eaabb6ccf2c7ab7db02b4637e2a0a33bf586b10027"
+  },
+  "esp_hal_clock_source": {
+    "version": "1.1.2",
+    "path": "src/clock/mod.rs",
+    "sha256": "ade1437031f24ef886351b320bff7d0f4f7aff0fd23609a137d05d1a174c662a"
+  },
+  "host_tests": {
+    "reference": "tests/slowclk_reference.c",
+    "cases_per_optimization": 3212,
+    "optimizations": [
+      0,
+      2
+    ],
+    "new_clock_test_groups": 3,
+    "old_constant_44462_test_failures": 3
+  }
+}
