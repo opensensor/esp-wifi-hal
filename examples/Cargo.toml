@@ -62,6 +62,7 @@ phy-smoke = ["dep:esp-phy"]
 printf-smoke = ["dep:cc"]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net", "dep:smoltcp"]
 network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver", "foa_sta/connection-trace"]
+handshake-probe = ["timing-probe", "foa_sta/handshake-probe"]
 timing-probe = ["network-trace", "foa/tx-trace", "esp-wifi-hal/timing-probe"]
 
 esp32 = [
@@ -112,9 +113,9 @@ overflow-checks = false
 # Published 0.2.0 radio baseline with printf built from reviewed MIT source.
 esp-wifi-sys-esp32c3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
 esp-wifi-sys-esp32s3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
-# TX ownership, replay protection, connection diagnostics and response subtype validation.
-foa = { git = "https://github.com/opensensor/FoA", rev = "20d1b34384e410ac716aacd008d08fec170fde92" }
-foa_sta = { git = "https://github.com/opensensor/FoA", rev = "20d1b34384e410ac716aacd008d08fec170fde92" }
+# TX ownership, replay protection, response validation and authenticated M3 retries.
+foa = { git = "https://github.com/opensensor/FoA", rev = "bf89a5661682572416e5de3ce5f83ced86e571b4" }
+foa_sta = { git = "https://github.com/opensensor/FoA", rev = "bf89a5661682572416e5de3ce5f83ced86e571b4" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Keep transitive users on the reviewed PHY initialization adapter too.

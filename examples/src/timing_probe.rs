@@ -65,6 +65,26 @@ pub fn init() {
     }
 }
 pub fn report(cycle: u32) {
+    report_inner(cycle, false);
+}
+pub fn report_failure(cycle: u32) {
+    report_inner(cycle, true);
+}
+fn report_inner(cycle: u32, _failed: bool) {
+    #[cfg(feature = "handshake-probe")]
+    {
+        let h = foa_sta::handshake_probe::snapshot();
+        esp_println::println!(
+            "stage=handshake cycle={} phase={} phases_us={:?} queues={:?} eapol_routed={} eapol_dropped={} route_failures={} events={}",
+            cycle, h.phase, h.phase_us, h.queues, h.eapol_routed, h.eapol_dropped, h.route_failures, h.total_events);
+        if _failed || h.phase != 10 || h.eapol_routed > 2 {
+            for index in h.total_events.saturating_sub(64)..h.total_events {
+                let e = h.events[index as usize % 64];
+                esp_println::println!("stage=handshake_event cycle={} index={} us={} phase={} kind={} a={} b={}",
+                    cycle, index, e.us, e.phase, e.kind, e.a, e.b);
+            }
+        }
+    }
     let sys = timing::now();
     let mac = unsafe { esp_wifi_hal::ll::LowLevelDriver::mac_time() }
         .duration_since_epoch()

@@ -106,3 +106,7 @@ Do not increase connection/ARP deadlines or alter radio tracking cadence based
 on these counters. The remaining quiet-mode connection failure requires its own
 handshake/queue evidence. Removing synchronous packet output from normal logging
 corrects the measured interference without asserting that every loss is fixed.
+
+The [handshake follow-up](EAPOL-RETRANSMIT.md) measures PMK derivation separately
+and reproduces ignored M3 retransmissions after a lost M4. It adds authenticated M3
+retry recovery while preserving the original timing trials and their failures.

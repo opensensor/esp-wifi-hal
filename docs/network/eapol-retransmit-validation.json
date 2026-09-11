@@ -1,0 +1,4693 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-09-11",
+  "baseline_hal": "51d1ccd3d9ebeb98248e406f82f7bdb4487bc5d0",
+  "baseline_foa": "c03f479fdb91fdc51b4d74654873aa69b6b7a4c1",
+  "recovery_foa": "bf89a5661682572416e5de3ce5f83ced86e571b4",
+  "settings": {
+    "cpu_mhz": 80,
+    "profile": "quiet",
+    "host_gateway_pings_per_traffic_cycle": 20,
+    "payload_bytes": 512,
+    "arp_warmup": false,
+    "one_active_station": true
+  },
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "variant": "drop-m4-80",
+      "fault_injection": true,
+      "requested_cycles": 1,
+      "complete": false,
+      "failure": "DHCP timeout",
+      "host": [],
+      "gateway": [],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": null,
+      "pmk_us_range": [
+        1128533,
+        1128533
+      ],
+      "deauth_reasons": [
+        15
+      ],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            34,
+            3561,
+            1132094,
+            1132128,
+            1139609,
+            1151762,
+            1156924,
+            1158205,
+            1159905,
+            1167752,
+            1167824
+          ],
+          "queues": [
+            0,
+            1
+          ],
+          "eapol_routed": 5,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 29
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 1,
+          "index": 0,
+          "us": 34,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 1,
+          "us": 49,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 2,
+          "us": 3561,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 3,
+          "us": 1132094,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 4,
+          "us": 1132128,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 5,
+          "us": 1139431,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 6,
+          "us": 1139609,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 7,
+          "us": 1151554,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 8,
+          "us": 1151762,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 9,
+          "us": 1156632,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 10,
+          "us": 1156682,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 11,
+          "us": 1156889,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 12,
+          "us": 1156924,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 13,
+          "us": 1158205,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 14,
+          "us": 1159861,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 15,
+          "us": 1159905,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 16,
+          "us": 1163248,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 17,
+          "us": 1163308,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 18,
+          "us": 1167641,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 19,
+          "us": 1167752,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 20,
+          "us": 1167786,
+          "phase": 9,
+          "kind": 11,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 21,
+          "us": 1167824,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 22,
+          "us": 2164571,
+          "phase": 10,
+          "kind": 10,
+          "a": 5066,
+          "b": 1
+        },
+        {
+          "cycle": 1,
+          "index": 23,
+          "us": 2164594,
+          "phase": 10,
+          "kind": 6,
+          "a": 257,
+          "b": 1
+        },
+        {
+          "cycle": 1,
+          "index": 24,
+          "us": 3164725,
+          "phase": 10,
+          "kind": 10,
+          "a": 5066,
+          "b": 1
+        },
+        {
+          "cycle": 1,
+          "index": 25,
+          "us": 3164741,
+          "phase": 10,
+          "kind": 6,
+          "a": 257,
+          "b": 1
+        },
+        {
+          "cycle": 1,
+          "index": 26,
+          "us": 4167308,
+          "phase": 10,
+          "kind": 10,
+          "a": 5066,
+          "b": 1
+        },
+        {
+          "cycle": 1,
+          "index": 27,
+          "us": 4167325,
+          "phase": 10,
+          "kind": 6,
+          "a": 257,
+          "b": 1
+        },
+        {
+          "cycle": 1,
+          "index": 28,
+          "us": 5178299,
+          "phase": 10,
+          "kind": 7,
+          "a": 1025,
+          "b": 1
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 17721659,
+          "mac_us": 17721663,
+          "print": [
+            14,
+            37571,
+            8989,
+            0,
+            2,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            1,
+            79,
+            79,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            5,
+            206,
+            52,
+            5,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rx_age": [
+            61,
+            1309260,
+            1133344,
+            0,
+            14,
+            46,
+            0,
+            1
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 88,
+        "socket_packets": 88,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "182f96056491da52dd54245d39c5093010e2863798dbb874f5f315ae5f66087b",
+      "elf_sha256": "6bb293fd61e61f380ada116d2bdfa7cde4a8b43d11167be32089333a1857be40",
+      "serial_sha256": "50c54bdfd493ac558ccebc90e1a20bb37e1cf137e282d5626ed990e2a8c9e2a0"
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "phases-80",
+      "fault_injection": false,
+      "requested_cycles": 10,
+      "complete": false,
+      "failure": "DHCP timeout",
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.845,
+      "pmk_us_range": [
+        1128525,
+        1128543
+      ],
+      "deauth_reasons": [
+        15
+      ],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3767,
+            1132300,
+            1132328,
+            1240782,
+            1244127,
+            1251711,
+            1252987,
+            1254542,
+            1262330,
+            1264162
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3630,
+            1132155,
+            1132185,
+            1137551,
+            1141368,
+            1146582,
+            1147849,
+            1149554,
+            1156903,
+            1158511
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3874,
+            1132403,
+            1132431,
+            1139596,
+            1144220,
+            1148627,
+            1149889,
+            1151596,
+            1159120,
+            1160813
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            30,
+            4208,
+            1132741,
+            1132775,
+            1146845,
+            1150145,
+            1155397,
+            1156684,
+            1158213,
+            1165792,
+            1167659
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3383,
+            1131919,
+            1131953,
+            1140415,
+            1144091,
+            1158813,
+            1160099,
+            1162076,
+            1170169,
+            1175360
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 21
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3738,
+            1132271,
+            1132300,
+            1139303,
+            1144535,
+            1148656,
+            1149925,
+            1152887,
+            1166058,
+            1170303
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3723,
+            1132257,
+            1132285,
+            1143653,
+            1147018,
+            1151818,
+            1153107,
+            1154757,
+            1162825,
+            1164525
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            24,
+            4199,
+            1132735,
+            1132764,
+            1137776,
+            1141970,
+            1146523,
+            1147785,
+            1149448,
+            1156807,
+            1158506
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3713,
+            1132256,
+            1132284,
+            1140344,
+            1144262,
+            1153698,
+            1154972,
+            1156485,
+            1164076,
+            1165772
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19376895,
+          "mac_us": 19376906,
+          "print": [
+            14,
+            28277,
+            4792,
+            0,
+            2,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            11,
+            717,
+            77,
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            56,
+            5761,
+            2052,
+            54,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            368,
+            1970736,
+            1133178,
+            3,
+            116,
+            248,
+            0,
+            1
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 35421426,
+          "mac_us": 35421431,
+          "print": [
+            27,
+            53670,
+            4792,
+            0,
+            4,
+            23,
+            0,
+            0
+          ],
+          "phy": [
+            22,
+            1430,
+            77,
+            22,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            112,
+            11526,
+            2060,
+            108,
+            0,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            690,
+            3778123,
+            1133178,
+            4,
+            212,
+            472,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 51521383,
+          "mac_us": 51521385,
+          "print": [
+            39,
+            78168,
+            4792,
+            0,
+            6,
+            33,
+            0,
+            0
+          ],
+          "phy": [
+            34,
+            2208,
+            77,
+            34,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            174,
+            18445,
+            3070,
+            167,
+            1,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1009,
+            5598849,
+            1133178,
+            5,
+            304,
+            697,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 67588339,
+          "mac_us": 67588345,
+          "print": [
+            51,
+            102167,
+            4792,
+            0,
+            8,
+            43,
+            0,
+            0
+          ],
+          "phy": [
+            45,
+            2926,
+            78,
+            45,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            229,
+            22505,
+            3070,
+            221,
+            1,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1355,
+            7506050,
+            1134021,
+            7,
+            398,
+            946,
+            0,
+            4
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 83741720,
+          "mac_us": 83741724,
+          "print": [
+            63,
+            127434,
+            5032,
+            0,
+            10,
+            53,
+            0,
+            0
+          ],
+          "phy": [
+            59,
+            3782,
+            78,
+            59,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            295,
+            28873,
+            3070,
+            285,
+            1,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1690,
+            9370760,
+            1134021,
+            9,
+            501,
+            1175,
+            0,
+            5
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 99920263,
+          "mac_us": 99920269,
+          "print": [
+            76,
+            153694,
+            5032,
+            0,
+            13,
+            63,
+            0,
+            0
+          ],
+          "phy": [
+            70,
+            4500,
+            78,
+            70,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            353,
+            35602,
+            3070,
+            341,
+            1,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            2010,
+            11183412,
+            1134021,
+            10,
+            599,
+            1395,
+            0,
+            6
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 116030222,
+          "mac_us": 116030226,
+          "print": [
+            88,
+            175793,
+            5032,
+            0,
+            15,
+            73,
+            0,
+            0
+          ],
+          "phy": [
+            83,
+            5328,
+            78,
+            83,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            417,
+            42017,
+            3070,
+            403,
+            1,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2322,
+            12964863,
+            1134021,
+            11,
+            699,
+            1605,
+            0,
+            7
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 132097154,
+          "mac_us": 132097158,
+          "print": [
+            100,
+            198602,
+            5032,
+            0,
+            17,
+            83,
+            0,
+            0
+          ],
+          "phy": [
+            96,
+            6131,
+            78,
+            96,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            480,
+            47984,
+            3070,
+            463,
+            2,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            2654,
+            14822420,
+            1134021,
+            12,
+            797,
+            1837,
+            0,
+            8
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 149549195,
+          "mac_us": 149549199,
+          "print": [
+            112,
+            234380,
+            9370,
+            0,
+            19,
+            93,
+            0,
+            0
+          ],
+          "phy": [
+            97,
+            6205,
+            78,
+            97,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            486,
+            49767,
+            3070,
+            468,
+            2,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            2762,
+            16217211,
+            1134021,
+            12,
+            823,
+            1918,
+            0,
+            9
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 898,
+        "socket_packets": 898,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "aa3ae4bbb3c65e4f8894221c33abc7997ce27c8ad2a72ca5722a769e5f20b506",
+      "elf_sha256": "886fd551a89a6af5641f4b2c77337e9beb2bd712bf89bac5df5b587d94a69572",
+      "serial_sha256": "c84acddc988ca36e06cbb5c816c9f154bd26fb11df2d15e3324d7f5b4941049f"
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "phases-post-80",
+      "fault_injection": false,
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.95,
+      "pmk_us_range": [
+        1128508,
+        1128521
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            40,
+            3963,
+            1132477,
+            1132506,
+            1137418,
+            1140769,
+            1146966,
+            1148268,
+            1149847,
+            1157418,
+            1159155
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            22,
+            3728,
+            1132245,
+            1132271,
+            1137289,
+            1140640,
+            1146511,
+            1147812,
+            1150341,
+            1157662,
+            1159413
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            24,
+            3350,
+            1131871,
+            1131896,
+            1140300,
+            1143788,
+            1150168,
+            1151466,
+            1153135,
+            1161393,
+            1163780
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3372,
+            1131883,
+            1131910,
+            1138978,
+            1142362,
+            1147246,
+            1148544,
+            1150309,
+            1157869,
+            1159563
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            23,
+            3396,
+            1131905,
+            1131931,
+            1137291,
+            1140942,
+            1146181,
+            1147482,
+            1149373,
+            1157048,
+            1158683
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            22,
+            3774,
+            1132282,
+            1132310,
+            1137363,
+            1142046,
+            1147930,
+            1149221,
+            1150916,
+            1158351,
+            1160036
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            22,
+            3780,
+            1132296,
+            1132326,
+            1137256,
+            1140705,
+            1145820,
+            1147127,
+            1149369,
+            1156766,
+            1158448
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            22,
+            3317,
+            1131833,
+            1131859,
+            1136741,
+            1140028,
+            1144807,
+            1146107,
+            1147682,
+            1155385,
+            1157220
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            24,
+            3716,
+            1132232,
+            1132259,
+            1137534,
+            1140817,
+            1149439,
+            1150749,
+            1152475,
+            1160049,
+            1161755
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3354,
+            1131865,
+            1131893,
+            1138547,
+            1141940,
+            1146753,
+            1148058,
+            1159996,
+            1171180,
+            1172900
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19690512,
+          "mac_us": 19690516,
+          "print": [
+            15,
+            29839,
+            4655,
+            0,
+            2,
+            13,
+            0,
+            0
+          ],
+          "phy": [
+            11,
+            830,
+            84,
+            11,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            57,
+            6579,
+            3038,
+            54,
+            1,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            405,
+            1989231,
+            1133328,
+            1,
+            118,
+            285,
+            0,
+            1
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 35930907,
+          "mac_us": 35930913,
+          "print": [
+            27,
+            55409,
+            4757,
+            0,
+            4,
+            23,
+            0,
+            0
+          ],
+          "phy": [
+            23,
+            1764,
+            84,
+            23,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            117,
+            12231,
+            3038,
+            112,
+            1,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            706,
+            3790672,
+            1133328,
+            2,
+            217,
+            485,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 52011450,
+          "mac_us": 52011452,
+          "print": [
+            39,
+            79759,
+            5487,
+            0,
+            7,
+            32,
+            0,
+            0
+          ],
+          "phy": [
+            34,
+            2615,
+            84,
+            34,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            172,
+            17777,
+            3038,
+            165,
+            1,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1028,
+            5583664,
+            1133328,
+            3,
+            322,
+            700,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 68079414,
+          "mac_us": 68079417,
+          "print": [
+            51,
+            102783,
+            5487,
+            0,
+            10,
+            41,
+            0,
+            0
+          ],
+          "phy": [
+            45,
+            3463,
+            84,
+            45,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            227,
+            21745,
+            3038,
+            219,
+            1,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1329,
+            7379838,
+            1133328,
+            6,
+            420,
+            899,
+            0,
+            4
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 84141792,
+          "mac_us": 84141796,
+          "print": [
+            63,
+            127389,
+            5487,
+            0,
+            11,
+            52,
+            0,
+            0
+          ],
+          "phy": [
+            56,
+            4315,
+            84,
+            56,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            280,
+            28193,
+            3070,
+            270,
+            1,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1631,
+            9150506,
+            1133328,
+            8,
+            515,
+            1103,
+            0,
+            5
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 100302337,
+          "mac_us": 100302347,
+          "print": [
+            75,
+            154168,
+            5487,
+            0,
+            12,
+            63,
+            0,
+            0
+          ],
+          "phy": [
+            67,
+            5104,
+            84,
+            67,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            339,
+            34826,
+            3070,
+            327,
+            1,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            1963,
+            10991660,
+            1133328,
+            10,
+            623,
+            1324,
+            0,
+            6
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 116420275,
+          "mac_us": 116420278,
+          "print": [
+            87,
+            177290,
+            5487,
+            0,
+            16,
+            71,
+            0,
+            0
+          ],
+          "phy": [
+            80,
+            6103,
+            84,
+            80,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            401,
+            40049,
+            3070,
+            386,
+            3,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            2260,
+            12757403,
+            1133328,
+            12,
+            721,
+            1520,
+            0,
+            7
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 132476258,
+          "mac_us": 132476265,
+          "print": [
+            99,
+            201978,
+            5487,
+            0,
+            19,
+            80,
+            0,
+            0
+          ],
+          "phy": [
+            90,
+            6888,
+            85,
+            90,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            454,
+            45746,
+            3070,
+            435,
+            5,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            2623,
+            14598716,
+            1133328,
+            13,
+            846,
+            1756,
+            0,
+            8
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 148583219,
+          "mac_us": 148583221,
+          "print": [
+            111,
+            227812,
+            5487,
+            0,
+            20,
+            91,
+            0,
+            0
+          ],
+          "phy": [
+            102,
+            7815,
+            85,
+            102,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            510,
+            52576,
+            3070,
+            489,
+            5,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            2910,
+            16391523,
+            1133328,
+            14,
+            935,
+            1952,
+            0,
+            9
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 164649598,
+          "mac_us": 164649600,
+          "print": [
+            123,
+            254388,
+            5487,
+            0,
+            22,
+            101,
+            0,
+            0
+          ],
+          "phy": [
+            112,
+            8589,
+            85,
+            112,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            563,
+            59237,
+            3070,
+            540,
+            5,
+            18,
+            0,
+            0
+          ],
+          "rx_age": [
+            3259,
+            18252042,
+            1133328,
+            16,
+            1039,
+            2194,
+            0,
+            10
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1027,
+        "socket_packets": 1027,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "fb7ef6e109cad7fa3fe716c22597308db4499775da82203df4b586d0ddebaf18",
+      "elf_sha256": "0dfd18205ab612fd347773e0a99befa0e8c5d2a0fdc00347d46bb75d3ce4e730",
+      "serial_sha256": "bf46754e22d8d8e31713629e023f47725a3f0d5e7d75b95f890b989f84427f13"
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-retry-80",
+      "fault_injection": false,
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.63,
+      "pmk_us_range": [
+        1129733,
+        1129758
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3345,
+            1133103,
+            1133128,
+            1139495,
+            1142920,
+            1150174,
+            1151467,
+            1155260,
+            1162671,
+            1164340
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3682,
+            1133428,
+            1133457,
+            1140281,
+            1143811,
+            1153481,
+            1154770,
+            1157030,
+            1164591,
+            1166460
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3703,
+            1133436,
+            1133466,
+            1138589,
+            1141952,
+            1147007,
+            1148316,
+            1150124,
+            1164125,
+            1165761
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            34,
+            3720,
+            1133470,
+            1133502,
+            1143194,
+            1146713,
+            1155458,
+            1156748,
+            1158939,
+            1166425,
+            1170193
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3678,
+            1133431,
+            1133459,
+            1138418,
+            1141755,
+            1146632,
+            1147923,
+            1149651,
+            1159352,
+            1161023
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3265,
+            1133007,
+            1133036,
+            1138085,
+            1141588,
+            1146409,
+            1147702,
+            1149511,
+            1156988,
+            1162451
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3753,
+            1133498,
+            1133530,
+            1138659,
+            1141964,
+            1147054,
+            1148336,
+            1149959,
+            1157718,
+            1159524
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3709,
+            1133461,
+            1133493,
+            1138755,
+            1142232,
+            1148523,
+            1149831,
+            1151546,
+            1159059,
+            1160773
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3316,
+            1133064,
+            1133091,
+            1138140,
+            1144137,
+            1148871,
+            1150176,
+            1152043,
+            1159683,
+            1161403
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3707,
+            1133456,
+            1133482,
+            1138554,
+            1142494,
+            1150075,
+            1151384,
+            1153094,
+            1160473,
+            1162100
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19580493,
+          "mac_us": 19580499,
+          "print": [
+            15,
+            29848,
+            5163,
+            0,
+            3,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            723,
+            77,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            51,
+            5520,
+            2061,
+            49,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            268,
+            1825083,
+            1134488,
+            2,
+            99,
+            166,
+            0,
+            1
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 35696456,
+          "mac_us": 35696464,
+          "print": [
+            27,
+            52252,
+            5163,
+            0,
+            5,
+            22,
+            0,
+            0
+          ],
+          "phy": [
+            20,
+            1447,
+            78,
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            103,
+            11010,
+            2061,
+            99,
+            0,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            522,
+            3625381,
+            1134488,
+            5,
+            187,
+            328,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 51779413,
+          "mac_us": 51779421,
+          "print": [
+            39,
+            75708,
+            5163,
+            0,
+            8,
+            31,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2310,
+            78,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            162,
+            16748,
+            2061,
+            156,
+            0,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            759,
+            5323172,
+            1134488,
+            7,
+            286,
+            463,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 67848372,
+          "mac_us": 67848379,
+          "print": [
+            51,
+            100461,
+            5163,
+            0,
+            11,
+            40,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            3037,
+            78,
+            42,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            212,
+            22735,
+            2066,
+            203,
+            1,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            987,
+            7013203,
+            1134488,
+            8,
+            379,
+            596,
+            0,
+            4
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 83946336,
+          "mac_us": 83946341,
+          "print": [
+            63,
+            125089,
+            5163,
+            0,
+            13,
+            50,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3836,
+            78,
+            53,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            267,
+            28390,
+            2066,
+            256,
+            1,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            1208,
+            8698290,
+            1134488,
+            9,
+            464,
+            730,
+            0,
+            5
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 100000291,
+          "mac_us": 100000299,
+          "print": [
+            75,
+            149727,
+            5163,
+            0,
+            14,
+            61,
+            0,
+            0
+          ],
+          "phy": [
+            64,
+            4632,
+            78,
+            64,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            321,
+            34348,
+            2066,
+            308,
+            1,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            1437,
+            10426915,
+            1134488,
+            12,
+            544,
+            875,
+            0,
+            6
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 116177255,
+          "mac_us": 116177261,
+          "print": [
+            87,
+            172378,
+            5163,
+            0,
+            17,
+            70,
+            0,
+            0
+          ],
+          "phy": [
+            75,
+            5430,
+            78,
+            75,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            378,
+            41086,
+            3061,
+            363,
+            1,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            1671,
+            12154231,
+            1134813,
+            14,
+            632,
+            1018,
+            0,
+            7
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 132275636,
+          "mac_us": 132275641,
+          "print": [
+            99,
+            195024,
+            5163,
+            0,
+            22,
+            77,
+            0,
+            0
+          ],
+          "phy": [
+            87,
+            6287,
+            78,
+            87,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            438,
+            46891,
+            3061,
+            421,
+            1,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            1889,
+            13833042,
+            1134813,
+            16,
+            714,
+            1151,
+            0,
+            8
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 148332172,
+          "mac_us": 148332180,
+          "print": [
+            111,
+            218594,
+            5163,
+            0,
+            25,
+            86,
+            0,
+            0
+          ],
+          "phy": [
+            98,
+            7083,
+            78,
+            98,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            493,
+            52559,
+            3061,
+            474,
+            1,
+            18,
+            0,
+            0
+          ],
+          "rx_age": [
+            2125,
+            15565249,
+            1134813,
+            17,
+            801,
+            1298,
+            0,
+            9
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 164402548,
+          "mac_us": 164402553,
+          "print": [
+            123,
+            244256,
+            5163,
+            0,
+            26,
+            97,
+            0,
+            0
+          ],
+          "phy": [
+            109,
+            7882,
+            78,
+            109,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            548,
+            59113,
+            3061,
+            527,
+            1,
+            20,
+            0,
+            0
+          ],
+          "rx_age": [
+            2341,
+            17246737,
+            1134813,
+            18,
+            881,
+            1432,
+            0,
+            10
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 949,
+        "socket_packets": 949,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "76c37790f4cd9e8b7db214f140c59e545dc7e085c444458545247cc7f4b21847",
+      "elf_sha256": "3c532664e2e20080e547903fb827d1b1717d4d6dc6ee52a408862bd3fcf93146",
+      "serial_sha256": "6335d08624259b97761ac749a26fb286a1cfcdae155e944e19cab70ffdb69c74"
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "retry-drop-m4-80",
+      "fault_injection": true,
+      "requested_cycles": 1,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 9.125,
+      "pmk_us_range": [
+        1129741,
+        1129741
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3296,
+            1133037,
+            1133062,
+            1147811,
+            1153596,
+            1159777,
+            1161083,
+            1168472,
+            1176106,
+            1176213
+          ],
+          "queues": [
+            0,
+            1
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 27
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 29245071,
+          "mac_us": 29245078,
+          "print": [
+            14,
+            31505,
+            5761,
+            0,
+            2,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            666,
+            75,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            51,
+            6536,
+            3031,
+            49,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            426,
+            2309351,
+            1134412,
+            3,
+            137,
+            285,
+            0,
+            1
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 163,
+        "socket_packets": 163,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "3e973172b6b590754d20a5baeb601f5e21907e9760f0f0bc851881d5c0bfdf66",
+      "elf_sha256": "bb9c70b1cb5f3cd4dad3a7d8bcb27f71fdbcef7ecabd441e1884e591d1b5540d",
+      "serial_sha256": "1ff178115b915e6c07b7c36d1bedf23540ad168abe49c51f08fcf19cde18128d"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "phases-80",
+      "fault_injection": false,
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 8.364999999999998,
+      "pmk_us_range": [
+        935967,
+        935975
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3864,
+            939831,
+            939856,
+            945119,
+            948972,
+            953752,
+            954954,
+            956848,
+            963979,
+            965871
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3864,
+            939839,
+            939866,
+            945445,
+            949644,
+            963637,
+            964837,
+            966615,
+            973824,
+            982040
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3528,
+            939502,
+            939529,
+            944717,
+            948915,
+            954098,
+            955300,
+            957296,
+            964526,
+            966348
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            32,
+            3547,
+            939515,
+            939542,
+            945247,
+            949429,
+            954157,
+            955359,
+            957278,
+            964427,
+            966555
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3381,
+            939354,
+            939380,
+            944503,
+            948379,
+            953179,
+            954381,
+            962604,
+            969857,
+            971817
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3372,
+            939342,
+            939368,
+            944748,
+            948699,
+            953494,
+            954698,
+            956578,
+            964243,
+            966578
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            32,
+            3403,
+            939373,
+            939399,
+            945123,
+            949073,
+            954017,
+            955219,
+            957154,
+            964335,
+            967108
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3373,
+            939341,
+            939368,
+            945069,
+            949380,
+            954240,
+            955444,
+            961056,
+            967939,
+            974734
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            30,
+            3410,
+            939379,
+            939405,
+            947260,
+            951177,
+            956086,
+            957293,
+            959074,
+            967166,
+            977143
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3420,
+            939389,
+            939416,
+            945092,
+            948911,
+            954169,
+            955370,
+            957313,
+            964429,
+            967252
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 20
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19332980,
+          "mac_us": 19332989,
+          "print": [
+            14,
+            11396,
+            1840,
+            0,
+            12,
+            2,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            722,
+            73,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            51,
+            5380,
+            1563,
+            47,
+            2,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            411,
+            1815678,
+            940888,
+            1,
+            109,
+            300,
+            0,
+            1
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 35303033,
+          "mac_us": 35303042,
+          "print": [
+            26,
+            20184,
+            1840,
+            0,
+            22,
+            4,
+            0,
+            0
+          ],
+          "phy": [
+            20,
+            1468,
+            75,
+            20,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            102,
+            10453,
+            1563,
+            94,
+            4,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            734,
+            3470756,
+            940953,
+            1,
+            208,
+            523,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 51174523,
+          "mac_us": 51174536,
+          "print": [
+            38,
+            29254,
+            1928,
+            0,
+            32,
+            6,
+            0,
+            0
+          ],
+          "phy": [
+            31,
+            2288,
+            75,
+            31,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            157,
+            13979,
+            1563,
+            147,
+            5,
+            5,
+            0,
+            0
+          ],
+          "rx_age": [
+            1049,
+            5123946,
+            941083,
+            2,
+            299,
+            745,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 67080121,
+          "mac_us": 67080130,
+          "print": [
+            52,
+            39281,
+            1928,
+            0,
+            43,
+            9,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            3112,
+            75,
+            42,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            212,
+            18552,
+            1563,
+            200,
+            5,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1372,
+            6751623,
+            941085,
+            4,
+            394,
+            970,
+            0,
+            4
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 82985160,
+          "mac_us": 82985173,
+          "print": [
+            64,
+            47973,
+            1928,
+            0,
+            53,
+            11,
+            0,
+            0
+          ],
+          "phy": [
+            52,
+            3862,
+            75,
+            52,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            264,
+            22027,
+            1563,
+            250,
+            6,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1685,
+            8369065,
+            941085,
+            6,
+            497,
+            1177,
+            0,
+            5
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 98893659,
+          "mac_us": 98893672,
+          "print": [
+            76,
+            57334,
+            1928,
+            0,
+            61,
+            15,
+            0,
+            0
+          ],
+          "phy": [
+            63,
+            4684,
+            75,
+            63,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            317,
+            26731,
+            1563,
+            300,
+            7,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            2041,
+            10089164,
+            941085,
+            6,
+            612,
+            1417,
+            0,
+            6
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 114716241,
+          "mac_us": 114716250,
+          "print": [
+            88,
+            66045,
+            1928,
+            0,
+            70,
+            18,
+            0,
+            0
+          ],
+          "phy": [
+            73,
+            5433,
+            75,
+            73,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            368,
+            31176,
+            1563,
+            349,
+            7,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            2449,
+            11813642,
+            941085,
+            7,
+            720,
+            1715,
+            0,
+            7
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 130635280,
+          "mac_us": 130635288,
+          "print": [
+            100,
+            75544,
+            1944,
+            0,
+            79,
+            21,
+            0,
+            0
+          ],
+          "phy": [
+            83,
+            6183,
+            75,
+            83,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            419,
+            35076,
+            1563,
+            396,
+            10,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2764,
+            13431311,
+            941085,
+            8,
+            812,
+            1936,
+            0,
+            8
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 146525776,
+          "mac_us": 146525789,
+          "print": [
+            112,
+            84594,
+            1944,
+            0,
+            89,
+            23,
+            0,
+            0
+          ],
+          "phy": [
+            94,
+            7005,
+            75,
+            94,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            472,
+            37385,
+            1563,
+            449,
+            10,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            3083,
+            15053041,
+            941085,
+            10,
+            906,
+            2158,
+            0,
+            9
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 162462827,
+          "mac_us": 162462839,
+          "print": [
+            124,
+            94188,
+            1964,
+            0,
+            98,
+            26,
+            0,
+            0
+          ],
+          "phy": [
+            104,
+            7754,
+            75,
+            104,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            523,
+            40603,
+            1563,
+            499,
+            10,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            3422,
+            16727085,
+            941085,
+            10,
+            1009,
+            2393,
+            0,
+            10
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1076,
+        "socket_packets": 1076,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "cf585a561f54e86885391f0e689b1a61cf0d221a26e2ef93f7c491d1956a9e72",
+      "elf_sha256": "9d00fd59c6e1abf96db8201d6193a8e3393c012bc7518b21a7b61de8dc774676",
+      "serial_sha256": "8b135117026156ca29a4ec1ccd55f5ea2edc61ce81f0bf902d3689f49db515e3"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "retry-m4-80",
+      "fault_injection": false,
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 9.25,
+      "pmk_us_range": [
+        937398,
+        937419
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3774,
+            941180,
+            941212,
+            947856,
+            951671,
+            957779,
+            958985,
+            963053,
+            970076,
+            971986
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3724,
+            941131,
+            941163,
+            946283,
+            950306,
+            955254,
+            956458,
+            958475,
+            965390,
+            967345
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3329,
+            940728,
+            940758,
+            948242,
+            952389,
+            956719,
+            957927,
+            966876,
+            974031,
+            986400
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3293,
+            940692,
+            940724,
+            945939,
+            953988,
+            957221,
+            958423,
+            960307,
+            967636,
+            969794
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3778,
+            941183,
+            941215,
+            947411,
+            951336,
+            955984,
+            957187,
+            959261,
+            966521,
+            968503
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3740,
+            941143,
+            941173,
+            946346,
+            950413,
+            958181,
+            959385,
+            961272,
+            968643,
+            970703
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3317,
+            940717,
+            940749,
+            948419,
+            953172,
+            959040,
+            960246,
+            962216,
+            969152,
+            972971
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3345,
+            940743,
+            940772,
+            945977,
+            949915,
+            955061,
+            956263,
+            958134,
+            965188,
+            969162
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3750,
+            941158,
+            941189,
+            946379,
+            950293,
+            955897,
+            957101,
+            959331,
+            966231,
+            968094
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            37,
+            978,
+            938397,
+            938431,
+            946060,
+            950923,
+            955812,
+            957016,
+            958833,
+            965878,
+            967722
+          ],
+          "queues": [
+            1,
+            0
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19424440,
+          "mac_us": 19424451,
+          "print": [
+            14,
+            10709,
+            1824,
+            0,
+            11,
+            3,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            704,
+            71,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            52,
+            4570,
+            1309,
+            49,
+            1,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            302,
+            1684049,
+            942400,
+            2,
+            116,
+            183,
+            0,
+            1
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 35330037,
+          "mac_us": 35330044,
+          "print": [
+            26,
+            20192,
+            1867,
+            0,
+            20,
+            6,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1493,
+            73,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            106,
+            8520,
+            1531,
+            101,
+            2,
+            3,
+            0,
+            0
+          ],
+          "rx_age": [
+            544,
+            3224209,
+            942423,
+            3,
+            215,
+            324,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 51217070,
+          "mac_us": 51217081,
+          "print": [
+            38,
+            29874,
+            1939,
+            0,
+            29,
+            9,
+            0,
+            0
+          ],
+          "phy": [
+            31,
+            2216,
+            73,
+            31,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            159,
+            12542,
+            1531,
+            152,
+            3,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            788,
+            4790694,
+            942423,
+            5,
+            309,
+            471,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 67111568,
+          "mac_us": 67111579,
+          "print": [
+            50,
+            38844,
+            1939,
+            0,
+            39,
+            11,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            3011,
+            74,
+            42,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            214,
+            17274,
+            1531,
+            204,
+            4,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1022,
+            6323174,
+            942430,
+            6,
+            401,
+            611,
+            0,
+            4
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 83017612,
+          "mac_us": 83017622,
+          "print": [
+            62,
+            48407,
+            1939,
+            0,
+            48,
+            14,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3807,
+            74,
+            53,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            266,
+            21323,
+            1531,
+            253,
+            6,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1257,
+            7854344,
+            942430,
+            7,
+            494,
+            751,
+            0,
+            5
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 98933655,
+          "mac_us": 98933666,
+          "print": [
+            74,
+            58415,
+            1979,
+            0,
+            57,
+            17,
+            0,
+            0
+          ],
+          "phy": [
+            64,
+            4604,
+            74,
+            64,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            322,
+            26558,
+            1531,
+            305,
+            8,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1494,
+            9404445,
+            942430,
+            8,
+            583,
+            897,
+            0,
+            6
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 114793696,
+          "mac_us": 114793707,
+          "print": [
+            86,
+            67655,
+            1979,
+            0,
+            65,
+            21,
+            0,
+            0
+          ],
+          "phy": [
+            74,
+            5331,
+            74,
+            74,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            374,
+            31456,
+            1531,
+            354,
+            9,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            1732,
+            10963683,
+            942430,
+            8,
+            675,
+            1042,
+            0,
+            7
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 130641280,
+          "mac_us": 130641291,
+          "print": [
+            98,
+            76507,
+            1979,
+            0,
+            75,
+            23,
+            0,
+            0
+          ],
+          "phy": [
+            85,
+            6128,
+            74,
+            85,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            425,
+            36122,
+            1531,
+            402,
+            10,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            1956,
+            12467660,
+            942430,
+            8,
+            765,
+            1175,
+            0,
+            8
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 146520783,
+          "mac_us": 146520789,
+          "print": [
+            111,
+            86242,
+            1979,
+            0,
+            86,
+            25,
+            0,
+            0
+          ],
+          "phy": [
+            95,
+            6884,
+            102,
+            94,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            478,
+            39649,
+            1531,
+            453,
+            11,
+            14,
+            0,
+            0
+          ],
+          "rx_age": [
+            2187,
+            13974644,
+            942430,
+            10,
+            861,
+            1307,
+            0,
+            9
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 161779331,
+          "mac_us": 161779342,
+          "print": [
+            123,
+            95895,
+            1979,
+            0,
+            95,
+            28,
+            0,
+            0
+          ],
+          "phy": [
+            106,
+            7681,
+            102,
+            105,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            530,
+            43149,
+            1531,
+            504,
+            11,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            2430,
+            14583188,
+            942430,
+            10,
+            960,
+            1451,
+            0,
+            9
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 968,
+        "socket_packets": 968,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "09e96c82214c6f63704da6bf7747e4b82656d6628bb03c484d05cd2e05230c51",
+      "elf_sha256": "f252bcc78db9e0003e6a2338eefd293fe9fa420282dc4d955d61d1e591ba85da",
+      "serial_sha256": "757168bee8978b6c804004f16e1f9c4df69e5abf4c36df493336310c801d3877"
+    }
+  ],
+  "final_example_source_sha256": {
+    "Cargo.toml": "578ef3a3b07f66e73fefb6ed7a6fca459e4eedbf1a9cbf77bfe04b48a9a4d13c",
+    "Cargo.lock": "34ee5b88095eed2c35881ff3bf1eb39edd68309aeaa3830c6a88e73bcd8d6c5e",
+    "src/bin/sta_smoke.rs": "cef79da1e9b04004e672c9229834d01411cc09787d77c2c6088cfa6de6a87445",
+    "src/timing_probe.rs": "5c428216510c58c912d4f109ae3b46543667fe2e5e606a06cd0fa662b27b8688"
+  },
+  "pinned_crossbuilds": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-retry-80",
+      "features": "esp32s3,handshake-probe",
+      "device_tested": true,
+      "files": {
+        "pinned-retry-80-sta_smoke.elf": "3c532664e2e20080e547903fb827d1b1717d4d6dc6ee52a408862bd3fcf93146",
+        "pinned-retry-80-sta_smoke.map": "d6a7efa8bae7b958c16ba8c9c0d2aa16d8e6de88e8f67086db5e8719e0715d5a",
+        "pinned-retry-80-sta_smoke.build.log": "521f12ab6bd962c100096e48878fa0dfd95ce8c8b4e4f059b386f15df9f456d3",
+        "pinned-retry-80-sta_smoke.Cargo.lock": "34ee5b88095eed2c35881ff3bf1eb39edd68309aeaa3830c6a88e73bcd8d6c5e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-no-probe-80",
+      "features": "esp32c3,foa-smoke",
+      "device_tested": false,
+      "files": {
+        "pinned-no-probe-80-sta_smoke.elf": "4a260d2d8f35873d2a478c61e6dc36bd44a4f53ac548cd05ff86d5f5cb39f217",
+        "pinned-no-probe-80-sta_smoke.map": "5a8b4bf99cb5aa45545541680a25e5719f94a8c4bd0ca786c0cbfa626241e9fb",
+        "pinned-no-probe-80-sta_smoke.build.log": "d629a88b431a8cc7f122bb9f931edc046b4bb8a8b2c4a68bc92175b2e27605e3",
+        "pinned-no-probe-80-sta_smoke.Cargo.lock": "34ee5b88095eed2c35881ff3bf1eb39edd68309aeaa3830c6a88e73bcd8d6c5e"
+      }
+    }
+  ],
+  "legacy_chip_checks": [
+    {
+      "chip": "esp32",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32-none-elf",
+        "--features",
+        "esp32,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    },
+    {
+      "chip": "esp32s2",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32s2-none-elf",
+        "--features",
+        "esp32s2,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

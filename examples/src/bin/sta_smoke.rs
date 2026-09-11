@@ -180,6 +180,8 @@ async fn main(spawner: Spawner) {
     spawner.spawn(net_task(runner).unwrap());
     let mut gateway_received = 0;
     for cycle in 1..=cycles {
+        #[cfg(feature = "handshake-probe")]
+        foa_sta::handshake_probe::reset();
         info!("stage=connecting cycle={}", cycle);
         let connected = with_timeout(
             Duration::from_secs(25),
@@ -198,12 +200,12 @@ async fn main(spawner: Spawner) {
             log_rx_state();
         }
         #[cfg(feature = "timing-probe")]
-        if !matches!(connected, Ok(Ok(_))) { examples::timing_probe::report(cycle); }
+        if !matches!(connected, Ok(Ok(_))) { examples::timing_probe::report_failure(cycle); }
         connected.expect("Connection timed out").expect("Connection failed");
         info!("stage=connected cycle={}", cycle);
         let dhcp = with_timeout(Duration::from_secs(15), stack.wait_config_up()).await;
         #[cfg(feature = "timing-probe")]
-        if dhcp.is_err() { examples::timing_probe::report(cycle); }
+        if dhcp.is_err() { examples::timing_probe::report_failure(cycle); }
         dhcp.expect("DHCP timed out");
         info!(
             "stage=dhcp cycle={} address={:?}",
