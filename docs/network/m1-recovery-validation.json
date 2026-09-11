@@ -1,0 +1,3342 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-09-11",
+  "baseline_hal": "bff9100c3b3d397a607fdf9dcd0cd80e55261605",
+  "baseline_foa": "cf84eff3082afe054f85dd543d7aef7e60949a0a",
+  "recovery_foa": "90cfad9b20dcd4ae121690d71c5393c4287506f6",
+  "settings": {
+    "cpu_mhz": 80,
+    "profile": "quiet",
+    "host_gateway_pings_per_traffic_cycle": 20,
+    "payload_bytes": 512,
+    "arp_warmup": false,
+    "one_active_station": true
+  },
+  "baseline_report_sha256": "a3e7ae965601ac94a51b55c68704216b86b4554d3e713150dccfc757138cd518",
+  "retained_baselines": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-prepared-80",
+      "complete": true,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "pmk_us_range": [
+        20,
+        26
+      ],
+      "host_rtt_median_ms": 7.94,
+      "image_sha256": "e6144bea873d203cc6a94a5ab9c6f30bba23e7cd6bc68ce5fbb0470f4e6e57fe",
+      "elf_sha256": "61cdbab5d2f50c216ed3a3bbd90df81ebb899368d1a5a101b5a847c29a16c536"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-prepared-80",
+      "complete": true,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "pmk_us_range": [
+        25,
+        29
+      ],
+      "host_rtt_median_ms": 8.875,
+      "image_sha256": "50d5f2e413f78bd536999a9ef200920b3df888484fb341d4b3190bf95df1174c",
+      "elf_sha256": "60c621f338c50547f01a60f99d9e23761ebacbfc1e64affc4cb451b57200ea5f"
+    }
+  ],
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "variant": "drop-m2-baseline-80",
+      "fault_injection": true,
+      "preparation_us": [
+        1128460
+      ],
+      "connection_us": [],
+      "requested_cycles": 1,
+      "complete": false,
+      "failure": "Connection timeout",
+      "host": [],
+      "gateway": [],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": null,
+      "pmk_us_range": [
+        19,
+        19
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 8,
+          "phases_us": [
+            24,
+            3323,
+            3342,
+            3365,
+            9359,
+            13107,
+            18351,
+            19743,
+            19776,
+            4294967295,
+            4294967295
+          ],
+          "queues": [
+            0,
+            4
+          ],
+          "eapol_routed": 4,
+          "eapol_dropped": 0,
+          "route_failures": 230,
+          "events": 29
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 1,
+          "index": 0,
+          "us": 24,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 1,
+          "us": 41,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 2,
+          "us": 3323,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 3,
+          "us": 3342,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 4,
+          "us": 3365,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 5,
+          "us": 9183,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 6,
+          "us": 9359,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 7,
+          "us": 12902,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 8,
+          "us": 13107,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 9,
+          "us": 18070,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 10,
+          "us": 18107,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 11,
+          "us": 18318,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 12,
+          "us": 18351,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 13,
+          "us": 19743,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 14,
+          "us": 19753,
+          "phase": 7,
+          "kind": 11,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 15,
+          "us": 19776,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 16,
+          "us": 1018750,
+          "phase": 8,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 17,
+          "us": 1018782,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 18,
+          "us": 1018863,
+          "phase": 8,
+          "kind": 4,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 19,
+          "us": 1018882,
+          "phase": 8,
+          "kind": 5,
+          "a": 3,
+          "b": 138
+        },
+        {
+          "cycle": 1,
+          "index": 20,
+          "us": 2019975,
+          "phase": 8,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 21,
+          "us": 2020008,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 22,
+          "us": 2020067,
+          "phase": 8,
+          "kind": 4,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 23,
+          "us": 2020071,
+          "phase": 8,
+          "kind": 5,
+          "a": 3,
+          "b": 138
+        },
+        {
+          "cycle": 1,
+          "index": 24,
+          "us": 3020477,
+          "phase": 8,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 25,
+          "us": 3020507,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 26,
+          "us": 3020564,
+          "phase": 8,
+          "kind": 4,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 27,
+          "us": 3020568,
+          "phase": 8,
+          "kind": 5,
+          "a": 3,
+          "b": 138
+        },
+        {
+          "cycle": 1,
+          "index": 28,
+          "us": 4029718,
+          "phase": 8,
+          "kind": 7,
+          "a": 1024,
+          "b": 4
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 26446182,
+          "mac_us": 26446184,
+          "print": [
+            9,
+            25516,
+            8887,
+            0,
+            1,
+            8,
+            0,
+            0
+          ],
+          "phy": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            2,
+            68,
+            38,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "rx_age": [
+            241,
+            912649,
+            4609,
+            0,
+            3,
+            238,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 90,
+        "socket_packets": 90,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "4231930f4be634a310c3b51459e35e3486f8e98badc8359a3391f26701d8c54d",
+      "elf_sha256": "33ea4932fac723074bb0ab669fec3d14d54c628b59955540bfe8aec3e76bcc23",
+      "serial_sha256": "f74dc7c288ac4d1dcb7b05a9b0841b684a8cd48e49763e4add505b7ae56ccbf9"
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "drop-m2-recovery-80",
+      "fault_injection": true,
+      "preparation_us": [
+        1128465
+      ],
+      "connection_us": [
+        1045920
+      ],
+      "requested_cycles": 1,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 6.75,
+      "pmk_us_range": [
+        24,
+        24
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            27,
+            4632,
+            4656,
+            4687,
+            13848,
+            17248,
+            21986,
+            23385,
+            23425,
+            1044218,
+            1045947
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 7,
+          "events": 27
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 1,
+          "index": 0,
+          "us": 27,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 1,
+          "us": 45,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 2,
+          "us": 4632,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 3,
+          "us": 4656,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 4,
+          "us": 4687,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 5,
+          "us": 13671,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 6,
+          "us": 13848,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 7,
+          "us": 17047,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 8,
+          "us": 17248,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 9,
+          "us": 21814,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 10,
+          "us": 21853,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 11,
+          "us": 21957,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 12,
+          "us": 21986,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 13,
+          "us": 23385,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 14,
+          "us": 23399,
+          "phase": 7,
+          "kind": 11,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 15,
+          "us": 23425,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 16,
+          "us": 1035032,
+          "phase": 8,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 17,
+          "us": 1035062,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 18,
+          "us": 1035126,
+          "phase": 8,
+          "kind": 14,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 19,
+          "us": 1036774,
+          "phase": 8,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 20,
+          "us": 1036803,
+          "phase": 8,
+          "kind": 15,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 21,
+          "us": 1039601,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 22,
+          "us": 1039652,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 23,
+          "us": 1044113,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 24,
+          "us": 1044218,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 25,
+          "us": 1045894,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 26,
+          "us": 1045947,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 20363854,
+          "mac_us": 20363857,
+          "print": [
+            15,
+            26470,
+            4164,
+            0,
+            4,
+            11,
+            0,
+            0
+          ],
+          "phy": [
+            11,
+            748,
+            131,
+            10,
+            1,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            56,
+            5624,
+            2087,
+            54,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            745,
+            1307092,
+            5462,
+            2,
+            125,
+            618,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 166,
+        "socket_packets": 166,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "9f92fe1465ff19d7b0328cdc5058533dded536e2afcd902214be31dba44364f4",
+      "elf_sha256": "4e752b5fc96754a67e3b0001636e751f7de5ce480dd50b3dbaa0ef0c457be224",
+      "serial_sha256": "8f92f323677c0586115fd7e00410828b100ff0b6ff24bcda8807575233faee3c"
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-m1-80",
+      "fault_injection": false,
+      "preparation_us": [
+        1128462
+      ],
+      "connection_us": [
+        36690,
+        31984,
+        31553,
+        30738,
+        54141,
+        34284,
+        31923,
+        32085,
+        29039,
+        33201
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.015000000000001,
+      "pmk_us_range": [
+        12,
+        17
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            28,
+            3682,
+            3699,
+            3723,
+            14041,
+            17301,
+            23391,
+            24790,
+            26471,
+            34942,
+            36718
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3646,
+            3658,
+            3684,
+            8966,
+            12288,
+            18270,
+            19658,
+            21284,
+            30301,
+            32009
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            27,
+            4879,
+            4891,
+            4915,
+            10257,
+            13574,
+            18955,
+            20345,
+            21992,
+            29875,
+            31580
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            37,
+            752,
+            764,
+            791,
+            10072,
+            13454,
+            17748,
+            19141,
+            21018,
+            29031,
+            30775
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3698,
+            3710,
+            3736,
+            14348,
+            20699,
+            25955,
+            27342,
+            30006,
+            50525,
+            54167
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            33,
+            4486,
+            4498,
+            4522,
+            13420,
+            16698,
+            20961,
+            22375,
+            24137,
+            32359,
+            34317
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3676,
+            3688,
+            3714,
+            10148,
+            14151,
+            18927,
+            20317,
+            21934,
+            30261,
+            31948
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 23
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            25,
+            3667,
+            3679,
+            3703,
+            9756,
+            13067,
+            17894,
+            19304,
+            22027,
+            30007,
+            32110
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3648,
+            3662,
+            3686,
+            8783,
+            12347,
+            16619,
+            18011,
+            19619,
+            27389,
+            29065
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            27,
+            3870,
+            3882,
+            3906,
+            12489,
+            15779,
+            20351,
+            21743,
+            23392,
+            31473,
+            33228
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19318781,
+          "mac_us": 19318785,
+          "print": [
+            15,
+            32731,
+            5188,
+            0,
+            2,
+            13,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            662,
+            78,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            53,
+            6076,
+            2103,
+            51,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            384,
+            829331,
+            6911,
+            3,
+            118,
+            263,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34307372,
+          "mac_us": 34307375,
+          "print": [
+            28,
+            60045,
+            5188,
+            0,
+            4,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1388,
+            78,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            109,
+            11842,
+            2103,
+            105,
+            0,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            672,
+            1471242,
+            8057,
+            4,
+            211,
+            457,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49257266,
+          "mac_us": 49257271,
+          "print": [
+            40,
+            84868,
+            5188,
+            0,
+            6,
+            34,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2142,
+            78,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            161,
+            17997,
+            2607,
+            155,
+            0,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1006,
+            2235775,
+            8057,
+            6,
+            300,
+            700,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63694428,
+          "mac_us": 63694431,
+          "print": [
+            52,
+            107556,
+            5188,
+            0,
+            8,
+            44,
+            0,
+            0
+          ],
+          "phy": [
+            43,
+            2867,
+            78,
+            43,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            216,
+            23710,
+            2607,
+            208,
+            0,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1286,
+            2853328,
+            8057,
+            8,
+            388,
+            890,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78665994,
+          "mac_us": 78666003,
+          "print": [
+            64,
+            131924,
+            5188,
+            0,
+            10,
+            54,
+            0,
+            0
+          ],
+          "phy": [
+            53,
+            3545,
+            78,
+            53,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            267,
+            27693,
+            2607,
+            258,
+            0,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1600,
+            3514863,
+            8057,
+            9,
+            483,
+            1108,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93582329,
+          "mac_us": 93582335,
+          "print": [
+            76,
+            155506,
+            5188,
+            0,
+            13,
+            63,
+            0,
+            0
+          ],
+          "phy": [
+            63,
+            4216,
+            79,
+            63,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            318,
+            33660,
+            2607,
+            307,
+            0,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            1880,
+            4137434,
+            8057,
+            11,
+            569,
+            1300,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 108549801,
+          "mac_us": 108549804,
+          "print": [
+            88,
+            178525,
+            5188,
+            0,
+            16,
+            72,
+            0,
+            0
+          ],
+          "phy": [
+            74,
+            4981,
+            83,
+            74,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            372,
+            39975,
+            2607,
+            359,
+            0,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2231,
+            4903223,
+            8057,
+            14,
+            669,
+            1548,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 123496014,
+          "mac_us": 123496018,
+          "print": [
+            100,
+            202378,
+            5188,
+            0,
+            18,
+            82,
+            0,
+            0
+          ],
+          "phy": [
+            84,
+            5657,
+            83,
+            84,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            423,
+            45490,
+            2607,
+            408,
+            0,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            2525,
+            5540255,
+            8057,
+            15,
+            766,
+            1744,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 138449583,
+          "mac_us": 138449588,
+          "print": [
+            113,
+            228136,
+            5451,
+            0,
+            20,
+            93,
+            0,
+            0
+          ],
+          "phy": [
+            94,
+            6345,
+            83,
+            94,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            473,
+            49541,
+            2607,
+            457,
+            0,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            2845,
+            6221601,
+            8057,
+            17,
+            857,
+            1971,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 153401895,
+          "mac_us": 153401899,
+          "print": [
+            125,
+            252641,
+            5451,
+            0,
+            22,
+            103,
+            0,
+            0
+          ],
+          "phy": [
+            105,
+            7077,
+            83,
+            105,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            527,
+            56187,
+            3070,
+            509,
+            0,
+            18,
+            0,
+            0
+          ],
+          "rx_age": [
+            3124,
+            6856762,
+            8060,
+            20,
+            938,
+            2166,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 990,
+        "socket_packets": 990,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "bf203ec149283c1483c8befdc06e991fd36199ecc24be0172dea922293110739",
+      "elf_sha256": "afc867a0e31a3f860d58fc19c52e7dfc2e3df87b697435347001fc9ff09331a3",
+      "serial_sha256": "ab0c2e768774020ecd653064e14f4c34f3071acd662127b8dc04d3177727c23c"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "drop-m2-recovery-v2-80",
+      "fault_injection": true,
+      "preparation_us": [
+        933450
+      ],
+      "connection_us": [
+        1037248
+      ],
+      "requested_cycles": 1,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 8.215,
+      "pmk_us_range": [
+        27,
+        27
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3725,
+            3752,
+            3779,
+            9659,
+            13581,
+            18771,
+            19968,
+            20007,
+            1034440,
+            1037281
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 7,
+          "events": 27
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 1,
+          "index": 0,
+          "us": 33,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 1,
+          "us": 59,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 2,
+          "us": 3725,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 3,
+          "us": 3752,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 4,
+          "us": 3779,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 5,
+          "us": 9418,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 6,
+          "us": 9659,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 7,
+          "us": 13252,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 8,
+          "us": 13581,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 9,
+          "us": 18490,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 10,
+          "us": 18564,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65537
+        },
+        {
+          "cycle": 1,
+          "index": 11,
+          "us": 18725,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 12,
+          "us": 18771,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 13,
+          "us": 19968,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 14,
+          "us": 19981,
+          "phase": 7,
+          "kind": 11,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 15,
+          "us": 20007,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 16,
+          "us": 1019837,
+          "phase": 8,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 17,
+          "us": 1019875,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 18,
+          "us": 1020046,
+          "phase": 8,
+          "kind": 14,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 19,
+          "us": 1024737,
+          "phase": 8,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 20,
+          "us": 1024780,
+          "phase": 8,
+          "kind": 15,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 21,
+          "us": 1030353,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 22,
+          "us": 1030412,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65540
+        },
+        {
+          "cycle": 1,
+          "index": 23,
+          "us": 1034312,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 24,
+          "us": 1034440,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 25,
+          "us": 1037217,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 1,
+          "index": 26,
+          "us": 1037281,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 20137368,
+          "mac_us": 20137379,
+          "print": [
+            15,
+            10829,
+            1856,
+            0,
+            13,
+            2,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            673,
+            68,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            52,
+            4583,
+            1351,
+            50,
+            1,
+            1,
+            0,
+            0
+          ],
+          "rx_age": [
+            401,
+            908953,
+            8151,
+            2,
+            130,
+            269,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 171,
+        "socket_packets": 171,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "2d4c414aefdcf0984a4e25b2d20407e4747de7fc515405b38ca442545d5f883c",
+      "elf_sha256": "47d33b785d420ad03362248209611a7947185189ad0c2a77de3bde5f15164be7",
+      "serial_sha256": "9bbdf4ec8a36b7854eb003b8b62eb26e7f1773a6e3a6e9b36ae336b2dd8c5019"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-m1-80",
+      "fault_injection": false,
+      "preparation_us": [
+        933442
+      ],
+      "connection_us": [
+        31523,
+        30478,
+        29721,
+        40781,
+        38415,
+        34296,
+        31966,
+        32551,
+        53806,
+        30058
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.945,
+      "pmk_us_range": [
+        22,
+        28
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3712,
+            3740,
+            3764,
+            9086,
+            13116,
+            18870,
+            20075,
+            22284,
+            29506,
+            31554
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3748,
+            3773,
+            3798,
+            9225,
+            13522,
+            18120,
+            19326,
+            21357,
+            28603,
+            30513
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3742,
+            3764,
+            3788,
+            8929,
+            12949,
+            17488,
+            18691,
+            20709,
+            27783,
+            29758
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3792,
+            3816,
+            3840,
+            9425,
+            13328,
+            24068,
+            25275,
+            27797,
+            35074,
+            40818
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3843,
+            3866,
+            3890,
+            9739,
+            13645,
+            18328,
+            19535,
+            21395,
+            28463,
+            38448
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            36,
+            3748,
+            3774,
+            3797,
+            13036,
+            17009,
+            21890,
+            23094,
+            25055,
+            32354,
+            34332
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3342,
+            3369,
+            3393,
+            9617,
+            13646,
+            19152,
+            20354,
+            22514,
+            29779,
+            31999
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 3,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 24
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            38,
+            3412,
+            3435,
+            3459,
+            10830,
+            14709,
+            19845,
+            21047,
+            22999,
+            30716,
+            32589
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3939,
+            3963,
+            3987,
+            23785,
+            30934,
+            35854,
+            37064,
+            43569,
+            50886,
+            53843
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 3,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            34,
+            3359,
+            3384,
+            3408,
+            8712,
+            12745,
+            17707,
+            18914,
+            20941,
+            28206,
+            30092
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [
+        {
+          "cycle": 7,
+          "index": 0,
+          "us": 33,
+          "phase": 0,
+          "kind": 1,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 1,
+          "us": 54,
+          "phase": 0,
+          "kind": 9,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 2,
+          "us": 3342,
+          "phase": 1,
+          "kind": 1,
+          "a": 1,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 3,
+          "us": 3369,
+          "phase": 2,
+          "kind": 1,
+          "a": 2,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 4,
+          "us": 3393,
+          "phase": 3,
+          "kind": 1,
+          "a": 3,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 5,
+          "us": 9360,
+          "phase": 3,
+          "kind": 7,
+          "a": 513,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 6,
+          "us": 9617,
+          "phase": 4,
+          "kind": 1,
+          "a": 4,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 7,
+          "us": 13323,
+          "phase": 4,
+          "kind": 7,
+          "a": 769,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 8,
+          "us": 13646,
+          "phase": 5,
+          "kind": 1,
+          "a": 5,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 9,
+          "us": 18888,
+          "phase": 5,
+          "kind": 10,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 10,
+          "us": 18954,
+          "phase": 5,
+          "kind": 6,
+          "a": 257,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 11,
+          "us": 19116,
+          "phase": 5,
+          "kind": 2,
+          "a": 138,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 12,
+          "us": 19152,
+          "phase": 6,
+          "kind": 1,
+          "a": 6,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 13,
+          "us": 20354,
+          "phase": 7,
+          "kind": 1,
+          "a": 7,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 14,
+          "us": 22442,
+          "phase": 7,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 15,
+          "us": 22514,
+          "phase": 8,
+          "kind": 1,
+          "a": 8,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 16,
+          "us": 25638,
+          "phase": 8,
+          "kind": 10,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 17,
+          "us": 25707,
+          "phase": 8,
+          "kind": 6,
+          "a": 257,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 18,
+          "us": 29651,
+          "phase": 8,
+          "kind": 4,
+          "a": 5066,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 19,
+          "us": 29779,
+          "phase": 9,
+          "kind": 1,
+          "a": 9,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 20,
+          "us": 31551,
+          "phase": 9,
+          "kind": 10,
+          "a": 5066,
+          "b": 2
+        },
+        {
+          "cycle": 7,
+          "index": 21,
+          "us": 31637,
+          "phase": 9,
+          "kind": 6,
+          "a": 257,
+          "b": 65538
+        },
+        {
+          "cycle": 7,
+          "index": 22,
+          "us": 31930,
+          "phase": 9,
+          "kind": 8,
+          "a": 0,
+          "b": 0
+        },
+        {
+          "cycle": 7,
+          "index": 23,
+          "us": 31999,
+          "phase": 10,
+          "kind": 1,
+          "a": 10,
+          "b": 0
+        }
+      ],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19039963,
+          "mac_us": 19039976,
+          "print": [
+            15,
+            11817,
+            1823,
+            0,
+            12,
+            3,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            676,
+            68,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            52,
+            4439,
+            1305,
+            49,
+            1,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            364,
+            825689,
+            4947,
+            0,
+            114,
+            250,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 33973945,
+          "mac_us": 33973958,
+          "print": [
+            27,
+            21168,
+            1891,
+            0,
+            21,
+            6,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1419,
+            68,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            105,
+            6857,
+            1305,
+            100,
+            3,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            699,
+            1588420,
+            4947,
+            0,
+            209,
+            490,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 48909928,
+          "mac_us": 48909941,
+          "print": [
+            39,
+            30199,
+            1891,
+            0,
+            30,
+            9,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2161,
+            68,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            161,
+            12073,
+            1334,
+            152,
+            5,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            992,
+            2246679,
+            6100,
+            0,
+            306,
+            686,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63893921,
+          "mac_us": 63893926,
+          "print": [
+            52,
+            40420,
+            1891,
+            0,
+            40,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            44,
+            2971,
+            68,
+            44,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            221,
+            15873,
+            1334,
+            210,
+            6,
+            5,
+            0,
+            0
+          ],
+          "rx_age": [
+            1317,
+            2961380,
+            6954,
+            1,
+            402,
+            914,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78830898,
+          "mac_us": 78830903,
+          "print": [
+            64,
+            50649,
+            1891,
+            0,
+            49,
+            15,
+            0,
+            0
+          ],
+          "phy": [
+            54,
+            3646,
+            68,
+            54,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            274,
+            20795,
+            1439,
+            260,
+            7,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1616,
+            3624881,
+            8129,
+            3,
+            505,
+            1108,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93817336,
+          "mac_us": 93817342,
+          "print": [
+            76,
+            60846,
+            1891,
+            0,
+            58,
+            18,
+            0,
+            0
+          ],
+          "phy": [
+            66,
+            4455,
+            70,
+            66,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            332,
+            25695,
+            1441,
+            314,
+            10,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            1949,
+            4385805,
+            8129,
+            5,
+            599,
+            1345,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 108754370,
+          "mac_us": 108754382,
+          "print": [
+            88,
+            69717,
+            1891,
+            0,
+            67,
+            21,
+            0,
+            0
+          ],
+          "phy": [
+            77,
+            5198,
+            70,
+            77,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            388,
+            30728,
+            1441,
+            366,
+            12,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            2266,
+            5067105,
+            8129,
+            7,
+            711,
+            1548,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 123689298,
+          "mac_us": 123689311,
+          "print": [
+            101,
+            79776,
+            1891,
+            0,
+            77,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            88,
+            5946,
+            70,
+            88,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            442,
+            35178,
+            1441,
+            418,
+            12,
+            12,
+            0,
+            0
+          ],
+          "rx_age": [
+            2598,
+            5783070,
+            8129,
+            7,
+            818,
+            1773,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 138675827,
+          "mac_us": 138675840,
+          "print": [
+            113,
+            89389,
+            1891,
+            0,
+            85,
+            28,
+            0,
+            0
+          ],
+          "phy": [
+            99,
+            6690,
+            70,
+            99,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            497,
+            38641,
+            1441,
+            472,
+            12,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2905,
+            6443474,
+            8129,
+            8,
+            928,
+            1969,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 153628809,
+          "mac_us": 153628822,
+          "print": [
+            125,
+            98307,
+            1891,
+            0,
+            94,
+            31,
+            0,
+            0
+          ],
+          "phy": [
+            110,
+            7440,
+            70,
+            110,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            551,
+            43224,
+            1441,
+            523,
+            13,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            3247,
+            7212761,
+            8129,
+            10,
+            1030,
+            2207,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1066,
+        "socket_packets": 1066,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "a34289c11056c89033f7160fd6b925f8fe6cc00b98c3dfe92f7516101e6bf548",
+      "elf_sha256": "5f412f085a986609c0b2c45182d04b00daf44a74136cfbf6299ce7ddee0be062",
+      "serial_sha256": "ee25d1dcc77151203288a2e2fd63158d0eaec787cf445226a02bafa116235598"
+    }
+  ],
+  "final_example_source_sha256": {
+    "Cargo.toml": "ab98563798b571cb14fbc1b469350f19bbaf09504f0a05cd3ab27dea52f63bef",
+    "Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e",
+    "src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc",
+    "src/timing_probe.rs": "5c428216510c58c912d4f109ae3b46543667fe2e5e606a06cd0fa662b27b8688"
+  },
+  "pinned_crossbuilds": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-m1-80",
+      "features": "esp32s3,handshake-probe",
+      "device_tested": true,
+      "files": {
+        "pinned-m1-80-sta_smoke.elf": "afc867a0e31a3f860d58fc19c52e7dfc2e3df87b697435347001fc9ff09331a3",
+        "pinned-m1-80-sta_smoke.map": "6000b66f5d554294e2c5581342d9117a093f2c9c88e8fe440920a4e72f894949",
+        "pinned-m1-80-sta_smoke.build.log": "bc54149994dc186c80a3e240121b3aba93d55565acb58c39158ba986107fdd3b",
+        "pinned-m1-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-m1-80",
+      "features": "esp32c3,handshake-probe",
+      "device_tested": true,
+      "files": {
+        "pinned-m1-80-sta_smoke.elf": "5f412f085a986609c0b2c45182d04b00daf44a74136cfbf6299ce7ddee0be062",
+        "pinned-m1-80-sta_smoke.map": "8f99182aab51f53a58d999f09b54f224c3b3576d9571c447926de64941333fc2",
+        "pinned-m1-80-sta_smoke.build.log": "5891bacecc6b3c59b231d2ecadec52853cb0aebd72352e4bcde5e82a189f8070",
+        "pinned-m1-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-m1-no-probe-80",
+      "features": "esp32c3,foa-smoke",
+      "device_tested": false,
+      "files": {
+        "pinned-m1-no-probe-80-sta_smoke.elf": "2d429798e964c73c11058240c64d6f57d8c856d840ee3e3437e19743be11b253",
+        "pinned-m1-no-probe-80-sta_smoke.map": "7551a0037231fa12f9ce927ff9f17006bb5c31a7caae40369187c814364f9219",
+        "pinned-m1-no-probe-80-sta_smoke.build.log": "c65d4ed5563a634e0783aa4184239bc901c437493091fe80dc079d1e208ddb9f",
+        "pinned-m1-no-probe-80-sta_smoke.Cargo.lock": "b3fe8ffa410ea7a31d85d79f2e08c01c837d3998454128ad09d9e2daf8cdc35e"
+      }
+    }
+  ],
+  "legacy_chip_checks": [
+    {
+      "chip": "esp32",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32-none-elf",
+        "--features",
+        "esp32,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    },
+    {
+      "chip": "esp32s2",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32s2-none-elf",
+        "--features",
+        "esp32s2,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

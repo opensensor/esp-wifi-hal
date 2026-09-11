@@ -10,7 +10,8 @@ Its background handler authenticates M3 retries for the installed exchange and
 resends M4. It verifies framing, addresses/direction, MIC, nonce, increasing EAPOL
 replay counter and unchanged GTK/key ID. It does not reinstall keys or reset CCMP
 packet numbers. The [implementation and host tests](https://github.com/opensensor/FoA/blob/bf89a5661682572416e5de3ce5f83ced86e571b4/tests/EAPOL-RETRANSMIT.md)
-describe the validation boundary. Message-1 retry recovery, GTK rekeying and new
+describe the validation boundary. Subsequent [M1 recovery](M1-RECOVERY.md)
+handles message-1 retries during the initial exchange. GTK rekeying and new
 pairwise exchanges remain separate work.
 
 Codex assisted the source investigation, Rust implementation and test work.
