@@ -1,0 +1,90 @@
+{
+  "schema": "phy-wrapper-original-instructions-v1",
+  "scope": "Two selected wrapper contracts only; call boundary captured without running or stubbing vendor tracking or calibration.",
+  "chips": {
+    "esp32c3": {
+      "original_elf_sha256": "166e95834a7aecc5878cfb680958e60e52585fbdf319a7d77f9e242cef86bd71",
+      "libphy_crate": "esp-wifi-sys-esp32c3 0.2.0",
+      "archive_sha256": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+      "phy_api_member_sha256": "4f5aa33c7e56b01fd660dd2dbade85bd441968856c1839d381c847f7d3a94f47",
+      "objdump_sha256": "0e390b782ff62cffb32649ef7cd7ea050b00b9e5f0ba05935adfc4bb8876d06a",
+      "functions": {
+        "tx_pwctrl_background": {
+          "address": "0x4203c7d6",
+          "size_bytes": 2,
+          "code_hex": "99a9",
+          "instruction_bytes_sha256": "4dba5931cfdf7073af90feac3581c763f60a0577fbfbfa707bc962ce455625f6",
+          "instructions": [
+            "4203c7d6: a999 j 4203cc2c"
+          ]
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203c7c6",
+          "size_bytes": 10,
+          "code_hex": "b737c83fa38da7428280",
+          "instruction_bytes_sha256": "6d387b6e2dd10564aed349a3f662b512857868a376c06c11720d42d54e3a69c2",
+          "instructions": [
+            "4203c7c6: 3fc837b7 lui a5,0x3fc83",
+            "4203c7ca: 42a78da3 sb a0,1083(a5)",
+            "4203c7ce: 8082 ret"
+          ]
+        },
+        "phy_param": {
+          "address": "0x3fc83118",
+          "size_bytes": 848
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cc2c",
+          "size_bytes": 122
+        }
+      },
+      "literals": {}
+    },
+    "esp32s3": {
+      "original_elf_sha256": "26834476784b4a9a63973c56bb38b9b9a4bea0eca10fb00044efa370b6f59ab1",
+      "libphy_crate": "esp-wifi-sys-esp32s3 0.2.0",
+      "archive_sha256": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+      "phy_api_member_sha256": "9e6e924347ac0c2bddc1602e4e4eeb2d42a8a7e5c0d4d7e0e45e2e6e27b622d4",
+      "objdump_sha256": "d968578945d9f62c2769e03a786d8853eb0ba226cfff1e8ee6588550927941a3",
+      "functions": {
+        "tx_pwctrl_background": {
+          "address": "0x4203a174",
+          "size_bytes": 14,
+          "code_hex": "36410030b07420a074656e061df0",
+          "instruction_bytes_sha256": "739ef44f0ad058895b340c8b61f6b61840ca433a716848bdd9aa52efbfa98e87",
+          "instructions": [
+            "4203a174: 004136 entry a1, 32",
+            "4203a177: 74b030 extui a11, a3, 0, 8",
+            "4203a17a: 74a020 extui a10, a2, 0, 8",
+            "4203a17d: 066e65 call8 42040864",
+            "4203a180: f01d retw.n"
+          ]
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203a164",
+          "size_bytes": 14,
+          "code_hex": "36410081feff82d8022248a61df0",
+          "instruction_bytes_sha256": "a071fbbd71c54b4822d023a1be236ff7bb05461839a77a25e65468f0f416226b",
+          "instructions": [
+            "4203a164: 004136 entry a1, 32",
+            "4203a167: fffe81 l32r a8, 4203a160",
+            "4203a16a: 02d882 addmi a8, a8, 0x200",
+            "4203a16d: a64822 s8i a2, a8, 166",
+            "4203a170: f01d retw.n"
+          ]
+        },
+        "phy_param": {
+          "address": "0x3fc8d414",
+          "size_bytes": 740
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x42040864",
+          "size_bytes": 78
+        }
+      },
+      "literals": {
+        "0x4203a160": "0x3fc8d414"
+      }
+    }
+  }
+}

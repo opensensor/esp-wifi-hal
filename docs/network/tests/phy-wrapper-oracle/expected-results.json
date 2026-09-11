@@ -1,0 +1,26 @@
+{
+  "esp32c3": {
+    "tx_valid_u8_pairs": 65536,
+    "tx_argument_trace_sha256": "281f79f89f0121c31db2bea5d7151db246349b25f5901c114505c18bfaa50ba1",
+    "usb_instruction_byte_cases": 1024,
+    "usb_write_trace_sha256": "02885e708197e371fd8b0545d1f3c2ff9f4780ad1c9ec1510b963bdc67593b8d",
+    "usb_source_bool_domain": [
+      0,
+      1
+    ],
+    "usb_store_offset": "0x323",
+    "parameter_size": 848
+  },
+  "esp32s3": {
+    "tx_valid_u8_pairs": 65536,
+    "tx_argument_trace_sha256": "281f79f89f0121c31db2bea5d7151db246349b25f5901c114505c18bfaa50ba1",
+    "usb_instruction_byte_cases": 1024,
+    "usb_write_trace_sha256": "b5926c392262300be70541bb22e97ec8a1ee45c1da1981f455cfcd4c0b9184f2",
+    "usb_source_bool_domain": [
+      0,
+      1
+    ],
+    "usb_store_offset": "0x2a6",
+    "parameter_size": 740
+  }
+}
