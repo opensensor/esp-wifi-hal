@@ -71,7 +71,19 @@ along with the existing HAL, PHY, allocation, retry and neighbor tests. The C3
 probe-disabled build and ESP32/S2 release checks also pass. Packet host tests
 require Rust 1.91 or newer; local validation used the installed `+esp` toolchain.
 
-The corrected 50-reconnect station tests are still in progress. The machine-readable `reconnect-rx-validation.json` records every completed and failed trial, image/source hashes, queue counts,
+The published source then completed 50 reconnects on each board. Each returned
+999/1,000 host and 1,000/1,000 gateway echoes with zero evictions, expiries,
+duplicates or capture socket drops. The residual losses are C3 cycle 3,
+sequence 9 and S3 cycle 21, sequence 14. Neither cycle logged a TX failure,
+crypto/replay rejection or large timing stall. These are not explained by the
+ARP queue change, and the lossless station gate has **not** passed. Do not treat
+a successful reconnect or a passing repeat as erasing either loss.
+
+Further private observation records echo sequence masks at raw RX, VIF queue
+submission, network-buffer submission and the Ethernet adapter. Per-cycle
+counters identify the exact echo sequence if a VIF or network-buffer overflow
+rejects it; no packet content or identities are exported. That follow-up is
+still running. The machine-readable `reconnect-rx-validation.json` records every completed and failed trial, image/source hashes, queue counts,
 reconnect totals and capture statistics. Private firmware, credentials, signing
 keys, serial logs and captures are not publication artifacts. Only the existing
 application slots are used: signed S3 at 0x20000 and C3 at 0x10000.

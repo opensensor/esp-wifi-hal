@@ -29,7 +29,7 @@
       "requested_rx_cycles": "1",
       "elf_sha256": "3f5cbb5400ae21d362fa690e47dce7c6fcc3969aa8872ce1be3394d486a263f4",
       "build_log_sha256": "bab7e7c6a310eeb54735742de8ba51e4264764f48d5480836ec7e9cf7490cd65",
-      "device_test_recorded": false
+      "device_test_recorded": true
     },
     {
       "chip": "esp32s3",
@@ -50,6 +50,36 @@
       "elf_sha256": "0cc8ff3ed2fe83e9340cfc0a883ad15d8ba1aaba013c900c6f9ecbdd0418af9d",
       "build_log_sha256": "89d5805ae5624a23b908cc2d6d7312cfa4e4e68b4fced86f0b81436959c2e224",
       "device_test_recorded": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "echo-path-v1-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "acfa0927afaa3a449a5f0d85d7fa266d5fb03605639b836cdb36f58568f79e39",
+      "build_log_sha256": "f7c6261e289120f2f252bd0bdb6bf0470cc70ad14d6d58606271f874d609b84e",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "echo-path-v4-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "e82ac285869a85613dc522750133d39bdf318d6aa8921cdece4fbd081bc3e823",
+      "build_log_sha256": "c713cb95da5448e5808fdd085e90214e065d98cbcf8345632cbe943b87a18c98",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32s3",
+      "label": "echo-path-v5-sta_smoke",
+      "features": "esp32s3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "48d01d92d9308f214812940165d4a2af7c593d283eb3147d375929cda110a223",
+      "build_log_sha256": "364fe8b169ce67e28e85b14724bbe1f508a0be5a6c0eb1acd936b9903d171433",
+      "device_test_recorded": false
     },
     {
       "chip": "esp32s3",
@@ -159,7 +189,7 @@
       "requested_rx_cycles": "1",
       "elf_sha256": "2972c407a727c5aadbba5a910142bf45b08154e7b4809e7b57ba5221c70b475a",
       "build_log_sha256": "09b09b33e597db14d12ebb349f7f582a19112ff59e9e3b8442aeea868601bf5d",
-      "device_test_recorded": false
+      "device_test_recorded": true
     },
     {
       "chip": "esp32c3",
@@ -179,6 +209,36 @@
       "requested_rx_cycles": "1",
       "elf_sha256": "e13964897e1660a695aaf94b4289fb11910e279f027ae4e8a69549a2718eba69",
       "build_log_sha256": "e176db2784a1f51234cb712286ab58b2f82b597dea080688b150b7e7ef1563d3",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "echo-path-v1-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "714fe5d4eba220788bf2405a38b978b57e8b399838625fda0aeabd854ca44e2e",
+      "build_log_sha256": "86201c2765266ab80b37262d854a90053615779ab10c980b7dbd4352f5230b5a",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "echo-path-v4-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "57db060df5f15bd886b0bd1a7ddd5817b6a6165ed67bca312f0343e17a94997c",
+      "build_log_sha256": "59b7b1b4f6f250c930df1770617c2a3bb022896874c408915868835fae9c53a8",
+      "device_test_recorded": false
+    },
+    {
+      "chip": "esp32c3",
+      "label": "echo-path-v5-sta_smoke",
+      "features": "esp32c3,neighbor-probe",
+      "requested_reconnects": "50",
+      "requested_rx_cycles": "1",
+      "elf_sha256": "551dcfdc6d4cd1b0d4bd9897ef27b9906e09a1defeccc36a48251ee1ae886f3e",
+      "build_log_sha256": "7d7e63cda97e02b4d68e99f75dedea36f32447dcb6ca935ecd59e708f8d87bb2",
       "device_test_recorded": false
     },
     {
@@ -399,6 +459,9 @@
           ]
         }
       ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [
         [
           0,
@@ -573,6 +636,9 @@
           ]
         }
       ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [
         [
           0,
@@ -908,6 +974,2209 @@
       "capture_stats": {
         "written_packets": 273,
         "socket_packets": 274,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "burst32-final-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 50,
+      "completed_reconnects": 50,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ],
+        [
+          3,
+          20,
+          20
+        ],
+        [
+          4,
+          20,
+          20
+        ],
+        [
+          5,
+          20,
+          20
+        ],
+        [
+          6,
+          20,
+          20
+        ],
+        [
+          7,
+          20,
+          20
+        ],
+        [
+          8,
+          20,
+          20
+        ],
+        [
+          9,
+          20,
+          20
+        ],
+        [
+          10,
+          20,
+          20
+        ],
+        [
+          11,
+          20,
+          20
+        ],
+        [
+          12,
+          20,
+          20
+        ],
+        [
+          13,
+          20,
+          20
+        ],
+        [
+          14,
+          20,
+          20
+        ],
+        [
+          15,
+          20,
+          20
+        ],
+        [
+          16,
+          20,
+          20
+        ],
+        [
+          17,
+          20,
+          20
+        ],
+        [
+          18,
+          20,
+          20
+        ],
+        [
+          19,
+          20,
+          20
+        ],
+        [
+          20,
+          20,
+          20
+        ],
+        [
+          21,
+          20,
+          20
+        ],
+        [
+          22,
+          20,
+          20
+        ],
+        [
+          23,
+          20,
+          20
+        ],
+        [
+          24,
+          20,
+          20
+        ],
+        [
+          25,
+          20,
+          20
+        ],
+        [
+          26,
+          20,
+          20
+        ],
+        [
+          27,
+          20,
+          20
+        ],
+        [
+          28,
+          20,
+          20
+        ],
+        [
+          29,
+          20,
+          20
+        ],
+        [
+          30,
+          20,
+          20
+        ],
+        [
+          31,
+          20,
+          20
+        ],
+        [
+          32,
+          20,
+          20
+        ],
+        [
+          33,
+          20,
+          20
+        ],
+        [
+          34,
+          20,
+          20
+        ],
+        [
+          35,
+          20,
+          20
+        ],
+        [
+          36,
+          20,
+          20
+        ],
+        [
+          37,
+          20,
+          20
+        ],
+        [
+          38,
+          20,
+          20
+        ],
+        [
+          39,
+          20,
+          20
+        ],
+        [
+          40,
+          20,
+          20
+        ],
+        [
+          41,
+          20,
+          20
+        ],
+        [
+          42,
+          20,
+          20
+        ],
+        [
+          43,
+          20,
+          20
+        ],
+        [
+          44,
+          20,
+          20
+        ],
+        [
+          45,
+          20,
+          20
+        ],
+        [
+          46,
+          20,
+          20
+        ],
+        [
+          47,
+          20,
+          20
+        ],
+        [
+          48,
+          20,
+          20
+        ],
+        [
+          49,
+          20,
+          20
+        ],
+        [
+          50,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            1,
+            0,
+            0,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "counts": [
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            8,
+            2,
+            0,
+            0,
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "counts": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            3,
+            0,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "counts": [
+            4,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            4,
+            0,
+            0,
+            11,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "counts": [
+            5,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            5,
+            0,
+            0,
+            13,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "counts": [
+            6,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            6,
+            0,
+            0,
+            16,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "counts": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            7,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "counts": [
+            8,
+            8,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            8,
+            0,
+            0,
+            21,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "counts": [
+            9,
+            9,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            9,
+            0,
+            0,
+            23,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 11,
+          "counts": [
+            10,
+            10,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            9,
+            10,
+            0,
+            0,
+            26,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 12,
+          "counts": [
+            11,
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            11,
+            0,
+            0,
+            28,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 13,
+          "counts": [
+            12,
+            12,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            12,
+            0,
+            0,
+            31,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 14,
+          "counts": [
+            13,
+            13,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            13,
+            0,
+            0,
+            33,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 15,
+          "counts": [
+            14,
+            14,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            14,
+            0,
+            0,
+            36,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 16,
+          "counts": [
+            15,
+            15,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            15,
+            0,
+            0,
+            38,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 17,
+          "counts": [
+            16,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            16,
+            0,
+            0,
+            41,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 18,
+          "counts": [
+            17,
+            17,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            17,
+            0,
+            0,
+            43,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 19,
+          "counts": [
+            18,
+            18,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            18,
+            0,
+            0,
+            46,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 20,
+          "counts": [
+            19,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            19,
+            0,
+            0,
+            48,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 21,
+          "counts": [
+            20,
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            20,
+            0,
+            0,
+            51,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 22,
+          "counts": [
+            21,
+            21,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            21,
+            0,
+            0,
+            53,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 23,
+          "counts": [
+            22,
+            22,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            22,
+            0,
+            0,
+            56,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 24,
+          "counts": [
+            23,
+            23,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            23,
+            0,
+            0,
+            58,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 25,
+          "counts": [
+            24,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            24,
+            0,
+            0,
+            61,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 26,
+          "counts": [
+            25,
+            25,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            25,
+            0,
+            0,
+            63,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 27,
+          "counts": [
+            26,
+            26,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            19,
+            26,
+            0,
+            0,
+            65,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 28,
+          "counts": [
+            27,
+            27,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            27,
+            0,
+            0,
+            68,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 29,
+          "counts": [
+            28,
+            28,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            28,
+            0,
+            0,
+            70,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 30,
+          "counts": [
+            29,
+            29,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            29,
+            0,
+            0,
+            72,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 31,
+          "counts": [
+            30,
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            30,
+            0,
+            0,
+            75,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 32,
+          "counts": [
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            31,
+            0,
+            0,
+            77,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 33,
+          "counts": [
+            32,
+            32,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            32,
+            0,
+            0,
+            79,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 34,
+          "counts": [
+            33,
+            33,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            33,
+            0,
+            0,
+            81,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 35,
+          "counts": [
+            34,
+            34,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            34,
+            0,
+            0,
+            84,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 36,
+          "counts": [
+            35,
+            35,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            35,
+            0,
+            0,
+            86,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 37,
+          "counts": [
+            36,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            36,
+            0,
+            0,
+            88,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 38,
+          "counts": [
+            37,
+            37,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            37,
+            0,
+            0,
+            91,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 39,
+          "counts": [
+            38,
+            38,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            38,
+            0,
+            0,
+            93,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 40,
+          "counts": [
+            39,
+            39,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            39,
+            0,
+            0,
+            95,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 41,
+          "counts": [
+            40,
+            40,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            40,
+            0,
+            0,
+            97,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 42,
+          "counts": [
+            41,
+            41,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            41,
+            0,
+            0,
+            100,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 43,
+          "counts": [
+            42,
+            42,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            42,
+            0,
+            0,
+            102,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 44,
+          "counts": [
+            43,
+            43,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            20,
+            43,
+            0,
+            0,
+            104,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 45,
+          "counts": [
+            48,
+            48,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            45,
+            0,
+            4,
+            107,
+            1,
+            1
+          ]
+        },
+        {
+          "cycle": 46,
+          "counts": [
+            49,
+            49,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            46,
+            0,
+            4,
+            109,
+            1,
+            1
+          ]
+        },
+        {
+          "cycle": 47,
+          "counts": [
+            50,
+            50,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            47,
+            0,
+            4,
+            111,
+            1,
+            1
+          ]
+        },
+        {
+          "cycle": 48,
+          "counts": [
+            51,
+            51,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            48,
+            0,
+            4,
+            113,
+            1,
+            1
+          ]
+        },
+        {
+          "cycle": 49,
+          "counts": [
+            52,
+            52,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            49,
+            0,
+            4,
+            116,
+            1,
+            1
+          ]
+        },
+        {
+          "cycle": 50,
+          "counts": [
+            53,
+            53,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            50,
+            0,
+            4,
+            118,
+            1,
+            1
+          ]
+        }
+      ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "486e053e38a04fa688624d512eabba12682dbbcc6e0ab1cebe9bd8c1e21b1e33",
+        "elf": "3f5cbb5400ae21d362fa690e47dce7c6fcc3969aa8872ce1be3394d486a263f4",
+        "serial": "9119d00669dca228941fe66e7c618dc09fd899d2b67ee2770d4a4a1eddd060bd",
+        "build_metadata": "9a6bb83163bdea68c5cc6aba04f4ad15bada0d940a6f761e01842002bf21eed2",
+        "lockfile": "b1a528653d16c7a2adc111efc779d9003b50ff3685f0f1a3f48b35ae30424d55"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "160401dc41c936011a12fb84902340bc6d22b71fabf7c16a5bd39bd595830934"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "dd2c9ab9577ff911a67c6f7b24b129d4f36118ecb04fa50e25f7929457725baa"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "b36f79a25a3ba7e148591df9520cfad512aa8aff74554c8f29d610fd35caab5b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a7bf2c8f12f49c123e6314fd90aa568aff1a23ed9773dd56f521442171c5ec4d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "da3e1b589f0a8e50afb9ab5b7cc0baebf8bef67afb6529c46791b0827fe6caf3"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "11bdd6c6c208f1f6e6d80b3f36e48b30abe0dd79e8cd29787e0625affa39e43b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f890767798e11b763a5649788f4ff9bf9b842db2c9b33218431c1173e3988341"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "4308685f3a03c9fe8e832da86f1e18f56bb6c90521774921f7ea2d46b4c20b96"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "eb27f3f2379c5cba62192b86810f7af85d6db988cb19de335191a58480a04a52"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "4658814b460e0952d2de70847549f7c996619faabb3e25dd8ae3a7a16b61562c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "4ce96e906ae29f35949d079a2f1982af30ba841b6fbf6f7182911ab669dc4f44"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "801bcd285f9278ea5206b747ed82d8c9346708edac46c7fede5dbffee858480a"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "b0eb3cee56b21dd0838a27885fd2c73515b324ce48a9aff0d3623d85ccfab246"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "43eca937b9eb2996c02e2d1341d43cb638b7b6432b8f0b336642ab346bf98fa8"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c5cfe04e8686685424b96103a6ce951e9db5cc262531239c7ff7a0127c1889f6"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "cbf9179975eca5a2df2a9fe74e6297f195d701efefa78aa9e7564fa348332bb8"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6f12736823011855f2c9a36a2c16f423e7769e4def3debce9545457c94151739"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d1969e20a47db8b50b8b60837643792e686feb9dde952c8fbab31b9d36dafc3b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "5a6356a3a27588a5242ef5ec8eef91a8c11f8ec54cf89e9d3c64146a64115993"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a9a1347a576bb5a8965b59346e9165c3c7a4c12ef3f05ae5f96bab818514174f"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "duplicates": 0,
+          "log_sha256": "dad598f6aaddd2ed0e1401f54be6d4bdaeb0f87b10f55e7359350608ca5b562b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f887f318f610e47b076fa20ca4ca85b141e4f9787506a085e62278c44579ffdc"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "8ca5aa3e0698900deba6bcd7dcf9e1d5db4eecb00e4d5e080c688e13a8ef4b88"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3e5cabfb0da0a8191fcdfd9912608a2fec579d5529b9575ae8a17f35aa0d6bb3"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6328bd5be43b3d16efc11d9660ea2eff8ce0719009a8f7019a5286163902d892"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c6dbffc853778dcb604ac66f257a628f698c2324136633a6ae672e9cb43b8e29"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "4677d71f7718d4e339a22b92d86fc70fb5ad77c05edfdd6af37253bb708622ae"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "e06f1dec847891eeeb437ef715cb469496bcca47cc8f3ff59b72966e212f5c48"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "1fed9bc1fd8cea1d5a98be85e727793d5fc06769ed5cde5070ec6dc4d7a1d7cc"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d58a338de7f47d9c07ed58c49e4180ce8938cf77573654038d89cb06c47d2476"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "4152be006b854351c1b00aa6096eabde21b82cb726308426026dbcf16288cdb1"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "19888ec9da4c1013150f16d44b3e788ee7a9c2b1830f21dbaaeed04bd6921e59"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "96991b57384956318e694ebcc5b99323e0fb4608bcc72a1e4998d72ea8d2381e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "8ae32ebdfac5de0fd61553aafbcb1693e590094dd6402fcb87b7c9a34bf3751e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "aa1ff47923b32d3ba7f98ec9b64d828698ef92e97d321c2a5ccd69d54c5dc0fb"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "94423e94f0fb24475bb174dac4b1b0786decdcfa166dd6681fdc7a7997ce713d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "b3b65f06fe352e5be0b630db7ba02b040bb0f25858341ac0d2b9c8ca9b986da9"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "e159ca93dc35bf8489df0271895dfce15fb61415733b1e9e6294ec020e7ca7f2"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a4ec3bd7323758ff5708f891e7794f09b475b1cbff9c89045ade309ad7edc79f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "598a0032cdca4709725a0cefae6c8597f03f9887b49b6c06ddf1d8ae4b07eca0"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "13c5912c450d5cb60e82e0d063cbe93f94c1471a0e7cd17d8eaf980210b3210f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f01202e438e097f099194ac59e0f4b4dc83716b95ad72e9e8ddca1c6b0b48c3d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "de08b45e9d7b0472170de47a91bc515aeda14d0d08115fd082684c55070ba438"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "5eeae860eab96be7200af7dc306b70a219de65493eacd5c158b73a20e59237e4"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "b38790aa7cc12d0aeb6da8e850e69f2b60ced01d9ff663069b894f55ea3bd89b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "937fc296133303e575717a2e412c0230c3eb996b74a838a4c05ed10f60a3256a"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "dbca1c3c873704c070ecc0f113c16322eaacc5f6d926377c9abeddb326fdeb1f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d0eb77a2962af74e7f42ae6d8535a56bb78d81ec7d7f627481dc444190b26fb9"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6a1e5866fc4785134ffb4b1ac93b7c60652ee7867bffd37bca4ee0d82914e019"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3adcc97e285af8b6d5f2707bee0e99c66f6e7b9757cad005862a07bb77ff9616"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x20000",
+      "host_capture": {
+        "chip": "esp32s3",
+        "label": "burst32-final",
+        "pcap_sha256": "8bc7638b3eae5fc90735e60ebd9d134430c37e00ed023e8310846e7e833567e8",
+        "capture": {
+          "written_packets": 5475,
+          "socket_packets": 5476,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 3,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 4,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 5,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 6,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 7,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 8,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 9,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 10,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 11,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 12,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 13,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 14,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 15,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 16,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 17,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 18,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 19,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 20,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 21,
+            "requests": 20,
+            "replies": 19,
+            "unanswered_sequences": [
+              14
+            ],
+            "missing_outgoing_sequences": [],
+            "events_relative_to_first_request_seconds": [
+              {
+                "seconds": 0.0,
+                "event": "request",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.014947,
+                "event": "reply",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.200259,
+                "event": "request",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.207167,
+                "event": "reply",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.400334,
+                "event": "request",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.40735,
+                "event": "reply",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.6006,
+                "event": "request",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.606693,
+                "event": "reply",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.800958,
+                "event": "request",
+                "sequence": 5
+              },
+              {
+                "seconds": 0.812182,
+                "event": "reply",
+                "sequence": 5
+              },
+              {
+                "seconds": 1.001449,
+                "event": "request",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.006328,
+                "event": "reply",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.202564,
+                "event": "request",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.210346,
+                "event": "reply",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.403596,
+                "event": "request",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.408379,
+                "event": "reply",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.60466,
+                "event": "request",
+                "sequence": 9
+              },
+              {
+                "seconds": 1.609335,
+                "event": "reply",
+                "sequence": 9
+              },
+              {
+                "seconds": 1.805626,
+                "event": "request",
+                "sequence": 10
+              },
+              {
+                "seconds": 1.823247,
+                "event": "reply",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.006511,
+                "event": "request",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.019033,
+                "event": "reply",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.207285,
+                "event": "request",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.223235,
+                "event": "reply",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.407342,
+                "event": "request",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.413394,
+                "event": "reply",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.607671,
+                "event": "request",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.812358,
+                "event": "request",
+                "sequence": 15
+              },
+              {
+                "seconds": 2.821397,
+                "event": "reply",
+                "sequence": 15
+              },
+              {
+                "seconds": 3.012651,
+                "event": "request",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.022048,
+                "event": "reply",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.213315,
+                "event": "request",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.220637,
+                "event": "reply",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.413866,
+                "event": "request",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.421563,
+                "event": "reply",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.614828,
+                "event": "request",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.621102,
+                "event": "reply",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.815379,
+                "event": "request",
+                "sequence": 20
+              },
+              {
+                "seconds": 3.821216,
+                "event": "reply",
+                "sequence": 20
+              }
+            ],
+            "nearby_arp": [
+              {
+                "seconds": 0.007292,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 0.007318,
+                "event": "reply",
+                "station_role": "station_target"
+              }
+            ]
+          },
+          {
+            "cycle": 22,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 23,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 24,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 25,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 26,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 27,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 28,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 29,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 30,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 31,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 32,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 33,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 34,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 35,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 36,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 37,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 38,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 39,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 40,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 41,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 42,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 43,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 44,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 45,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 46,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 47,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 48,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 49,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 50,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 5475,
+        "socket_packets": 5476,
         "socket_drops": 0,
         "receive_buffer_bytes": 8388608
       }
@@ -2174,6 +4443,9 @@
           ]
         }
       ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": false,
       "hashes": {
@@ -3370,6 +5642,9 @@
           ]
         }
       ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": false,
       "hashes": {
@@ -3503,6 +5778,9 @@
       "rx_pending_preserved": 300,
       "gateway": [],
       "neighbor": [],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": false,
       "hashes": {
@@ -3569,6 +5847,9 @@
       "rx_pending_preserved": 300,
       "gateway": [],
       "neighbor": [],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": false,
       "hashes": {
@@ -3635,6 +5916,9 @@
       "rx_pending_preserved": 50,
       "gateway": [],
       "neighbor": [],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": true,
       "hashes": {
@@ -3658,6 +5942,9 @@
       "rx_pending_preserved": 160,
       "gateway": [],
       "neighbor": [],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": false,
       "hashes": {
@@ -3724,6 +6011,9 @@
       "rx_pending_preserved": 20,
       "gateway": [],
       "neighbor": [],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": true,
       "hashes": {
@@ -3842,6 +6132,9 @@
           ]
         }
       ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [
         [
           0,
@@ -4016,6 +6309,9 @@
           ]
         }
       ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [
         [
           0,
@@ -4357,6 +6653,2209 @@
     },
     {
       "chip": "esp32c3",
+      "label": "burst32-final-sta_smoke",
+      "complete": true,
+      "requested_reconnects": 50,
+      "completed_reconnects": 50,
+      "rx_completed_cycles": 0,
+      "rx_pending_preserved": 0,
+      "gateway": [
+        [
+          1,
+          20,
+          20
+        ],
+        [
+          2,
+          20,
+          20
+        ],
+        [
+          3,
+          20,
+          20
+        ],
+        [
+          4,
+          20,
+          20
+        ],
+        [
+          5,
+          20,
+          20
+        ],
+        [
+          6,
+          20,
+          20
+        ],
+        [
+          7,
+          20,
+          20
+        ],
+        [
+          8,
+          20,
+          20
+        ],
+        [
+          9,
+          20,
+          20
+        ],
+        [
+          10,
+          20,
+          20
+        ],
+        [
+          11,
+          20,
+          20
+        ],
+        [
+          12,
+          20,
+          20
+        ],
+        [
+          13,
+          20,
+          20
+        ],
+        [
+          14,
+          20,
+          20
+        ],
+        [
+          15,
+          20,
+          20
+        ],
+        [
+          16,
+          20,
+          20
+        ],
+        [
+          17,
+          20,
+          20
+        ],
+        [
+          18,
+          20,
+          20
+        ],
+        [
+          19,
+          20,
+          20
+        ],
+        [
+          20,
+          20,
+          20
+        ],
+        [
+          21,
+          20,
+          20
+        ],
+        [
+          22,
+          20,
+          20
+        ],
+        [
+          23,
+          20,
+          20
+        ],
+        [
+          24,
+          20,
+          20
+        ],
+        [
+          25,
+          20,
+          20
+        ],
+        [
+          26,
+          20,
+          20
+        ],
+        [
+          27,
+          20,
+          20
+        ],
+        [
+          28,
+          20,
+          20
+        ],
+        [
+          29,
+          20,
+          20
+        ],
+        [
+          30,
+          20,
+          20
+        ],
+        [
+          31,
+          20,
+          20
+        ],
+        [
+          32,
+          20,
+          20
+        ],
+        [
+          33,
+          20,
+          20
+        ],
+        [
+          34,
+          20,
+          20
+        ],
+        [
+          35,
+          20,
+          20
+        ],
+        [
+          36,
+          20,
+          20
+        ],
+        [
+          37,
+          20,
+          20
+        ],
+        [
+          38,
+          20,
+          20
+        ],
+        [
+          39,
+          20,
+          20
+        ],
+        [
+          40,
+          20,
+          20
+        ],
+        [
+          41,
+          20,
+          20
+        ],
+        [
+          42,
+          20,
+          20
+        ],
+        [
+          43,
+          20,
+          20
+        ],
+        [
+          44,
+          20,
+          20
+        ],
+        [
+          45,
+          20,
+          20
+        ],
+        [
+          46,
+          20,
+          20
+        ],
+        [
+          47,
+          20,
+          20
+        ],
+        [
+          48,
+          20,
+          20
+        ],
+        [
+          49,
+          20,
+          20
+        ],
+        [
+          50,
+          20,
+          20
+        ]
+      ],
+      "neighbor": [
+        {
+          "cycle": 1,
+          "counts": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "counts": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            10,
+            1,
+            0,
+            0,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "counts": [
+            2,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            10,
+            2,
+            0,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "counts": [
+            3,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            10,
+            3,
+            0,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "counts": [
+            4,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            21,
+            4,
+            0,
+            0,
+            11,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "counts": [
+            5,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            21,
+            5,
+            0,
+            0,
+            14,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "counts": [
+            6,
+            6,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            21,
+            6,
+            0,
+            0,
+            16,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "counts": [
+            7,
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            21,
+            7,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "counts": [
+            12,
+            12,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1007,
+            9,
+            0,
+            4,
+            21,
+            1,
+            1
+          ]
+        },
+        {
+          "cycle": 10,
+          "counts": [
+            17,
+            17,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            11,
+            0,
+            8,
+            23,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 11,
+          "counts": [
+            18,
+            18,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            12,
+            0,
+            8,
+            25,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 12,
+          "counts": [
+            19,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            13,
+            0,
+            8,
+            28,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 13,
+          "counts": [
+            20,
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            14,
+            0,
+            8,
+            30,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 14,
+          "counts": [
+            21,
+            21,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            15,
+            0,
+            8,
+            32,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 15,
+          "counts": [
+            22,
+            22,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            16,
+            0,
+            8,
+            35,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 16,
+          "counts": [
+            23,
+            23,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            17,
+            0,
+            8,
+            37,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 17,
+          "counts": [
+            24,
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            18,
+            0,
+            8,
+            39,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 18,
+          "counts": [
+            25,
+            25,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            19,
+            0,
+            8,
+            42,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 19,
+          "counts": [
+            26,
+            26,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            20,
+            0,
+            8,
+            44,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 20,
+          "counts": [
+            27,
+            27,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            21,
+            0,
+            8,
+            47,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 21,
+          "counts": [
+            28,
+            28,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            22,
+            0,
+            8,
+            49,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 22,
+          "counts": [
+            29,
+            29,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            23,
+            0,
+            8,
+            52,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 23,
+          "counts": [
+            30,
+            30,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            24,
+            0,
+            8,
+            54,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 24,
+          "counts": [
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            25,
+            0,
+            8,
+            57,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 25,
+          "counts": [
+            32,
+            32,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            26,
+            0,
+            8,
+            59,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 26,
+          "counts": [
+            33,
+            33,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            27,
+            0,
+            8,
+            62,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 27,
+          "counts": [
+            34,
+            34,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            28,
+            0,
+            8,
+            64,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 28,
+          "counts": [
+            35,
+            35,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            29,
+            0,
+            8,
+            67,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 29,
+          "counts": [
+            36,
+            36,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            30,
+            0,
+            8,
+            69,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 30,
+          "counts": [
+            37,
+            37,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            31,
+            0,
+            8,
+            72,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 31,
+          "counts": [
+            38,
+            38,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            32,
+            0,
+            8,
+            74,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 32,
+          "counts": [
+            39,
+            39,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            33,
+            0,
+            8,
+            77,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 33,
+          "counts": [
+            40,
+            40,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            34,
+            0,
+            8,
+            79,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 34,
+          "counts": [
+            41,
+            41,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            35,
+            0,
+            8,
+            82,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 35,
+          "counts": [
+            42,
+            42,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            36,
+            0,
+            8,
+            84,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 36,
+          "counts": [
+            43,
+            43,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            37,
+            0,
+            8,
+            87,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 37,
+          "counts": [
+            44,
+            44,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            38,
+            0,
+            8,
+            89,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 38,
+          "counts": [
+            45,
+            45,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            39,
+            0,
+            8,
+            92,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 39,
+          "counts": [
+            46,
+            46,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            40,
+            0,
+            8,
+            94,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 40,
+          "counts": [
+            47,
+            47,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            41,
+            0,
+            8,
+            96,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 41,
+          "counts": [
+            48,
+            48,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            42,
+            0,
+            8,
+            99,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 42,
+          "counts": [
+            49,
+            49,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            43,
+            0,
+            8,
+            101,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 43,
+          "counts": [
+            50,
+            50,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            44,
+            0,
+            8,
+            103,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 44,
+          "counts": [
+            51,
+            51,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            45,
+            0,
+            8,
+            106,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 45,
+          "counts": [
+            52,
+            52,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1008,
+            46,
+            0,
+            8,
+            108,
+            2,
+            2
+          ]
+        },
+        {
+          "cycle": 46,
+          "counts": [
+            57,
+            57,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1012,
+            48,
+            0,
+            12,
+            110,
+            3,
+            3
+          ]
+        },
+        {
+          "cycle": 47,
+          "counts": [
+            58,
+            58,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1012,
+            49,
+            0,
+            12,
+            113,
+            3,
+            3
+          ]
+        },
+        {
+          "cycle": 48,
+          "counts": [
+            59,
+            59,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1012,
+            50,
+            0,
+            12,
+            115,
+            3,
+            3
+          ]
+        },
+        {
+          "cycle": 49,
+          "counts": [
+            60,
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1012,
+            51,
+            0,
+            12,
+            117,
+            3,
+            3
+          ]
+        },
+        {
+          "cycle": 50,
+          "counts": [
+            61,
+            61,
+            0,
+            0,
+            0,
+            0,
+            0,
+            5,
+            1012,
+            52,
+            0,
+            12,
+            120,
+            3,
+            3
+          ]
+        }
+      ],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
+      "arp_injection": [],
+      "assertion_failed": false,
+      "hashes": {
+        "image": "485a0bb5075396f235d25f431087c59342879d56d668b1592688dac4558151e1",
+        "elf": "2972c407a727c5aadbba5a910142bf45b08154e7b4809e7b57ba5221c70b475a",
+        "serial": "83de1779612814a7bf312a8f68564d563454984493c9bf21b82fe139d2e811f7",
+        "build_metadata": "5d3be5c1654bd6392c82194ea2ff31aaf590eafeb80a53162d558206a532cfb5",
+        "lockfile": "b1a528653d16c7a2adc111efc779d9003b50ff3685f0f1a3f48b35ae30424d55"
+      },
+      "host": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "27f17748054e49783cbbbb1094e7b4cf14b8c895e379d72d34b60db4fea91b7d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "81489d5966e9303ffaeb6ad1af67a852ed5a53397679caf68af739d7c7f1eaec"
+        },
+        {
+          "sent": 20,
+          "received": 19,
+          "duplicates": 0,
+          "log_sha256": "6e46a0fad40d51cc3377f1ffc05a8731c1b805e7c75a404a9fc5fd02d6bb3dcc"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "cebd40f75d7ebb09caeb2e9df219c04f8e0dc739cb019e6d74e2207968ceca4c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "aa14eb58bb264e66477f5e1d49bb290e221565fbc06ce9730e99be63dabbc7a1"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a311a00a1e2f144bc653b5fd54a1d7bee39d9c25475aef0c8c9183c5f0dd9ba5"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "dfbc8d3bd120591b986de96b2fad973d738c60e80c014e7e1131980b51f37f99"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "1bdb400bc98c26241a2efb35aecc0b31a651257990b333d04df216e2f79669fa"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "df0fd766b6186b879e099121146477f4e4df56e820e18ee4da5ea8245f933b84"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6cf6eba49c22513b3fefd43dbc9952c85ab3840364874ffe1b4d97050955706c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3d3bb9fb78c3a97cfff4bd1f6ee3d1485ce06b7c19a7466b62ad8d5ea8957c02"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c92e69d3dbff2b1c8a5b03b4b5770da3553b07d76f7dbebf155f6ad7fa314b30"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "9500ac73aa12d62aac898bdf8f929b3efad93aa1c7cab0f2eb3c00d04ccf7563"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "17c97b7c22e6f230c86b8563e305277e849cf8518ef03c5cf81a86e274873bfd"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c3b6e69ad14dec61a470eb5daa2c31ce122c02ec70244c7bc3326aa55d767f6f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "1485f4d726e5a3a45ab4562419f136a127d38fd5ca86ca586daf9d33155196c2"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "031e99dd3202ab74505218267ba6e80e05f4649ed20a63554a34a7c8f01f7f6e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "751e12aadd38daf5371d567627876327007aadd14d034b6a9249bcba81931c15"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "42918e2ef27a22ba0144eda67663b31ca870d23c719801216099deeceb8d123b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "21e1f8f3f8b3f54d4ac366241e66344d9fc88e18c27e9989e48d726103ef44cd"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c4859885151030ca4f659c10b4016c5bc9209063d89182452b65d25206437e3e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6ea9fc974ef7231b31944d905ad1582879852fa9bc987d2320a228bc8f33dc1f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "838decc5394c5ba5b8159e47dcdd9331b7f4b7c9dbcf4abbe4ea70c5372f6f82"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d9a739cf0c001db239a43ad11513b73f99a4c54211a99506ca5a8d7440e8818e"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "68a35f5d75d59c8006c643270b10253f7fc8266d3c84e589e4f5ef36f4dfae22"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "6a2a2edd366c941a296c9ce3d862bdab230b2e7682910927d19159715c411960"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "8ec2a860edae2c868aee94e777698f3fe03d43f5f8bac3d77e1d9b1fee2f2e9a"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a6fcf8a0bdd12f4e771aad97b9359fe0e4c5e0b08249477e5b6ee6ecd2790881"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "0dc511318a6003f14d9810bfaf8f6979500e9ed22aab8631134f8ad35832def1"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "12570b47e972f943f0b6bc58fe379efbaeca3c3b7f3320a461dc653aac71ed18"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "a26d4e1bb493bc382041add173b5824c5bb64d1c808ac2b7a6f90a6511f97d19"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d1feafdee15db5962a5ab6b74bf25bf76b6cccba7bf0baae73809cab0245ca42"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3b116b16c4c72c72365b24ceafe3bcd440817581fc2d11a9d491f8b8621c5e85"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "94571d95d30c8197d71225bb4ce90fb4f0a5e569246a72a0fe2c07ec2eeb04e3"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f6983999353cb39684f071b476b3afc3cbcf2ebcb71cfc97f09a062f022bf5f7"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "145e3f0aa3ed98fb2dd233ec77bb7c311ae22ca35bb803cc586be82cd7591921"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "88eca578ff42b086c5b026f4654b51e81f438ccf7445eb89e8e1d73b18a65f0d"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3c614f5dee4a3aedc98012fa5866812b29670504085a63339dfed1c950102c9f"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d16a1793db7b69130a8161b7c02549c545cc5e41eb1e5d59de619baa5959608b"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "425a415b8d7c8581d60b563d3d8f929b3a23168b605827d0b944097488f8779c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "e213db90f039400ba8e12790a083053f8f2d0445eb97baf6f02220f693d2f101"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "f8f658e0e3158d290e3bd3304e24aab4b8e1a6608fc34cf884ed70cba25b7fe2"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "0550ecb645e3830ef90c2e85fa4c4d825c0cd5d0ff232933c71dd44fb0e6b95c"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "d8d470b99489b1a50bed67408e4cd13aa4690a5a389bfda79a417da91785e7b4"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "04b04e351038b6924aa549fb6116633a9351fac53b8f3113ee36b539ed64bcac"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "c2005dce719cffb78784d966cd11e41817d2e8e70545fece26856ebef4595c38"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "dfe89601e5febecb3178eeff331c0b54d906bbe9b0129903e8a5057657b3d0f7"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "7d3834ab4a7330c43ddf380c6cb675335bcf3572f5f76128bcd4fdb30fb184b1"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "3a84ee05f528d6f0da327af5342b681264af5264cab86191925696ab64af3fa2"
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "log_sha256": "84be7f41622c24960be92388001ed8acf14bd8dc34881b59671a13dcdaf001df"
+        }
+      ],
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc"
+      },
+      "application_offset": "0x10000",
+      "host_capture": {
+        "chip": "esp32c3",
+        "label": "burst32-final",
+        "pcap_sha256": "20af8d64bacd1fc696c1958974f6cda5ce662faef6e0c335ab5fc685428678da",
+        "capture": {
+          "written_packets": 5437,
+          "socket_packets": 5437,
+          "socket_drops": 0,
+          "receive_buffer_bytes": 8388608
+        },
+        "cycles": [
+          {
+            "cycle": 1,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 2,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 3,
+            "requests": 20,
+            "replies": 19,
+            "unanswered_sequences": [
+              9
+            ],
+            "missing_outgoing_sequences": [],
+            "events_relative_to_first_request_seconds": [
+              {
+                "seconds": 0.0,
+                "event": "request",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.015286,
+                "event": "reply",
+                "sequence": 1
+              },
+              {
+                "seconds": 0.200534,
+                "event": "request",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.216911,
+                "event": "reply",
+                "sequence": 2
+              },
+              {
+                "seconds": 0.401175,
+                "event": "request",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.40909,
+                "event": "reply",
+                "sequence": 3
+              },
+              {
+                "seconds": 0.60219,
+                "event": "request",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.610261,
+                "event": "reply",
+                "sequence": 4
+              },
+              {
+                "seconds": 0.802542,
+                "event": "request",
+                "sequence": 5
+              },
+              {
+                "seconds": 0.810541,
+                "event": "reply",
+                "sequence": 5
+              },
+              {
+                "seconds": 1.002825,
+                "event": "request",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.010166,
+                "event": "reply",
+                "sequence": 6
+              },
+              {
+                "seconds": 1.203473,
+                "event": "request",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.232713,
+                "event": "reply",
+                "sequence": 7
+              },
+              {
+                "seconds": 1.403826,
+                "event": "request",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.416151,
+                "event": "reply",
+                "sequence": 8
+              },
+              {
+                "seconds": 1.604408,
+                "event": "request",
+                "sequence": 9
+              },
+              {
+                "seconds": 1.806831,
+                "event": "request",
+                "sequence": 10
+              },
+              {
+                "seconds": 1.814549,
+                "event": "reply",
+                "sequence": 10
+              },
+              {
+                "seconds": 2.007819,
+                "event": "request",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.019385,
+                "event": "reply",
+                "sequence": 11
+              },
+              {
+                "seconds": 2.208655,
+                "event": "request",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.245128,
+                "event": "reply",
+                "sequence": 12
+              },
+              {
+                "seconds": 2.409361,
+                "event": "request",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.417167,
+                "event": "reply",
+                "sequence": 13
+              },
+              {
+                "seconds": 2.610435,
+                "event": "request",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.617338,
+                "event": "reply",
+                "sequence": 14
+              },
+              {
+                "seconds": 2.811627,
+                "event": "request",
+                "sequence": 15
+              },
+              {
+                "seconds": 2.81989,
+                "event": "reply",
+                "sequence": 15
+              },
+              {
+                "seconds": 3.012188,
+                "event": "request",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.020103,
+                "event": "reply",
+                "sequence": 16
+              },
+              {
+                "seconds": 3.213391,
+                "event": "request",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.220009,
+                "event": "reply",
+                "sequence": 17
+              },
+              {
+                "seconds": 3.414262,
+                "event": "request",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.422835,
+                "event": "reply",
+                "sequence": 18
+              },
+              {
+                "seconds": 3.615044,
+                "event": "request",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.622397,
+                "event": "reply",
+                "sequence": 19
+              },
+              {
+                "seconds": 3.815643,
+                "event": "request",
+                "sequence": 20
+              },
+              {
+                "seconds": 3.820598,
+                "event": "reply",
+                "sequence": 20
+              }
+            ],
+            "nearby_arp": [
+              {
+                "seconds": 0.007087,
+                "event": "request",
+                "station_role": "station_sender"
+              },
+              {
+                "seconds": 0.007161,
+                "event": "reply",
+                "station_role": "station_target"
+              }
+            ]
+          },
+          {
+            "cycle": 4,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 5,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 6,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 7,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 8,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 9,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 10,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 11,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 12,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 13,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 14,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 15,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 16,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 17,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 18,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 19,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 20,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 21,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 22,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 23,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 24,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 25,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 26,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 27,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 28,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 29,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 30,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 31,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 32,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 33,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 34,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 35,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 36,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 37,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 38,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 39,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 40,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 41,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 42,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 43,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 44,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 45,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 46,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 47,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 48,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 49,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          },
+          {
+            "cycle": 50,
+            "requests": 20,
+            "replies": 20,
+            "unanswered_sequences": [],
+            "missing_outgoing_sequences": []
+          }
+        ],
+        "limitation": "Ethernet host capture, not on-air. ARP timing and queued replies do not establish where an earlier ARP exchange was lost."
+      },
+      "capture_stats": {
+        "written_packets": 5437,
+        "socket_packets": 5437,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      }
+    },
+    {
+      "chip": "esp32c3",
       "label": "rx-cursor-final-wifi_smoke",
       "complete": true,
       "requested_reconnects": null,
@@ -4365,6 +8864,9 @@
       "rx_pending_preserved": 300,
       "gateway": [],
       "neighbor": [],
+      "raw_echo": [],
+      "rx_handoff": [],
+      "echo_path": [],
       "arp_injection": [],
       "assertion_failed": false,
       "hashes": {
@@ -4497,5 +8999,39 @@
     "Finite queues can still lose responses at higher rates, after expiry, or under TX congestion.",
     "Private ARP omission builds are separate from published source.",
     "C3/S3 production DMA logic is unchanged by the final removal of unreachable legacy cfg blocks and a duplicate doc comment. Final RX and burst32 images use the listed final source hashes."
-  ]
+  ],
+  "published_fix": {
+    "revision": "75e75fd3e4c8d4ee8667998a6f6021d8e7910b95",
+    "ci": 34617659970,
+    "ci_conclusion": "success"
+  },
+  "corrected_station_gate": {
+    "cycles_each": 50,
+    "host_echoes_each": 1000,
+    "gateway_echoes_each": 1000,
+    "lossless": false,
+    "esp32c3": {
+      "host_received": 999,
+      "gateway_received": 1000,
+      "evicted": 0,
+      "missing": [
+        {
+          "cycle": 3,
+          "sequence": 9
+        }
+      ]
+    },
+    "esp32s3": {
+      "host_received": 999,
+      "gateway_received": 1000,
+      "evicted": 0,
+      "missing": [
+        {
+          "cycle": 21,
+          "sequence": 14
+        }
+      ]
+    },
+    "next_check": "Private echo-path-v5 traces request sequence masks at raw RX/VIF/adapter and explicit VIF/network-buffer drops, without per-packet console output."
+  }
 }
