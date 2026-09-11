@@ -1,0 +1,335 @@
+{
+  "schema": "s3-clock-connection-validation-v1",
+  "date": "2026-09-11",
+  "limitations": [
+    "Individual comparisons do not establish loss rates or causality.",
+    "Host Ethernet-view captures do not establish on-air delivery.",
+    "Clock capture continues through subsequent nonassociated RX/lifetime probes; station totals use its own serial/ping window."
+  ],
+  "runs": [
+    {
+      "chip": "esp32s3",
+      "variant": "clock-phy_lifetime_smoke",
+      "complete": true,
+      "image_sha256": "3f4971c9652dbda5069742360c0e9cc14fa0aec1ec659624309032e644d11cb7",
+      "serial_sha256": "0ff163672b358765ab58dfb44a6a19caf0cb020a4c7c662a77e85aba4ab5cce4",
+      "result_sha256": "3282cbf28fefb87e6ee64a76418fffe959a618543c371e7aa74a786718c43a72",
+      "application_offset": "0x20000",
+      "elf_sha256": "e3995f8a1c50789aaf98ca28abfa3162ad934efb9077e696e265b4d7fd289731",
+      "map_sha256": "8321c0b3da53d5968ec7ad461b3a76fa7b048dbb56d71330bc90309abc8acee0",
+      "Cargo_lock_sha256": "70545a0f670b13394c49cb2035442fcc1aa740e1f7f78596ab8fed535296bb79",
+      "build": {
+        "revision": "b2d87344d51b4374fec58a6fa21dcb0d823a1572",
+        "features": "esp32s3,phy-smoke",
+        "cycles": "10"
+      },
+      "host_cycles": [],
+      "gateway_cycles": [],
+      "gateway_timeouts": [],
+      "clock": [],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": null,
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [
+          1,
+          2,
+          3
+        ],
+        "phy_released_cycles": [
+          1,
+          2,
+          3
+        ],
+        "completion": [
+          [
+            "phy_lifetime_smoke",
+            "3",
+            ""
+          ]
+        ]
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "clock-verified-sta_smoke",
+      "complete": false,
+      "image_sha256": "004ab16270bdcd0ecb74e71da85fc23c7ba57aabeb5ddfabead47a81528df592",
+      "serial_sha256": "12a2919ebbdfb9a67eacaac61b08aea9724acb96b4e2cb80c87412b11b50702d",
+      "result_sha256": "fe7adef22650bd4ab74235bdd31d3872ff33c0175bccd3eb09edba8a72343f6e",
+      "application_offset": "0x20000",
+      "elf_sha256": "bcbf458eb6418e2bcbcf54b5bf9e46d5b1ae8f775ac48f5b3befef1ecf171ca7",
+      "map_sha256": "62fde099cd3f7a9d08a84b02aa19a4b7ce3e2ff59a1dc991de76160bf261ef5d",
+      "Cargo_lock_sha256": "9fbde7d5465e1ee649eb79fdca094206bbfa5b68819249ee8f85bcc283612f27",
+      "build": {
+        "revision": "9a8d5d3315cfedb30e7ad246840fa6792977b15a",
+        "features": "esp32s3,network-trace,foa/tx-trace,foa_sta/connection-trace",
+        "cycles": "10"
+      },
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "63525e1cbb4f554d6faba3f18b02f03333c092c20da8749e7cd3945bee46dc5d"
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "a19aa8d4bb75a468baf6a96b02ca3f6b7be8ed3474285a0586565182f2fa2a6a"
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "643a9e13b605428b8aef0982fc61932831e3b1799f43db7ef909a9158fadabc8"
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 19
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway_timeouts": [
+        {
+          "cycle": 2,
+          "sequence": 15
+        }
+      ],
+      "clock": [
+        {
+          "selector": 16781313,
+          "rtc_q19": 3774976,
+          "mac_q12": 29492,
+          "mac_clock_enabled": true
+        }
+      ],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [
+        "user",
+        "user",
+        "user"
+      ],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": "association_status_2",
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": []
+      },
+      "capture": {
+        "written_packets": 843,
+        "socket_packets": 843,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608,
+        "pcap_sha256": "541e4588303eaa7d2a73f635c4c2b2b49c64fa8360fa988094716e587431bf25"
+      },
+      "tx": {
+        "starts": 153,
+        "finishes": 153,
+        "unpaired_starts": 0,
+        "result_histogram": {
+          "Ok(0)": 138,
+          "Ok(1)": 13,
+          "Ok(2)": 2
+        },
+        "tx_exhausted_warnings": 0
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "clock-wifi_smoke",
+      "complete": true,
+      "image_sha256": "e61f3a64255fb448cbae434aaa080fd3adf6391f2dc517383c249993f6a7b9b0",
+      "serial_sha256": "b47910e3c1c4f68eb39a5af08f3642091247d1b0ebf1faf18e12694f6ca62698",
+      "result_sha256": "fa71f44241818e9a23907be8162252b5c7b584d50117436b0e7be56efed99aa0",
+      "application_offset": "0x20000",
+      "elf_sha256": "5e6b9fc10c5eb8eeb9ff3b97513cdae2da7a7306e9c8022eba2b361f89233311",
+      "map_sha256": "62b5c0ec4c9161606e7bf8f7cb7b888f0e64e098d48ca4700faa317cc95dad61",
+      "Cargo_lock_sha256": "70545a0f670b13394c49cb2035442fcc1aa740e1f7f78596ab8fed535296bb79",
+      "build": {
+        "revision": "b2d87344d51b4374fec58a6fa21dcb0d823a1572",
+        "features": "esp32s3,printf-smoke",
+        "cycles": "10"
+      },
+      "host_cycles": [],
+      "gateway_cycles": [],
+      "gateway_timeouts": [],
+      "clock": [],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": null,
+      "probe": {
+        "printf_abi_results": [
+          0
+        ],
+        "rx_pending_preserved": true,
+        "rx_recovered": true,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": [
+          [
+            "rust_wifi_smoke",
+            "11",
+            "2"
+          ]
+        ]
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "trace-sta_smoke",
+      "complete": false,
+      "image_sha256": "9ec143c296d38724dc468fff02f86622afe586c5dd1cd0331b5e6c104fbccde2",
+      "serial_sha256": "b2f01476e812d27f56f932508ab361e690cc7c255c51638771ea34b52063dc29",
+      "result_sha256": "d97cb7bf8d38eaa9d0395a08f3ccc43190d08f9506cf4565f5260d3c2a32df2f",
+      "application_offset": "0x20000",
+      "elf_sha256": "032466d2bd6f5145a35b4549519255fbcab5255dce43953e8fbec81602d90e38",
+      "map_sha256": "e0f935005d3448919bb686dc92832c74aeecd36cac0e8a640d6290334ce22fc9",
+      "Cargo_lock_sha256": "9fbde7d5465e1ee649eb79fdca094206bbfa5b68819249ee8f85bcc283612f27",
+      "build": {
+        "revision": "99e6617b7af6c126eaa7eb7b3c40dacc82de93e2",
+        "features": "esp32s3,network-trace,foa/tx-trace,foa_sta/connection-trace",
+        "cycles": "10"
+      },
+      "host_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "dfdf0df45f96e4864070d04d85a7cd75a63f0b481157281500796ceb9295d6dd"
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "3d07a30275cd746b9026f610eff6c11cb9432dfd84b88a5e946786503e9cb49d"
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "c9eb75d9570822441aca3aad312b954324bae103ad18f17e90f04c92c88ec709"
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20,
+          "duplicates": 0,
+          "ping_log_sha256": "3c736e962d6ec9b3b16d8cfd90ff8125f80239d58bd54d471faa83c19c8b31a4"
+        }
+      ],
+      "gateway_cycles": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 18
+        }
+      ],
+      "gateway_timeouts": [
+        {
+          "cycle": 4,
+          "sequence": 4
+        },
+        {
+          "cycle": 4,
+          "sequence": 17
+        }
+      ],
+      "clock": [
+        {
+          "selector": 16781313,
+          "rtc_q19": 3774682,
+          "mac_q12": null,
+          "mac_clock_enabled": null
+        }
+      ],
+      "management_ingress_events": 0,
+      "deauth_handling_events": 0,
+      "link_down_causes": [
+        "user",
+        "user",
+        "user",
+        "user"
+      ],
+      "pending_response_evictions": 0,
+      "stale_frame_events": [],
+      "failure": "association_status_2",
+      "probe": {
+        "printf_abi_results": [],
+        "rx_pending_preserved": false,
+        "rx_recovered": false,
+        "phy_enabled_cycles": [],
+        "phy_released_cycles": [],
+        "completion": []
+      },
+      "capture": {
+        "written_packets": 857,
+        "socket_packets": 857,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608,
+        "pcap_sha256": "d07e8d56e4368890f9b5f1f13c55be5f75d1307bfa2a697c356635ac7833a519"
+      },
+      "tx": {
+        "starts": 203,
+        "finishes": 203,
+        "unpaired_starts": 0,
+        "result_histogram": {
+          "Ok(0)": 183,
+          "Ok(2)": 2,
+          "Ok(1)": 16,
+          "Ok(3)": 2
+        },
+        "tx_exhausted_warnings": 0
+      }
+    }
+  ]
+}

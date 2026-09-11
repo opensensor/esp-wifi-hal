@@ -82,3 +82,28 @@ record the selected source, raw STORE1 measurement, returned Q12 value and
 programmed MAC field, then check existing station and RX-recovery behavior.
 The code and host checks alone do not establish timing accuracy during modem
 sleep or explain the existing intermittent packet losses and disconnects.
+
+## Device validation, 11 September 2026
+
+The secured S3 ran the source-clock image using its existing signed application
+slot. The selector was `0x01001001` (RTC branch), STORE1 was `3774976`, and the
+programmed MAC field was `29492`, exactly `STORE1 >> 7`. The MAC clock-enable
+bit was set. The earlier diagnostic image still returned the fixed `44462`;
+its STORE1 measurement was `3774682`.
+
+Both the formatter/RX-recovery probe and three-cycle PHY guard shutdown/wakeup
+probe passed after the clock change. RX smoke received eleven frames including
+two OFDM frames; the lifetime probe received three beacons after wakeup.
+
+The diagnostic baseline completed four traffic cycles (80/80 host, 78/80 gateway)
+and failed association in cycle5 with parsed status2. The measured-clock image
+completed three (60/60 host, 59/60 gateway) and hit the same association status in
+cycle4. Neither run recorded a deauthentication frame. Both captures had zero
+socket drops. These failures are retained: measured calibration is a configuration
+correction, not a demonstrated packet-loss or reconnect fix.
+
+Exact image/map/log hashes and probe results are in the
+[device report](../network/clock-connection-validation.json). The following
+connection investigation is testing whether a queued authentication response
+can be misparsed as an association response; it is independent of this clock
+correction.
