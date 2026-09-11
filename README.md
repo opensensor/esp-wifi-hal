@@ -45,6 +45,9 @@ Further work replaces direct AGC and low-rate PHY helpers in Rust on both chips
 and uses measured C3 slow-clock calibration. RF initialization/calibration,
 channel tuning, power tracking and internal PHY ROM dependencies remain external;
 see the [C3](docs/esp32c3/PHY-ROM.md) and [S3](docs/esp32s3/PHY-ROM.md) inventories.
+The [current dependency audit](docs/network/PHY-DEPENDENCIES.md) records exact
+allocated archive sizes and distinguishes direct ROM calls from installed RAM
+callbacks.
 
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
@@ -52,6 +55,12 @@ The examples now pin OpenSensor stack corrections for
 MAC completion tracing also exposed [constant-zero station sequences](docs/network/STA-SEQUENCES.md);
 generated data, EAPOL and authentication/association frames now request driver
 sequence assignment.
+The driver also restores [Retry after MAC failures](docs/network/MAC-RETRIES.md),
+and FoA rejects [equal received CCMP packet numbers](docs/network/STA-REPLAY.md).
+Both corrections have production-code host regressions and dedicated C3/S3
+traffic reports. The [reviewed C comparison](docs/esp32s3/C-RUST-CONTROL.md)
+passed 200/200 pings in both directions; Rust still has documented intermittent
+losses, including explicit CTS timeouts and losses after successful completions.
 The smoltcp correction passed ten cycles on each chip with 200/200 host and
 200/200 gateway replies; a C3 stress run received all 1,000 unique replies plus
 six duplicates. Later combined tests still observed isolated gateway loss.

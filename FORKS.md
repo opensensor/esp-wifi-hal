@@ -29,12 +29,17 @@ The current-PAC version of that mapping is on `esp-pacs/main` and
 `research/esp32s3-wifi`.
 
 The station example pins OpenSensor's FoA TX queue and
-[station sequence corrections](docs/network/STA-SEQUENCES.md), together with
+[station sequence corrections](docs/network/STA-SEQUENCES.md) and
+[received packet-number validation](docs/network/STA-REPLAY.md), together with
 the smoltcp pending-response fix. See [queue ownership](docs/network/TX-QUEUE.md) and
 [neighbor discovery](docs/network/PENDING-RESPONSES.md) for exact revisions,
 host regressions and device results, including failed runs. The smoltcp fork's
 `main` is based on the tested 0.13.1 release; newer upstream history is retained
 on `upstream-main`.
+
+The driver also restores [Retry flags after MAC failures](docs/network/MAC-RETRIES.md).
+The [PHY and ROM inventory](docs/network/PHY-DEPENDENCIES.md) records the remaining
+vendor code separately from the replaced MAC and PHY register helpers.
 
 Other companion forks begin with their upstream code and our fork policy.
 The example still uses the locked published esp-hal dependency. The bindings

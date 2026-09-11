@@ -159,7 +159,16 @@
         "__ledf2": 1
       },
       "rom_audit_method": "Count resolved ROM addresses on objdump jal/jalr/j/jr instructions, including AUIPC/JALR pairs and compressed aliases.",
-      "rom_audit_limits": "Whole firmware static references, including runtime/math/printing; excludes unresolved indirect/table calls. Not dynamic call counts or a total PHY ROM dependency count."
+      "rom_audit_limits": "Whole firmware static references, including runtime/math/printing; excludes unresolved indirect/table calls. Not dynamic call counts or a total PHY ROM dependency count.",
+      "subsequent_hardware_validation": {
+        "report": "mac-retry-validation-c3.json",
+        "completed_cycles": 10,
+        "host_replies": 199,
+        "gateway_replies": 199,
+        "requests_per_direction": 200,
+        "final_assertion": "failed",
+        "missing_replies": "Both correlate with driver-reported CTS timeout exhaustion"
+      }
     },
     {
       "chip": "esp32s3",

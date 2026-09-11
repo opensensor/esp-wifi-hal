@@ -111,6 +111,8 @@ pair, with distinct assigned sequences 0 through 505. The two duplicate host
 receipts, cycle 2 sequence 1 and cycle 6 sequence 14, each have two request and
 reply copies at the device's IP boundaries. Host capture reports zero socket
 drops. See [C3 machine-readable evidence](mac-retry-validation-c3.json).
+The [CTS follow-up](CTS-DIAGNOSTICS.md) checks those decoder branches against
+the vendor code and records the next raw-status diagnostic.
 
 S3's two missing gateway replies follow `Ok(0)` and `Ok(2)` respectively. All
 505 completions succeed and no duplicate appears at any observed packet

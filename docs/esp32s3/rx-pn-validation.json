@@ -1976,5 +1976,7 @@
     "release_passed": 7,
     "unpatched_failures": 5,
     "provenance": "Verified during parent/independent source review before this S3 dependency-pin build; exact downloaded production source hash verified locally."
-  }
+  },
+  "generic_msdu_drop_messages": 1,
+  "generic_msdu_drop_interpretation": "One generic Dropping MSDU message; no receive PN or reason recorded, so this is not proof of replay suppression."
 }

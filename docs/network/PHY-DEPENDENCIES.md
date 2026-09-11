@@ -23,6 +23,12 @@ milestones; subsequent neighbor-response, FoA ownership/sequence and Retry
 changes did not remove another PHY member. The C3 row is explicitly a build
 inventory, not a claim that its new image has already passed device testing.
 
+After the static audit, that exact C3 image completed ten WPA2/DHCP cycles,
+returning 199/200 host and 199/200 gateway replies. Both missing replies
+correlate with driver-reported CTS timeout exhaustion. The failed final
+assertion remains in [the Retry validation](MAC-RETRIES.md); those hardware
+results do not change any allocation counts above.
+
 For allocation counting, parse the live linker input-section contributions:
 GNU ld's memory-map portion on S3, or LLD's `In` entries on C3. Retain an input
 range only if it lies completely within an ELF output section whose
