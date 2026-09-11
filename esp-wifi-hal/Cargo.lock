@@ -598,8 +598,6 @@ checksum = "7237b66a6b13163199b9e094ea96958565a5b04d35f518ee5834dc61c044011d"
 [[package]]
 name = "esp-phy"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e7c0a29815cd105ae1a02f3d0c6e7aafda9504a41effae17fac4c3f827719228"
 dependencies = [
  "cfg-if",
  "defmt",

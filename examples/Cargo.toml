@@ -116,6 +116,8 @@ foa = { git = "https://github.com/opensensor/FoA", rev = "39f44767178462e0c5e02a
 foa_sta = { git = "https://github.com/opensensor/FoA", rev = "39f44767178462e0c5e02aa8a8bd220c8cfd1bd3" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
+# Keep transitive users on the reviewed PHY initialization adapter too.
+esp-phy = { path = "../vendor/esp-phy" }
 # Retain automatic ICMP/TCP responses while ARP resolves, including embassy-net's stack.
 smoltcp = { git = "https://github.com/opensensor/smoltcp", rev = "517222f7318c092d82197e2e68cfccca0f460b09" }
 # S3 Wi-Fi registers pending an upstream PAC release (0.35 compatibility branch).

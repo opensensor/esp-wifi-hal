@@ -1,0 +1,92 @@
+{
+  "schema": "phy-source-wrapper-crossbuilds-v1",
+  "validation_status": "crossbuild_and_host_tests_only_no_hardware",
+  "features": [
+    "CHIP",
+    "foa-smoke"
+  ],
+  "environment": {
+    "SSID": "dummy",
+    "PASSWORD": "dummy",
+    "S3_SMOKE_CYCLES": 1,
+    "ESP_LOG": "info"
+  },
+  "original_printf_archive_retained": true,
+  "allocation_method": "Sum live libphy input ranges entirely within ELF SHF_ALLOC output sections, excluding discarded/debug sections and linker padding.",
+  "images": [
+    {
+      "chip": "esp32c3",
+      "elf_sha256": "094231f9b15c38619dad7e427f0d63dd0de37e65ae923e75bfb5bb77aaafb4ed",
+      "map_sha256": "c6fd23affc5883db286d05b826b417308351386b37b22d9dde4f28fca335610f",
+      "remaining_symbols": {
+        "ram_tx_pwctrl_background": {
+          "address": "0x420368fe",
+          "size_bytes": 122
+        },
+        "phy_param": {
+          "address": "0x3fc82f20",
+          "size_bytes": 848
+        }
+      },
+      "libphy_allocated_bytes": 35593,
+      "libphy_input_sections": 165,
+      "members": [
+        "phy_analog_cal.o",
+        "phy_api.o",
+        "phy_basic.o",
+        "phy_debug.o",
+        "phy_feature.o",
+        "phy_hw_freq.o",
+        "phy_i2c.o",
+        "phy_init.o",
+        "phy_pbus.o",
+        "phy_pwdet.o",
+        "phy_reg.o",
+        "phy_rfpll.o",
+        "phy_rx_cal.o",
+        "phy_rx_gain.o",
+        "phy_track.o",
+        "phy_tsens.o",
+        "phy_tx_cal.o",
+        "phy_tx_gain.o"
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "elf_sha256": "20986d12d507c44892086702ca25d1da4400ac416f092a38f0d0a87eba005050",
+      "map_sha256": "f95c3dc6495849ae423d6220f3fac91bf23d15272f32caec03fe243639d6dbbb",
+      "remaining_symbols": {
+        "phy_param": {
+          "address": "0x3fc8d39c",
+          "size_bytes": 740
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x420374f8",
+          "size_bytes": 78
+        }
+      },
+      "libphy_allocated_bytes": 33218,
+      "libphy_input_sections": 164,
+      "members": [
+        "phy_analog_cal.o",
+        "phy_api.o",
+        "phy_basic.o",
+        "phy_debug.o",
+        "phy_feature.o",
+        "phy_hw_freq.o",
+        "phy_i2c.o",
+        "phy_init.o",
+        "phy_pbus.o",
+        "phy_pwdet.o",
+        "phy_reg.o",
+        "phy_rfpll.o",
+        "phy_rx_cal.o",
+        "phy_rx_gain.o",
+        "phy_track.o",
+        "phy_tsens.o",
+        "phy_tx_cal.o",
+        "phy_tx_gain.o"
+      ]
+    }
+  ]
+}

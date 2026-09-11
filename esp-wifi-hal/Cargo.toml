@@ -11,7 +11,7 @@ repository = "https://github.com/opensensor/esp-wifi-hal"
 
 [dependencies]
 esp-hal = { version = "1.1.1", features = ["unstable"] }
-esp-phy = "0.2.0"
+esp-phy = { version = "=0.2.0", path = "../vendor/esp-phy" }
 esp-sync = "0.2.1"
 
 esp32 = { version = "=0.40.2", optional = true, features = [

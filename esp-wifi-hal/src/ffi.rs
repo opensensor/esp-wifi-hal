@@ -6,6 +6,8 @@ use esp_hal::{clock::xtal_clock, ram};
 pub(crate) use crate::c3_phy::{disable_wifi_agc, enable_wifi_agc};
 #[cfg(feature = "esp32s3")]
 pub(crate) use crate::s3_phy::{disable_wifi_agc, enable_wifi_agc};
+#[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+pub(crate) use crate::phy_wrappers::tx_pwctrl_background;
 
 #[cfg(osi_funcs_required)]
 #[allow(non_upper_case_globals)]
@@ -272,6 +274,7 @@ unsafe extern "C" {
     }
     #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
     pub fn hal_init();
+    #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
     pub fn tx_pwctrl_background(_: u8, _: u8);
     #[cfg(not(any(feature = "esp32s3", feature = "esp32c3")))]
     pub fn enable_wifi_agc();
