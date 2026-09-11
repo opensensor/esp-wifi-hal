@@ -84,6 +84,12 @@ The [sanitized evidence](rust-timing-validation.json) contains every trial,
 timing snapshot, cycle total, failure, capture-drop count and source/image hash.
 Raw captures, network identities, logs, firmware and signing material stay private.
 
+Later phase measurements identified roughly one second of synchronous PMK
+derivation per connection at 80 MHz. The [PSK preparation follow-up](PSK-PREPARATION.md)
+records moving that calculation before radio startup and reusing the fixed
+network's key during reconnects. The console measurements above remain a
+separate source of latency.
+
 ## Reproduce
 
 With the existing private build-time SSID/password environment and chip toolchain

@@ -150,6 +150,15 @@ async fn main(spawner: Spawner) {
         .unwrap_or(3);
     assert!((1..=100).contains(&cycles));
     info!("stage=boot test=rust_foa_wpa2 cycles={}", cycles);
+    // This example uses one fixed SSID/passphrase for every reconnect. Prepare
+    // its PSK once before starting the radio, so PBKDF2 cannot stall Wi-Fi tasks.
+    #[cfg(feature = "timing-probe")]
+    let pmk_start = esp_hal::time::Instant::now();
+    let prepared_psk = Credentials::Passphrase(env!("PASSWORD"))
+        .derive_psk(env!("SSID"))
+        .expect("PSK preparation failed");
+    #[cfg(feature = "timing-probe")]
+    info!("stage=pmk_prepared us={}", pmk_start.elapsed().as_micros());
     let resources = mk_static!(FoAResources, FoAResources::new());
     let ([vif, ..], runner) = foa::init(resources, peripherals.WIFI);
     #[cfg(all(feature = "esp32c3", feature = "network-trace"))]
@@ -191,7 +200,7 @@ async fn main(spawner: Spawner) {
                     beacon_timeout: None,
                     ..Default::default()
                 }),
-                Some(Credentials::Passphrase(env!("PASSWORD"))),
+                Some(Credentials::PreSharedKey(&prepared_psk)),
             ),
         )
         .await;

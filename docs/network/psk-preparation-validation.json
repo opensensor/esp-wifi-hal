@@ -1,0 +1,2028 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-09-11",
+  "baseline_hal": "c7affb2ca5e4dbaac51e3f4dbe6f177fb11f6c87",
+  "baseline_foa": "bf89a5661682572416e5de3ce5f83ced86e571b4",
+  "prepared_foa": "cf84eff3082afe054f85dd543d7aef7e60949a0a",
+  "settings": {
+    "cpu_mhz": 80,
+    "profile": "quiet",
+    "host_gateway_pings_per_traffic_cycle": 20,
+    "payload_bytes": 512,
+    "arp_warmup": false,
+    "one_active_station": true
+  },
+  "baseline_report_sha256": "9f652e63596f30aced2aa81515abdf4d4c45a5ef247a9873286a252e82b40086",
+  "retained_baselines": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-retry-80",
+      "complete": true,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "pmk_us_range": [
+        1129733,
+        1129758
+      ],
+      "host_rtt_median_ms": 7.63,
+      "image_sha256": "76c37790f4cd9e8b7db214f140c59e545dc7e085c444458545247cc7f4b21847",
+      "elf_sha256": "3c532664e2e20080e547903fb827d1b1717d4d6dc6ee52a408862bd3fcf93146"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "retry-m4-80",
+      "complete": true,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "pmk_us_range": [
+        937398,
+        937419
+      ],
+      "host_rtt_median_ms": 9.25,
+      "image_sha256": "09e96c82214c6f63704da6bf7747e4b82656d6628bb03c484d05cd2e05230c51",
+      "elf_sha256": "f252bcc78db9e0003e6a2338eefd293fe9fa420282dc4d955d61d1e591ba85da"
+    }
+  ],
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-prepared-80",
+      "fault_injection": false,
+      "preparation_us": [
+        1128458
+      ],
+      "connection_us": [
+        30905,
+        127595,
+        30916,
+        43003,
+        31262,
+        32370,
+        41322,
+        32062,
+        136369,
+        86863
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 7.94,
+      "pmk_us_range": [
+        20,
+        26
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            33,
+            3673,
+            3694,
+            3717,
+            9352,
+            12847,
+            17714,
+            19111,
+            20802,
+            28489,
+            30938
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            28,
+            3657,
+            3680,
+            3701,
+            31161,
+            58482,
+            94054,
+            95444,
+            112111,
+            125902,
+            127623
+          ],
+          "queues": [
+            1,
+            3
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            27,
+            4178,
+            4200,
+            4223,
+            10132,
+            14927,
+            18413,
+            19804,
+            21473,
+            29070,
+            30943
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            29,
+            3749,
+            3769,
+            3790,
+            10580,
+            14438,
+            29819,
+            31209,
+            33308,
+            41328,
+            43032
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3503,
+            3524,
+            3548,
+            9860,
+            13350,
+            18670,
+            20059,
+            21782,
+            29546,
+            31288
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            27,
+            4137,
+            4158,
+            4180,
+            11177,
+            14605,
+            19290,
+            20677,
+            22454,
+            30691,
+            32397
+          ],
+          "queues": [
+            1,
+            0
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            27,
+            4526,
+            4548,
+            4570,
+            18865,
+            22111,
+            27775,
+            29167,
+            30916,
+            39619,
+            41349
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            29,
+            4149,
+            4175,
+            4197,
+            10510,
+            13821,
+            19693,
+            21083,
+            22780,
+            30335,
+            32091
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 23
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3674,
+            3695,
+            3716,
+            114739,
+            118165,
+            123607,
+            124996,
+            126723,
+            134394,
+            136395
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            26,
+            3663,
+            3685,
+            3706,
+            16440,
+            31733,
+            53481,
+            54873,
+            57707,
+            79313,
+            86889
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19373481,
+          "mac_us": 19373483,
+          "print": [
+            15,
+            28197,
+            3887,
+            0,
+            3,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            540,
+            72,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            54,
+            5772,
+            2070,
+            52,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            423,
+            924567,
+            4549,
+            3,
+            131,
+            289,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34472717,
+          "mac_us": 34472718,
+          "print": [
+            27,
+            51883,
+            4311,
+            0,
+            4,
+            23,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1117,
+            72,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            108,
+            11247,
+            2070,
+            103,
+            1,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            717,
+            1564239,
+            4549,
+            4,
+            231,
+            482,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49402270,
+          "mac_us": 49402277,
+          "print": [
+            40,
+            77751,
+            5076,
+            0,
+            7,
+            33,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            1741,
+            79,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            163,
+            16393,
+            2439,
+            156,
+            2,
+            5,
+            0,
+            0
+          ],
+          "rx_age": [
+            1038,
+            2229944,
+            5383,
+            5,
+            340,
+            693,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 64388585,
+          "mac_us": 64388587,
+          "print": [
+            52,
+            101957,
+            5076,
+            0,
+            9,
+            43,
+            0,
+            0
+          ],
+          "phy": [
+            43,
+            2355,
+            79,
+            43,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            218,
+            20117,
+            2439,
+            210,
+            2,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            1330,
+            2872229,
+            7892,
+            8,
+            436,
+            886,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 79317473,
+          "mac_us": 79317480,
+          "print": [
+            64,
+            125181,
+            5076,
+            0,
+            13,
+            51,
+            0,
+            0
+          ],
+          "phy": [
+            54,
+            2979,
+            80,
+            54,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            272,
+            25254,
+            2565,
+            262,
+            3,
+            7,
+            0,
+            0
+          ],
+          "rx_age": [
+            1671,
+            3620796,
+            7892,
+            10,
+            542,
+            1119,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 94262946,
+          "mac_us": 94262950,
+          "print": [
+            76,
+            148514,
+            5076,
+            0,
+            15,
+            61,
+            0,
+            0
+          ],
+          "phy": [
+            65,
+            3573,
+            80,
+            65,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            325,
+            31129,
+            2565,
+            312,
+            4,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            1958,
+            4243241,
+            7892,
+            12,
+            639,
+            1307,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 109225136,
+          "mac_us": 109225140,
+          "print": [
+            89,
+            175384,
+            5076,
+            0,
+            16,
+            73,
+            0,
+            0
+          ],
+          "phy": [
+            76,
+            4170,
+            80,
+            76,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            381,
+            38011,
+            3075,
+            366,
+            4,
+            11,
+            0,
+            0
+          ],
+          "rx_age": [
+            2260,
+            4889885,
+            7892,
+            13,
+            728,
+            1519,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 124147565,
+          "mac_us": 124147572,
+          "print": [
+            101,
+            197983,
+            5076,
+            0,
+            18,
+            83,
+            0,
+            0
+          ],
+          "phy": [
+            86,
+            4729,
+            80,
+            86,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            434,
+            43734,
+            3075,
+            417,
+            4,
+            13,
+            0,
+            0
+          ],
+          "rx_age": [
+            2555,
+            5523886,
+            7892,
+            16,
+            829,
+            1710,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 139282624,
+          "mac_us": 139282631,
+          "print": [
+            113,
+            221806,
+            5076,
+            0,
+            20,
+            93,
+            0,
+            0
+          ],
+          "phy": [
+            97,
+            5360,
+            80,
+            97,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            486,
+            49509,
+            3075,
+            467,
+            4,
+            15,
+            0,
+            0
+          ],
+          "rx_age": [
+            2897,
+            6281982,
+            7892,
+            18,
+            924,
+            1955,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 154366525,
+          "mac_us": 154366528,
+          "print": [
+            125,
+            246182,
+            5076,
+            0,
+            21,
+            104,
+            0,
+            0
+          ],
+          "phy": [
+            107,
+            5924,
+            80,
+            107,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            539,
+            54666,
+            3075,
+            519,
+            4,
+            16,
+            0,
+            0
+          ],
+          "rx_age": [
+            3201,
+            6929390,
+            7892,
+            21,
+            1031,
+            2149,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1061,
+        "socket_packets": 1061,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "e6144bea873d203cc6a94a5ab9c6f30bba23e7cd6bc68ce5fbb0470f4e6e57fe",
+      "elf_sha256": "61cdbab5d2f50c216ed3a3bbd90df81ebb899368d1a5a101b5a847c29a16c536",
+      "serial_sha256": "cc98577432244d32e7ebdb107ec40b08817c3f4eda2838b5723f7df088152ce8"
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-prepared-80",
+      "fault_injection": false,
+      "preparation_us": [
+        935706
+      ],
+      "connection_us": [
+        51961,
+        33168,
+        40917,
+        55954,
+        33406,
+        36027,
+        138684,
+        31830,
+        41087,
+        30058
+      ],
+      "requested_cycles": 10,
+      "complete": true,
+      "failure": null,
+      "host": [
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "gateway": [
+        {
+          "cycle": 1,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 2,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 3,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 4,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 5,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 6,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 7,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 8,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 9,
+          "sent": 20,
+          "received": 20
+        },
+        {
+          "cycle": 10,
+          "sent": 20,
+          "received": 20
+        }
+      ],
+      "host_duplicates": 0,
+      "host_rtt_median_ms": 8.875,
+      "pmk_us_range": [
+        25,
+        29
+      ],
+      "deauth_reasons": [],
+      "handshake": [
+        {
+          "cycle": 1,
+          "phase": 10,
+          "phases_us": [
+            31,
+            3883,
+            3912,
+            3933,
+            25442,
+            29456,
+            34650,
+            35854,
+            37804,
+            45249,
+            51992
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 2,
+          "phase": 10,
+          "phases_us": [
+            38,
+            3764,
+            3792,
+            3813,
+            9527,
+            13777,
+            20769,
+            21976,
+            23805,
+            30923,
+            33206
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 3,
+          "phase": 10,
+          "phases_us": [
+            34,
+            3782,
+            3811,
+            3832,
+            13296,
+            21065,
+            26801,
+            28009,
+            31995,
+            39042,
+            40951
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 4,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3536,
+            3561,
+            3582,
+            11572,
+            18221,
+            30992,
+            32197,
+            34104,
+            48025,
+            55993
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 5,
+          "phase": 10,
+          "phases_us": [
+            37,
+            3341,
+            3366,
+            3387,
+            11645,
+            15839,
+            20845,
+            22052,
+            24277,
+            31553,
+            33443
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 6,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3734,
+            3759,
+            3780,
+            14462,
+            18611,
+            23701,
+            24905,
+            26716,
+            33922,
+            36066
+          ],
+          "queues": [
+            1,
+            2
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 7,
+          "phase": 10,
+          "phases_us": [
+            35,
+            3806,
+            3835,
+            3856,
+            115497,
+            120815,
+            125715,
+            126922,
+            129260,
+            136499,
+            138719
+          ],
+          "queues": [
+            1,
+            4
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 8,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3326,
+            3351,
+            3372,
+            8999,
+            13078,
+            18853,
+            20057,
+            21956,
+            29070,
+            31869
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 9,
+          "phase": 10,
+          "phases_us": [
+            35,
+            1306,
+            1333,
+            1354,
+            14681,
+            18654,
+            24706,
+            25913,
+            32147,
+            39215,
+            41122
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        },
+        {
+          "cycle": 10,
+          "phase": 10,
+          "phases_us": [
+            39,
+            3359,
+            3384,
+            3405,
+            8507,
+            12566,
+            17277,
+            18478,
+            20938,
+            27879,
+            30097
+          ],
+          "queues": [
+            1,
+            1
+          ],
+          "eapol_routed": 2,
+          "eapol_dropped": 0,
+          "route_failures": 0,
+          "events": 22
+        }
+      ],
+      "handshake_events": [],
+      "timing": [
+        {
+          "cycle": 1,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 19067427,
+          "mac_us": 19067438,
+          "print": [
+            15,
+            12091,
+            1853,
+            0,
+            13,
+            2,
+            0,
+            0
+          ],
+          "phy": [
+            10,
+            705,
+            71,
+            10,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            53,
+            4355,
+            1334,
+            51,
+            0,
+            2,
+            0,
+            0
+          ],
+          "rx_age": [
+            398,
+            909513,
+            5093,
+            0,
+            118,
+            280,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 2,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 34056962,
+          "mac_us": 34056976,
+          "print": [
+            27,
+            22570,
+            1921,
+            0,
+            22,
+            5,
+            0,
+            0
+          ],
+          "phy": [
+            21,
+            1483,
+            71,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            107,
+            8354,
+            1334,
+            102,
+            2,
+            3,
+            0,
+            0
+          ],
+          "rx_age": [
+            702,
+            1571297,
+            5093,
+            2,
+            212,
+            488,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 3,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 49010955,
+          "mac_us": 49010963,
+          "print": [
+            39,
+            31380,
+            1921,
+            0,
+            32,
+            7,
+            0,
+            0
+          ],
+          "phy": [
+            32,
+            2261,
+            73,
+            32,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            161,
+            12425,
+            1334,
+            154,
+            3,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            1003,
+            2253673,
+            5093,
+            2,
+            298,
+            703,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 4,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 63992937,
+          "mac_us": 63992942,
+          "print": [
+            52,
+            41251,
+            1921,
+            0,
+            43,
+            9,
+            0,
+            0
+          ],
+          "phy": [
+            42,
+            2968,
+            73,
+            42,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            214,
+            15121,
+            1334,
+            206,
+            4,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            1294,
+            2909302,
+            5093,
+            3,
+            378,
+            913,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 5,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 78951376,
+          "mac_us": 78951382,
+          "print": [
+            64,
+            50782,
+            1921,
+            0,
+            52,
+            12,
+            0,
+            0
+          ],
+          "phy": [
+            55,
+            3881,
+            73,
+            55,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            276,
+            18224,
+            1334,
+            267,
+            5,
+            4,
+            0,
+            0
+          ],
+          "rx_age": [
+            1626,
+            3646526,
+            5093,
+            3,
+            480,
+            1143,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 6,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 93953914,
+          "mac_us": 93953925,
+          "print": [
+            76,
+            60159,
+            1921,
+            0,
+            61,
+            15,
+            0,
+            0
+          ],
+          "phy": [
+            65,
+            4585,
+            73,
+            65,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            328,
+            22445,
+            1334,
+            316,
+            7,
+            5,
+            0,
+            0
+          ],
+          "rx_age": [
+            1933,
+            4318022,
+            5093,
+            4,
+            574,
+            1355,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 7,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 109026913,
+          "mac_us": 109026919,
+          "print": [
+            88,
+            69326,
+            1921,
+            0,
+            71,
+            17,
+            0,
+            0
+          ],
+          "phy": [
+            77,
+            5433,
+            73,
+            77,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            386,
+            25754,
+            1334,
+            373,
+            7,
+            6,
+            0,
+            0
+          ],
+          "rx_age": [
+            2251,
+            5009233,
+            7001,
+            5,
+            675,
+            1571,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 8,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 124021350,
+          "mac_us": 124021361,
+          "print": [
+            100,
+            78805,
+            1921,
+            0,
+            80,
+            20,
+            0,
+            0
+          ],
+          "phy": [
+            88,
+            6213,
+            73,
+            88,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            443,
+            30212,
+            1334,
+            428,
+            7,
+            8,
+            0,
+            0
+          ],
+          "rx_age": [
+            2547,
+            5667631,
+            7001,
+            5,
+            763,
+            1779,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 9,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 139046889,
+          "mac_us": 139046897,
+          "print": [
+            112,
+            87797,
+            1921,
+            0,
+            90,
+            22,
+            0,
+            0
+          ],
+          "phy": [
+            100,
+            7081,
+            90,
+            100,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            500,
+            33365,
+            1334,
+            484,
+            7,
+            9,
+            0,
+            0
+          ],
+          "rx_age": [
+            2891,
+            6424305,
+            7001,
+            6,
+            876,
+            2009,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 10,
+          "profile": "quiet",
+          "cpu_mhz": 80,
+          "sys_us": 154070331,
+          "mac_us": 154070347,
+          "print": [
+            124,
+            96914,
+            1921,
+            0,
+            100,
+            24,
+            0,
+            0
+          ],
+          "phy": [
+            111,
+            7870,
+            90,
+            111,
+            0,
+            0,
+            0,
+            0
+          ],
+          "tx_resume": [
+            555,
+            37167,
+            1334,
+            536,
+            9,
+            10,
+            0,
+            0
+          ],
+          "rx_age": [
+            3214,
+            7140716,
+            7001,
+            8,
+            974,
+            2232,
+            0,
+            0
+          ]
+        }
+      ],
+      "capture": {
+        "written_packets": 1035,
+        "socket_packets": 1035,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "image_sha256": "50d5f2e413f78bd536999a9ef200920b3df888484fb341d4b3190bf95df1174c",
+      "elf_sha256": "60c621f338c50547f01a60f99d9e23761ebacbfc1e64affc4cb451b57200ea5f",
+      "serial_sha256": "c2835d74dee2b34505087f262053c97e61a0e58156ecdea6cba6afc2beb8417c"
+    }
+  ],
+  "final_example_source_sha256": {
+    "Cargo.toml": "dd800b666624c0c2bd3bc05392cb0049c87beb7cebec6df648e615920710eb32",
+    "Cargo.lock": "e784876eab52eef423d15b61d0759dee8c480c9a35c900066383009d0d6bb8eb",
+    "src/bin/sta_smoke.rs": "588b48a53386d33a377f53b9ec65c764e340a7744c877289f056a84e53df57cc",
+    "src/timing_probe.rs": "5c428216510c58c912d4f109ae3b46543667fe2e5e606a06cd0fa662b27b8688"
+  },
+  "pinned_crossbuilds": [
+    {
+      "chip": "esp32s3",
+      "variant": "pinned-prepared-80",
+      "features": "esp32s3,handshake-probe",
+      "device_tested": true,
+      "files": {
+        "pinned-prepared-80-sta_smoke.elf": "61cdbab5d2f50c216ed3a3bbd90df81ebb899368d1a5a101b5a847c29a16c536",
+        "pinned-prepared-80-sta_smoke.map": "732d29c94f76b808a53e2a6e385d57e05147777d839ad6a3045736ce3e9c9eb8",
+        "pinned-prepared-80-sta_smoke.build.log": "f63836e27c234ca871864072baccdf1e92a65d63c736f1c085cb9aaeb9d8df1e",
+        "pinned-prepared-80-sta_smoke.Cargo.lock": "e784876eab52eef423d15b61d0759dee8c480c9a35c900066383009d0d6bb8eb"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-prepared-80",
+      "features": "esp32c3,handshake-probe",
+      "device_tested": true,
+      "files": {
+        "pinned-prepared-80-sta_smoke.elf": "60c621f338c50547f01a60f99d9e23761ebacbfc1e64affc4cb451b57200ea5f",
+        "pinned-prepared-80-sta_smoke.map": "d7eac3704f092d230ef941bf2205d8c680fdda0ae6d2760eaa8c2493658052b1",
+        "pinned-prepared-80-sta_smoke.build.log": "87a39e155eeae8bff646b8343344c3c1061fae2b4beecaec8910a95d8d9471cc",
+        "pinned-prepared-80-sta_smoke.Cargo.lock": "e784876eab52eef423d15b61d0759dee8c480c9a35c900066383009d0d6bb8eb"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "pinned-no-probe-80",
+      "features": "esp32c3,foa-smoke",
+      "device_tested": false,
+      "files": {
+        "pinned-no-probe-80-sta_smoke.elf": "5ec8683a3efa75e0c0da5cf63777c2de28dcf730ee10032ddc9a6c8cee7d5e76",
+        "pinned-no-probe-80-sta_smoke.map": "7ba3aa9361d15df3b19726f9d44165a3ade0aafa6ae0f0e524345e287c68ccc4",
+        "pinned-no-probe-80-sta_smoke.build.log": "c5ed4b4a7dec86f163259ed8d44d085dfacd533b41c55a074f6134d5b799232b",
+        "pinned-no-probe-80-sta_smoke.Cargo.lock": "e784876eab52eef423d15b61d0759dee8c480c9a35c900066383009d0d6bb8eb"
+      }
+    }
+  ],
+  "legacy_chip_checks": [
+    {
+      "chip": "esp32",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32-none-elf",
+        "--features",
+        "esp32,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    },
+    {
+      "chip": "esp32s2",
+      "command": [
+        "cargo",
+        "+esp",
+        "check",
+        "--locked",
+        "--release",
+        "--target",
+        "xtensa-esp32s2-none-elf",
+        "--features",
+        "esp32s2,foa-smoke",
+        "--bin",
+        "sta_smoke"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

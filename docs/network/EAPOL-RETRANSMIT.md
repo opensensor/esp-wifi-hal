@@ -5,7 +5,7 @@ four-way handshake returned, FoA discarded retransmitted message 3 frames. If th
 AP missed message 4, the station reported link-up but never answered those retries.
 The AP could then deauthenticate with reason 15, presenting as a DHCP timeout.
 
-The examples now pin FoA `bf89a5661682572416e5de3ce5f83ced86e571b4`.
+The trials below used FoA `bf89a5661682572416e5de3ce5f83ced86e571b4`.
 Its background handler authenticates M3 retries for the installed exchange and
 resends M4. It verifies framing, addresses/direction, MIC, nonce, increasing EAPOL
 replay counter and unchanged GTK/key ID. It does not reinstall keys or reset CCMP
@@ -65,8 +65,10 @@ wait through local M4 completion. These are software phase intervals, not on-air
 ACK/SIFS timings.
 
 The [console timing correction](RUST-TIMING.md) remains in place. This change does
-not alter CPU defaults, PHY cadence or timeouts. PMK caching and remaining
-handshake cases need their own measurements and validation.
+not alter CPU defaults, PHY cadence or timeouts. A subsequent
+[PSK preparation change](PSK-PREPARATION.md) moves the fixed network's derivation
+before radio startup and reuses that key on reconnect. Remaining handshake cases
+need their own measurements and validation.
 
 ## Reproduce and inspect
 
