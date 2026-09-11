@@ -61,7 +61,7 @@ required-features = ["phy-smoke"]
 phy-smoke = ["dep:esp-phy"]
 printf-smoke = ["dep:cc"]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net", "dep:smoltcp"]
-network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver"]
+network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver", "foa_sta/connection-trace"]
 
 esp32 = [
     "esp-wifi-hal/esp32",
@@ -111,9 +111,9 @@ overflow-checks = false
 # Published 0.2.0 radio baseline with printf built from reviewed MIT source.
 esp-wifi-sys-esp32c3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
 esp-wifi-sys-esp32s3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
-# TX queue ownership, generated station sequences and strict received CCMP packet numbers.
-foa = { git = "https://github.com/opensensor/FoA", rev = "39f44767178462e0c5e02aa8a8bd220c8cfd1bd3" }
-foa_sta = { git = "https://github.com/opensensor/FoA", rev = "39f44767178462e0c5e02aa8a8bd220c8cfd1bd3" }
+# TX ownership, station sequences/replay protection and optional connection diagnostics.
+foa = { git = "https://github.com/opensensor/FoA", rev = "ef17d9ff36e34d1867625fd9dc37c9626d824817" }
+foa_sta = { git = "https://github.com/opensensor/FoA", rev = "ef17d9ff36e34d1867625fd9dc37c9626d824817" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Keep transitive users on the reviewed PHY initialization adapter too.

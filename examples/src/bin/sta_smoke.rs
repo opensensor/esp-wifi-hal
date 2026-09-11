@@ -156,6 +156,12 @@ async fn main(spawner: Spawner) {
     info!("stage=clock bt_lpck={:x} rtc_q19={}",
         unsafe { (0x600c0024 as *const u32).read_volatile() },
         unsafe { (0x60008054 as *const u32).read_volatile() });
+    #[cfg(all(feature = "esp32s3", feature = "network-trace"))]
+    info!("stage=clock bt_lpck={:x} rtc_q19={} mac_q12={} mac_clock_enabled={}",
+        unsafe { (0x600c002c as *const u32).read_volatile() },
+        unsafe { (0x60008054 as *const u32).read_volatile() },
+        unsafe { (0x60035058 as *const u32).read_volatile() } & 0x3ffff,
+        unsafe { (0x60035024 as *const u32).read_volatile() } & (1 << 25) != 0);
     spawner.spawn(foa_task(runner).unwrap());
     let (mut control, runner, device) = foa_sta::new_sta_interface(
         mk_static!(VirtualInterface<'static>, vif),
