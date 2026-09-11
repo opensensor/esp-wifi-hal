@@ -74,16 +74,36 @@ require Rust 1.91 or newer; local validation used the installed `+esp` toolchain
 The published source then completed 50 reconnects on each board. Each returned
 999/1,000 host and 1,000/1,000 gateway echoes with zero evictions, expiries,
 duplicates or capture socket drops. The residual losses are C3 cycle 3,
-sequence 9 and S3 cycle 21, sequence 14. Neither cycle logged a TX failure,
-crypto/replay rejection or large timing stall. These are not explained by the
+sequence 9 and S3 cycle 21, sequence 14. Neither cycle logged a TX failure or
+crypto/replay rejection. The timing snapshots did not locate the missing frames. These are not explained by the
 ARP queue change, and the lossless station gate has **not** passed. Do not treat
 a successful reconnect or a passing repeat as erasing either loss.
 
 Further private observation records echo sequence masks at raw RX, VIF queue
 submission, network-buffer submission and the Ethernet adapter. Per-cycle
 counters identify the exact echo sequence if a VIF or network-buffer overflow
-rejects it; no packet content or identities are exported. That follow-up is
-still running. The machine-readable `reconnect-rx-validation.json` records every completed and failed trial, image/source hashes, queue counts,
+rejects it; no packet content or identities are exported. The follow-up completed 50 reconnects on each board:
+
+| Board / trial | Reconnects | Host replies | Gateway replies |
+| --- | ---: | ---: | ---: |
+| C3 normal, corrected source | 50 | 999/1,000 | 1,000/1,000 |
+| C3 with receive/echo observation | 50 | 1,000/1,000 | 1,000/1,000 |
+| S3 normal, corrected source | 50 | 999/1,000 | 1,000/1,000 |
+| S3 with receive/echo/restart observation | 50 | 1,000/1,000 | 1,000/1,000 |
+
+Both observed trials accounted for every host sequence at raw RX and at the
+Ethernet adapter, and every reply submitted back to the adapter. They had no
+VIF/network-buffer overflow, invalid header, checksum error, duplicate or
+capture socket drop. S3 never entered the exhausted-chain restart helper during
+this station trial; this counter excludes initial/empty-list setup. Normal
+accepted duplicate/replay rejection of unrelated traffic is not an echo loss.
+
+The two earlier normal-run losses remain unexplained. Instrumentation can change
+timing, and a clean observed repeat does not establish that they are fixed.
+The bounded validation is complete; the lossless normal-station gate remains
+open. Locating a recurrence without extra MCU instrumentation requires peer/AP
+or on-air evidence. No additional receive-queue scheduling change is justified
+by these observations alone. The machine-readable [`reconnect-rx-validation.json`](reconnect-rx-validation.json) records every completed and failed trial, image/source hashes, queue counts,
 reconnect totals and capture statistics. Private firmware, credentials, signing
 keys, serial logs and captures are not publication artifacts. Only the existing
 application slots are used: signed S3 at 0x20000 and C3 at 0x10000.
