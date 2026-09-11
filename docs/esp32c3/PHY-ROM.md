@@ -107,3 +107,8 @@ The remaining libphy input sections still supply RF setup, analog/RX/TX
 calibration, PLL/channel selection, temperature handling, gain tables and power
 tracking. Its installed AGC bodies remain part of that dependency. This work
 does not replace the entire PHY or claim sustained radio reliability.
+
+The [joint PHY inventory](../network/PHY-DEPENDENCIES.md) records the later
+station-image dependencies and next wrapper candidates. The hardware counts
+above remain the historical PHY-helper comparison, preceding the
+neighbor-response and FoA fixes.

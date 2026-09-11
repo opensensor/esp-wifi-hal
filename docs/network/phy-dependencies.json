@@ -1,0 +1,352 @@
+{
+  "schema": "station-phy-dependency-inventory-v1",
+  "scope": "Static allocated dependencies of two exact station ELFs; no new hardware result or RF implementation.",
+  "allocation_method": "Parse live linker input contributions; retain only ranges fully inside ELF SHF_ALLOC output sections. Exclude discarded/debug/non-allocated sections and linker padding. Sum code plus data, not symbol lengths; ROM is not included.",
+  "images": [
+    {
+      "chip": "esp32c3",
+      "artifact_label": "mac-retry-fixed-ten",
+      "validation_status_at_audit": "build_only_at_audit; dedicated device run pending",
+      "elf_sha256": "166e95834a7aecc5878cfb680958e60e52585fbdf319a7d77f9e242cef86bd71",
+      "map_sha256": "872b30569ef8a1065d774b6fff78c9e9f709ce5b0176c0478433ec78986cd7e1",
+      "libphy_crate": "esp-wifi-sys-esp32c3 0.2.0",
+      "libphy_archive_sha256": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+      "allocated_archives": {
+        "libphy.a": {
+          "bytes": 35605,
+          "input_sections": 167,
+          "members": {
+            "phy_api.o": 186,
+            "phy_init.o": 4815,
+            "phy_hw_freq.o": 3036,
+            "phy_feature.o": 764,
+            "phy_basic.o": 328,
+            "phy_tx_gain.o": 1980,
+            "phy_reg.o": 2664,
+            "phy_i2c.o": 2418,
+            "phy_analog_cal.o": 741,
+            "phy_pbus.o": 1090,
+            "phy_rfpll.o": 2064,
+            "phy_tsens.o": 578,
+            "phy_rx_gain.o": 2323,
+            "phy_rx_cal.o": 5402,
+            "phy_tx_cal.o": 5028,
+            "phy_track.o": 1230,
+            "phy_pwdet.o": 588,
+            "phy_debug.o": 370
+          }
+        },
+        "libprintf.a": {
+          "bytes": 4992,
+          "input_sections": 13,
+          "members": {
+            "printf.c.obj": 4992
+          }
+        }
+      },
+      "selected_symbols": {
+        "chip_v7_set_chan": {
+          "address": "0x4203f0ba",
+          "size_bytes": 224,
+          "type": "T"
+        },
+        "g_phyFuns": {
+          "address": "0x3fc9c934",
+          "size_bytes": 4,
+          "type": "B"
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203c7c6",
+          "size_bytes": 10,
+          "type": "T"
+        },
+        "phy_close_rf": {
+          "address": "0x40381594",
+          "size_bytes": 48,
+          "type": "T"
+        },
+        "phy_dig_reg_backup": {
+          "address": "0x403819f8",
+          "size_bytes": 8,
+          "type": "T"
+        },
+        "phy_get_romfunc_addr": {
+          "address": "0x4203cca6",
+          "size_bytes": 550,
+          "type": "T"
+        },
+        "phy_param": {
+          "address": "0x3fc83118",
+          "size_bytes": 848,
+          "type": "D"
+        },
+        "phy_wakeup_init": {
+          "address": "0x4038154c",
+          "size_bytes": 72,
+          "type": "T"
+        },
+        "phy_xpd_tsens": {
+          "address": "0x403815c4",
+          "size_bytes": 48,
+          "type": "T"
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cc2c",
+          "size_bytes": 122,
+          "type": "T"
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203d75a",
+          "size_bytes": 398,
+          "type": "T"
+        },
+        "rom1_disable_wifi_agc": {
+          "address": "0x40382108",
+          "size_bytes": 44,
+          "type": "T"
+        },
+        "rom1_enable_wifi_agc": {
+          "address": "0x40382134",
+          "size_bytes": 42,
+          "type": "T"
+        },
+        "tx_pwctrl_background": {
+          "address": "0x4203c7d6",
+          "size_bytes": 2,
+          "type": "T"
+        }
+      },
+      "resolved_rom_targets_lower_bound": {
+        "rom_wifi_agc_sat_gain": 1,
+        "rom_phy_ant_init": 1,
+        "rom_bt_filter_reg": 1,
+        "rom_bt_tx_dig_gain": 2,
+        "rom_phy_reg_init": 3,
+        "rom_set_chan_reg": 2,
+        "rom_phy_bbpll_cal": 5,
+        "ets_delay_us": 32,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_i2c_sar2_init_code": 1,
+        "rtc_get_reset_reason": 1,
+        "memcpy": 342,
+        "memset": 72,
+        "memcmp": 11,
+        "__udivdi3": 9,
+        "rom_i2c_writeReg": 5,
+        "esp_rom_regi2c_read": 1,
+        "ets_update_cpu_frequency": 1,
+        "__umoddi3": 2,
+        "memmove": 3,
+        "rom_wifi_track_tx_power": 1,
+        "phy_get_romfuncs": 1,
+        "chip726_phyrom_version_num": 1,
+        "rom_phy_param_addr": 1,
+        "__floatsidf": 6,
+        "__divdf3": 8,
+        "__subdf3": 9,
+        "__fixdfsi": 5,
+        "rom_set_tx_gain_mem": 2,
+        "__divdi3": 2,
+        "__nedf2": 2,
+        "__gtdf2": 5,
+        "__ltdf2": 9,
+        "__muldf3": 8,
+        "__adddf3": 8,
+        "__gedf2": 1,
+        "__fixunsdfsi": 1,
+        "__floatunsidf": 2,
+        "__ledf2": 1
+      },
+      "rom_audit_method": "Count resolved ROM addresses on objdump jal/jalr/j/jr instructions, including AUIPC/JALR pairs and compressed aliases.",
+      "rom_audit_limits": "Whole firmware static references, including runtime/math/printing; excludes unresolved indirect/table calls. Not dynamic call counts or a total PHY ROM dependency count."
+    },
+    {
+      "chip": "esp32s3",
+      "artifact_label": "sta-mac-sequence",
+      "validation_status_at_audit": "tested_station_image; ten-cycle trace and byte-identical A/B/A repeat",
+      "elf_sha256": "26834476784b4a9a63973c56bb38b9b9a4bea0eca10fb00044efa370b6f59ab1",
+      "map_sha256": "bc5de09324b194799b6560b5e63696ff5445839bc7c8880482d8f3a5870438f3",
+      "libphy_crate": "esp-wifi-sys-esp32s3 0.2.0",
+      "libphy_archive_sha256": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+      "allocated_archives": {
+        "libphy.a": {
+          "bytes": 33250,
+          "input_sections": 166,
+          "members": {
+            "phy_api.o": 179,
+            "phy_init.o": 4173,
+            "phy_hw_freq.o": 3122,
+            "phy_feature.o": 514,
+            "phy_basic.o": 395,
+            "phy_tx_gain.o": 1969,
+            "phy_reg.o": 3931,
+            "phy_i2c.o": 1985,
+            "phy_pbus.o": 972,
+            "phy_tsens.o": 585,
+            "phy_rx_gain.o": 2057,
+            "phy_rx_cal.o": 5459,
+            "phy_tx_cal.o": 3794,
+            "phy_debug.o": 306,
+            "phy_rfpll.o": 1876,
+            "phy_analog_cal.o": 633,
+            "phy_pwdet.o": 378,
+            "phy_track.o": 922
+          }
+        },
+        "libprintf.a": {
+          "bytes": 4738,
+          "input_sections": 19,
+          "members": {
+            "printf.c.obj": 4738
+          }
+        }
+      },
+      "selected_symbols": {
+        "chip_v7_set_chan": {
+          "address": "0x4203c3a0",
+          "size_bytes": 192,
+          "type": "T"
+        },
+        "g_phyFuns": {
+          "address": "0x3fca7204",
+          "size_bytes": 4,
+          "type": "B"
+        },
+        "phy_bbpll_en_usb": {
+          "address": "0x4203a164",
+          "size_bytes": 14,
+          "type": "T"
+        },
+        "phy_close_rf": {
+          "address": "0x4037a544",
+          "size_bytes": 8,
+          "type": "T"
+        },
+        "phy_dig_reg_backup": {
+          "address": "0x4037a8c4",
+          "size_bytes": 18,
+          "type": "T"
+        },
+        "phy_get_romfunc_addr": {
+          "address": "0x4203a22c",
+          "size_bytes": 203,
+          "type": "T"
+        },
+        "phy_param": {
+          "address": "0x3fc8d414",
+          "size_bytes": 740,
+          "type": "D"
+        },
+        "phy_wakeup_init": {
+          "address": "0x4037a510",
+          "size_bytes": 51,
+          "type": "T"
+        },
+        "phy_xpd_tsens": {
+          "address": "0x4037a550",
+          "size_bytes": 29,
+          "type": "T"
+        },
+        "ram_disable_wifi_agc": {
+          "address": "0x4037b3a0",
+          "size_bytes": 67,
+          "type": "T"
+        },
+        "ram_enable_wifi_agc": {
+          "address": "0x4037b3e8",
+          "size_bytes": 67,
+          "type": "T"
+        },
+        "ram_tx_pwctrl_background": {
+          "address": "0x42040864",
+          "size_bytes": 78,
+          "type": "T"
+        },
+        "register_chipv7_phy": {
+          "address": "0x4203aa64",
+          "size_bytes": 366,
+          "type": "T"
+        },
+        "tx_pwctrl_background": {
+          "address": "0x4203a174",
+          "size_bytes": 14,
+          "type": "T"
+        }
+      },
+      "resolved_rom_targets_lower_bound": {
+        "Cache_Resume_DCache": 1,
+        "Cache_Suspend_DCache": 1,
+        "__adddf3": 8,
+        "__divdf3": 8,
+        "__divdi3": 2,
+        "__fixdfsi": 5,
+        "__fixunsdfsi": 1,
+        "__floatsidf": 6,
+        "__floatunsidf": 2,
+        "__gedf2": 1,
+        "__gtdf2": 5,
+        "__ledf2": 1,
+        "__ltdf2": 8,
+        "__muldf3": 8,
+        "__nedf2": 2,
+        "__subdf3": 9,
+        "__udivdi3": 8,
+        "__umoddi3": 2,
+        "esp_rom_regi2c_read": 1,
+        "ets_delay_us": 33,
+        "ets_get_printf_channel": 1,
+        "ets_update_cpu_frequency": 1,
+        "memcmp": 9,
+        "memcpy": 309,
+        "memmove": 3,
+        "memset": 62,
+        "phy_get_romfuncs": 1,
+        "rom_config_data_cache_mode": 1,
+        "rom_config_instruction_cache_mode": 1,
+        "rom_i2c_writeReg": 5,
+        "rom_phy_dig_reg_backup": 1,
+        "rom_phy_freq_mem_backup": 1,
+        "rom_phy_param_addr": 1,
+        "rtc_get_reset_reason": 1,
+        "uart_tx_flush": 1,
+        "uart_tx_one_char": 1
+      },
+      "rom_audit_method": "Track exact l32r ROM literals to callx within straight-line code; clear at branches, calls and register writes.",
+      "rom_audit_limits": "Whole firmware static references, including runtime/math/printing; excludes unresolved indirect/table calls. Not dynamic call counts or a total PHY ROM dependency count."
+    }
+  ],
+  "removed_direct_controls": [
+    "Rust low-rate initialization helper",
+    "Rust direct-driver AGC disable/enable preserving ROM 0x6001c038 contract; internal libphy RAM callbacks remain at 0x6001c034"
+  ],
+  "highest_confidence_small_wrapper": {
+    "symbol": "tx_pwctrl_background",
+    "body": "Forwards two u8 arguments to ram_tx_pwctrl_background; C3 tail jump, S3 argument narrowing plus call/return.",
+    "c3_body_bytes": 2,
+    "s3_body_bytes": 14,
+    "remaining_dependency": "ram_tx_pwctrl_background and all temperature/power/PLL callbacks remain vendor code.",
+    "required_checks": [
+      "Original-instruction forwarding oracle and ABI check on each ISA",
+      "Same call count/order/arguments and unchanged scheduling",
+      "Map proves old wrapper input section removed while RAM callee retained",
+      "Dedicated same-configuration station/RX/teardown validation; no packet-loss claim from link or host checks"
+    ]
+  },
+  "other_candidates": [
+    {
+      "symbol": "phy_bbpll_en_usb",
+      "c3_parameter_byte_offset": "0x323",
+      "s3_parameter_byte_offset": "0x2a6",
+      "contract": "One byte store into vendor phy_param; requires pinning private chip-specific layout and integrating esp-phy call site; init/calibration remains vendor-owned."
+    },
+    {
+      "symbol": "S3 ffi::slowclk_cal_get",
+      "status": "Currently hardcoded 44462, including audited station ELF; IDF wrapper instead selects measured RTC Q19>>7 or XTAL Q12=4096.",
+      "s3_select_register": "0x600c002c",
+      "s3_xtal_select_bit": 26,
+      "s3_store1_register": "0x60008054",
+      "scope": "Source-level configuration fix candidate, not further blob removal. No causal claim for packet loss."
+    }
+  ]
+}

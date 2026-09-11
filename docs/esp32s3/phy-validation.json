@@ -109,7 +109,7 @@
           "phy_track.o": 922
         },
         "libprintf.a": {
-          "printf.c.obj": 11981
+          "printf.c.obj": 4742
         }
       },
       "low_rate_blob_symbol_present": true,
@@ -283,7 +283,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     },
     {
       "name": "source",
@@ -320,7 +321,7 @@
           "phy_track.o": 922
         },
         "libprintf.a": {
-          "printf.c.obj": 11981
+          "printf.c.obj": 4742
         }
       },
       "low_rate_blob_symbol_present": false,
@@ -504,7 +505,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     },
     {
       "name": "wifi-baseline",
@@ -603,7 +605,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     },
     {
       "name": "wifi-source",
@@ -719,7 +722,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     },
     {
       "name": "wifi-rom-contract",
@@ -817,7 +821,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     },
     {
       "name": "rom-contract",
@@ -854,7 +859,7 @@
           "phy_track.o": 922
         },
         "libprintf.a": {
-          "printf.c.obj": 11981
+          "printf.c.obj": 4742
         }
       },
       "low_rate_blob_symbol_present": false,
@@ -1038,7 +1043,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     },
     {
       "name": "wifi-final",
@@ -1136,7 +1142,8 @@
         "uart_tx_flush": 1,
         "uart_tx_one_char": 1
       },
-      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count."
+      "rom_audit_method": "Track exact ROM literal loads into callx registers within straight-line instruction sequences; discard tracking at control-flow boundaries and register writes. Excludes function-table calls and other unresolved paths; not a total call count.",
+      "allocation_method": "Input section ranges must be fully contained in an ELF output section with SHF_ALLOC. Excludes debug/non-allocated input, discarded sections and linker padding. Nonzero map addresses alone are insufficient."
     }
   ],
   "test_conditions": [
@@ -1152,5 +1159,34 @@
     "Five host PHY tests validate MMIO transactions, not analog behavior.",
     "PHY calibration/channel tuning/power tracking and internal RAM AGC still depend on vendor code; ROM dependencies remain.",
     "Only one S3 and one AP; no Bluetooth coexistence, full PHY teardown, all-rate RF or long-duration reliability coverage."
-  ]
+  ],
+  "allocation_correction": {
+    "reason": "The original address-threshold parser counted .debug_info offsets above 0x100000 as allocated memory. ELF section flags establish that these bytes are not loaded. PHY byte totals and hardware results are unchanged.",
+    "corrected_images": [
+      {
+        "image": "baseline",
+        "old_libprintf_bytes": 11981,
+        "corrected_libprintf_bytes": 4742,
+        "excluded_non_alloc_sections": {
+          ".debug_info": 7239
+        }
+      },
+      {
+        "image": "source",
+        "old_libprintf_bytes": 11981,
+        "corrected_libprintf_bytes": 4742,
+        "excluded_non_alloc_sections": {
+          ".debug_info": 7239
+        }
+      },
+      {
+        "image": "rom-contract",
+        "old_libprintf_bytes": 11981,
+        "corrected_libprintf_bytes": 4742,
+        "excluded_non_alloc_sections": {
+          ".debug_info": 7239
+        }
+      }
+    ]
+  }
 }

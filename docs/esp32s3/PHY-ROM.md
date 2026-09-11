@@ -89,7 +89,9 @@ instruction-trace tests also pass.
 The station comparison uses base `be22c0b` and the same ten-cycle FoA example,
 toolchain, credentials and secured S3. Only the PHY source and wiring differ.
 Linker allocation is counted after the map's `Linker script and memory map`
-boundary, excluding discarded input sections and address-zero entries.
+boundary. Each input contribution must fit in an ELF output section with
+`SHF_ALLOC`; discarded, debug and other non-allocated input sections are
+excluded. A nonzero map address alone does not establish allocation.
 
 | Station image | Allocated `libphy.a` input bytes | Allocated members | Direct ROM AGC call sites |
 | --- | --- | --- | --- |
@@ -99,10 +101,15 @@ boundary, excluding discarded input sections and address-zero entries.
 The original `phy_disable_low_rate` symbol is absent from the Rust-helper ELF.
 Its input section is discarded. The net archive allocation drops by 68 bytes,
 including linker relaxation differences; the old function body itself was
-56 bytes. Both images still allocate `libprintf.a` (11,981 bytes, one member)
+56 bytes. Both images still allocate `libprintf.a` (4,742 bytes, one member)
 and allocate no `libpp.a` code or data. ROM linker symbols may remain defined
 even without call sites; symbol existence alone is not a dependency count.
 The vendor RAM AGC pair is deliberately retained for internal PHY callers.
+
+The earlier 11,981-byte `libprintf.a` figure accidentally included a
+7,239-byte `.debug_info` contribution whose offset was nonzero. That section
+does not have `SHF_ALLOC` and is not loaded. The corrected allocation does not
+change the PHY byte totals, image hashes or hardware observations.
 
 The conservative disassembly audit resolves 36 distinct ROM entry targets in
 the final station image, including memory/math/runtime helpers, PHY table
@@ -125,3 +132,9 @@ Hardware results and image hashes are recorded in
 [`phy-validation.json`](phy-validation.json). Each image is signed with the
 board's existing key and written only at its app slot, `0x20000`. No bootloader,
 partition table, eFuse or flash-security settings are changed.
+
+For the later station-image dependency inventory, wrapper candidates and
+remaining S3 clock callback limitation, see
+[the joint PHY inventory](../network/PHY-DEPENDENCIES.md). The results above
+remain the historical PHY-helper comparison, preceding the neighbor-response
+and FoA fixes.
