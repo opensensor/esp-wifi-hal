@@ -1,0 +1,358 @@
+{
+  "schema": "phy-power-control-static-inventory-v1",
+  "scope": "Static reconstruction boundary only; no production PHY changes or new device validation. No proprietary object, firmware, calibration or packet bytes are included.",
+  "source_revision": "99e6617b7af6c126eaa7eb7b3c40dacc82de93e2",
+  "source_sha256": {
+    "esp-wifi-hal/src/phy_wrappers.rs": "09b5909ff93b68d81ccfaa09cdb4ac701fa8cdcd04235e2dc242b961139b620a",
+    "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+    "esp-wifi-hal/src/ffi.rs": "6dc5c5c59856b3bd447f064e44a8705be0493abecebe0e92a62ad8c4a2f78ad9",
+    "vendor/esp-phy/src/common_adapter.rs": "9f3f91bbe8f0619335fd615f6fc8abca05a73bb094f82c8179a52fc98df46d7a",
+    "vendor/esp-phy/phy_provides.x": "af6c47522aa9d264df9d72d57648b742285b0583d5d8b0763443018b423e45b3"
+  },
+  "chips": {
+    "esp32c3": {
+      "archive_sha256": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+      "member": "phy_track.o",
+      "member_sha256": "87e3d5a3aa1c7d226bb6e97ff2a258bb65ef9b5e47ffdd376946fc28614a2830",
+      "linked_elf_sha256": "58aa75c5c6f8b2c52fd9e10c2219a3a9b8412dd18cad469fd214ba87585aa87a",
+      "rom_reference_name": "esp32c3_rev3_rom.elf",
+      "rom_reference_sha256": "19ac22e08707df926fb0cf4c54795d4067b983fae8635f396ded173a6d78fc3c",
+      "symbols": {
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203cc1c",
+          "size_bytes": 122,
+          "instruction_bytes_sha256": "4d47b01515d8a81df4e3979bf6a3245330aabdac1925d0024a28b2367030e1c2"
+        },
+        "phy_param": {
+          "address": "0x3fc83118",
+          "size_bytes": 848
+        },
+        "g_phyFuns": {
+          "address": "0x3fc9c934",
+          "size_bytes": 4
+        },
+        "phy_get_romfunc_addr": {
+          "address": "0x4203cc9c",
+          "size_bytes": 550,
+          "instruction_bytes_sha256": "66579ea4811357869f230c3f1b550ea8b3823dff3e17a8e2a31899242e6753da"
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x4203f3ce",
+          "size_bytes": 20,
+          "instruction_bytes_sha256": "2840a19a86dc20e549077d1fb8aa8b50a2b10c7b90d44a0fe960eaedf466f687"
+        },
+        "ram2_rfpll_cap_track": {
+          "address": "0x4203ca46",
+          "size_bytes": 162,
+          "instruction_bytes_sha256": "010af5f81b424611d889b3d38a483b533df249e80b298f9c60f2c328f4ced85b"
+        },
+        "rfcal_track": {
+          "address": "0x4203cb7e",
+          "size_bytes": 158,
+          "instruction_bytes_sha256": "8293d0c1f40dc66435e4775b2f335a3621bcdc8693dfe84c41c35f804a91a8cb"
+        }
+      },
+      "original_rom_table_slots": {
+        "0x184": {
+          "address": "0x40038e52",
+          "symbol": "rom_enter_critical_phy"
+        },
+        "0x188": {
+          "address": "0x40038e56",
+          "symbol": "rom_exit_critical_phy"
+        },
+        "0x27c": {
+          "address": "0x4003b11c",
+          "symbol": "rom_tsens_temp_read"
+        }
+      },
+      "original_rom_table_size_bytes": 696,
+      "rom_table_scope": "Initial table from the named ROM ELF; live callback values were not read from a device. The vendor installer changes selected temperature/tracking slots.",
+      "contract": {
+        "valid_inputs": "Two C ABI unsigned bytes, each 0..255. Current driver passes (1, 0).",
+        "owned_state_writes": [],
+        "direct_mmio_accesses": [],
+        "enter_result": "Opaque 32-bit token forwarded unchanged to the exit callback on every normal path.",
+        "runtime_table_values_observed": false,
+        "source_replacement_implemented": false,
+        "analog_helpers_replaced": false,
+        "device_validation_performed_for_this_audit": false,
+        "argument_narrowing": "The dispatcher does not narrow its incoming registers; callers must honor the existing byte-valued ABI.",
+        "gate_reads_in_order": [
+          {
+            "offset": "0x320",
+            "width_bits": 8
+          },
+          {
+            "offset": "0x31f",
+            "width_bits": 8
+          }
+        ],
+        "skip_condition": "OR of the two byte reads is nonzero.",
+        "later_state_reads_in_order": [
+          {
+            "offset": "0x09c",
+            "width_bits": 8,
+            "condition": "Tracking gate open; after temperature and TX-power calls."
+          },
+          {
+            "offset": "0x09b",
+            "width_bits": 8,
+            "condition": "Byte at 0x09c nonzero; PLL call argument."
+          },
+          {
+            "offset": "0x216",
+            "width_bits": 8,
+            "condition": "Tracking gate open; after the optional PLL call."
+          },
+          {
+            "offset": "0x09b",
+            "width_bits": 8,
+            "condition": "Byte at 0x216 nonzero; read again for the RF-calibration call."
+          }
+        ],
+        "call_sequence": [
+          {
+            "kind": "indirect",
+            "table_offset": "0x184",
+            "purpose": "enter",
+            "args": [],
+            "condition": "always"
+          },
+          {
+            "kind": "direct",
+            "symbol": "rom1_tsens_temp_read",
+            "args": [],
+            "condition": "gate open"
+          },
+          {
+            "kind": "direct_rom",
+            "symbol": "rom_wifi_track_tx_power",
+            "address": "0x40001c2c",
+            "args": [
+              "input0",
+              "input1"
+            ],
+            "condition": "gate open"
+          },
+          {
+            "kind": "direct",
+            "symbol": "ram2_rfpll_cap_track",
+            "args": [
+              "read8(phy_param + 0x09b)"
+            ],
+            "condition": "gate open and read8(phy_param + 0x09c) != 0"
+          },
+          {
+            "kind": "direct",
+            "symbol": "rfcal_track",
+            "args": [
+              "fresh read8(phy_param + 0x09b)",
+              20
+            ],
+            "condition": "gate open and later read8(phy_param + 0x216) != 0"
+          },
+          {
+            "kind": "indirect_tail_call",
+            "table_offset": "0x188",
+            "purpose": "exit",
+            "args": [
+              "saved enter token"
+            ],
+            "condition": "always"
+          }
+        ],
+        "table_reload_sites": [
+          "enter",
+          "exit"
+        ],
+        "installer_changes_relevant_to_tracking": [
+          {
+            "table_offset": "0x27c",
+            "target": "rom1_tsens_temp_read",
+            "note": "Dispatcher calls this target directly, not through this slot."
+          }
+        ],
+        "named_critical_functions_called": false
+      }
+    },
+    "esp32s3": {
+      "archive_sha256": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+      "member": "phy_track.o",
+      "member_sha256": "9630df6f7ed58657baf296fb2f0b3f164acd7f0dc8d4fcf6d651266d44502b40",
+      "linked_elf_sha256": "5880e016e9e83f5eaab5204d371056b6e63c34bb199dee23f6874a96d3580f65",
+      "rom_reference_name": "esp32s3_rev0_rom.elf",
+      "rom_reference_sha256": "c0ce0f338d1de1bdc6efbef1591779a2a42c1ab7d759d3c6ae8ae63a7dd34cfd",
+      "symbols": {
+        "ram_tx_pwctrl_background": {
+          "address": "0x4203a3e4",
+          "size_bytes": 78,
+          "instruction_bytes_sha256": "833040ae5649709c378f9ea7d951996f6973575736cf07d22ce8a74127fb1447"
+        },
+        "phy_param": {
+          "address": "0x3fc8d414",
+          "size_bytes": 740
+        },
+        "g_phyFuns": {
+          "address": "0x3fca7204",
+          "size_bytes": 4
+        },
+        "phy_get_romfunc_addr": {
+          "address": "0x4203a548",
+          "size_bytes": 203,
+          "instruction_bytes_sha256": "e2311af0a94f218e2b71528228d9fdbc6cbed31e7892f33713e3d8071e29ad1e"
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x4203c974",
+          "size_bytes": 16,
+          "instruction_bytes_sha256": "3b05038c07e024b39c1596cf17b13924bc0f51b03ff41d804b0ae79d535b358a"
+        },
+        "ram_wifi_track_tx_power": {
+          "address": "0x4203a258",
+          "size_bytes": 24,
+          "instruction_bytes_sha256": "b10d53599e842db881ccf6993869533d924c3980df06e6ad295ca85a5b59245a"
+        },
+        "rfpll_cap_track": {
+          "address": "0x4203a348",
+          "size_bytes": 155,
+          "instruction_bytes_sha256": "1d4600991fbcea0a6190cd2a6e5b3186d186d254c88b41588abbb45285d57f3e"
+        },
+        "ram_txpwr_cal_track": {
+          "address": "0x4203a124",
+          "size_bytes": 282,
+          "instruction_bytes_sha256": "24ed7ee58a108e07711819736fff44327b0806d7982cad65b2a489f30a88c6e0"
+        }
+      },
+      "original_rom_table_slots": {
+        "0x160": {
+          "address": "0x40055bb8",
+          "symbol": "rom_enter_critical_phy"
+        },
+        "0x164": {
+          "address": "0x40055bc0",
+          "symbol": "rom_exit_critical_phy"
+        },
+        "0x258": {
+          "address": "0x400377a4",
+          "symbol": "rom_tsens_temp_read"
+        },
+        "0x28c": {
+          "address": "0x40037d8c",
+          "symbol": "rom_wifi_track_tx_power"
+        }
+      },
+      "original_rom_table_size_bytes": 660,
+      "rom_table_scope": "Initial table from the named ROM ELF; live callback values were not read from a device. The vendor installer changes selected temperature/tracking slots.",
+      "contract": {
+        "valid_inputs": "Two C ABI unsigned bytes, each 0..255. Current driver passes (1, 0).",
+        "owned_state_writes": [],
+        "direct_mmio_accesses": [],
+        "enter_result": "Opaque 32-bit token forwarded unchanged to the exit callback on every normal path.",
+        "runtime_table_values_observed": false,
+        "source_replacement_implemented": false,
+        "analog_helpers_replaced": false,
+        "device_validation_performed_for_this_audit": false,
+        "argument_narrowing": "Both incoming registers are narrowed to 8 bits before the enter call.",
+        "gate_reads_in_order": [
+          {
+            "offset": "0x2a0",
+            "width_bits": 32
+          }
+        ],
+        "skip_condition": "(word & 0xffff0000) != 0; lower 16 bits do not affect this decision.",
+        "later_state_reads_in_order": [
+          {
+            "offset": "0x09c",
+            "width_bits": 8,
+            "condition": "Tracking gate open; after temperature and TX-power calls."
+          },
+          {
+            "offset": "0x09b",
+            "width_bits": 8,
+            "condition": "Byte at 0x09c nonzero; PLL call argument."
+          }
+        ],
+        "call_sequence": [
+          {
+            "kind": "indirect",
+            "table_offset": "0x160",
+            "purpose": "enter",
+            "args": [],
+            "condition": "always"
+          },
+          {
+            "kind": "indirect",
+            "table_offset": "0x258",
+            "purpose": "temperature",
+            "args": [],
+            "condition": "gate open"
+          },
+          {
+            "kind": "indirect",
+            "table_offset": "0x28c",
+            "purpose": "TX-power tracking",
+            "args": [
+              "input0 & 0xff",
+              "input1 & 0xff"
+            ],
+            "condition": "gate open"
+          },
+          {
+            "kind": "direct",
+            "symbol": "rfpll_cap_track",
+            "args": [
+              "read8(phy_param + 0x09b)"
+            ],
+            "condition": "gate open and read8(phy_param + 0x09c) != 0"
+          },
+          {
+            "kind": "indirect",
+            "table_offset": "0x164",
+            "purpose": "exit",
+            "args": [
+              "saved enter token"
+            ],
+            "condition": "always"
+          }
+        ],
+        "table_reload_sites": [
+          "enter",
+          "temperature",
+          "TX-power tracking",
+          "exit"
+        ],
+        "installer_changes_relevant_to_tracking": [
+          {
+            "table_offset": "0x258",
+            "target": "ram_tsens_temp_read"
+          },
+          {
+            "table_offset": "0x28c",
+            "target": "ram_wifi_track_tx_power"
+          },
+          {
+            "table_offset": "0x268",
+            "target": "ram_txpwr_cal_track"
+          }
+        ],
+        "TX_callback_forwarding": "ram_wifi_track_tx_power narrows both inputs and calls table slot 0x268 with (0, input0, input1). Retain this callback and its callee.",
+        "named_critical_functions_called": false
+      }
+    }
+  },
+  "archive_provenance": {
+    "published_packages": [
+      "esp-wifi-sys-esp32c3 0.2.0",
+      "esp-wifi-sys-esp32s3 0.2.0"
+    ],
+    "current_sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+    "archive_path_in_package": "libs/libphy.a",
+    "retained_archive_identity": "Current Git sys revision retains the published libphy archives byte-for-byte."
+  },
+  "limitations": [
+    "Original instruction hashes identify linked function bytes and depend on image addresses/relocations. They are not archive-section hashes.",
+    "ROM table values are reference defaults only. Live table contents and runtime locking behavior are not established.",
+    "Selected dispatcher control flow has been inspected; retained analog helpers are not claimed fully reconstructed or replaced.",
+    "No total firmware-size reduction, packet-loss correction, RF equivalence or hardware success is claimed for the proposed next replacement."
+  ]
+}
