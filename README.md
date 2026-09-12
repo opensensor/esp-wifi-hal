@@ -63,10 +63,11 @@ C3/S3 RAM dispatch body while retaining its analog helpers and callback table.
 Its original-instruction comparisons, target checks and device report include
 the observed S3 RX-probe failure and intermittent host echo loss.
 
-The next [temperature-sensor milestone](docs/network/PHY-TEMPERATURE.md)
-records the current tested images' remaining PHY allocations and the C3/S3
-read/calibration boundaries to reconstruct. Temperature sensing remains vendor
-code; the document defines the required source, linker and device comparisons.
+Five C3/S3 [temperature measurement and DAC-range helpers](docs/network/PHY-TEMPERATURE-IMPLEMENTATION.md)
+now use Rust, with original-instruction tests and linker checks for all callers.
+The [device comparison](docs/network/PHY-TEMPERATURE-VALIDATION.md) records
+initialization, wakeup, RX recovery and WPA2 traffic. Sensor initialization,
+analog conversion and the remaining PHY dependencies still use vendor code.
 
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and

@@ -1,4 +1,13 @@
-# Next PHY milestone: temperature sensing on C3 and S3
+# Temperature reconstruction boundary on C3 and S3
+
+The five-function boundary below is now
+[implemented in Rust](PHY-TEMPERATURE-IMPLEMENTATION.md). The
+[device comparison](PHY-TEMPERATURE-VALIDATION.md) records the tested images,
+remaining allocations and observed retries. The baseline and proposal below
+remain the evidence used to choose this boundary; the complete sensor member
+and the wider PHY are still only partially reconstructed.
+
+## Original proposal
 
 The next source replacement targets the temperature-sensor path behind the
 [open tracking dispatcher](PHY-DISPATCHER.md). This is a static inventory and

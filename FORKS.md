@@ -44,6 +44,9 @@ The report records router-originated C3/S3 validation and broadcast gaps.
 The driver also restores [Retry flags after MAC failures](docs/network/MAC-RETRIES.md).
 The [PHY and ROM inventory](docs/network/PHY-DEPENDENCIES.md) records the remaining
 vendor code separately from the replaced MAC and PHY register helpers.
+The [temperature source milestone](docs/network/PHY-TEMPERATURE-IMPLEMENTATION.md)
+adds five Rust helpers per chip and verifies that their original allocated
+bodies disappear, while retaining the analog helpers and calibration policy.
 
 Other companion forks begin with their upstream code and our fork policy.
 The example still uses the locked published esp-hal dependency. The bindings
