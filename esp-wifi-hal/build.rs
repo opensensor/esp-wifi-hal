@@ -42,4 +42,41 @@ fn main() {
     for item in meta {
         println!("cargo:rustc-cfg={item}");
     }
+
+    if cfg!(any(feature = "esp32c3", feature = "esp32s3")) {
+        // Strong assignments redirect same-object calls as well as external
+        // references and installed callbacks. --wrap only handles undefined
+        // references, leaving C3 get_temp_init's vendor reader active.
+        // As in esp-phy, an archive-named linker script propagates to consumers.
+        let out = std::path::PathBuf::from(std::env::var_os("OUT_DIR").unwrap());
+        let names = if cfg!(feature = "esp32c3") {
+            [
+                "tsens_dac_to_index",
+                "tsens_dac_cal1",
+                "tsens_temp_read1",
+                "phy_get_tsens_value",
+                "rom1_tsens_temp_read",
+            ]
+        } else {
+            [
+                "tsens_dac_to_index",
+                "tsens_dac_cal_new",
+                "ram_tsens_temp_read_new",
+                "phy_get_tsens_value",
+                "ram_tsens_temp_read",
+            ]
+        };
+        let mut script = String::new();
+        for (original, suffix) in names
+            .into_iter()
+            .zip(["decode", "range", "inner", "forward", "outer"])
+        {
+            script.push_str(&format!(
+                "EXTERN(__opensensor_tsens_{suffix});\n{original} = __opensensor_tsens_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-temperature.a"), script).unwrap();
+        println!("cargo:rustc-link-search={}", out.display());
+        println!("cargo:rustc-link-lib=esp-wifi-hal-temperature");
+    }
 }
