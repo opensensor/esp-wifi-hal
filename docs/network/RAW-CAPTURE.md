@@ -1,7 +1,7 @@
 # Independent C3 capture of the S3 station
 
-The C3 receiver now captures the S3's WPA2 handshake and encrypted management/
-data exchange, with asynchronous USB transport and explicit loss counters.
+The C3 receiver now captures the S3's WPA2 handshake and encrypted data,
+with asynchronous USB transport and explicit loss counters.
 The [Rust example and host tools](tools/raw-capture/README.md) are included.
 The production S3 station code is unchanged. This milestone supplies a measured
 observation path; it does not explain or fix the two earlier isolated losses.
@@ -22,6 +22,46 @@ USB CRC errors, sequence gaps, queue drops or oversize records. Handshakes and
 retry frames are retained privately; counting a retry twice cannot inflate
 coverage. Detailed counts and hashes are in
 [`raw-capture-validation.json`](raw-capture-validation.json).
+
+The fresh fifty-reconnect trial also completed: **1,000/1,000 host echoes and
+1,000/1,000 gateway echoes**, using the byte-identical earlier `burst32-final`
+signed S3 image. Both AP radio interfaces captured all 1,000 host requests and
+replies. The C3 produced decrypted matches for 990 requests and 998 replies,
+with 5,244 frame records and zero USB corruption, sequence gaps, queue drops or
+oversize records. Its ten missing request matches include the first request
+before station selection; other gaps occur after selection. These are gaps in
+independent observation, not lost pings. The per-cycle list is retained so
+clean USB transport cannot be mistaken for complete radio coverage.
+
+The published Python recorder was separately exercised on the physical C3
+native USB port for a bounded twenty-second run after the paired trial: five
+frame records, a valid final marker, and zero transport errors. Host checks
+cover fragmented serial input, CRC recovery, missing records, terminal markers,
+counter consistency and MPDU preservation; OpenSensor CI `34704824757` passed.
+
+## A captured one-second ARP delay
+
+Cycle 42 retained five pending responses with a maximum queue wait of 1,007 ms.
+All were dispatched, with no eviction or expiry. The first echo's host RTT was
+1,025.24 ms; the next four replies arrived together after waits of approximately
+821, 614, 411 and 202 ms. Later echoes returned normally.
+
+The first S3 ARP request appears about 12 ms after the first echo on both AP
+radio captures, and about 6 ms after it on the C3 capture. The host capture has
+no matching first ARP request. It sees the next request about 1,014 ms after
+the echo and responds immediately. AP captures show the repeated request about
+996 ms after the first. Each relative timeline is anchored by the same complete
+echo identity; absolute clocks are not compared.
+
+This locates the observed stall between the AP's forwarding observations and
+host reception, rather than a second spent preparing the S3's first ARP request.
+The existing response queue preserved the burst during that delay. The evidence
+does not distinguish AP driver/firmware delivery, the 6-GHz radio link, or host
+receive processing. Neither the first Ethernet observation nor the C3 capture
+proves a successful on-air ACK on the host link. This event does not explain the
+two older isolated losses.
+
+## Topology and interrupted trials
 
 The host is connected over 6-GHz Wi-Fi through AP `eth9`; the S3 uses 2.4 GHz,
 channel 3, through `eth10`. Both are captured, plus `br0`. Earlier references

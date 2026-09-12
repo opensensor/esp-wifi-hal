@@ -64,6 +64,82 @@
         "running": 0
       },
       "receiver_image_sha256": "13c063ec80f9f95d386c08d19b694e85ce88dca2a78ced37390738f6e726c2c0",
+      "host_capture_counters": {
+        "written_packets": 249,
+        "socket_packets": 249,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "ap_capture_counters": {
+        "eth9": {
+          "written": 84,
+          "socket_packets": 84,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            1,
+            0,
+            41,
+            42,
+            0,
+            0,
+            0
+          ]
+        },
+        "eth10": {
+          "written": 84,
+          "socket_packets": 84,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            1,
+            0,
+            41,
+            42,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 2,
+          "socket_packets": 2,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "neighbor_counters_final": {
+        "enqueued": 1,
+        "dispatched": 1,
+        "evicted": 0,
+        "expired": 0,
+        "cleared": 0,
+        "oversized": 0,
+        "no_route": 0,
+        "max_depth": 1,
+        "max_wait_ms": 8,
+        "arp_requests": 1,
+        "neighbor_solicitations": 0,
+        "rate_limited": 0,
+        "neighbor_updates": 4,
+        "pending_retries": 0,
+        "tx_capacity_blocked": 0
+      },
       "raw_sha256": "03a578d3cb522ea80220179c8a6122e85202f46e95bc02dce7edb3cc31ff2b82",
       "capture_sha256": {
         "raw-filter-check-v1.pcap": "cad609147e34d2c14e622d0559049512a53a00c27421da5ebac4a203e0e6d142",
@@ -75,153 +151,1472 @@
       "per_cycle": [
         {
           "cycle": 1,
-          "requests": 20,
-          "replies": 20,
+          "host_requests": 20,
+          "host_replies": 20,
           "coverage": {
             "radio": {
               "requests": 19,
-              "replies": 19,
-              "missing_request_sequences": [
-                1
-              ],
-              "missing_reply_sequences": [
-                1
-              ]
+              "replies": 19
             },
             "eth9": {
               "requests": 20,
-              "replies": 20,
-              "missing_request_sequences": [],
-              "missing_reply_sequences": []
+              "replies": 20
             },
             "br0": {
               "requests": 0,
-              "replies": 0,
-              "missing_request_sequences": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20
-              ],
-              "missing_reply_sequences": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20
-              ]
+              "replies": 0
             },
             "eth10": {
               "requests": 20,
-              "replies": 20,
-              "missing_request_sequences": [],
-              "missing_reply_sequences": []
+              "replies": 20
             }
-          }
+          },
+          "radio_missing_requests": [
+            1
+          ],
+          "radio_missing_replies": [
+            1
+          ]
         },
         {
           "cycle": 2,
-          "requests": 20,
-          "replies": 20,
+          "host_requests": 20,
+          "host_replies": 20,
           "coverage": {
             "radio": {
               "requests": 20,
-              "replies": 20,
-              "missing_request_sequences": [],
-              "missing_reply_sequences": []
+              "replies": 20
             },
             "eth9": {
               "requests": 20,
-              "replies": 20,
-              "missing_request_sequences": [],
-              "missing_reply_sequences": []
+              "replies": 20
             },
             "br0": {
               "requests": 0,
-              "replies": 0,
-              "missing_request_sequences": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20
-              ],
-              "missing_reply_sequences": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20
-              ]
+              "replies": 0
             },
             "eth10": {
               "requests": 20,
-              "replies": 20,
-              "missing_request_sequences": [],
-              "missing_reply_sequences": []
+              "replies": 20
             }
-          }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        }
+      ]
+    },
+    {
+      "label": "raw-normal-50-v3",
+      "complete": true,
+      "cycles": 50,
+      "station_image_sha256": "486e053e38a04fa688624d512eabba12682dbbcc6e0ab1cebe9bd8c1e21b1e33",
+      "host_sent": 1000,
+      "host_received": 1000,
+      "gateway_sent": 1000,
+      "gateway_received": 1000,
+      "capture_coverage": {
+        "radio": {
+          "requests": 990,
+          "replies": 998
+        },
+        "eth9": {
+          "requests": 1000,
+          "replies": 1000
+        },
+        "br0": {
+          "requests": 0,
+          "replies": 0
+        },
+        "eth10": {
+          "requests": 1000,
+          "replies": 1000
+        }
+      },
+      "decrypted_echo_frames": 4015,
+      "decrypted_retry_frames": 127,
+      "radio_unique_echoes": 2028,
+      "transport_counters": {
+        "records": 6018,
+        "frames": 5244,
+        "prefix_bytes": 1523,
+        "corrupt_bytes": 0,
+        "crc_errors": 0,
+        "sequence_gaps": 0,
+        "sequence_regressions": 0,
+        "records_after_end": 0
+      },
+      "firmware_counters": {
+        "seen": 866965,
+        "selected": 5244,
+        "enqueued": 5244,
+        "queue_dropped": 0,
+        "oversize": 0,
+        "status_dropped": 0,
+        "bad_commands": 0,
+        "generation": 4,
+        "bssid_set": 1,
+        "station_set": 1,
+        "running": 0
+      },
+      "receiver_image_sha256": "fb70d860f2833220f2b4f751192f8c878f86bd345f7a7c94d89477fccf810741",
+      "host_capture_counters": {
+        "written_packets": 4452,
+        "socket_packets": 4452,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "ap_capture_counters": {
+        "eth9": {
+          "written": 2145,
+          "socket_packets": 2145,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            1,
+            0,
+            1065,
+            1079,
+            0,
+            0,
+            0
+          ]
+        },
+        "eth10": {
+          "written": 2133,
+          "socket_packets": 2133,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            50,
+            0,
+            1017,
+            1066,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 63,
+          "socket_packets": 63,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            51,
+            0,
+            0,
+            12,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "neighbor_counters_final": {
+        "enqueued": 53,
+        "dispatched": 53,
+        "evicted": 0,
+        "expired": 0,
+        "cleared": 0,
+        "oversized": 0,
+        "no_route": 0,
+        "max_depth": 5,
+        "max_wait_ms": 1007,
+        "arp_requests": 50,
+        "neighbor_solicitations": 0,
+        "rate_limited": 4,
+        "neighbor_updates": 116,
+        "pending_retries": 1,
+        "tx_capacity_blocked": 1
+      },
+      "raw_sha256": "b630aeefb65f3b24ed11896196840967ad99c1829171b70214bd63147e90d8a5",
+      "capture_sha256": {
+        "raw-normal-50-v3.pcap": "f50a71c10cc25ff7a16b2fe606ba24653e3143f4de186e6441bd20ccd052a680",
+        "radio.pcap": "9dd5bbe662f5fda325b1d77b6e982bac626b4207f010144008602b0542f7d2f4",
+        "eth9.pcap": "a5b716b666f2ba2d9d7a9fa4da38f476e180cea947140469ef71bd331545b6d0",
+        "br0.pcap": "1dbc93a1940446ef20c2d0f9794a1ba478f69959e59583bf3f3f6ba6380ceaf9",
+        "eth10.pcap": "2b114170eebb45baf9c74cc5d2b1c5792ebd596dc5f8bc3dc7f88067cbbe27ef"
+      },
+      "per_cycle": [
+        {
+          "cycle": 1,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            1
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 2,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 3,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 4,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 5,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            11
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 6,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 7,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 8,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 9,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 10,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 19
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            6
+          ],
+          "radio_missing_replies": [
+            12
+          ]
+        },
+        {
+          "cycle": 11,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 19
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": [
+            17
+          ]
+        },
+        {
+          "cycle": 12,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 13,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 14,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 15,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 16,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 17,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            9
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 18,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 19,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 20,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            2
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 21,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            7
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 22,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 23,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            8
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 24,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 25,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 26,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 27,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 28,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 29,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 30,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 31,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 32,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 33,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 34,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 35,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 36,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            19
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 37,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 38,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 39,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 40,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 41,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 42,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 43,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            12
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 44,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [
+            16
+          ],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 45,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 46,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 47,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 48,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 49,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
+        },
+        {
+          "cycle": 50,
+          "host_requests": 20,
+          "host_replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20
+            }
+          },
+          "radio_missing_requests": [],
+          "radio_missing_replies": []
         }
       ]
     }
@@ -246,5 +1641,252 @@
     "Independent reception does not prove reception by the AP/station. Control/ACK frames are not captured.",
     "A passing repeat with unchanged station firmware does not explain the earlier isolated losses.",
     "PCAP delivery timestamps are not synchronized RF timestamps. Correlation uses echo identities and entire payload hashes."
-  ]
+  ],
+  "natural_arp_delay": {
+    "cycle": 42,
+    "echo_timings": [
+      {
+        "sequence": 1,
+        "send_ms": 0.0,
+        "rtt_ms": 1025.24
+      },
+      {
+        "sequence": 2,
+        "send_ms": 206.09,
+        "rtt_ms": 821.16
+      },
+      {
+        "sequence": 3,
+        "send_ms": 415.09,
+        "rtt_ms": 614.31
+      },
+      {
+        "sequence": 4,
+        "send_ms": 622.1,
+        "rtt_ms": 411.18
+      },
+      {
+        "sequence": 5,
+        "send_ms": 831.07,
+        "rtt_ms": 202.22
+      },
+      {
+        "sequence": 6,
+        "send_ms": 1033.3,
+        "rtt_ms": 14.36
+      },
+      {
+        "sequence": 7,
+        "send_ms": 1233.92,
+        "rtt_ms": 14.03
+      },
+      {
+        "sequence": 8,
+        "send_ms": 1434.08,
+        "rtt_ms": 30.01
+      },
+      {
+        "sequence": 9,
+        "send_ms": 1634.32,
+        "rtt_ms": 31.76
+      },
+      {
+        "sequence": 10,
+        "send_ms": 1835.31,
+        "rtt_ms": 10.79
+      },
+      {
+        "sequence": 11,
+        "send_ms": 2036.37,
+        "rtt_ms": 12.38
+      },
+      {
+        "sequence": 12,
+        "send_ms": 2237.04,
+        "rtt_ms": 7.46
+      },
+      {
+        "sequence": 13,
+        "send_ms": 2437.75,
+        "rtt_ms": 20.97
+      },
+      {
+        "sequence": 14,
+        "send_ms": 2637.96,
+        "rtt_ms": 8.94
+      },
+      {
+        "sequence": 15,
+        "send_ms": 2839.1,
+        "rtt_ms": 8.0
+      },
+      {
+        "sequence": 16,
+        "send_ms": 3039.38,
+        "rtt_ms": 8.31
+      },
+      {
+        "sequence": 17,
+        "send_ms": 3239.96,
+        "rtt_ms": 8.05
+      },
+      {
+        "sequence": 18,
+        "send_ms": 3440.11,
+        "rtt_ms": 14.01
+      },
+      {
+        "sequence": 19,
+        "send_ms": 3640.39,
+        "rtt_ms": 7.53
+      },
+      {
+        "sequence": 20,
+        "send_ms": 3841.2,
+        "rtt_ms": 7.29
+      }
+    ],
+    "arp_events_relative_to_first_echo_request": {
+      "host": [
+        {
+          "ms": 1013.79,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1013.84,
+          "opcode": 2,
+          "sender": "host",
+          "target": "station"
+        }
+      ],
+      "eth9": [
+        {
+          "ms": 11.72,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1007.64,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1012.56,
+          "opcode": 2,
+          "sender": "host",
+          "target": "station"
+        }
+      ],
+      "eth10": [
+        {
+          "ms": 11.67,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1007.57,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1012.54,
+          "opcode": 2,
+          "sender": "host",
+          "target": "station"
+        }
+      ],
+      "radio": [
+        {
+          "ms": 5.55,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 32.34,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1001.5,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        },
+        {
+          "ms": 1006.98,
+          "opcode": 2,
+          "sender": "host",
+          "target": "station"
+        },
+        {
+          "ms": 1055.87,
+          "opcode": 1,
+          "sender": "station",
+          "target": "host"
+        }
+      ]
+    },
+    "interpretation": "All echoes returned. Relative times are local to each capture, anchored by the same complete first-echo identity."
+  },
+  "receiver_source_evidence": {
+    "receiver_source_sha256": {
+      "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+      "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e"
+    },
+    "receiver_elf_sha256": "ac1137329bb969da6afd99c6a19e251de973a9b0caefed560a0a4bf1076d136c",
+    "published_commit": "52b1675cacf41af36d3f4541de70bf64ad72838b"
+  },
+  "published_recorder_hardware_test": {
+    "transport": {
+      "records": 26,
+      "frames": 5,
+      "prefix_bytes": 1410,
+      "corrupt_bytes": 0,
+      "crc_errors": 0,
+      "sequence_gaps": 0,
+      "sequence_regressions": 0,
+      "records_after_end": 0
+    },
+    "final": {
+      "seen": 23226,
+      "selected": 5,
+      "enqueued": 5,
+      "queue_dropped": 0,
+      "oversize": 0,
+      "status_dropped": 0,
+      "bad_commands": 0,
+      "generation": 2,
+      "bssid_set": 1,
+      "station_set": 0,
+      "running": 0
+    },
+    "last_status": {
+      "seen": 23226,
+      "selected": 5,
+      "enqueued": 5,
+      "queue_dropped": 0,
+      "oversize": 0,
+      "status_dropped": 0,
+      "bad_commands": 0,
+      "generation": 2,
+      "bssid_set": 1,
+      "station_set": 0,
+      "running": 0
+    },
+    "transport_complete": true,
+    "error": null,
+    "seconds": 20.145,
+    "trailing_bytes": 0,
+    "limitation": "USB completeness does not prove RF/DMA coverage or an 802.11 ACK.",
+    "stream_sha256": "5367d7c13ef700b82f93b315d0033ded53d098904f998eb2795f05dcefe8c41b",
+    "radio_sha256": "77110a20b8086a8457001b87d7252d609ef51d1a2c4a2b7ab87808a08ed799f4"
+  }
 }
