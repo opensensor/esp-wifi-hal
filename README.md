@@ -45,7 +45,7 @@ Further work replaces direct AGC and low-rate PHY helpers in Rust on both chips
 and uses measured C3 slow-clock calibration. RF initialization/calibration,
 channel tuning, power tracking and internal PHY ROM dependencies remain external;
 see the [C3](docs/esp32c3/PHY-ROM.md) and [S3](docs/esp32s3/PHY-ROM.md) inventories.
-The [current dependency audit](docs/network/PHY-DEPENDENCIES.md) records exact
+The [original dependency audit](docs/network/PHY-DEPENDENCIES.md) records exact
 allocated archive sizes and distinguishes direct ROM calls from installed RAM
 callbacks.
 
@@ -58,10 +58,15 @@ archives retain the published 0.2.0 baseline. See the
 for the remaining allocations, formatter ABI, RX recovery, PHY lifetime and
 station results. RF initialization and calibration are still vendor code.
 
-The next [source PHY dispatcher](docs/network/PHY-DISPATCHER.md) replaces the
+The [source PHY dispatcher](docs/network/PHY-DISPATCHER.md) replaces the
 C3/S3 RAM dispatch body while retaining its analog helpers and callback table.
 Its original-instruction comparisons, target checks and device report include
 the observed S3 RX-probe failure and intermittent host echo loss.
+
+The next [temperature-sensor milestone](docs/network/PHY-TEMPERATURE.md)
+records the current tested images' remaining PHY allocations and the C3/S3
+read/calibration boundaries to reconstruct. Temperature sensing remains vendor
+code; the document defines the required source, linker and device comparisons.
 
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and

@@ -6,6 +6,10 @@ candidates and builds printf from source; it records the resulting allocations
 and device tests separately. The remaining RF/ROM dependency analysis still
 applies.
 
+The later [dispatcher](PHY-DISPATCHER.md) is also implemented. For the current
+tested-image allocation audit and the next temperature-sensor boundary, see
+[PHY-TEMPERATURE.md](PHY-TEMPERATURE.md). The candidate list below is historical.
+
 The station driver has replaced the selected MAC member, low-rate PHY helper
 and its direct AGC calls. It still depends on vendor PHY initialization,
 calibration, channel selection and power tracking. This inventory distinguishes

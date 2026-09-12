@@ -1,0 +1,398 @@
+{
+  "schema": "phy-temperature-baseline-v1",
+  "status": "static inventory and implementation plan; no temperature replacement or new hardware trial",
+  "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+  "baseline_device_report": "gtk-rekey-validation.json",
+  "chips": {
+    "esp32c3": {
+      "label": "gtk-normal-v1-sta_smoke",
+      "elf_sha256": "ea2242cbf581d11a4f7d64ca5747c5b79e0318062253cd9c872fd0b0e02a8542",
+      "map_sha256": "2bce69832839260021d6327a79b91c1d549ead0c5ea6947d65d0bae924dbd7ce",
+      "method": "Live archive input ranges wholly inside one ELF SHF_ALLOC output section; includes COMMON, excludes discarded/debug/nonallocated inputs and linker padding. Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ],
+      "allocations": {
+        "libphy.a": {
+          "bytes": 35471,
+          "input_sections": 164,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 741,
+            "phy_api.o": 174,
+            "phy_basic.o": 328,
+            "phy_debug.o": 370,
+            "phy_feature.o": 764,
+            "phy_hw_freq.o": 3036,
+            "phy_i2c.o": 2418,
+            "phy_init.o": 4815,
+            "phy_pbus.o": 1090,
+            "phy_pwdet.o": 588,
+            "phy_reg.o": 2664,
+            "phy_rfpll.o": 2064,
+            "phy_rx_cal.o": 5402,
+            "phy_rx_gain.o": 2323,
+            "phy_track.o": 1108,
+            "phy_tsens.o": 578,
+            "phy_tx_cal.o": 5028,
+            "phy_tx_gain.o": 1980
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 5700,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 5700
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_functions": {
+        "tsens_dac_to_index": {
+          "address": "0x4203e610",
+          "body_bytes": 48,
+          "body_sha256": "5813e097404d1ed164c95785dbbe8e3e65dd589fd6adf466dc652292f56a12b5"
+        },
+        "phy_get_tsens_value": {
+          "address": "0x4203e726",
+          "body_bytes": 2,
+          "body_sha256": "4e19eb4ed0ca11cd575427785a9417195b88c70e2b5b6027251671cc63b1ce86"
+        },
+        "phy_set_tsens_power": {
+          "address": "0x4203e598",
+          "body_bytes": 28,
+          "body_sha256": "fa060c782bd07d39c86898fd0c8e240057df454708d6dbcdd785e570ae01fb19"
+        },
+        "phy_xpd_tsens": {
+          "address": "0x403815c4",
+          "body_bytes": 48,
+          "body_sha256": "5e2bf52832ae7800f0f0fadfb7deea82344b526a9561569f973429b035771668"
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x4203e728",
+          "body_bytes": 20,
+          "body_sha256": "c0f2c3ee5cbf3d3c79537bcf984405911ae19db19633a532f1644e9c5541ae1f"
+        },
+        "tsens_temp_read1": {
+          "address": "0x4203e6b8",
+          "body_bytes": 110,
+          "body_sha256": "2959170b0a1a72ecf28b5f02da5fb6dc57d1875e5983f89458843294bbb7abb9"
+        },
+        "tsens_dac_cal1": {
+          "address": "0x4203e640",
+          "body_bytes": 120,
+          "body_sha256": "19d9b826d839c0ff9f9f89f3329187c478d719504f2e89bd8d876963b9c0875c"
+        },
+        "rom2_tsens_read_init1": {
+          "address": "0x4203e5b4",
+          "body_bytes": 92,
+          "body_sha256": "d777d9973806410ad0698e0874caedbe97b02fe94ddb0b100eff357aa599410f"
+        }
+      },
+      "attribute_table": {
+        "address": "0x3c009f88",
+        "size_bytes": 30,
+        "row_bytes": 6,
+        "rows": 5
+      },
+      "build_checkout_revision": "b2418a015818520f50acaf1e94330db179d4ecea",
+      "build_source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3": {
+      "label": "gtk-normal-v1-sta_smoke",
+      "elf_sha256": "0ba392e0b1233411234f275c7199e60dc093e938f96cab8b694e381527ab899e",
+      "map_sha256": "7f7cd62d8e16d26070b90adb965e62a64cc2853b37b3fa9e816bd5f8992fa0f8",
+      "method": "Live archive input ranges wholly inside one ELF SHF_ALLOC output section; includes COMMON, excludes discarded/debug/nonallocated inputs and linker padding. Explicitly excludes object-verified mergeable string inputs; totals are non-string allocations, not complete archive attribution.",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ],
+      "allocations": {
+        "libphy.a": {
+          "bytes": 33160,
+          "input_sections": 163,
+          "member_count": 18,
+          "members": {
+            "phy_analog_cal.o": 649,
+            "phy_api.o": 147,
+            "phy_basic.o": 395,
+            "phy_debug.o": 306,
+            "phy_feature.o": 510,
+            "phy_hw_freq.o": 3122,
+            "phy_i2c.o": 1985,
+            "phy_init.o": 4169,
+            "phy_pbus.o": 972,
+            "phy_pwdet.o": 378,
+            "phy_reg.o": 3931,
+            "phy_rfpll.o": 1872,
+            "phy_rx_cal.o": 5459,
+            "phy_rx_gain.o": 2053,
+            "phy_track.o": 860,
+            "phy_tsens.o": 589,
+            "phy_tx_cal.o": 3794,
+            "phy_tx_gain.o": 1969
+          }
+        },
+        "libpp.a": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "prebuilt_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        },
+        "source_printf": {
+          "bytes": 4970,
+          "input_sections": 14,
+          "member_count": 1,
+          "members": {
+            "420925bbbd38959a-printf.o": 4970
+          }
+        },
+        "unknown_printf": {
+          "bytes": 0,
+          "input_sections": 0,
+          "member_count": 0,
+          "members": {}
+        }
+      },
+      "selected_functions": {
+        "tsens_dac_to_index": {
+          "address": "0x42041a64",
+          "body_bytes": 44,
+          "body_sha256": "d4611237547c697ae39e9a2f845c6f5829765f4d138c61dbc9895103cb6afb5c"
+        },
+        "phy_get_tsens_value": {
+          "address": "0x4203bec4",
+          "body_bytes": 10,
+          "body_sha256": "2a0d16cbc6af2055f65c0d2a0b8ae3d225ec22a88fa490968c76dcd613544699"
+        },
+        "phy_set_tsens_power": {
+          "address": "0x4203bd5c",
+          "body_bytes": 38,
+          "body_sha256": "024a7b7468710d021b934fdea7e5654183fbe331e6c55e65031ab789a86234c5"
+        },
+        "phy_xpd_tsens": {
+          "address": "0x4037a550",
+          "body_bytes": 29,
+          "body_sha256": "98b666ca97f63417e05ebf9f39acfe2432bc16e227d16a1978a0cdc8acf48e1e"
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x4203bed0",
+          "body_bytes": 16,
+          "body_sha256": "6dd5a9005246db26bf98d66b288796009ff7a67b787a4286aa9da36fc9a79692"
+        },
+        "ram_tsens_temp_read_new": {
+          "address": "0x4203be74",
+          "body_bytes": 79,
+          "body_sha256": "6ddd9ea2d5864fec7f5e11ab8d23bfd4ffb22322baa180af1ae04ac92df2576a"
+        },
+        "tsens_dac_cal_new": {
+          "address": "0x4203bde4",
+          "body_bytes": 94,
+          "body_sha256": "f6d5af7237ca64052cda11a2ee65bbed044e5588b3f461820e8a1cd648dbd889"
+        },
+        "ram_tsens_code_read": {
+          "address": "0x4203be44",
+          "body_bytes": 48,
+          "body_sha256": "7af777931f1756e53e0685fedddb96531ace2f09f1b9919caa3a491f288b1d7e"
+        },
+        "tsens_read_init_new": {
+          "address": "0x4203bd88",
+          "body_bytes": 86,
+          "body_sha256": "234102dc57145b058ecbfdea43c75dc5c04585e3baeecd227ffa21774b7fddb8"
+        },
+        "ram_temp_to_power": {
+          "address": "0x4203bee4",
+          "body_bytes": 56,
+          "body_sha256": "c73d47a652ae1a6bacf205e92cf711684e6b6e2458b03452bea20b7cbe14a58e"
+        },
+        "get_temp_init": {
+          "address": "0x4203bf1c",
+          "body_bytes": 68,
+          "body_sha256": "f75f1848071900231f53911ac6a8b6358a8a3b20abec27c6303a566ce40c434e"
+        }
+      },
+      "attribute_table": {
+        "address": "0x3c00a6f0",
+        "size_bytes": 30,
+        "row_bytes": 6,
+        "rows": 5
+      },
+      "build_checkout_revision": "b2418a015818520f50acaf1e94330db179d4ecea",
+      "build_source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "b4584a7d9e4441651165b1c530ce37e9354807ef4d24f38f528dfe432b36885b",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "dcbc18240f1e1455c7f423497a47341f7fe499be576d30f5b87f81c751c6040a",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    }
+  },
+  "published_hal_revision": "37303f70f481df1ab5a54085723910817d630699"
+}
