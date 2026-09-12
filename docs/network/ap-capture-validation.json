@@ -1,0 +1,2266 @@
+{
+  "date": "2026-09-12",
+  "normal_firmware_commit": "75e75fd3e4c8d4ee8667998a6f6021d8e7910b95",
+  "validation_complete": true,
+  "prior_isolated_losses_explained": false,
+  "new_trials_lossless": true,
+  "router": {
+    "model": "GT-AXE16000",
+    "kernel": "4.19.183",
+    "band": "2.4 GHz",
+    "channel": 3,
+    "driver": "17.10.188.6401",
+    "hardware_flow_acceleration": true,
+    "activation_deferral_packets": 1,
+    "wireless_or_forwarding_settings_changed_during_trials": false
+  },
+  "monitor_probe": {
+    "normal_trial_completed_before_probe": true,
+    "monitor_before": 0,
+    "set_output": "/usr/sbin/wl: Not Permitted",
+    "monitor_during": "0",
+    "monitor_after": 0,
+    "temporary_interfaces": {},
+    "probe_shell_returncode": 0,
+    "watchdog_finished": true
+  },
+  "capture_binary_sha256": "b178da33a40679b48f91ff2c9296e5ab490aa62b37753aeb050bebceca735009",
+  "final_tool_source_sha256": {
+    "publish_summary.py": "1ec37b4e008d5ba8da6520f40d348460d6b8d7dd97daa1f6e23c6a7434e6b2c1",
+    "capture.c": "544048e3fe430a01d3b4a385ac34ceed8d37b587eef2b1fa9144c656b09bae6b",
+    "filter.h": "e332514fbb511f3648db1d6cda617616b2c60d4486720156daca04dd500c385d",
+    "capture-radio.c": "b5eb769e62f1446e1d4a4a6183912da36a1009a768034138f30f0555ad536009",
+    "compare.py": "7d85b01bdceb27f19a61acd22b2575147f10538e2175d9cc8bcd865383031f18",
+    "filter-radio.h": "b760c1b8a7834faceba9ad7b895e7220eff8ca9f506432237188978b2c867a60",
+    "run_ap.py": "e93068f4157b19f8b46f7dc1544caed53f4e693fa8dbe818b9140db9e6870cfc",
+    "monitor_probe.py": "40d733098e74219362bb3947ec4e0294d3fa303b0301c1ff7323b1c09e64deb8",
+    "attach_live.py": "24e5f956bde7dae601638305da1f122d19b83aded019f38a9e733b2d8f388f70"
+  },
+  "limitations": [
+    "AP Ethernet capture is not on-air reception or ACK evidence.",
+    "With hardware acceleration enabled, most outgoing host requests bypass this capture; empty bridge/wired capture does not establish loss.",
+    "S3 valid AP coverage starts after traffic_ready cycle 16; initial stale-identity and switch pseudo-interface capture failures are retained privately.",
+    "Router and host clocks differ; sequence/payload identity and common packets establish correspondence without changing either clock.",
+    "Passing repeats without firmware changes do not explain the two prior isolated normal-run losses."
+  ],
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "image_sha256": "486e053e38a04fa688624d512eabba12682dbbcc6e0ab1cebe9bd8c1e21b1e33",
+      "byte_identical_to_prior_normal_image": true,
+      "cycles": 50,
+      "host_sent": 1000,
+      "host_received": 1000,
+      "gateway_sent": 1000,
+      "gateway_received": 1000,
+      "host_capture": {
+        "written_packets": 4625,
+        "socket_packets": 4625,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_pcap_sha256": "ef05d2574bc9a8a70e9609c7baf718eea30a6e4affd5870ac163667e8673d9df",
+      "serial_log_sha256": "a0bfba28bc474abf99121daee7f368e57c832f4f69e8ea476806cdc1a4178c1c",
+      "ap_started_after_traffic_ready_count": 16,
+      "ap_capture": {
+        "eth2": {
+          "sha256": "30541f10d25760d8bd086e432c58345b8c89431f8c2d2fd39794125fe6dc9d1e",
+          "written": 34,
+          "socket_packets": 34,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [0,0,0,0,34,0,0,0]
+        },
+        "eth10": {
+          "sha256": "050ee07f31dd08738afd3f638b188b37c27ad534afd6df03f2d45133c4bfd95b",
+          "written": 2274,
+          "socket_packets": 2274,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [735,34,0,691,814,0,0,0]
+        },
+        "br0": {
+          "sha256": "dd04994701de845dd7c85b26bc1ba19d5aa66e9a471e01457af8471e41326ea5",
+          "written": 1504,
+          "socket_packets": 1504,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [735,34,0,0,735,0,0,0]
+        }
+      },
+      "station_counter_samples": 457,
+      "maximum_observed_station_counters": {
+        "tx failures": 0,
+        "tx pkts retry exhausted": 0,
+        "rx decrypt failures": 0,
+        "tx pkts retries": 17,
+        "rx total pkts retried": 8
+      },
+      "losses": [],
+      "per_cycle_coverage": [
+        {
+          "cycle": 1,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 2,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 3,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 4,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 5,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 6,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 7,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 8,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 9,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 10,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 11,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 12,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 13,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 14,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 15,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 16,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [],
+              "replies": []
+            }
+          }
+        },
+        {
+          "cycle": 17,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 18,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 19,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 20,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 21,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 22,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 23,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 24,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 25,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 26,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 27,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 28,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 29,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 30,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 31,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 32,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 33,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 34,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 35,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 36,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 37,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 38,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 39,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 40,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 41,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 42,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 43,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 44,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 45,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 46,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 47,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 48,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 49,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 50,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "chip": "esp32c3",
+      "image_sha256": "485a0bb5075396f235d25f431087c59342879d56d668b1592688dac4558151e1",
+      "byte_identical_to_prior_normal_image": true,
+      "cycles": 50,
+      "host_sent": 1000,
+      "host_received": 1000,
+      "gateway_sent": 1000,
+      "gateway_received": 1000,
+      "host_capture": {
+        "written_packets": 4590,
+        "socket_packets": 4590,
+        "socket_drops": 0,
+        "receive_buffer_bytes": 8388608
+      },
+      "host_pcap_sha256": "01a9a2876c12be5fb578dd2c3fcc25860c4bab029eec5a00761502e169f146b2",
+      "serial_log_sha256": "1caaf9d9285e77ecf4807feae28d949289e5254beda0a73832b5edd69133922c",
+      "ap_started_after_traffic_ready_count": 0,
+      "ap_capture": {
+        "eth2": {
+          "sha256": "b4b567ccab6203a3440a3dd1a8afaff0df7cd87d61c90d508c8a703b0a9edd0d",
+          "written": 50,
+          "socket_packets": 50,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [0,0,0,0,50,0,0,0]
+        },
+        "eth10": {
+          "sha256": "fe75385c563bd38f8f51329fbaa9f2845ad3ddae8cab570bbb0f7ce8b40e95f2",
+          "written": 1186,
+          "socket_packets": 1186,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [0,49,0,1019,118,0,0,0]
+        },
+        "br0": {
+          "sha256": "c7a293c2fb7a8eb6b17ba3544409f9dc6bc9f2e976751cbb78a0ff59e9ed8cab",
+          "written": 50,
+          "socket_packets": 50,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [0,50,0,0,0,0,0,0]
+        }
+      },
+      "station_counter_samples": 661,
+      "maximum_observed_station_counters": {
+        "tx failures": 0,
+        "tx pkts retry exhausted": 0,
+        "rx decrypt failures": 0,
+        "tx pkts retries": 3,
+        "rx total pkts retried": 7
+      },
+      "losses": [],
+      "per_cycle_coverage": [
+        {
+          "cycle": 1,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 2,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 3,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 4,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 5,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 6,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 7,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 8,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 9,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 10,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 11,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 12,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 13,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 14,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 15,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 16,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 17,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 18,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 19,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 20,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 21,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 22,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 23,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 24,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 25,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 26,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 27,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 28,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 29,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 30,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 31,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 32,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 33,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 34,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 35,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 36,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 37,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 38,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 39,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 40,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 41,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 42,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 43,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 44,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 45,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 46,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 47,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 48,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 49,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        },
+        {
+          "cycle": 50,
+          "host_requests": 20,
+          "host_replies": 20,
+          "missing_host_sequences": [],
+          "ping_finished": true,
+          "interfaces": {
+            "br0": {
+              "requests": [],
+              "replies": []
+            },
+            "eth2": {
+              "requests": [],
+              "replies": []
+            },
+            "eth10": {
+              "requests": [1],
+              "replies": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

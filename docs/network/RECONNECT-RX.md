@@ -108,3 +108,10 @@ by these observations alone. The machine-readable [`reconnect-rx-validation.json
 reconnect totals and capture statistics. Private firmware, credentials, signing
 keys, serial logs and captures are not publication artifacts. Only the existing
 application slots are used: signed S3 at 0x20000 and C3 at 0x10000.
+
+The [2026-09-12 AP-side follow-up](AP-CAPTURE.md) repeats fifty reconnects per
+board with byte-identical normal images. Both return 1,000/1,000 host and
+gateway echoes. The AP captures all host replies within its valid observation
+windows, but its outgoing capture has gaps with hardware acceleration enabled.
+These clean repeats do not explain the two earlier isolated losses. The linked
+report includes the tested receiver source and exact coverage limits.
