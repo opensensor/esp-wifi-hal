@@ -5,8 +5,6 @@
   "payload_bytes": 512,
   "interval_ms": 200,
   "rtt_clock": "router CLOCK_MONOTONIC userspace send/receive",
-  "hal_revision": "7624848dca4c2533562f6f41ee5fde5e070ad923",
-  "foa_revision": "90cfad9b20dcd4ae121690d71c5393c4287506f6",
   "router_echo_sha256": "d3e7cff469ebf0ad2edbdc043ab37d4a0a40b490555a6a42df8b433994e4e3c1",
   "router_echo_source_sha256": "a536d29ef02d5375229eb7d35f155c3bf643db7a14335a05a65cb16aa5594a88",
   "devices": [
@@ -30,7 +28,9 @@
         "median": 3111.5,
         "max": 60557
       },
-      "private_result_sha256": "fdf1f09f20b34b89e72a18e32844587165813f3f8d4d42e65fc82e70d1b03c7c"
+      "private_result_sha256": "fdf1f09f20b34b89e72a18e32844587165813f3f8d4d42e65fc82e70d1b03c7c",
+      "hal_revision": "1b2744253527741b47a90d2ee3e0128bbe59c906",
+      "foa_revision": "90cfad9b20dcd4ae121690d71c5393c4287506f6"
     },
     {
       "chip": "esp32c3",
@@ -52,7 +52,9 @@
         "median": 11092.5,
         "max": 59765
       },
-      "private_result_sha256": "9e68bf2c78d726fca85c0ebae0769509cbca78c26e9715a7fe02508fdbfa4ff2"
+      "private_result_sha256": "9e68bf2c78d726fca85c0ebae0769509cbca78c26e9715a7fe02508fdbfa4ff2",
+      "hal_revision": "7624848dca4c2533562f6f41ee5fde5e070ad923",
+      "foa_revision": "90cfad9b20dcd4ae121690d71c5393c4287506f6"
     }
   ],
   "limitations": [
