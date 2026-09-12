@@ -1214,7 +1214,7 @@ checksum = "3f9eec918d3f24069decb9af1554cad7c880e2da24a9afd88aca000531ab82c1"
 [[package]]
 name = "foa"
 version = "0.2.0"
-source = "git+https://github.com/opensensor/FoA?rev=90cfad9b20dcd4ae121690d71c5393c4287506f6#90cfad9b20dcd4ae121690d71c5393c4287506f6"
+source = "git+https://github.com/opensensor/FoA?rev=214311817b5234c1e9c911cd28a664cd392c366e#214311817b5234c1e9c911cd28a664cd392c366e"
 dependencies = [
  "critical-section",
  "defmt-or-log",
@@ -1234,7 +1234,7 @@ dependencies = [
 [[package]]
 name = "foa_sta"
 version = "0.2.0"
-source = "git+https://github.com/opensensor/FoA?rev=90cfad9b20dcd4ae121690d71c5393c4287506f6#90cfad9b20dcd4ae121690d71c5393c4287506f6"
+source = "git+https://github.com/opensensor/FoA?rev=214311817b5234c1e9c911cd28a664cd392c366e#214311817b5234c1e9c911cd28a664cd392c366e"
 dependencies = [
  "defmt-or-log",
  "embassy-futures",

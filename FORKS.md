@@ -37,6 +37,10 @@ host regressions and device results, including failed runs. The smoltcp fork's
 `main` is based on the tested 0.13.1 release; newer upstream history is retained
 on `upstream-main`.
 
+The FoA pin also includes [WPA2 GTK rotation and protected EAPOL](docs/network/GTK-REKEY.md),
+with M4 retries kept clear until the AP completes the initial handshake.
+The report records router-originated C3/S3 validation and broadcast gaps.
+
 The driver also restores [Retry flags after MAC failures](docs/network/MAC-RETRIES.md).
 The [PHY and ROM inventory](docs/network/PHY-DEPENDENCIES.md) records the remaining
 vendor code separately from the replaced MAC and PHY register helpers.

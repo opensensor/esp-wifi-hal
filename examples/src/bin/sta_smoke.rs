@@ -34,7 +34,10 @@ async fn net_task(mut runner: NetRunner<'static, NetDevice>) -> ! {
     runner.run().await
 }
 
-#[cfg(all(any(feature = "esp32s3", feature = "esp32c3"), feature = "network-trace"))]
+#[cfg(all(
+    any(feature = "esp32s3", feature = "esp32c3"),
+    feature = "network-trace"
+))]
 fn log_rx_state() {
     let regs = unsafe { esp_wifi_hal::ll::LowLevelDriver::regs() };
     let base = regs.rx_dma_list().rx_descr_base().read().bits();
@@ -61,6 +64,86 @@ fn log_rx_state() {
             descriptor.flags.0
         );
     }
+}
+
+/// Validate labeled broadcast/multicast datagrams throughout the rekey window.
+#[cfg(feature = "gtk-rekey-probe")]
+async fn group_traffic(stack: embassy_net::Stack<'_>, seconds: u64) {
+    use embassy_net::udp::{PacketMetadata as UdpPacketMetadata, UdpSocket};
+    let group = embassy_net::Ipv4Address::new(239, 255, 42, 99);
+    stack.join_multicast_group(group).unwrap();
+    let mut rx_meta = [UdpPacketMetadata::EMPTY; 8];
+    let mut tx_meta = [UdpPacketMetadata::EMPTY; 1];
+    let mut rx_bytes = [0; 2048];
+    let mut tx_bytes = [0; 256];
+    let mut socket = UdpSocket::new(
+        stack,
+        &mut rx_meta,
+        &mut rx_bytes,
+        &mut tx_meta,
+        &mut tx_bytes,
+    );
+    socket.bind(5005).unwrap();
+    let mut seen = [[false; 600]; 2];
+    let mut count = [0u32; 2];
+    let mut duplicate = 0;
+    let mut invalid = 0;
+    let mut buffer = [0; 256];
+    let _ = with_timeout(Duration::from_secs(seconds), async {
+        loop {
+            let Ok((len, meta)) = socket.recv_from(&mut buffer).await else {
+                invalid += 1;
+                continue;
+            };
+            if meta.endpoint.addr != stack.config_v4().unwrap().gateway.unwrap().into() {
+                continue;
+            }
+            if len != 128 || &buffer[..4] != b"OGTK" {
+                invalid += 1;
+                continue;
+            }
+            let kind = buffer[4] as usize;
+            let seq = u16::from_be_bytes([buffer[6], buffer[7]]) as usize;
+            if kind > 1
+                || seq == 0
+                || seq > 600
+                || buffer[5] != 1
+                || buffer[8..len]
+                    .iter()
+                    .enumerate()
+                    .any(|(i, byte)| *byte != ((i + 8) ^ seq ^ kind) as u8)
+            {
+                invalid += 1;
+                continue;
+            }
+            let expected = if kind == 1 {
+                group
+            } else {
+                embassy_net::Ipv4Address::BROADCAST
+            };
+            if meta.local_address != Some(expected.into()) {
+                invalid += 1;
+                continue;
+            }
+            if seen[kind][seq - 1] {
+                duplicate += 1;
+                continue;
+            }
+            seen[kind][seq - 1] = true;
+            count[kind] += 1;
+            info!("stage=group_udp kind={} sequence={}", kind, seq);
+        }
+    })
+    .await;
+    stack.leave_multicast_group(group).unwrap();
+    info!(
+        "stage=group_summary broadcast={} multicast={} duplicate={} invalid={}",
+        count[0], count[1], duplicate, invalid
+    );
+    assert!(
+        count[0] > 0 && count[1] > 0 && invalid == 0,
+        "Group traffic validation failed"
+    );
 }
 
 /// Match the C reference test: twenty 512-byte echo requests to the DHCP gateway.
@@ -126,7 +209,10 @@ async fn ping_gateway(stack: embassy_net::Stack<'_>, cycle: u32) -> usize {
                 cycle,
                 sequence
             );
-            #[cfg(all(any(feature = "esp32s3", feature = "esp32c3"), feature = "network-trace"))]
+            #[cfg(all(
+                any(feature = "esp32s3", feature = "esp32c3"),
+                feature = "network-trace"
+            ))]
             log_rx_state();
         }
         Timer::after_millis(100).await;
@@ -166,15 +252,19 @@ async fn main(spawner: Spawner) {
     let resources = mk_static!(FoAResources, FoAResources::new());
     let ([vif, ..], runner) = foa::init(resources, peripherals.WIFI);
     #[cfg(all(feature = "esp32c3", feature = "network-trace"))]
-    info!("stage=clock bt_lpck={:x} rtc_q19={}",
+    info!(
+        "stage=clock bt_lpck={:x} rtc_q19={}",
         unsafe { (0x600c0024 as *const u32).read_volatile() },
-        unsafe { (0x60008054 as *const u32).read_volatile() });
+        unsafe { (0x60008054 as *const u32).read_volatile() }
+    );
     #[cfg(all(feature = "esp32s3", feature = "network-trace"))]
-    info!("stage=clock bt_lpck={:x} rtc_q19={} mac_q12={} mac_clock_enabled={}",
+    info!(
+        "stage=clock bt_lpck={:x} rtc_q19={} mac_q12={} mac_clock_enabled={}",
         unsafe { (0x600c002c as *const u32).read_volatile() },
         unsafe { (0x60008054 as *const u32).read_volatile() },
         unsafe { (0x60035058 as *const u32).read_volatile() } & 0x3ffff,
-        unsafe { (0x60035024 as *const u32).read_volatile() } & (1 << 25) != 0);
+        unsafe { (0x60035024 as *const u32).read_volatile() } & (1 << 25) != 0
+    );
     spawner.spawn(foa_task(runner).unwrap());
     let (mut control, runner, device) = foa_sta::new_sta_interface(
         mk_static!(VirtualInterface<'static>, vif),
@@ -208,17 +298,26 @@ async fn main(spawner: Spawner) {
             ),
         )
         .await;
-        #[cfg(all(any(feature = "esp32s3", feature = "esp32c3"), feature = "network-trace"))]
+        #[cfg(all(
+            any(feature = "esp32s3", feature = "esp32c3"),
+            feature = "network-trace"
+        ))]
         if !matches!(connected, Ok(Ok(_))) {
             log_rx_state();
         }
         #[cfg(feature = "timing-probe")]
-        if !matches!(connected, Ok(Ok(_))) { examples::timing_probe::report_failure(cycle); }
-        connected.expect("Connection timed out").expect("Connection failed");
+        if !matches!(connected, Ok(Ok(_))) {
+            examples::timing_probe::report_failure(cycle);
+        }
+        connected
+            .expect("Connection timed out")
+            .expect("Connection failed");
         info!("stage=connected cycle={}", cycle);
         let dhcp = with_timeout(Duration::from_secs(15), stack.wait_config_up()).await;
         #[cfg(feature = "timing-probe")]
-        if dhcp.is_err() { examples::timing_probe::report_failure(cycle); }
+        if dhcp.is_err() {
+            examples::timing_probe::report_failure(cycle);
+        }
         dhcp.expect("DHCP timed out");
         info!(
             "stage=dhcp cycle={} address={:?}",
@@ -235,6 +334,26 @@ async fn main(spawner: Spawner) {
         );
         // A host can send 20 pings during each window; auto-ICMP replies exercise
         // encrypted data in both directions without an external service.
+        #[cfg(feature = "gtk-rekey-probe")]
+        {
+            // Explicit opt-in: each request can rotate the GTK for the whole BSS.
+            assert!(traffic_seconds >= 60);
+            embassy_futures::join::join(group_traffic(stack, traffic_seconds), async {
+                for request in 1..=3 {
+                    Timer::after_secs(10).await;
+                    let result = control.request_group_rekey().await;
+                    info!(
+                        "stage=gtk_request index={} success={}",
+                        request,
+                        result.is_ok()
+                    );
+                    result.expect("Group-key request failed");
+                }
+                Timer::after_secs(traffic_seconds - 30).await;
+            })
+            .await;
+        }
+        #[cfg(not(feature = "gtk-rekey-probe"))]
         Timer::after_secs(traffic_seconds).await;
         // Run after the host window so gateway ARP cannot prime that test.
         gateway_received += ping_gateway(stack, cycle).await;

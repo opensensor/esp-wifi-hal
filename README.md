@@ -81,6 +81,12 @@ six duplicates. Later combined tests still observed isolated gateway loss.
 Connection timeouts, duplicate reception and sustained radio reliability remain
 under investigation; the linked evidence records each image and failed run.
 
+FoA now handles [WPA2 group-key rotation](docs/network/GTK-REKEY.md) without
+reinstalling keys on retries. Final S3/C3 trials completed three GTK exchanges
+per board with all 600 router-originated echoes and 240 multicast datagrams;
+one C3 broadcast was missing. The report includes the M4-retry correction,
+capture-harness failures and the remaining limits of these short trials.
+
 The recorded S3 hardware validation includes:
 
 - Three WPA2/FoA reconnect cycles with **60/60 device-to-gateway ping replies**.

@@ -1,0 +1,697 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-12",
+  "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+  "traffic_seconds": 90,
+  "trigger": "Three authenticated PTK-protected EAPOL-Key Requests, 10 seconds apart; no router configuration changes",
+  "echo_payload_bytes": 512,
+  "echo_interval_ms": 200,
+  "group_payload_bytes": 128,
+  "group_interval_ms": 500,
+  "group_expected_per_kind": 120,
+  "trials": [
+    {
+      "chip": "esp32s3",
+      "label": "gtk-group-v4",
+      "foa_revision": "523aee8a9e7bf62fce638d86ff33064c9ba9e406",
+      "source_kind": "candidate before formatting/publication",
+      "image_sha256": "dab91d72fcb6ba3601ea2e80888e07ebc2055fbf560a56754857183f5de74eed",
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "router_echo_rtt_us": {
+        "min": 2809,
+        "median": 6649.0,
+        "p95": 39254,
+        "max": 84411
+      },
+      "gateway_echo_sent": 20,
+      "gateway_echo_received": 20,
+      "updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "capture_valid": true,
+      "capture_limitation": null,
+      "ap_selected_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "group_received": {
+        "broadcast": 118,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [
+          79,
+          92
+        ],
+        "multicast": []
+      },
+      "group_receives_by_update_window": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          58,
+          60
+        ]
+      ],
+      "accepted_group_frames_by_key_id": {
+        "1": 328,
+        "2": 1259
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1013,
+          "socket_packets": 1013,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            360,
+            4,
+            0,
+            0,
+            649,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1016,
+          "socket_packets": 1016,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            375,
+            6,
+            0,
+            0,
+            635,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "453712009df50ccd862e4488b078f03ce67ea98ad3627cee18103795a1856b19",
+        "serial.txt": "b18f3595f00bbc09d122d73ca944960c9d45b393d2ec86da3a2faaf44c07e15c",
+        "br0.pcap": "4ffa76760947c541ca0ae8f3c32742d47a48fda14e29414992a64839ff3c60d3",
+        "eth10.stats": "d8c2949d5714af929710f6edea164bf22fbf30b7545088c3b6a02736949bee78",
+        "br0.stats": "14594c674d219489d6df974c680e12cb480a029d70c2a1b6e7a96ddfd474f528",
+        "eth10.pcap": "2d22ceab398edc391a7fa45402787d76d9688022f8ff99ec72e2b980ac868e85"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "gtk-published-v2",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "source_kind": "published git pin",
+      "image_sha256": "665988ad6c4900aebbaf08b9c0b054d6ad8002faf3b7b3feac4e8d1d94387459",
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "router_echo_rtt_us": {
+        "min": 2600,
+        "median": 4639.5,
+        "p95": 70866,
+        "max": 398461
+      },
+      "gateway_echo_sent": 20,
+      "gateway_echo_received": 20,
+      "updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "capture_valid": true,
+      "capture_limitation": null,
+      "ap_selected_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receives_by_update_window": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "accepted_group_frames_by_key_id": {
+        "1": 282,
+        "2": 743
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 988,
+          "socket_packets": 988,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            362,
+            3,
+            0,
+            0,
+            623,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 975,
+          "socket_packets": 975,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            371,
+            5,
+            0,
+            0,
+            599,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "0bee998449e6bb79e4730a32443072051e5e96b9d3a639d98a8076f9e3bc6474",
+        "serial.txt": "0fcaf95fda3e44e95193c52ff5dd4e18347449986ab5a5ff2ecaa836a4e7a73c",
+        "br0.pcap": "78e961e7963e4a978b8716b13231eba76d109f105e97004e7451f1412eb67803",
+        "eth10.stats": "6c00540862d02081dcdfae944f5f26d5b0da7793f95ee4c021b5b92607f2a15a",
+        "br0.stats": "edfa8bd485de928d576f9b8b9510adeb7f9ee2e23e8ad1e955e752dd3887160b",
+        "eth10.pcap": "5b92ef5f9d81870f0e7936621074dc21e578436d7ed98e4a8f37a6f3317ac536"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "gtk-group-v4",
+      "foa_revision": "523aee8a9e7bf62fce638d86ff33064c9ba9e406",
+      "source_kind": "candidate before formatting/publication",
+      "image_sha256": "053901202aceee2db58a8f61c07cf9a1f4e57f04276961fb89cdcb24e992694a",
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "router_echo_rtt_us": {
+        "min": 3532,
+        "median": 8677.5,
+        "p95": 52817,
+        "max": 112927
+      },
+      "gateway_echo_sent": 20,
+      "gateway_echo_received": 20,
+      "updates": [
+        {
+          "counter": "3",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "capture_valid": false,
+      "capture_limitation": "Shared remote stop file caused immediate capture exit; MCU and router traffic results retained, no independent EAPOL claim",
+      "ap_selected_eapol_counters": null,
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receives_by_update_window": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "accepted_group_frames_by_key_id": {
+        "2": 323,
+        "1": 708
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 0,
+          "socket_packets": 0,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 0,
+          "socket_packets": 0,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "7b2ba02881874346af4897d4d3852ddde0fdf70ada944c00d7cb08b22aae0478",
+        "serial.txt": "8d9e12d261e2cd18d7f08a6dc37e59ac96bcf82046b1a71e81dae074b2a068db",
+        "br0.pcap": "8f4444fe57122775fefd3e86f9c404d8654fa87c6e9d6ad8c1246e0405189945",
+        "eth10.stats": "1f83c7e3286781f66b0a17deb92d0a35f7dbdd50fb193abeb919c414f4fea27c",
+        "br0.stats": "4b9a79b7f10b44c3a0f0b06cc208ff51bdc3bd7e8b74b12ae05e70892c3b6248",
+        "eth10.pcap": "8f4444fe57122775fefd3e86f9c404d8654fa87c6e9d6ad8c1246e0405189945"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "gtk-published-v2",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "source_kind": "published git pin",
+      "image_sha256": "9c62882715a09d6010d38ae8558d83806450df6cb4634e7e77393705021ccd1f",
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "router_echo_rtt_us": {
+        "min": 3515,
+        "median": 11871.0,
+        "p95": 54729,
+        "max": 215701
+      },
+      "gateway_echo_sent": 20,
+      "gateway_echo_received": 20,
+      "updates": [
+        {
+          "counter": "3",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "capture_valid": false,
+      "capture_limitation": "Shared remote stop file caused immediate capture exit; MCU and router traffic results retained, no independent EAPOL claim",
+      "ap_selected_eapol_counters": null,
+      "group_received": {
+        "broadcast": 118,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [
+          42,
+          64
+        ],
+        "multicast": []
+      },
+      "group_receives_by_update_window": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          59,
+          60
+        ]
+      ],
+      "accepted_group_frames_by_key_id": {
+        "2": 325,
+        "1": 780
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 0,
+          "socket_packets": 0,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 0,
+          "socket_packets": 0,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "c5f5aca27ad8bbf5bbcc19ad466696fdd74e152db85c6bb2b4a9d16e1fe3422e",
+        "serial.txt": "18a104588515f9afcf7047e20ba03e82e71d489f28128c41aa44caf39fc92050",
+        "br0.pcap": "8f4444fe57122775fefd3e86f9c404d8654fa87c6e9d6ad8c1246e0405189945",
+        "eth10.stats": "af24e4ea5dea60e3bd0676d5d55be4a462e65027999222a4d1baf9882c74f4b8",
+        "br0.stats": "caf55933b26d4d85b7eae8f757cb6e2e06c2bebdc6c6bd27909dabff74bb075d",
+        "eth10.pcap": "8f4444fe57122775fefd3e86f9c404d8654fa87c6e9d6ad8c1246e0405189945"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "gtk-published-v3",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "source_kind": "published git pin",
+      "image_sha256": "9c62882715a09d6010d38ae8558d83806450df6cb4634e7e77393705021ccd1f",
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "router_echo_rtt_us": {
+        "min": 3464,
+        "median": 8180.5,
+        "p95": 51935,
+        "max": 121189
+      },
+      "gateway_echo_sent": 20,
+      "gateway_echo_received": 20,
+      "updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "capture_valid": true,
+      "capture_limitation": null,
+      "ap_selected_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "group_received": {
+        "broadcast": 119,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [
+          41
+        ],
+        "multicast": []
+      },
+      "group_receives_by_update_window": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "accepted_group_frames_by_key_id": {
+        "1": 320,
+        "2": 754
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 998,
+          "socket_packets": 998,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            364,
+            3,
+            0,
+            0,
+            631,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 997,
+          "socket_packets": 997,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            379,
+            7,
+            0,
+            0,
+            611,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "8c5e28a164b4444a3951343ec290a40fcd75cd4a2956f504d27ff02b59390092",
+        "serial.txt": "62845543ce7a90850fd3c754447fc65d3aec55156af29cb28f38ced45507b401",
+        "br0.pcap": "6ccde07d0592f238703909ffd0e4e1aadcf287b828cd4c09594185541c24ad94",
+        "eth10.stats": "013bd60dfdb1327e80ef7b5b02ccd7ec375c54a8fa3a14756e28b4d3025bc3c2",
+        "br0.stats": "864fbcc3d106966d3886be4e34e5d14415e83f7a8393314eb7f29ff990542500",
+        "eth10.pcap": "add95431fd02e82368d65726e471fc482dda7dc5c485a6284b09493272e3a9cb"
+      }
+    }
+  ],
+  "limitations": [
+    "Ninety-second connected windows, three rotations each, one AP model and channel.",
+    "Broadcast reception gaps are retained; prior isolated echo losses remain unresolved.",
+    "AP Ethernet capture and numeric MCU tracing are not complete independent over-air observation.",
+    "Retry/no-reinstall and invalid-MIC cases use production-source host tests, not deliberately induced RF failures."
+  ],
+  "normal_smoke_trials": [
+    {
+      "chip": "esp32s3",
+      "image_sha256": "a822134a83221ba807ad76cc08b063b73aad7e5dd9fd8f29c230bc0c3ba01cc6",
+      "cycles": 2,
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_echo_sent": 40,
+      "gateway_echo_received": 40,
+      "rekey_probe_enabled": false
+    },
+    {
+      "chip": "esp32c3",
+      "image_sha256": "56a5f0e749f466d492edd4b925e57d33ee306bfe0e587a303a2319e7ed1b59f2",
+      "cycles": 2,
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_echo_sent": 40,
+      "gateway_echo_received": 40,
+      "rekey_probe_enabled": false
+    }
+  ],
+  "failed_trials": [
+    {
+      "label": "esp32s3/gtk-group-v3",
+      "details": {
+        "complete": false,
+        "failure": "AP GTK handshake timeout; G1 Key Length zero rejected by reused pairwise envelope check",
+        "ap_deauth_reason": 16,
+        "rekey_requests_observed": 1,
+        "gtk_updates": 0,
+        "runner_failure": "echo subprocess terminated before final summary after device panic; incomplete echo result excluded"
+      }
+    },
+    {
+      "label": "esp32s3/gtk-published-v1",
+      "details": {
+        "complete": false,
+        "failure": "M4 retries protected before AP installed PTK; rejected at AP, initial handshake times out",
+        "foa_revision": "523aee8a9e7bf62fce638d86ff33064c9ba9e406",
+        "ap_deauth_reason": 15,
+        "traffic_window_started": false,
+        "fixed_in": "214311817b5234c1e9c911cd28a664cd392c366e"
+      }
+    }
+  ],
+  "tool_sha256": {
+    "router-group": "08ef439869708d1b20d3336219d8eded076b8e31b955bdd99e0fc055a870dfa7",
+    "group-capture/capture": "79f717d7b19207e8401366a93dceab79a73b1cad5da0d567cf76a1402a4ce3cb",
+    "router-echo": "d3e7cff469ebf0ad2edbdc043ab37d4a0a40b490555a6a42df8b433994e4e3c1"
+  }
+}

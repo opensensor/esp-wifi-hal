@@ -70,6 +70,7 @@ phy-smoke = ["dep:esp-phy"]
 printf-smoke = ["dep:cc"]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net", "dep:smoltcp"]
 network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver", "foa_sta/connection-trace"]
+gtk-rekey-probe = ["handshake-probe", "foa_sta/gtk-rekey-probe", "embassy-net/udp", "embassy-net/multicast"]
 handshake-probe = ["timing-probe", "foa_sta/handshake-probe"]
 neighbor-probe = ["handshake-probe", "smoltcp/iface-pending-response-probe"]
 timing-probe = ["network-trace", "foa/tx-trace", "esp-wifi-hal/timing-probe"]
@@ -122,9 +123,9 @@ overflow-checks = false
 # Published 0.2.0 radio baseline with printf built from reviewed MIT source.
 esp-wifi-sys-esp32c3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
 esp-wifi-sys-esp32s3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
-# TX/replay fixes, initial M1 and completed M3 retries, and PSK preparation.
-foa = { git = "https://github.com/opensensor/FoA", rev = "90cfad9b20dcd4ae121690d71c5393c4287506f6" }
-foa_sta = { git = "https://github.com/opensensor/FoA", rev = "90cfad9b20dcd4ae121690d71c5393c4287506f6" }
+# TX/replay fixes, handshake retries, PSK preparation and WPA2 GTK rotation.
+foa = { git = "https://github.com/opensensor/FoA", rev = "214311817b5234c1e9c911cd28a664cd392c366e" }
+foa_sta = { git = "https://github.com/opensensor/FoA", rev = "214311817b5234c1e9c911cd28a664cd392c366e" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Keep transitive users on the reviewed PHY initialization adapter too.
