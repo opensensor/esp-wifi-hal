@@ -149,6 +149,10 @@ async fn main(spawner: Spawner) {
         .map(|s| s.parse::<u32>().unwrap())
         .unwrap_or(3);
     assert!((1..=100).contains(&cycles));
+    let traffic_seconds = option_env!("STATION_TRAFFIC_SECONDS")
+        .map(|s| s.parse::<u64>().unwrap())
+        .unwrap_or(10);
+    assert!((5..=3600).contains(&traffic_seconds));
     info!("stage=boot test=rust_foa_wpa2 cycles={}", cycles);
     // This example uses one fixed SSID/passphrase for every reconnect. Prepare
     // its PSK once before starting the radio, so PBKDF2 cannot stall Wi-Fi tasks.
@@ -231,7 +235,7 @@ async fn main(spawner: Spawner) {
         );
         // A host can send 20 pings during each window; auto-ICMP replies exercise
         // encrypted data in both directions without an external service.
-        Timer::after_secs(10).await;
+        Timer::after_secs(traffic_seconds).await;
         // Run after the host window so gateway ARP cannot prime that test.
         gateway_received += ping_gateway(stack, cycle).await;
         control.disconnect().await.expect("Disconnect failed");
