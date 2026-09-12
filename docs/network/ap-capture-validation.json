@@ -14,6 +14,17 @@
     "activation_deferral_packets": 1,
     "wireless_or_forwarding_settings_changed_during_trials": false
   },
+  "topology_correction": {
+    "date": "2026-09-12",
+    "host_link": "6 GHz Wi-Fi",
+    "host_facing_ap_interface": "eth9",
+    "station_facing_ap_interface": "eth10",
+    "eth2_on_host_path": false,
+    "prior_host_requests_verified_against_host_wifi_mac": {
+      "esp32s3": 1000,
+      "esp32c3": 1000
+    }
+  },
   "monitor_probe": {
     "normal_trial_completed_before_probe": true,
     "monitor_before": 0,
@@ -38,7 +49,7 @@
   },
   "limitations": [
     "AP Ethernet capture is not on-air reception or ACK evidence.",
-    "With hardware acceleration enabled, most outgoing host requests bypass this capture; empty bridge/wired capture does not establish loss.",
+    "With hardware acceleration enabled, most outgoing host requests bypass this capture; empty bridge/eth2 capture does not establish loss; eth2 is outside the host Wi-Fi path.",
     "S3 valid AP coverage starts after traffic_ready cycle 16; initial stale-identity and switch pseudo-interface capture failures are retained privately.",
     "Router and host clocks differ; sequence/payload identity and common packets establish correspondence without changing either clock.",
     "Passing repeats without firmware changes do not explain the two prior isolated normal-run losses."

@@ -30,10 +30,17 @@ captured all six frames of three host/router echoes. Successful retained AP
 captures have zero socket drops, truncations or missing kernel timestamps.
 No radio or forwarding settings change during these trials.
 
-The AP wireless interface captures only the first outgoing host echo request
+Topology correction from the subsequent raw-capture preflight: the host uses
+6-GHz Wi-Fi on the AP's `eth9`, while the test station uses 2.4 GHz on `eth10`.
+Both previous host captures were verified against the host Wi-Fi MAC (all
+1,000 outgoing echoes per board). `eth2` was outside that host path; it was
+not a wired observation point for these tests. The raw-capture follow-up
+records both wireless interfaces.
+
+The AP's station-facing wireless interface captures only the first outgoing host echo request
 of each observed cycle. Its flow-cache status reports hardware acceleration
 enabled with a one-packet activation deferral, consistent with this coverage
-gap. The bridge and wired-interface traces do not cover these bridged host
+gap. The bridge and unrelated `eth2` traces do not cover these bridged host
 echoes. Their missing records cannot establish packet loss. This is Ethernet
 observation around the AP driver, not proof of on-air transmission, reception
 or an 802.11 ACK.

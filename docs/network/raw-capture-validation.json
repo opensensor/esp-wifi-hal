@@ -1,0 +1,250 @@
+{
+  "date": "2026-09-12",
+  "production_station_firmware_changed": false,
+  "prior_isolated_losses_explained": false,
+  "topology": {
+    "host": "6 GHz Wi-Fi",
+    "station": "2.4 GHz Wi-Fi, channel 3",
+    "host_facing_ap_interface": "eth9",
+    "station_facing_ap_interface": "eth10"
+  },
+  "receiver": "ESP32-C3 native USB, 32 DMA buffers, 16 output records, explicit software selection",
+  "trials": [
+    {
+      "label": "raw-filter-check-v1",
+      "complete": true,
+      "cycles": 2,
+      "station_image_sha256": "40107bb943ac3939f07c517ffaef4b742be6b93cec3ec7da9d830e3a79b58de3",
+      "host_sent": 40,
+      "host_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "capture_coverage": {
+        "radio": {
+          "requests": 39,
+          "replies": 39
+        },
+        "eth9": {
+          "requests": 40,
+          "replies": 40
+        },
+        "br0": {
+          "requests": 0,
+          "replies": 0
+        },
+        "eth10": {
+          "requests": 40,
+          "replies": 40
+        }
+      },
+      "decrypted_echo_frames": 170,
+      "decrypted_retry_frames": 21,
+      "radio_unique_echoes": 118,
+      "transport_counters": {
+        "records": 292,
+        "frames": 210,
+        "prefix_bytes": 1523,
+        "corrupt_bytes": 0,
+        "crc_errors": 0,
+        "sequence_gaps": 0,
+        "sequence_regressions": 0,
+        "records_after_end": 0
+      },
+      "firmware_counters": {
+        "seen": 50295,
+        "selected": 210,
+        "enqueued": 210,
+        "queue_dropped": 0,
+        "oversize": 0,
+        "status_dropped": 0,
+        "bad_commands": 0,
+        "generation": 4,
+        "bssid_set": 1,
+        "station_set": 1,
+        "running": 0
+      },
+      "receiver_image_sha256": "13c063ec80f9f95d386c08d19b694e85ce88dca2a78ced37390738f6e726c2c0",
+      "raw_sha256": "03a578d3cb522ea80220179c8a6122e85202f46e95bc02dce7edb3cc31ff2b82",
+      "capture_sha256": {
+        "raw-filter-check-v1.pcap": "cad609147e34d2c14e622d0559049512a53a00c27421da5ebac4a203e0e6d142",
+        "radio.pcap": "4535cd86b29ad3acd71eae36bbef0108946eeee15efbf74fcfca7cf5899226e9",
+        "eth9.pcap": "e73c1d622a06103156b7aaef43716e64f8edd965f9594ff84c575e7cd334e287",
+        "br0.pcap": "22e12c5680fe7e6be5156f945db280674356c042c96bbbcbf96c5de13175266e",
+        "eth10.pcap": "4cb88aac6bb54f70490cdbb43e0d7ee0ccea471ff61b9ad6eccf60792850fa5d"
+      },
+      "per_cycle": [
+        {
+          "cycle": 1,
+          "requests": 20,
+          "replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 19,
+              "replies": 19,
+              "missing_request_sequences": [
+                1
+              ],
+              "missing_reply_sequences": [
+                1
+              ]
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20,
+              "missing_request_sequences": [],
+              "missing_reply_sequences": []
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0,
+              "missing_request_sequences": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "missing_reply_sequences": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20,
+              "missing_request_sequences": [],
+              "missing_reply_sequences": []
+            }
+          }
+        },
+        {
+          "cycle": 2,
+          "requests": 20,
+          "replies": 20,
+          "coverage": {
+            "radio": {
+              "requests": 20,
+              "replies": 20,
+              "missing_request_sequences": [],
+              "missing_reply_sequences": []
+            },
+            "eth9": {
+              "requests": 20,
+              "replies": 20,
+              "missing_request_sequences": [],
+              "missing_reply_sequences": []
+            },
+            "br0": {
+              "requests": 0,
+              "replies": 0,
+              "missing_request_sequences": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "missing_reply_sequences": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ]
+            },
+            "eth10": {
+              "requests": 20,
+              "replies": 20,
+              "missing_request_sequences": [],
+              "missing_reply_sequences": []
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "failed_trials": [
+    {
+      "label": "raw-check-v1",
+      "reason": "Scanning mode with default address filters captured zero selected frames despite healthy USB; not valid RF coverage."
+    },
+    {
+      "label": "raw-normal-50-v1",
+      "reason": "Power interruption; no final capture records. Incomplete and excluded."
+    },
+    {
+      "label": "raw-normal-50-v2",
+      "reason": "Restart rejected the empty receiver image left on disk by the power interruption, before flashing. Excluded."
+    }
+  ],
+  "limitations": [
+    "CRC and queue accounting prove USB transport only, not RF or hardware/DMA completeness.",
+    "The randomized station selector is learned after its first host request; startup gaps are listed per cycle.",
+    "Independent reception does not prove reception by the AP/station. Control/ACK frames are not captured.",
+    "A passing repeat with unchanged station firmware does not explain the earlier isolated losses.",
+    "PCAP delivery timestamps are not synchronized RF timestamps. Correlation uses echo identities and entire payload hashes."
+  ]
+}

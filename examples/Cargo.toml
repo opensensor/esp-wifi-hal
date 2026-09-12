@@ -55,6 +55,11 @@ path = "src/bin/tsf_timer_test.rs"
 required-features = ["esp32c3"]
 
 [[bin]]
+name = "raw_capture"
+path = "src/bin/raw_capture.rs"
+required-features = ["esp32c3"]
+
+[[bin]]
 name = "phy_lifetime_smoke"
 path = "src/bin/phy_lifetime_smoke.rs"
 required-features = ["phy-smoke"]

@@ -47,3 +47,9 @@ jobs:
         run: |
           sh docs/network/tests/run-mac-retry.sh
           sh docs/network/tests/run-mac-retry.sh --release
+      - name: Detect incomplete raw capture streams
+        run: |
+          python3 -m pip install pyserial==3.5
+          rustc --edition 2024 --test examples/src/capture_protocol.rs -o /tmp/capture-protocol-tests
+          /tmp/capture-protocol-tests
+          python3 -m unittest discover -s docs/network/tools/raw-capture -p 'test_*.py'
