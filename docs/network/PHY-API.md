@@ -71,5 +71,5 @@ The expanded lifetime probe reads flags and entry addresses and calls the
 pure version getter inside each existing PHY guard. It checks the C3 close
 flag after release. It does not invoke extra RF operations or alter normal
 calibration cadence. Live results and packet counts are recorded separately
-in the device comparison. Low-level RF initialization, calibration, frequency
+in the [device comparison](PHY-API-VALIDATION.md). Low-level RF initialization, calibration, frequency
 selection, vendor state and ROM helpers remain dependencies.

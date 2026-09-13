@@ -82,6 +82,15 @@ callbacks. The [PBUS comparison](docs/network/PHY-PBUS-VALIDATION.md) covers
 original-instruction tests, live range checks, wakeup, traffic and GTK rotation.
 The broader RF/ROM dependencies and intermittent packet losses remain open.
 
+The [complete analog I2C replacement](docs/network/PHY-I2C.md) removes
+`phy_i2c.o`, and the [PHY API replacement](docs/network/PHY-API.md) removes
+`phy_api.o`, leaving **14 vendor PHY members** in the tested C3/S3 images.
+The [API device comparison](docs/network/PHY-API-VALIDATION.md) records
+instruction-oracle checks, three-cycle wakeup/shutdown probes, RX recovery
+and WPA2 group-key rotation. RF calibration, channel/frequency helpers,
+vendor state and ROM callbacks remain dependencies; packet losses remain
+tracked with their original evidence.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
