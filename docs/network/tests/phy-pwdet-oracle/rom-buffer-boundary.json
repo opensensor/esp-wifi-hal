@@ -1,0 +1,116 @@
+{
+  "installed_rom_bundle": "20241011",
+  "bodies": [
+    {
+      "chip": "esp32c3",
+      "revision_file": "rev0",
+      "rom_sha256": "11d565922e0a405b477756de748a14046f86dfb40d997766252a04cb378f0694",
+      "symbol": "rom_read_sar_dout",
+      "address": "0x4003a696",
+      "size": 34,
+      "code_hex": "b7e700600966138707087d169387070a144311070905f18e231fd5fee31af7fe8280",
+      "body_sha256": "0d0a23ca896b24bad8ad85df49b9dd4e92093b27ce518db3fab1d6595636a03e",
+      "instructions": [
+        "4003a696: 6000e7b7 lui a5,0x6000e",
+        "4003a69a: 6609 lui a2,0x2",
+        "4003a69c: 08078713 addi a4,a5,128",
+        "4003a6a0: 167d addi a2,a2,-1",
+        "4003a6a2: 0a078793 addi a5,a5,160",
+        "4003a6a6: 4314 lw a3,0(a4)",
+        "4003a6a8: 0711 addi a4,a4,4",
+        "4003a6aa: 0509 addi a0,a0,2",
+        "4003a6ac: 8ef1 and a3,a3,a2",
+        "4003a6ae: fed51f23 sh a3,-2(a0)",
+        "4003a6b2: fef71ae3 bne a4,a5,4003a6a6",
+        "4003a6b6: 8082 ret"
+      ],
+      "literals": {},
+      "rom_elf_filename": "esp32c3_rev0_rom.elf",
+      "runtime_target_observed_in_control": false
+    },
+    {
+      "chip": "esp32c3",
+      "revision_file": "rev3",
+      "rom_sha256": "19ac22e08707df926fb0cf4c54795d4067b983fae8635f396ded173a6d78fc3c",
+      "symbol": "rom_read_sar_dout",
+      "address": "0x4003a2cc",
+      "size": 34,
+      "code_hex": "b7e700600966138707087d169387070a144311070905f18e231fd5fee31af7fe8280",
+      "body_sha256": "0d0a23ca896b24bad8ad85df49b9dd4e92093b27ce518db3fab1d6595636a03e",
+      "instructions": [
+        "4003a2cc: 6000e7b7 lui a5,0x6000e",
+        "4003a2d0: 6609 lui a2,0x2",
+        "4003a2d2: 08078713 addi a4,a5,128",
+        "4003a2d6: 167d addi a2,a2,-1",
+        "4003a2d8: 0a078793 addi a5,a5,160",
+        "4003a2dc: 4314 lw a3,0(a4)",
+        "4003a2de: 0711 addi a4,a4,4",
+        "4003a2e0: 0509 addi a0,a0,2",
+        "4003a2e2: 8ef1 and a3,a3,a2",
+        "4003a2e4: fed51f23 sh a3,-2(a0)",
+        "4003a2e8: fef71ae3 bne a4,a5,4003a2dc",
+        "4003a2ec: 8082 ret"
+      ],
+      "literals": {},
+      "rom_elf_filename": "esp32c3_rev3_rom.elf",
+      "runtime_target_observed_in_control": true
+    },
+    {
+      "chip": "esp32c3",
+      "revision_file": "rev101",
+      "rom_sha256": "9495e1453f36f7eec4112714ea1dca22d77808776adffa93dda7dda4393e8336",
+      "symbol": "rom_read_sar_dout",
+      "address": "0x4003cdb0",
+      "size": 34,
+      "code_hex": "b7e700600966138707087d169387070a144311070905f18e231fd5fee31af7fe8280",
+      "body_sha256": "0d0a23ca896b24bad8ad85df49b9dd4e92093b27ce518db3fab1d6595636a03e",
+      "instructions": [
+        "4003cdb0: 6000e7b7 lui a5,0x6000e",
+        "4003cdb4: 6609 lui a2,0x2",
+        "4003cdb6: 08078713 addi a4,a5,128",
+        "4003cdba: 167d addi a2,a2,-1",
+        "4003cdbc: 0a078793 addi a5,a5,160",
+        "4003cdc0: 4314 lw a3,0(a4)",
+        "4003cdc2: 0711 addi a4,a4,4",
+        "4003cdc4: 0509 addi a0,a0,2",
+        "4003cdc6: 8ef1 and a3,a3,a2",
+        "4003cdc8: fed51f23 sh a3,-2(a0)",
+        "4003cdcc: fef71ae3 bne a4,a5,4003cdc0",
+        "4003cdd0: 8082 ret"
+      ],
+      "literals": {},
+      "rom_elf_filename": "esp32c3_rev101_rom.elf",
+      "runtime_target_observed_in_control": false
+    },
+    {
+      "chip": "esp32s3",
+      "revision_file": "rev0",
+      "rom_sha256": "c0ce0f338d1de1bdc6efbef1591779a2a42c1ab7d759d3c6ae8ae63a7dd34cfd",
+      "symbol": "rom_read_sar_dout",
+      "address": "0x40036aa4",
+      "size": 33,
+      "code_hex": "364100b1feff0c090c88768811b0a9a0c02000a80a1b99a0a0c4a252002b221df0",
+      "body_sha256": "d166e9f30e6c1f6a7e73d772ac0d91161eeeb6f485fea355ecbe528d170cdcd2",
+      "instructions": [
+        "40036aa4: 004136 entry a1, 32",
+        "40036aa7: fffeb1 l32r a11, 40036aa0",
+        "40036aaa: 090c movi.n a9, 0",
+        "40036aac: 880c movi.n a8, 8",
+        "40036aae: 118876 loop a8, 40036ac3",
+        "40036ab1: a0a9b0 addx4 a10, a9, a11",
+        "40036ab4: 0020c0 memw",
+        "40036ab7: 0aa8 l32i.n a10, a10, 0",
+        "40036ab9: 991b addi.n a9, a9, 1",
+        "40036abb: c4a0a0 extui a10, a10, 0, 13",
+        "40036abe: 0052a2 s16i a10, a2, 0",
+        "40036ac1: 222b addi.n a2, a2, 2",
+        "40036ac3: f01d retw.n"
+      ],
+      "literals": {
+        "0x40036aa0": "0x6000e080"
+      },
+      "rom_elf_filename": "esp32s3_rev0_rom.elf",
+      "runtime_target_observed_in_control": true
+    }
+  ]
+}

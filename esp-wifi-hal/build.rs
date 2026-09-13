@@ -227,5 +227,30 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-debug.a"), debug).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-debug");
+        let mut pwdet = String::new();
+        let mut selected = vec![
+            ("phy_set_pwdet_power", "power"),
+            ("get_sar_sig_ref", "reference"),
+            ("pwdet_tone_start", "tone"),
+            ("get_tone_sar_dout", "samples"),
+            ("get_fm_sar_dout", "fm"),
+            ("txtone_linear_pwr", "linear"),
+            ("get_power_db", "db"),
+        ];
+        if cfg!(feature = "esp32c3") {
+            selected.extend([
+                ("ram_pkdet_vol_start", "pkdet"),
+                ("rom1_read_sar2_code", "read"),
+            ]);
+        } else {
+            selected.push(("ram_read_sar2_code", "read"));
+        }
+        for (original, suffix) in selected {
+            pwdet.push_str(&format!(
+                "EXTERN(__opensensor_pwdet_{suffix});\n{original} = __opensensor_pwdet_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-pwdet.a"), pwdet).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-pwdet");
     }
 }

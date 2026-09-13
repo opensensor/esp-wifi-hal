@@ -48,6 +48,7 @@
 //! certain types of frames pass the filter, which we call the scanning mode.
 
 #![no_std]
+#![cfg_attr(esp32s3, feature(asm_experimental_arch))]
 #![allow(unexpected_cfgs)]
 #![deny(missing_docs)]
 
@@ -92,6 +93,8 @@ mod phy_basic;
 mod phy_feature;
 #[cfg(any(esp32c3, esp32s3))]
 mod phy_debug;
+#[cfg(any(esp32c3, esp32s3))]
+mod phy_pwdet;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

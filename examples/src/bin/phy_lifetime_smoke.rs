@@ -441,6 +441,97 @@ unsafe fn inspect_debug(cycle: u32) {
     );
 }
 
+/// Check reference arithmetic and observe power-detector callbacks without tones.
+unsafe fn inspect_pwdet(cycle: u32) {
+    unsafe extern "C" {
+        fn get_sar_sig_ref(input: u32, signal: *mut u16, reference: *mut u16);
+        fn phy_set_pwdet_power();
+        fn pwdet_tone_start();
+        fn get_tone_sar_dout();
+        fn get_fm_sar_dout();
+        fn txtone_linear_pwr();
+        fn get_power_db();
+        #[cfg(feature = "esp32c3")]
+        fn rom1_read_sar2_code();
+        #[cfg(feature = "esp32c3")]
+        fn ram_pkdet_vol_start();
+        #[cfg(feature = "esp32s3")]
+        fn ram_read_sar2_code();
+        static mut g_phyFuns: *const u8;
+        #[cfg(feature = "esp32c3")]
+        static mut phy_param: [u8; 848];
+        #[cfg(feature = "esp32s3")]
+        static mut phy_param: [u8; 740];
+    }
+    let param = (&raw const phy_param).cast::<u8>();
+    let baseline = unsafe { param.add(0xda).cast::<u16>().read_volatile() };
+    let calibration = unsafe { param.add(0xdc).cast::<u16>().read_volatile() };
+    #[cfg(feature = "esp32c3")]
+    let adjustment = 40u32;
+    #[cfg(feature = "esp32s3")]
+    let adjustment = 50u32;
+    let cases = [0, 1, 39, 40, 49, 50, 0x7fff, 0xffff, 0xfffffff0, u32::MAX];
+    for input in cases {
+        let adjusted = input.wrapping_add(adjustment) as u16;
+        let signal = if adjusted >= baseline {
+            adjusted.wrapping_sub(baseline)
+        } else {
+            0
+        };
+        let reference = if calibration >= baseline {
+            calibration.wrapping_sub(baseline)
+        } else {
+            0
+        };
+        let mut output = [0x55aau16; 4];
+        unsafe {
+            get_sar_sig_ref(
+                input,
+                output.as_mut_ptr().add(1),
+                output.as_mut_ptr().add(2),
+            )
+        };
+        assert_eq!(output, [0x55aa, signal, reference, 0x55aa]);
+    }
+    #[cfg(feature = "esp32c3")]
+    let slots = [0x144, 0x148, 0x14c, 0x118];
+    #[cfg(feature = "esp32s3")]
+    let slots = [0x120, 0x124, 0x128, 0x104];
+    for slot in slots {
+        let table = unsafe { (&raw const g_phyFuns).read_volatile() };
+        let target = unsafe { table.add(slot).cast::<usize>().read_volatile() };
+        assert_ne!(target, 0);
+        info!(
+            "stage=phy_pwdet_slot cycle={} slot={:#x} target={:#x}",
+            cycle, slot, target
+        );
+    }
+    #[cfg(feature = "esp32c3")]
+    let read = rom1_read_sar2_code as *const () as usize;
+    #[cfg(feature = "esp32s3")]
+    let read = ram_read_sar2_code as *const () as usize;
+    info!(
+        "stage=phy_pwdet cycle={} reference={:#x} power={:#x} tone={:#x} samples={:#x} fm={:#x} linear={:#x} db={:#x} read={:#x} baseline={} calibration={} checked={}",
+        cycle,
+        get_sar_sig_ref as *const () as usize,
+        phy_set_pwdet_power as *const () as usize,
+        pwdet_tone_start as *const () as usize,
+        get_tone_sar_dout as *const () as usize,
+        get_fm_sar_dout as *const () as usize,
+        txtone_linear_pwr as *const () as usize,
+        get_power_db as *const () as usize,
+        read,
+        baseline,
+        calibration,
+        cases.len()
+    );
+    #[cfg(feature = "esp32c3")]
+    info!(
+        "stage=phy_pwdet_pkdet cycle={} start={:#x}",
+        cycle, ram_pkdet_vol_start as *const () as usize
+    );
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -492,6 +583,7 @@ async fn main(_spawner: Spawner) {
             inspect_basic(cycle);
             inspect_feature(cycle);
             inspect_debug(cycle);
+            inspect_pwdet(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

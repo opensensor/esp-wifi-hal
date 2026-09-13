@@ -15,7 +15,7 @@ concurrency:
 jobs:
   host-regressions:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -43,6 +43,8 @@ jobs:
         run: sh docs/network/tests/run-phy-feature.sh
       - name: Compare PHY debug helpers to original instructions
         run: sh docs/network/tests/run-phy-debug.sh
+      - name: Compare power detector to original instructions
+        run: sh docs/network/tests/run-phy-pwdet.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
@@ -63,6 +65,8 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_feature.py
           python3 docs/network/tests/test_audit_phy_debug.py
           python3 -O docs/network/tests/test_audit_phy_debug.py
+          python3 docs/network/tests/test_audit_phy_pwdet.py
+          python3 -O docs/network/tests/test_audit_phy_pwdet.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu
