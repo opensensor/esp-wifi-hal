@@ -27,6 +27,9 @@ def fixture(chip, expected="source"):
         append_input(base, "phy_i2c.o", ".iram1", 0x40390000, 0x400)
         if chip == "esp32c3":
             symbols[i2c.LOCAL_PARTIAL] = symbol(0x40390300, size=60)
+    else:
+        symbols[i2c.PROGRAM] = symbol(0x3fc8a000, size=40, function=False)
+        symbols[i2c.PROGRAM]["body_sha256"] = i2c.PROGRAM_HASH
     return base, symbols
 
 
@@ -193,6 +196,39 @@ class I2cAuditTests(unittest.TestCase):
         symbols["set_pbus_mem"]["address"] = "0x4200c000"
         with self.assertRaisesRegex(ValueError, "Incorrect PBUS source alias"):
             check(base, symbols)
+
+    def test_program_table_requires_exact_object_size_and_internal_dram(self):
+        for field, value, message in (("allocated", False, "Missing allocated 40-byte"),
+                                      ("absolute", True, "Missing allocated 40-byte"),
+                                      ("executable", True, "Missing allocated 40-byte"),
+                                      ("body_contained", False, "Missing allocated 40-byte"),
+                                      ("type", "STT_FUNC", "Missing allocated 40-byte"),
+                                      ("symbol_size_bytes", 39, "Missing allocated 40-byte"),
+                                      ("address", "0x3c000100", "internal DRAM"),
+                                      ("address", "0x3fcdfff0", "internal DRAM")):
+            base, symbols = fixture("esp32s3")
+            symbols[i2c.PROGRAM][field] = value
+            with self.subTest(field=field, value=value), self.assertRaisesRegex(ValueError, message):
+                check(base, symbols)
+
+    def test_program_table_contents_must_match_original_four_arrays(self):
+        base, symbols = fixture("esp32c3")
+        symbols[i2c.PROGRAM]["body_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "differs from pinned original program"):
+            check(base, symbols)
+
+    def test_program_table_cannot_be_backed_by_retained_vendor_bytes(self):
+        base, symbols = fixture("esp32c3")
+        append_input(base, "other.o", ".data.program", 0x3fc8a020)
+        with self.assertRaisesRegex(ValueError, "program table overlaps vendor"):
+            check(base, symbols)
+
+    def test_program_table_is_absent_before_whole_member_stage(self):
+        for stage in ("vendor", "flash"):
+            base, symbols = fixture("esp32s3", stage)
+            symbols[i2c.PROGRAM] = symbol(0, size=0, function=False)
+            with self.subTest(stage=stage), self.assertRaisesRegex(ValueError, "before whole-member stage"):
+                check(base, symbols, stage)
 
 
 if __name__ == "__main__":

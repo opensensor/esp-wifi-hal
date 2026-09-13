@@ -140,6 +140,58 @@ unsafe fn inspect_pbus(cycle: u32) {
     }
 }
 
+/// Read the I2C callback table after normal initialization. Do not trigger extra
+/// analog transactions or alter the table while inspecting its installation.
+unsafe fn inspect_i2c(cycle: u32) {
+    unsafe extern "C" {
+        static mut g_phyFuns: *const u8;
+        #[cfg(feature = "esp32c3")]
+        fn rom1_get_i2c_hostid(block: u32) -> u32;
+        #[cfg(feature = "esp32c3")]
+        fn rom1_chip_i2c_readReg(block: u32, host: u32, reg: u32) -> u32;
+        #[cfg(feature = "esp32c3")]
+        fn rom1_chip_i2c_writeReg(block: u32, host: u32, reg: u32, data: u32);
+        #[cfg(feature = "esp32c3")]
+        fn rom1_phy_i2c_init1();
+        #[cfg(feature = "esp32s3")]
+        fn ram_get_i2c_hostid(block: u32) -> u32;
+        #[cfg(feature = "esp32s3")]
+        fn ram_chip_i2c_readReg(block: u32, host: u32, reg: u32) -> u32;
+        #[cfg(feature = "esp32s3")]
+        fn ram_chip_i2c_writeReg(block: u32, host: u32, reg: u32, data: u32);
+        #[cfg(feature = "esp32s3")]
+        fn ram_phy_i2c_init1();
+        #[cfg(feature = "esp32s3")]
+        fn ram_set_txcap_reg(input: *const u8, rate: u32);
+    }
+    #[cfg(feature = "esp32c3")]
+    let entries = [
+        (0x180, rom1_get_i2c_hostid as *const () as usize),
+        (0x190, rom1_chip_i2c_readReg as *const () as usize),
+        (0x1b0, rom1_chip_i2c_writeReg as *const () as usize),
+        (0x278, rom1_phy_i2c_init1 as *const () as usize),
+    ];
+    #[cfg(feature = "esp32s3")]
+    let entries = [
+        (0x15c, ram_get_i2c_hostid as *const () as usize),
+        (0x16c, ram_chip_i2c_readReg as *const () as usize),
+        (0x18c, ram_chip_i2c_writeReg as *const () as usize),
+        (0x254, ram_phy_i2c_init1 as *const () as usize),
+        (0x100, ram_set_txcap_reg as *const () as usize),
+    ];
+    for (slot, expected) in entries {
+        let actual = unsafe {
+            let table = (&raw const g_phyFuns).read_volatile();
+            table.add(slot).cast::<usize>().read_volatile()
+        };
+        info!(
+            "stage=phy_i2c cycle={} slot={:#x} actual={:#x} expected={:#x}",
+            cycle, slot, actual, expected
+        );
+        assert_eq!(actual, expected, "I2C callback installation differs");
+    }
+}
+
 /// Inspect the initialized temperature path with the sole PHY guard alive and
 /// before starting a MAC driver or periodic tracking task. No table is patched.
 unsafe fn inspect_temperature(cycle: u32) {
@@ -257,6 +309,7 @@ async fn main(_spawner: Spawner) {
             inspect_sensor_lifecycle(cycle);
             inspect_temperature(cycle);
             inspect_pbus(cycle);
+            inspect_i2c(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

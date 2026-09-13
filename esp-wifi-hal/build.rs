@@ -134,6 +134,34 @@ fn main() {
                 "EXTERN(__opensensor_i2c_{suffix});\n{original} = __opensensor_i2c_{suffix};\n"
             ));
         }
+        let iram: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
+            &[
+                ("phy_i2c_enter_critical", "enter"),
+                ("phy_i2c_exit_critical", "exit"),
+                ("rom1_get_i2c_hostid", "hostid"),
+                ("rom1_chip_i2c_readReg", "read"),
+                ("rom1_chip_i2c_writeReg", "write"),
+                ("rom1_phy_i2c_init1", "init1"),
+                ("phy_i2c_bbtop_wakeup", "wakeup"),
+                ("bias_dreg_i2c_set", "bias_dreg"),
+            ]
+        } else {
+            &[
+                ("phy_i2c_enter_critical", "enter"),
+                ("phy_i2c_exit_critical", "exit"),
+                ("ram_get_i2c_hostid", "hostid"),
+                ("ram_chip_i2c_readReg", "read"),
+                ("ram_chip_i2c_writeReg", "write"),
+                ("ram_phy_i2c_init1", "init1"),
+                ("phy_i2c_bbtop_wakeup", "wakeup"),
+                ("ram_set_txcap_reg", "txcap"),
+            ]
+        };
+        for (original, suffix) in iram {
+            i2c.push_str(&format!(
+                "EXTERN(__opensensor_i2c_{suffix});\n{original} = __opensensor_i2c_{suffix};\n"
+            ));
+        }
         std::fs::write(out.join("libesp-wifi-hal-i2c.a"), i2c).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-i2c");
     }

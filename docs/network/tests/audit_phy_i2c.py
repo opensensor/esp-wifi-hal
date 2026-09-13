@@ -48,6 +48,11 @@ IRAM = {
     },
 }
 LOCAL_PARTIAL = "bias_dreg_i2c_set.part.0"
+PROGRAM = "__opensensor_i2c_program"
+PROGRAM_BYTES = bytes([107] * 10 + [1, 2, 3, 4, 5, 6, 7, 8, 10, 11]
+                      + [98, 98, 98, 98, 98, 98, 99, 100, 100, 103]
+                      + [3, 8, 10, 9, 4, 0, 1, 8, 4, 2])
+PROGRAM_HASH = hashlib.sha256(PROGRAM_BYTES).hexdigest()
 ALL_SOURCE_NAMES = set(FLASH.values()) | set(IRAM["esp32c3"].values()) | set(IRAM["esp32s3"].values())
 ROM_NAMES = (
     "rom_get_i2c_read_mask", "rom_get_i2c_mst0_mask", "rom_enter_critical_phy",
@@ -104,6 +109,20 @@ def check_i2c(base, symbols, expected, attribute_hash):
             raise ValueError("I2C member still has excluded mergeable string input")
         if symbols.get(LOCAL_PARTIAL) is not None:
             raise ValueError("Original I2C local partial still present")
+        program = symbols.get(PROGRAM)
+        if not (program and program.get("allocated") and not program.get("absolute")
+                and not program.get("executable") and program.get("body_contained")
+                and program.get("type") == "STT_OBJECT" and program.get("symbol_size_bytes") == 40):
+            raise ValueError("Missing allocated 40-byte I2C source program table")
+        address = int(program["address"], 0)
+        if not 0x3fc80000 <= address < address + 40 <= 0x3fce0000:
+            raise ValueError("I2C source program table must reside in internal DRAM")
+        if program.get("body_sha256") != PROGRAM_HASH:
+            raise ValueError("I2C source program table differs from pinned original program")
+        if any(temperature.overlaps(row, program) for row in inputs):
+            raise ValueError("I2C source program table overlaps vendor input")
+    elif symbols.get(PROGRAM) is not None:
+        raise ValueError("Unexpected I2C source program table before whole-member stage")
 
     for original, source in selected.items():
         if original in source_selected:
@@ -157,6 +176,7 @@ def audit(elf_path, map_path, label, expected):
     names.update(ALL_SOURCE_NAMES)
     names.update(ROM_REFERENCES[chip])
     names.add(LOCAL_PARTIAL)
+    names.add(PROGRAM)
     with elf_path.open("rb") as stream:
         symbols = temperature.inspect_symbols(ELFFile(stream), sorted(names))
     oracle = json.loads(lifecycle.ORACLE.read_text())["chips"][chip]
@@ -185,6 +205,7 @@ def audit(elf_path, map_path, label, expected):
                                     "source_body": symbols[new], "requires_iram": old in IRAM[chip]}
                              for old, new in {**FLASH, **IRAM[chip]}.items()},
         "original_local_partial": symbols[LOCAL_PARTIAL],
+        "source_program_table": symbols[PROGRAM],
         "retained_i2c_rom_dependencies": {name: symbols[name] for name in ROM_REFERENCES[chip]},
         "input_archives_observed": base["input_archives_observed"],
         "allocated_phy_inputs": phy["inputs"],

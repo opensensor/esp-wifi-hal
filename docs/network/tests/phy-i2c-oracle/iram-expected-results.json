@@ -1,0 +1,12 @@
+{
+  "esp32c3": {
+    "chip": "esp32c3",
+    "cases": 104768,
+    "oracle_sha256": "f436a3ea2c86717a31263b939062356af43828d814f36c9f94e3fba598cdab6a"
+  },
+  "esp32s3": {
+    "chip": "esp32s3",
+    "cases": 136000,
+    "oracle_sha256": "d2c007a4c18242bac12a6a5f59ad7746d8aae248b3a3d8da5ea4715b97020f38"
+  }
+}
