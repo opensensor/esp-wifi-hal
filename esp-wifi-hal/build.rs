@@ -202,5 +202,18 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-basic.a"), basic).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-basic");
+        let mut feature = String::new();
+        for (original, suffix) in [
+            ("phy_dig_reg_backup", "dig"),
+            ("phy_freq_mem_backup", "freq"),
+            ("phy_set_most_tpw", "power"),
+            ("phy_11p_set", "mode"),
+        ] {
+            feature.push_str(&format!(
+                "EXTERN(__opensensor_feature_{suffix});\n{original} = __opensensor_feature_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-feature.a"), feature).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-feature");
     }
 }

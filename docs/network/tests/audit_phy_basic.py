@@ -20,8 +20,9 @@ RETAINED={chip:{'phy_set_most_tpw':('phy_feature.o','.text.phy_set_most_tpw')} f
 ROM={'esp32c3':0x40001bec,'esp32s3':0x4000633c}
 
 
-def check_basic(base,symbols,expected):
+def check_basic(base,symbols,expected,feature_source=False):
     if expected not in ('vendor','source'):raise ValueError('Expected basic vendor or source')
+    if feature_source and expected!='source':raise ValueError('Feature source requires basic source')
     chip=base['chip'];inputs=base['allocations']['libphy.a']['inputs'];selected=SELECTED[chip]
     member=[row for row in inputs if row['member']=='phy_basic.o']
     if expected=='source':
@@ -45,20 +46,27 @@ def check_basic(base,symbols,expected):
     rom=symbols.get('rom_set_chan_reg')
     if not (rom and rom.get('absolute') and int(rom['address'],0)==ROM[chip]):raise ValueError('Changed ROM channel binding')
     for name,(member_name,section) in RETAINED[chip].items():
+        if feature_source and name=='phy_set_most_tpw':
+            body=temperature.require_body(symbols,'__opensensor_feature_power')
+            if not lifecycle.alias_matches(symbols.get(name),body,executable=True):raise ValueError('Incorrect feature power alias')
+            if any(temperature.overlaps(row,body) for row in inputs):raise ValueError('Feature power overlaps vendor input')
+            if temperature.original_sections(inputs,name):raise ValueError('Original feature power still allocated')
+            continue
         body=temperature.require_body(symbols,name)
         if not any(row['member']==member_name and row['section']==section and temperature.contains(row,body) for row in inputs):
             raise ValueError('Retained basic helper lacks original ownership: '+name)
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained basic helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected):
+def audit(elf_path,map_path,label,expected,feature_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=api.audit(elf_path,map_path,label,'source')
+    prior=api.audit(elf_path,map_path,label,'source',feature_source=feature_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|{'rom_set_chan_reg'}
+    if feature_source:names.add('__opensensor_feature_power')
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(names))
-    check_basic(base,symbols,expected)
+    check_basic(base,symbols,expected,feature_source)
     phy=base['allocations']['libphy.a']
     return {'schema':'phy-basic-allocation-audit-v1','chip':chip,'label':label,'expect_basic':expected,'checks_passed':True,
         'profile':'full-tracking-station','elf_sha256':base['elf_sha256'],'map_sha256':base['map_sha256'],

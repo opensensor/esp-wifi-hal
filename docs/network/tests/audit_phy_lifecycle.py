@@ -76,11 +76,14 @@ def check_aliases(base, symbols, names):
 
 API_REPLACEMENTS = {"phy_wakeup_init": "__opensensor_api_wakeup",
                     "phy_close_rf": "__opensensor_api_close"}
+FEATURE_REPLACEMENTS = {"phy_dig_reg_backup": "__opensensor_feature_dig"}
 
 
-def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False):
+def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False, feature_source=False):
     if stage not in ("temperature", "lifecycle"):
         raise ValueError("Expected stage temperature or lifecycle")
+    if feature_source and not api_source:
+        raise ValueError("Feature replacement requires complete API source")
     chip = base["chip"]
     if stage == "temperature":
         if api_source:
@@ -117,18 +120,21 @@ def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False):
         "address": new_outer["address"], "size_bytes": new_outer["symbol_size_bytes"]}
     allocations.check_expectations(gate_base, "source", "source", "source")
 
-    # A later API stage replaces exactly these two former vendor helpers.
-    # Verify their real source bodies and aliases before exempting them from
-    # vendor ownership; every other retained-helper gate remains unchanged.
-    if api_source:
-        check_aliases(base, symbols, API_REPLACEMENTS)
-        for source in API_REPLACEMENTS.values():
+    # Later API and feature stages replace explicitly named vendor helpers.
+    # Verify real source bodies and aliases before exempting those helpers
+    # from vendor ownership; standalone earlier-stage checks remain strict.
+    replacements = dict(API_REPLACEMENTS) if api_source else {}
+    if feature_source:
+        replacements.update(FEATURE_REPLACEMENTS)
+    if replacements:
+        check_aliases(base, symbols, replacements)
+        for source in replacements.values():
             body = symbols[source]
             address = int(body["address"], 0)
             if not 0x40370000 <= address < address + body["symbol_size_bytes"] <= 0x403e0000:
-                raise ValueError("API source entry is outside IRAM")
+                raise ValueError("API/feature source entry is outside IRAM")
     for name in RETAINED_FUNCTIONS:
-        if api_source and name in API_REPLACEMENTS:
+        if name in replacements:
             continue
         symbol = temperature.require_body(symbols, name)
         if not any(temperature.contains(row, symbol) for row in inputs):

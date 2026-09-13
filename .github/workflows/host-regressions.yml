@@ -39,6 +39,8 @@ jobs:
         run: sh docs/network/tests/run-phy-api.sh
       - name: Compare basic PHY helpers to original instructions
         run: sh docs/network/tests/run-phy-basic.sh
+      - name: Compare PHY feature helpers to original instructions
+        run: sh docs/network/tests/run-phy-feature.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
@@ -55,6 +57,8 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_api.py
           python3 docs/network/tests/test_audit_phy_basic.py
           python3 -O docs/network/tests/test_audit_phy_basic.py
+          python3 docs/network/tests/test_audit_phy_feature.py
+          python3 -O docs/network/tests/test_audit_phy_feature.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu

@@ -70,4 +70,22 @@ class BasicAudit(unittest.TestCase):
         for field,value in [('member','other.o'),('section','.text.wrong')]:
             b,s=fixture();b['allocations']['libphy.a']['inputs'][0][field]=value
             with self.assertRaisesRegex(ValueError,'Retained basic helper'):basic.check_basic(b,s,'source')
+    def test_feature_transition_requires_basic_source(self):
+        with self.assertRaisesRegex(ValueError,'requires basic source'):basic.check_basic(*fixture('esp32c3','vendor'),'vendor',feature_source=True)
+    def test_feature_transition_requires_real_power_body_and_alias(self):
+        for chip in basic.SELECTED:
+            b,s=fixture(chip)
+            with self.assertRaisesRegex(ValueError,'Missing allocated function'):basic.check_basic(b,s,'source',feature_source=True)
+            s['__opensensor_feature_power']=symbol(0x42010000)
+            with self.assertRaisesRegex(ValueError,'Incorrect feature power alias'):basic.check_basic(b,s,'source',feature_source=True)
+            s['phy_set_most_tpw']['address']='0x42010000'
+            with self.assertRaisesRegex(ValueError,'Original feature power'):basic.check_basic(b,s,'source',feature_source=True)
+            b['allocations']['libphy.a']['inputs'].clear()
+            basic.check_basic(b,s,'source',feature_source=True)
+            with self.assertRaisesRegex(ValueError,'Retained basic helper'):basic.check_basic(b,s,'source')
+    def test_feature_transition_rejects_vendor_overlap(self):
+        b,s=fixture();b['allocations']['libphy.a']['inputs'].clear()
+        s['__opensensor_feature_power']=symbol(0x42010000);s['phy_set_most_tpw']['address']='0x42010000'
+        append_input(b,'other.o','.data',0x42010008)
+        with self.assertRaisesRegex(ValueError,'Feature power overlaps'):basic.check_basic(b,s,'source',feature_source=True)
 if __name__=='__main__':unittest.main()

@@ -350,6 +350,45 @@ unsafe fn inspect_basic(cycle: u32) {
     );
 }
 
+/// Record selected entries and existing state without issuing extra RF operations.
+unsafe fn inspect_feature(cycle: u32) {
+    unsafe extern "C" {
+        fn phy_dig_reg_backup();
+        fn phy_freq_mem_backup();
+        fn phy_set_most_tpw();
+        fn phy_11p_set();
+        fn rom_phy_dig_reg_backup();
+        fn rom_phy_freq_mem_backup();
+        #[cfg(feature = "esp32c3")]
+        static mut phy_param: [u8; 848];
+        #[cfg(feature = "esp32s3")]
+        static mut phy_param: [u8; 740];
+    }
+    let dig = rom_phy_dig_reg_backup as *const () as usize;
+    let freq = rom_phy_freq_mem_backup as *const () as usize;
+    #[cfg(feature = "esp32c3")]
+    assert_eq!((dig, freq), (0x40001c30, 0x40001c20));
+    #[cfg(feature = "esp32s3")]
+    assert_eq!((dig, freq), (0x40006408, 0x400063d8));
+    let param = (&raw const phy_param).cast::<u8>();
+    let power = unsafe { param.add(0x98).read_volatile() };
+    let enabled = unsafe { param.add(0xef).read_volatile() };
+    let narrow = unsafe { param.add(0xf0).read_volatile() };
+    info!(
+        "stage=phy_feature cycle={} dig={:#x} freq={:#x} power={:#x} mode={:#x} rom_dig={:#x} rom_freq={:#x} power_byte={} enabled={} narrow={}",
+        cycle,
+        phy_dig_reg_backup as *const () as usize,
+        phy_freq_mem_backup as *const () as usize,
+        phy_set_most_tpw as *const () as usize,
+        phy_11p_set as *const () as usize,
+        dig,
+        freq,
+        power,
+        enabled,
+        narrow
+    );
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -399,6 +438,7 @@ async fn main(_spawner: Spawner) {
             inspect_i2c(cycle);
             inspect_api(cycle);
             inspect_basic(cycle);
+            inspect_feature(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
