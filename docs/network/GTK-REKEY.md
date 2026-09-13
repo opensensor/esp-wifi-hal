@@ -1,8 +1,12 @@
 # S3/C3 WPA2 group-key rotation
 
-The HAL examples pin FoA `214311817b5234c1e9c911cd28a664cd392c366e`, which adds
+The original GTK milestone used FoA `214311817b5234c1e9c911cd28a664cd392c366e`, which adds
 authenticated GTK updates while a station remains connected. The implementation
 and replay-protection rules are documented in [FoA's report](https://github.com/opensensor/FoA/blob/214311817b5234c1e9c911cd28a664cd392c366e/GTK-REKEY.md).
+
+The examples now pin `c433109` to reject missing TX completions. Its separate
+[completion-result comparison](EAPOL-TX-COMPLETION.md) preserves the historical
+GTK results below and records actual request outcomes alongside AP captures.
 
 The final 2026-09-12 repeats use the published pin and a 90-second connected
 window per board:

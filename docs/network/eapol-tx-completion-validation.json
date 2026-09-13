@@ -1,0 +1,2980 @@
+{
+  "schema": "eapol-tx-completion-validation-v1",
+  "date": "2026-09-13",
+  "foa_control": "214311817b5234c1e9c911cd28a664cd392c366e",
+  "foa_source": "c433109960bc2b346a45da47c2bd3d2cb32690bf",
+  "hal_baseline": "83eb8c2c88b6dd91aab80b69b16f35954df1885a",
+  "hal_implementation": "93edf9b4d28ead1080eccf5905ac090722c6b41b",
+  "sys_revision": "73add8985cec3b7582e6df80a4273022deb844b0",
+  "probe": "Identical request timestamp and flight-recorder-window logging on control and source; no firmware fault injection.",
+  "configuration": {
+    "cpu_mhz": 80,
+    "timing_log_profile": "quiet",
+    "normal_cycles": 2,
+    "normal_traffic_seconds": 10,
+    "gtk_cycles": 1,
+    "gtk_traffic_seconds": 90
+  },
+  "host_tests": {
+    "sta-debug": {
+      "passed": 31,
+      "log_sha256": "129dce5ac66ef30099f7a1e4879109e09673b552c22476aab0ced85f4a7a5a06"
+    },
+    "sta-release": {
+      "passed": 31,
+      "log_sha256": "8eaad3eacab44e18ebd882a9ba78cd4a69af69ca2fb0be5106514afd6d0376b7"
+    },
+    "queue-debug": {
+      "passed": 15,
+      "log_sha256": "21675592e0c11cfb94c3690a6bc0b1b51d7dfe64f4523a34a94c73bc863dab2d"
+    },
+    "queue-small-release": {
+      "passed": 15,
+      "log_sha256": "bd7e4e1a26feba939490fe36c354bb87b2b9dc0eace443c40fd54dda5fb23db5"
+    },
+    "queue-trace": {
+      "passed": 17,
+      "log_sha256": "c4a9e5a32587f0a1f3093d0582eacde951b0214e306c70e2730ef136e3415164"
+    }
+  },
+  "builds": [
+    {
+      "chip": "esp32c3",
+      "variant": "control-v2",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "features": "esp32c3,foa-smoke",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361"
+      },
+      "elf_sha256": "b48353d6af53f24fe80527164a97e56c3733bfb145c4099ff8c4c2a280b2e96c",
+      "map_sha256": "50857b986eaa4e4ff1b7b3b1c7f5e4534b0a35a754b1e9e0a0a670591177c19c",
+      "lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 31377,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "control-v2-gtk",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "features": "esp32c3,neighbor-probe,gtk-rekey-probe",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361"
+      },
+      "elf_sha256": "20eb19ca37bf718184d48c69723d06d2407fe29c67cd9a0564b611d3e116ddb9",
+      "map_sha256": "5617534123e542c8db078be0887a41def800d0cb8e3b5db345bf45fd6c3c7705",
+      "lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 31377,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-v2",
+      "foa_revision": "c433109960bc2b346a45da47c2bd3d2cb32690bf",
+      "features": "esp32c3,foa-smoke",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "7b43a458c089054c1a503b361539ee3a17819ecc3c08f44279167bb50bb4b280"
+      },
+      "elf_sha256": "8b2c875412868521a20f652d66b0f7abe5285d9625d6bee01d5984ecacc0b6f1",
+      "map_sha256": "35ec12399a879fcc5ee3511d801ab7e3c5d8ee77bb837e3e5c44ee2892bdf794",
+      "lock_sha256": "37f84597777da74d5660c90f3186ea9f8573f2d6de191e504dc3a30a3eb2a56e",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 31377,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "variant": "source-v2-gtk",
+      "foa_revision": "c433109960bc2b346a45da47c2bd3d2cb32690bf",
+      "features": "esp32c3,neighbor-probe,gtk-rekey-probe",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "7b43a458c089054c1a503b361539ee3a17819ecc3c08f44279167bb50bb4b280"
+      },
+      "elf_sha256": "278f5cf9b804935ae2dd39a992c3f149907aadcf5fc09a412812ef993c2a8824",
+      "map_sha256": "e868c4c09702a4f863409835f05f07f027ceb972de57499864792c55c637c9f0",
+      "lock_sha256": "37f84597777da74d5660c90f3186ea9f8573f2d6de191e504dc3a30a3eb2a56e",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 31377,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "control-v2",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "features": "esp32s3,foa-smoke",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361"
+      },
+      "elf_sha256": "ae748570f21346cbbaac9610d328984b7d17d35896d3e0e475e4ee98c8e1a01d",
+      "map_sha256": "abcb2b14d8b3b4c157fd4448c7951e21f1d51a5ee182e27d6c493228d0c3dff9",
+      "lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 29618,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "control-v2-gtk",
+      "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+      "features": "esp32s3,neighbor-probe,gtk-rekey-probe",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361"
+      },
+      "elf_sha256": "615d6449c7b2c5693075417a2e7d32e521209219629b574954a5b0b4f317e686",
+      "map_sha256": "aa6f50f4279d2c26587f857b20d73868de494a7f514d871bf1e1767dd2372a25",
+      "lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 29610,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-v2",
+      "foa_revision": "c433109960bc2b346a45da47c2bd3d2cb32690bf",
+      "features": "esp32s3,foa-smoke",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "7b43a458c089054c1a503b361539ee3a17819ecc3c08f44279167bb50bb4b280"
+      },
+      "elf_sha256": "d1ffd751422652ccf3f6864efc20e741729e719ee9b96a6f674bbf43b46d6bf0",
+      "map_sha256": "3afd10478c376b19b786019947f3954a7f08219623e54495bbd94e4d4087e1b0",
+      "lock_sha256": "37f84597777da74d5660c90f3186ea9f8573f2d6de191e504dc3a30a3eb2a56e",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 29618,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "variant": "source-v2-gtk",
+      "foa_revision": "c433109960bc2b346a45da47c2bd3d2cb32690bf",
+      "features": "esp32s3,neighbor-probe,gtk-rekey-probe",
+      "source_files": {
+        "esp-wifi-hal/src/s3_phy.rs": "4ed547bfdc0d5ecac485b6dc7fc923c0d1362708dd094b6ab91625c998c209d6",
+        "esp-wifi-hal/src/c3_phy.rs": "40299d0cbcf4e676aad89a475cd988b68c3b128764a735fc1aeadbbdb615c9cd",
+        "esp-wifi-hal/src/borrowed_buffer.rs": "0fa455f4f9b0717cc9e4feeb8873b71154892e0fc7d80765ab14ce6b3fd33600",
+        "esp-wifi-hal/src/ht20.rs": "2d549850b4f36c09e481062ba85cc533d39129f25629a953179ed72b959a5a3b",
+        "esp-wifi-hal/src/ffi.rs": "3ddcccb87af5b646eb2e183c2b70c23f67de8ceef22877472cc6027e9bc083c9",
+        "esp-wifi-hal/src/s3_mac_helpers.rs": "38b7076a006dcda08d3282690c1811b84d0c1c45625adbaa08b43d73577ae35a",
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/sync.rs": "63f1ea0b0fd445b20eda178f5ab97cb9178533af32273e4be6efb0b4f34c7f61",
+        "esp-wifi-hal/src/edca.rs": "e123ffd62594f7f0957c330f5656a8a040082f4f8cf16ffe6022aa274e5e867e",
+        "esp-wifi-hal/src/crypto.rs": "14d8b072dd16907ac844051721d5a09fc07f37550cec331dbc156fa58324baf5",
+        "esp-wifi-hal/src/ll.rs": "3a0aa59d363be49f2363090d4d5d10324fc87ccdc0ab17250d51fb6fd82fd328",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/src/phy_dispatcher.rs": "0537729e3679ac287f35855a102e66a63e0096f8e5c16f4273005c7dccad16d7",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/c3_mac.rs": "0337b89e97613df78cd5bc3463959dd2e8bdf515c7f4ad6178dd1410fcf300b9",
+        "esp-wifi-hal/src/s3_mac.rs": "793842f6474268d8f777fe211fb700af975970fbc12921a925f8064851c05878",
+        "esp-wifi-hal/src/timing.rs": "a9a603053ced2033f39490a3c233b25059dff62071e0e8f79bb8663aa91f0f18",
+        "esp-wifi-hal/src/rx.rs": "3e1d93716673419fb5c4138defed27ac43eee112e2b1a3b1c83ded6c50b8a235",
+        "esp-wifi-hal/src/phy_wrappers.rs": "9b9e2a8f6f3364f652d0ef65a3ad2017949e32c5dd6907427aa15d8237d75fcc",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/rates.rs": "a6c8070909c8407741f5ba99c6e6363b3b2ea6f72e83f32bc88505fefbd26ff9",
+        "esp-wifi-hal/src/dma_list.rs": "38efb08ec39a2d2f406ac2f2d883fd0ebea12341cf6a7b952643c0a44d042d43",
+        "esp-wifi-hal/src/async_driver.rs": "6ba09ee9f55e22b11b3b96fce416fee3fbe4b8a797ef3b6caa6a9c22737385e0",
+        "examples/src/packet_trace.rs": "d52f46e5609c46f423d4526b4a7960a31992104d760656158202b000c3eeb0b2",
+        "examples/src/capture_protocol.rs": "7c5f0707bf83a33c6110373e10e23acbd124643784c1ea78a3cbe6841728fd3e",
+        "examples/src/timing_probe.rs": "4c0a8cbc7c0bf475ffb42af551e9e4257944634ed7e70a2dc0ef48983d93b0ce",
+        "examples/src/lib.rs": "eb6e32e71b0bf3f58d6406620aac8eee0c68f680af54aeb00bdbddf946e16f80",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c",
+        "examples/src/bin/ack_timeout_test_rx.rs": "b05cf19af3145b8e34b66160d3f503444de8a83ffecf816b8491fafabc24df87",
+        "examples/src/bin/beacon_tsf_test_rx.rs": "f565ee53b01a79ec8726ae754a8a4bcfca487dc7a0a75a4c798c8878455c3bd7",
+        "examples/src/bin/minimal.rs": "654652ddf131ee805b13b41d597fdd5c2d38f5bfebfc3f8ff698c090af3fee6a",
+        "examples/src/bin/crypto_rx.rs": "6797c39597f86e47d760f800b355b6da5a2eb20f33dace5506247c0c2e8017e6",
+        "examples/src/bin/raw_capture.rs": "90997b39a9944f1b1f34119a8e6f2323c6083b6f4b832cc8a10a82ff0e01d498",
+        "examples/src/bin/sniffer.rs": "dc59788488a1e19e83c1ed8d7825abe00c0990e55cd46eef8babc8abcb1d79a9",
+        "examples/src/bin/timeout_test.rs": "4ba9ec4ed715dc2e2fb92e1a3654ddd025be3ed5b58ab4a28c6f11d0b77c7966",
+        "examples/src/bin/txresult.rs": "f0bbd872d086c25a5191abef52c052907dcbf1f48a86c6574559412cc15333a3",
+        "examples/src/bin/test_cli.rs": "43b4ef01a0f0ff6981d09bdce89c5fc779368fa44905a9c4cac681cd0c88d135",
+        "examples/src/bin/tsf_timer_test.rs": "7d213ad255d6ae7c65513a76ff4f84bd2167868f1332b752bb1a27085b970f15",
+        "examples/src/bin/beacon_tsf_test_tx.rs": "6dd7f62f2e4cc44ed8f4cfbdfb1016cfd4548f8a7d3ea4bb7efc27e4be11398d",
+        "examples/src/bin/acktest.rs": "539352c5868eafb16e743de70af37e794ca00febad16a907a9d3eed3da247c25",
+        "examples/src/bin/dup_test.rs": "7137bed5e8b09f6a439c0c5ad9c57f6adf6a03ef1bf1d2d55ac4bab6de2b5d1e",
+        "examples/src/bin/ack_timeout_test_tx.rs": "06c070131b3a85430ddf6715b30353f24d0a781863720748aecfd7f2b26c73eb",
+        "examples/src/bin/crypto_tx.rs": "e204a26caa54a7d2f4ff554c635f94671d4589996408d9ced48b6e3cdb42127b",
+        "examples/src/bin/mac_time_test.rs": "5b6ccefd067ecfc561dbf803b034c13baf05287da3790617b7974fa3fe6a431b",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f",
+        "examples/src/bin/beacon.rs": "b8060f473477213f26cfe89c8a8087aae9cc50e05da6db20147c26141008336a",
+        "examples/src/bin/sta_smoke.rs": "66b245bc581443655d190a5f1892948c787900b1682296301e39b27d494a5424",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "7b43a458c089054c1a503b361539ee3a17819ecc3c08f44279167bb50bb4b280"
+      },
+      "elf_sha256": "c8b4bf425e95a5cdf6b3a03dd1b3e8a819ed116678c3a14ffd2736b1e22c5a02",
+      "map_sha256": "abc0571144f2501fefb48097d53027b0f32a135f4d0bb08ebdeb1b900c061ed1",
+      "lock_sha256": "37f84597777da74d5660c90f3186ea9f8573f2d6de191e504dc3a30a3eb2a56e",
+      "allocation_checks_passed": true,
+      "allocations": {
+        "libphy_bytes": 29610,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      }
+    }
+  ],
+  "trials": [
+    {
+      "chip": "esp32c3",
+      "label": "control-normal-v2",
+      "complete": true,
+      "image_sha256": "c535411f2ea56a221d797aac6b6d9a62f6b6278d512de6eceab06ebcdc0af6e5",
+      "router_sent": 40,
+      "router_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_median_us": 3515.5,
+      "router_rtt_max_us": 26873,
+      "worker_codes": [
+        0,
+        0
+      ],
+      "ping_codes": [
+        0,
+        0
+      ],
+      "requests": [],
+      "request_window_events": [],
+      "request_window_counts": [],
+      "input_hashes": {
+        "result.json": "e620f59ef59c39b2abf3472434a747c0680fd5e1e8d6ba8bf4c726797fefe26b",
+        "serial.txt": "daf6650a7eca1c6698869a5107056fa044a49875846b8b4869d21257b8f5af46",
+        "br0.pcap": "ba441c52cc9bdc934f671ef8a3dd6e80d590bfc1edbd6ed57eb1e9ac66581a78",
+        "eth10.stats": "4ee716f30ddde1109f34a6d1fa53542ef1e5d8a7189a21c085b96a5eccdf6039",
+        "br0.stats": "9ea5bd91771d622f145c6ff942672ae7594215c770c66d0fa3dcfa95478fa984",
+        "eth10.pcap": "7d85dd08078fc91d6e238dafdeb252e983727e00c2d56be839eef19e374d5c8d"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-normal-v2",
+      "complete": true,
+      "image_sha256": "8e9b11473ae8e3f133d7299d6b524f669f6ce127d7d2f0aac6a70fa40aa52a09",
+      "router_sent": 40,
+      "router_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_median_us": 4960.0,
+      "router_rtt_max_us": 54021,
+      "worker_codes": [
+        0,
+        0
+      ],
+      "ping_codes": [
+        0,
+        0
+      ],
+      "requests": [],
+      "request_window_events": [],
+      "request_window_counts": [],
+      "input_hashes": {
+        "result.json": "ad04bb44b4b5b33fa9230eec2bf4391e73a83c51835a798dbfcaf67b613bfc63",
+        "serial.txt": "8ca3ac7641b2cc3f0265a32d264aa103ca17f5fc6042ea3756cfe1ed687b91f5",
+        "br0.pcap": "502ebeabb5596b50797370b4803658c4ef43d0a2446356f5ac9d2a96240e937a",
+        "eth10.stats": "fc475e8fc7722b5913b48c49dd6a7014071edc0d4f287ed4623ee5146e6ef930",
+        "br0.stats": "2615e4fdf88347594add9d4611353dc5460aea2b4a9e6a362a3120560d75ff60",
+        "eth10.pcap": "554b85e7e0e13c7e741cc47726499c5159746de41440881917bee114eab6752d"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "control-gtk-v2",
+      "complete": true,
+      "image_sha256": "1a97743162a51789b33e129d7f6c201191c03f4f46db31ab8e4e135c9e6867f4",
+      "router_sent": 300,
+      "router_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_median_us": 4111.5,
+      "router_rtt_max_us": 74348,
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "requests": [
+        {
+          "index": 1,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 19573665,
+          "completed_us": 19575962,
+          "duration_us": 2297
+        },
+        {
+          "index": 2,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 29579384,
+          "completed_us": 29581661,
+          "duration_us": 2277
+        },
+        {
+          "index": 3,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 39585032,
+          "completed_us": 39593408,
+          "duration_us": 8376
+        }
+      ],
+      "request_window_events": [
+        {
+          "request": 1,
+          "ordinal": 22,
+          "reset_us": 17190504,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 2,
+          "ordinal": 26,
+          "reset_us": 27196203,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 3,
+          "ordinal": 30,
+          "reset_us": 37207949,
+          "phase": 10,
+          "outcome": 0
+        }
+      ],
+      "request_window_counts": [
+        {
+          "index": 1,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 2,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 3,
+          "count": 1,
+          "overwritten": 0
+        }
+      ],
+      "input_hashes": {
+        "result.json": "5320a70cf1c21e055c81b5371b680a152550f90c03dadb2d7137c7172ec0d788",
+        "serial.txt": "4bd74403fbdc23cf4749d4554eb36b86edf18e6caeaae1f43140223c790d9ea2",
+        "br0.pcap": "b853d6700deb66d567909c6a6cc489ac99f6291852ba878d109eb1cef5cdd900",
+        "eth10.stats": "f2e2d3bbef4ff6b1b0399d76c9b3b97f7ae461c8376b296ef669dc5f4b66982f",
+        "br0.stats": "bdc52ce785b55fbe4ba07fde37d72bfcb3cc8041b39350c7d067ff006e934b99",
+        "eth10.pcap": "ef8bdf6a4c194136e16f4a5f1fbaad5842c581fefac8f807fac6bd40cdfd195e"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-gtk-v2",
+      "complete": true,
+      "image_sha256": "e5c998adedf993eb2bd16c6613046b1c68f32e5b937c5e780640b7625b1d1887",
+      "router_sent": 300,
+      "router_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_median_us": 4097.0,
+      "router_rtt_max_us": 107999,
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "requests": [
+        {
+          "index": 1,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 19581685,
+          "completed_us": 19584723,
+          "duration_us": 3038
+        },
+        {
+          "index": 2,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 29587841,
+          "completed_us": 29590386,
+          "duration_us": 2545
+        },
+        {
+          "index": 3,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 39593523,
+          "completed_us": 39595826,
+          "duration_us": 2303
+        }
+      ],
+      "request_window_events": [
+        {
+          "request": 1,
+          "ordinal": 22,
+          "reset_us": 17200166,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 2,
+          "ordinal": 26,
+          "reset_us": 27205832,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 3,
+          "ordinal": 30,
+          "reset_us": 37211270,
+          "phase": 10,
+          "outcome": 0
+        }
+      ],
+      "request_window_counts": [
+        {
+          "index": 1,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 2,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 3,
+          "count": 1,
+          "overwritten": 0
+        }
+      ],
+      "input_hashes": {
+        "result.json": "6cc1473083350642124f3f7630be0a4c2adab1bb59e41e66168d78b85baafff8",
+        "serial.txt": "582018229a97588dc6fbcf4bea459cde00002b05f1f94d2d257921c0df5e1025",
+        "br0.pcap": "f31d61dc027e86110dd3263a5ae563ba26cef87b80f6401f3d023fb3d37fd701",
+        "eth10.stats": "3be9e5320eac647542331d4d11ea86d8415a4a87f30bf0d9414a6cd44b998f5e",
+        "br0.stats": "686833aa809122a2468766ba3fbbdece7eb62b1bd7643e2299452e4bf1320436",
+        "eth10.pcap": "efdbc46581fb3fed26f8d8cc570d32b23add5042d0641b48e7b2941c586e4bc1"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-restored-v2",
+      "complete": true,
+      "image_sha256": "8e9b11473ae8e3f133d7299d6b524f669f6ce127d7d2f0aac6a70fa40aa52a09",
+      "router_sent": 40,
+      "router_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_median_us": 13611.0,
+      "router_rtt_max_us": 31086,
+      "worker_codes": [
+        0,
+        0
+      ],
+      "ping_codes": [
+        0,
+        0
+      ],
+      "requests": [],
+      "request_window_events": [],
+      "request_window_counts": [],
+      "input_hashes": {
+        "result.json": "91a6500c6de3b870959dc1b597efd1980d42e795ed6cdb24a0a5fdad1694df20",
+        "serial.txt": "8ffa650ac9b52cf4d0e433cd7da7167639290f8c23fba451cf198505f8e5ac6a",
+        "br0.pcap": "5bf684df441f620f4f6fc4ebfd904f9418d34dd598762186d372cbea7c1eacad",
+        "eth10.stats": "45840d73a97419b8f42d99b9b5dd225840bf5ac641b15fa19bfef6116b1f5527",
+        "br0.stats": "c56c6e898eeb5ea1f26d953c39abaf324d9b1bae9fd216c6b110d7fc8f9c406b",
+        "eth10.pcap": "be764f0e7b8cacfc18bc0bedc7d38962389a0ff33483f8f21b181fcd47bc452f"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-normal-v2",
+      "complete": true,
+      "image_sha256": "e7f02cfb5a2c0d206faeeb6ba5ecb20dffa58d168804f6cdb2600e9715ea5816",
+      "router_sent": 40,
+      "router_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_median_us": 2521.5,
+      "router_rtt_max_us": 32376,
+      "worker_codes": [
+        0,
+        0
+      ],
+      "ping_codes": [
+        0,
+        0
+      ],
+      "requests": [],
+      "request_window_events": [],
+      "request_window_counts": [],
+      "input_hashes": {
+        "result.json": "2391de073fab85a89c3305b296ba1121cf3ef2b0962ef04305faebac4194d22d",
+        "serial.txt": "bdbaf6973601bc120b4fdb33e37a646634c8868e3132597ce5ebb5b3e2e2961d",
+        "br0.pcap": "167f2495c1ae2a026ac87c3596cc9f7197fd573a9c80aa12c16078c320a0e8f3",
+        "eth10.stats": "5d0ca34664ebc5d2a97fcf6865a016f1b6f51a5ba64707a1a55f85239aa55558",
+        "br0.stats": "9961f72f26a67410880a8e6143c5ac382eb3d072a25fbeea51bbd4c9324af345",
+        "eth10.pcap": "88218d8d773c67bd04ce6a2ba9be953b74c5f21b9e3a6b98161e04b43dfef9c8"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-normal-v2",
+      "complete": true,
+      "image_sha256": "87dda4520a9e462f2a8b60074b4c39f64d136aec684831215ed2229e741e7f8d",
+      "router_sent": 40,
+      "router_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_median_us": 2943.0,
+      "router_rtt_max_us": 41223,
+      "worker_codes": [
+        0,
+        0
+      ],
+      "ping_codes": [
+        0,
+        0
+      ],
+      "requests": [],
+      "request_window_events": [],
+      "request_window_counts": [],
+      "input_hashes": {
+        "result.json": "cfb034b50c3b4ee5dcf1848ff8de81a635d234b1a2d6dd25018dd2616e8fff41",
+        "serial.txt": "a7a060f3c3ac9c8b1142a22a949e1ee0ed3e57517b37816fa94716890aab947b",
+        "br0.pcap": "cc3e26ea20a1cbfd465b69a8330b868a6a4259755efac00e710df27e2196ccfe",
+        "eth10.stats": "3b0adb54ded183b5a7d79d9d6293d56031f22ae0c1bfd5c402c1124c7705ff35",
+        "br0.stats": "a68d9e2332bf83cc5340dd35bfe9fa0055b239de095e8f283b7c8a319ae77048",
+        "eth10.pcap": "e8148a619fcced124e5818405111d352f3fa6fa34bf8aabac14be1edb43b580e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-gtk-v2",
+      "complete": true,
+      "image_sha256": "097d102f26ebf732fc2da71d8faa6bca7621e8ffe8668a907d673f1395137af5",
+      "router_sent": 300,
+      "router_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_median_us": 3133.0,
+      "router_rtt_max_us": 46897,
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "requests": [
+        {
+          "index": 1,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 20035107,
+          "completed_us": 20036964,
+          "duration_us": 1857
+        },
+        {
+          "index": 2,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 30047672,
+          "completed_us": 30051445,
+          "duration_us": 3773
+        },
+        {
+          "index": 3,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 40061130,
+          "completed_us": 40062994,
+          "duration_us": 1864
+        }
+      ],
+      "request_window_events": [
+        {
+          "request": 1,
+          "ordinal": 22,
+          "reset_us": 17400298,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 2,
+          "ordinal": 26,
+          "reset_us": 27414781,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 3,
+          "ordinal": 30,
+          "reset_us": 37426330,
+          "phase": 10,
+          "outcome": 0
+        }
+      ],
+      "request_window_counts": [
+        {
+          "index": 1,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 2,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 3,
+          "count": 1,
+          "overwritten": 0
+        }
+      ],
+      "input_hashes": {
+        "result.json": "22e2519db2b77eb2223169c0ccbb9cd8659ba93fe1cdaf9b509963b9092c6ad9",
+        "serial.txt": "a6039f8ebe3165a1ac214e23a857fb84596e55108c384172caee6ff3f1bb193e",
+        "br0.pcap": "55b0f48a2c3c3e96870f34b17038ceb49ddbc8fbf49fda682afe60059e082226",
+        "eth10.stats": "d702d1caa26a983019940de4ecfc0b27e1cfa3fa296177996d5e689522c67a4b",
+        "br0.stats": "1857f0245d4b0915f8190e19c529aacee8ac3ef1840053cc1ac78f8e00fe542a",
+        "eth10.pcap": "78d7a494916c35073d9c92deb5aae79a4029f16bf668b3f9173086c03bcb0d9e"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-gtk-v2",
+      "complete": true,
+      "image_sha256": "c99fdcff44145c9202f1c91c8118151ae90ba01d42c7a1da2cdc75a1252eeac0",
+      "router_sent": 300,
+      "router_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_median_us": 4491.5,
+      "router_rtt_max_us": 81578,
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "requests": [
+        {
+          "index": 1,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 20066224,
+          "completed_us": 20068197,
+          "duration_us": 1973
+        },
+        {
+          "index": 2,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 30077656,
+          "completed_us": 30079955,
+          "duration_us": 2299
+        },
+        {
+          "index": 3,
+          "success": true,
+          "result": "Ok(())",
+          "started_us": 40089180,
+          "completed_us": 40094948,
+          "duration_us": 5768
+        }
+      ],
+      "request_window_events": [
+        {
+          "request": 1,
+          "ordinal": 22,
+          "reset_us": 17424776,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 2,
+          "ordinal": 26,
+          "reset_us": 27436531,
+          "phase": 10,
+          "outcome": 0
+        },
+        {
+          "request": 3,
+          "ordinal": 30,
+          "reset_us": 37451525,
+          "phase": 10,
+          "outcome": 0
+        }
+      ],
+      "request_window_counts": [
+        {
+          "index": 1,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 2,
+          "count": 1,
+          "overwritten": 0
+        },
+        {
+          "index": 3,
+          "count": 1,
+          "overwritten": 0
+        }
+      ],
+      "input_hashes": {
+        "result.json": "1faceae386c2bf8dd46755eafdbeee1295fe1d3463db704b8f39cc325ca15ef1",
+        "serial.txt": "18b4431703fa6ee700d71d3b34b8a303e0d668539a96d453be3cbee1cd952ccc",
+        "br0.pcap": "567e5f9dd12806604ea00782f18f446ac6edc689787bcf6fb001408d5e2c63f4",
+        "eth10.stats": "3c61e228a59a337f21ed0ecb733be770fb989f31f974180f5b4abcdb5639ad00",
+        "br0.stats": "f4cd61ad6d3d342909792d70da6f27584af3572d2367cff7f083dd3f6a0a1f17",
+        "eth10.pcap": "feea7716cfb35c9d39221c963217ff6b578c3af7ff2c75fcea8f3e2424323623"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-restored-v2",
+      "complete": true,
+      "image_sha256": "87dda4520a9e462f2a8b60074b4c39f64d136aec684831215ed2229e741e7f8d",
+      "router_sent": 40,
+      "router_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_median_us": 4602.0,
+      "router_rtt_max_us": 47805,
+      "worker_codes": [
+        0,
+        0
+      ],
+      "ping_codes": [
+        0,
+        0
+      ],
+      "requests": [],
+      "request_window_events": [],
+      "request_window_counts": [],
+      "input_hashes": {
+        "result.json": "1bd4f44193b4c5698d3528c5eac7d244a9bec9555e6a5797fe9330dea2853886",
+        "serial.txt": "8fcce830b36ff8ce208710bb5cdc6bb1f17b1e658841556d999b7be151f4b7e0",
+        "br0.pcap": "d6807cac213ad0bda20c14f0c89d479b103b958ea514e0de0d9ed310c76a0dcc",
+        "eth10.stats": "f3e8f5fc387dc7c1898352f7095d479a2c630fe82e92f813eb60457bc81ae354",
+        "br0.stats": "0a57875a0acc9ccd9a1d0dde14ac89d261b04f8161a5d53f6c8a96dcb6c9f923",
+        "eth10.pcap": "5178b199d7f90118234817e9205abf5d1758f53462ddcc5387cefe9039edcd2d"
+      }
+    }
+  ],
+  "gtk_capture_reviews": [
+    {
+      "chip": "esp32c3",
+      "label": "control-gtk-v2",
+      "complete": true,
+      "image_sha256": "1a97743162a51789b33e129d7f6c201191c03f4f46db31ab8e4e135c9e6867f4",
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "capture_health": {
+        "eth10": {
+          "packets": 997,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        },
+        "br0": {
+          "packets": 982,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        }
+      },
+      "raw_capture_echo_pairs": {
+        "router_to_station": 300,
+        "station_to_router": 20
+      },
+      "echo": {
+        "sent": 300,
+        "received": 300,
+        "duplicate": 0,
+        "invalid": 0,
+        "send_errors": 0,
+        "missing": [],
+        "median_rtt_us": 4111.5,
+        "max_rtt_us": 74348
+      },
+      "gateway_received": 20,
+      "group_sent": [
+        120,
+        120
+      ],
+      "group_received": [
+        119,
+        120
+      ],
+      "group_duplicates": [
+        0,
+        0
+      ],
+      "group_summary_serial": {
+        "broadcast": 119,
+        "multicast": 120,
+        "duplicate": 0,
+        "invalid": 0
+      },
+      "echo_capture_counts_agree": true,
+      "group_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_window_sequence_bounds": [
+        [
+          1,
+          20
+        ],
+        [
+          21,
+          40
+        ],
+        [
+          41,
+          60
+        ],
+        [
+          61,
+          120
+        ]
+      ],
+      "group_ap_capture_counts": {
+        "eth10": [
+          120,
+          120
+        ],
+        "br0": [
+          120,
+          120
+        ]
+      },
+      "group_gaps": [
+        {
+          "kind": 0,
+          "sequence": 22,
+          "present_in_eth10": true,
+          "present_in_br0": true,
+          "last_g1_counter": 3,
+          "ms_after_last_g1": 739.32,
+          "last_completed_g2_counter": 3,
+          "ms_after_last_g2": 704.237,
+          "paired_group_delta_ms": 0.096
+        }
+      ],
+      "gtk_updates": [
+        {
+          "counter": 3,
+          "key_id": 1,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 4,
+          "key_id": 2,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 5,
+          "key_id": 1,
+          "installed": true,
+          "protected": true
+        }
+      ],
+      "gtk_replies_serial": [
+        3,
+        4,
+        5
+      ],
+      "gtk_reply_results_serial": [
+        {
+          "counter": 3,
+          "success": true
+        },
+        {
+          "counter": 4,
+          "success": true
+        },
+        {
+          "counter": 5,
+          "success": true
+        }
+      ],
+      "gtk_requests_serial": [
+        {
+          "index": 1,
+          "success": true
+        },
+        {
+          "index": 2,
+          "success": true
+        },
+        {
+          "index": 3,
+          "success": true
+        }
+      ],
+      "accepted_request_counters_not_captured": [],
+      "all_three_rotations_observed": true,
+      "eapol_order_per_interface": {
+        "eth10": [
+          {
+            "from": "AP",
+            "flags": "0x8a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x13ca",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 5
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ],
+        "br0": [
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ]
+      },
+      "eapol_inbound_capture_order_agrees": true,
+      "eapol_outbound_capture_counts": {
+        "eth10": 5,
+        "br0": 0
+      },
+      "eapol": [
+        {
+          "from": "AP",
+          "flags": "0x8a",
+          "counter": 1,
+          "seconds": 0.0
+        },
+        {
+          "from": "station",
+          "flags": "0x10a",
+          "counter": 1,
+          "seconds": 0.031666
+        },
+        {
+          "from": "AP",
+          "flags": "0x13ca",
+          "counter": 2,
+          "seconds": 0.032311
+        },
+        {
+          "from": "station",
+          "flags": "0x30a",
+          "counter": 2,
+          "seconds": 0.080294
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 0,
+          "seconds": 17.162955
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 3,
+          "seconds": 17.163369
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 3,
+          "seconds": 17.198452
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 1,
+          "seconds": 27.168112
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 4,
+          "seconds": 27.168515
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 4,
+          "seconds": 27.182748
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 2,
+          "seconds": 37.179208
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 5,
+          "seconds": 37.179698
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 5,
+          "seconds": 37.204514
+        }
+      ],
+      "request_roundtrips": [
+        {
+          "request_counter": 0,
+          "request_from_station": true,
+          "g1_counters": [
+            3
+          ],
+          "first_g1_delay_ms": 0.414,
+          "completed_g2_counters": [
+            3
+          ]
+        },
+        {
+          "request_counter": 1,
+          "request_from_station": true,
+          "g1_counters": [
+            4
+          ],
+          "first_g1_delay_ms": 0.403,
+          "completed_g2_counters": [
+            4
+          ]
+        },
+        {
+          "request_counter": 2,
+          "request_from_station": true,
+          "g1_counters": [
+            5
+          ],
+          "first_g1_delay_ms": 0.49,
+          "completed_g2_counters": [
+            5
+          ]
+        }
+      ],
+      "g1_g2_latency_ms": {
+        "3": 35.083,
+        "4": 14.233,
+        "5": 24.816
+      },
+      "g1_without_g2": [],
+      "same_key_retries": [],
+      "other_station_key_requests": 0,
+      "panic_detected": false,
+      "deauth_detected": false,
+      "input_hashes": {
+        "serial.txt": "4bd74403fbdc23cf4749d4554eb36b86edf18e6caeaae1f43140223c790d9ea2",
+        "eth10.pcap": "ef8bdf6a4c194136e16f4a5f1fbaad5842c581fefac8f807fac6bd40cdfd195e",
+        "br0.pcap": "b853d6700deb66d567909c6a6cc489ac99f6291852ba878d109eb1cef5cdd900",
+        "eth10.stats": "f2e2d3bbef4ff6b1b0399d76c9b3b97f7ae461c8376b296ef669dc5f4b66982f",
+        "br0.stats": "bdc52ce785b55fbe4ba07fde37d72bfcb3cc8041b39350c7d067ff006e934b99",
+        "echo-1.jsonl": "065c2e0ea8d012aa2b6a314db0241005d4e506503952eb5bdc8b37d1d48fdbff",
+        "group-1.jsonl": "4f371976210064f3abb38abdb26a661fd3850e8d3070a23b0a2cf6490ee5bfa9"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-gtk-v2",
+      "complete": true,
+      "image_sha256": "e5c998adedf993eb2bd16c6613046b1c68f32e5b937c5e780640b7625b1d1887",
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "capture_health": {
+        "eth10": {
+          "packets": 990,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        },
+        "br0": {
+          "packets": 975,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        }
+      },
+      "raw_capture_echo_pairs": {
+        "router_to_station": 300,
+        "station_to_router": 20
+      },
+      "echo": {
+        "sent": 300,
+        "received": 300,
+        "duplicate": 0,
+        "invalid": 0,
+        "send_errors": 0,
+        "missing": [],
+        "median_rtt_us": 4097.0,
+        "max_rtt_us": 107999
+      },
+      "gateway_received": 20,
+      "group_sent": [
+        120,
+        120
+      ],
+      "group_received": [
+        120,
+        120
+      ],
+      "group_duplicates": [
+        0,
+        0
+      ],
+      "group_summary_serial": {
+        "broadcast": 120,
+        "multicast": 120,
+        "duplicate": 0,
+        "invalid": 0
+      },
+      "echo_capture_counts_agree": true,
+      "group_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_window_sequence_bounds": [
+        [
+          1,
+          20
+        ],
+        [
+          21,
+          40
+        ],
+        [
+          41,
+          60
+        ],
+        [
+          61,
+          120
+        ]
+      ],
+      "group_ap_capture_counts": {
+        "eth10": [
+          120,
+          120
+        ],
+        "br0": [
+          120,
+          120
+        ]
+      },
+      "group_gaps": [],
+      "gtk_updates": [
+        {
+          "counter": 3,
+          "key_id": 2,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 4,
+          "key_id": 1,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 5,
+          "key_id": 2,
+          "installed": true,
+          "protected": true
+        }
+      ],
+      "gtk_replies_serial": [
+        3,
+        4,
+        5
+      ],
+      "gtk_reply_results_serial": [
+        {
+          "counter": 3,
+          "success": true
+        },
+        {
+          "counter": 4,
+          "success": true
+        },
+        {
+          "counter": 5,
+          "success": true
+        }
+      ],
+      "gtk_requests_serial": [
+        {
+          "index": 1,
+          "success": true
+        },
+        {
+          "index": 2,
+          "success": true
+        },
+        {
+          "index": 3,
+          "success": true
+        }
+      ],
+      "accepted_request_counters_not_captured": [],
+      "all_three_rotations_observed": true,
+      "eapol_order_per_interface": {
+        "eth10": [
+          {
+            "from": "AP",
+            "flags": "0x8a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x13ca",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 5
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ],
+        "br0": [
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ]
+      },
+      "eapol_inbound_capture_order_agrees": true,
+      "eapol_outbound_capture_counts": {
+        "eth10": 5,
+        "br0": 0
+      },
+      "eapol": [
+        {
+          "from": "AP",
+          "flags": "0x8a",
+          "counter": 1,
+          "seconds": 0.0
+        },
+        {
+          "from": "station",
+          "flags": "0x10a",
+          "counter": 1,
+          "seconds": 0.014376
+        },
+        {
+          "from": "AP",
+          "flags": "0x13ca",
+          "counter": 2,
+          "seconds": 0.015138
+        },
+        {
+          "from": "station",
+          "flags": "0x30a",
+          "counter": 2,
+          "seconds": 0.043231
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 0,
+          "seconds": 17.182047
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 3,
+          "seconds": 17.182499
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 3,
+          "seconds": 17.204957
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 1,
+          "seconds": 27.187154
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 4,
+          "seconds": 27.187595
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 4,
+          "seconds": 27.204348
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 2,
+          "seconds": 37.191986
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 5,
+          "seconds": 37.192429
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 5,
+          "seconds": 37.213826
+        }
+      ],
+      "request_roundtrips": [
+        {
+          "request_counter": 0,
+          "request_from_station": true,
+          "g1_counters": [
+            3
+          ],
+          "first_g1_delay_ms": 0.452,
+          "completed_g2_counters": [
+            3
+          ]
+        },
+        {
+          "request_counter": 1,
+          "request_from_station": true,
+          "g1_counters": [
+            4
+          ],
+          "first_g1_delay_ms": 0.441,
+          "completed_g2_counters": [
+            4
+          ]
+        },
+        {
+          "request_counter": 2,
+          "request_from_station": true,
+          "g1_counters": [
+            5
+          ],
+          "first_g1_delay_ms": 0.443,
+          "completed_g2_counters": [
+            5
+          ]
+        }
+      ],
+      "g1_g2_latency_ms": {
+        "3": 22.458,
+        "4": 16.753,
+        "5": 21.397
+      },
+      "g1_without_g2": [],
+      "same_key_retries": [],
+      "other_station_key_requests": 0,
+      "panic_detected": false,
+      "deauth_detected": false,
+      "input_hashes": {
+        "serial.txt": "582018229a97588dc6fbcf4bea459cde00002b05f1f94d2d257921c0df5e1025",
+        "eth10.pcap": "efdbc46581fb3fed26f8d8cc570d32b23add5042d0641b48e7b2941c586e4bc1",
+        "br0.pcap": "f31d61dc027e86110dd3263a5ae563ba26cef87b80f6401f3d023fb3d37fd701",
+        "eth10.stats": "3be9e5320eac647542331d4d11ea86d8415a4a87f30bf0d9414a6cd44b998f5e",
+        "br0.stats": "686833aa809122a2468766ba3fbbdece7eb62b1bd7643e2299452e4bf1320436",
+        "echo-1.jsonl": "0e6cfaa142ffcc130322c95f75b875cbeb9df7878e42a9d4ff0715717d526b36",
+        "group-1.jsonl": "4f371976210064f3abb38abdb26a661fd3850e8d3070a23b0a2cf6490ee5bfa9"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-gtk-v2",
+      "complete": true,
+      "image_sha256": "097d102f26ebf732fc2da71d8faa6bca7621e8ffe8668a907d673f1395137af5",
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "capture_health": {
+        "eth10": {
+          "packets": 991,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        },
+        "br0": {
+          "packets": 982,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        }
+      },
+      "raw_capture_echo_pairs": {
+        "router_to_station": 300,
+        "station_to_router": 20
+      },
+      "echo": {
+        "sent": 300,
+        "received": 300,
+        "duplicate": 0,
+        "invalid": 0,
+        "send_errors": 0,
+        "missing": [],
+        "median_rtt_us": 3133.0,
+        "max_rtt_us": 46897
+      },
+      "gateway_received": 20,
+      "group_sent": [
+        120,
+        120
+      ],
+      "group_received": [
+        120,
+        120
+      ],
+      "group_duplicates": [
+        0,
+        0
+      ],
+      "group_summary_serial": {
+        "broadcast": 120,
+        "multicast": 120,
+        "duplicate": 0,
+        "invalid": 0
+      },
+      "echo_capture_counts_agree": true,
+      "group_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_window_sequence_bounds": [
+        [
+          1,
+          20
+        ],
+        [
+          21,
+          40
+        ],
+        [
+          41,
+          60
+        ],
+        [
+          61,
+          120
+        ]
+      ],
+      "group_ap_capture_counts": {
+        "eth10": [
+          120,
+          120
+        ],
+        "br0": [
+          120,
+          120
+        ]
+      },
+      "group_gaps": [],
+      "gtk_updates": [
+        {
+          "counter": 3,
+          "key_id": 1,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 4,
+          "key_id": 2,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 5,
+          "key_id": 1,
+          "installed": true,
+          "protected": true
+        }
+      ],
+      "gtk_replies_serial": [
+        3,
+        4,
+        5
+      ],
+      "gtk_reply_results_serial": [
+        {
+          "counter": 3,
+          "success": true
+        },
+        {
+          "counter": 4,
+          "success": true
+        },
+        {
+          "counter": 5,
+          "success": true
+        }
+      ],
+      "gtk_requests_serial": [
+        {
+          "index": 1,
+          "success": true
+        },
+        {
+          "index": 2,
+          "success": true
+        },
+        {
+          "index": 3,
+          "success": true
+        }
+      ],
+      "accepted_request_counters_not_captured": [],
+      "all_three_rotations_observed": true,
+      "eapol_order_per_interface": {
+        "eth10": [
+          {
+            "from": "AP",
+            "flags": "0x8a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x13ca",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 5
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ],
+        "br0": [
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ]
+      },
+      "eapol_inbound_capture_order_agrees": true,
+      "eapol_outbound_capture_counts": {
+        "eth10": 5,
+        "br0": 0
+      },
+      "eapol": [
+        {
+          "from": "AP",
+          "flags": "0x8a",
+          "counter": 1,
+          "seconds": 0.0
+        },
+        {
+          "from": "station",
+          "flags": "0x10a",
+          "counter": 1,
+          "seconds": 0.005321
+        },
+        {
+          "from": "AP",
+          "flags": "0x13ca",
+          "counter": 2,
+          "seconds": 0.00609
+        },
+        {
+          "from": "station",
+          "flags": "0x30a",
+          "counter": 2,
+          "seconds": 0.015066
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 0,
+          "seconds": 17.38332
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 3,
+          "seconds": 17.383747
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 3,
+          "seconds": 17.430837
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 1,
+          "seconds": 27.397296
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 4,
+          "seconds": 27.397769
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 4,
+          "seconds": 27.418263
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 2,
+          "seconds": 37.408299
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 5,
+          "seconds": 37.408722
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 5,
+          "seconds": 37.426866
+        }
+      ],
+      "request_roundtrips": [
+        {
+          "request_counter": 0,
+          "request_from_station": true,
+          "g1_counters": [
+            3
+          ],
+          "first_g1_delay_ms": 0.427,
+          "completed_g2_counters": [
+            3
+          ]
+        },
+        {
+          "request_counter": 1,
+          "request_from_station": true,
+          "g1_counters": [
+            4
+          ],
+          "first_g1_delay_ms": 0.473,
+          "completed_g2_counters": [
+            4
+          ]
+        },
+        {
+          "request_counter": 2,
+          "request_from_station": true,
+          "g1_counters": [
+            5
+          ],
+          "first_g1_delay_ms": 0.423,
+          "completed_g2_counters": [
+            5
+          ]
+        }
+      ],
+      "g1_g2_latency_ms": {
+        "3": 47.09,
+        "4": 20.494,
+        "5": 18.144
+      },
+      "g1_without_g2": [],
+      "same_key_retries": [],
+      "other_station_key_requests": 0,
+      "panic_detected": false,
+      "deauth_detected": false,
+      "input_hashes": {
+        "serial.txt": "a6039f8ebe3165a1ac214e23a857fb84596e55108c384172caee6ff3f1bb193e",
+        "eth10.pcap": "78d7a494916c35073d9c92deb5aae79a4029f16bf668b3f9173086c03bcb0d9e",
+        "br0.pcap": "55b0f48a2c3c3e96870f34b17038ceb49ddbc8fbf49fda682afe60059e082226",
+        "eth10.stats": "d702d1caa26a983019940de4ecfc0b27e1cfa3fa296177996d5e689522c67a4b",
+        "br0.stats": "1857f0245d4b0915f8190e19c529aacee8ac3ef1840053cc1ac78f8e00fe542a",
+        "echo-1.jsonl": "045a32dc3f29ac87541fe56eb72e94fef69a10f8353c078a6f7595e837dfd6d8",
+        "group-1.jsonl": "4f371976210064f3abb38abdb26a661fd3850e8d3070a23b0a2cf6490ee5bfa9"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-gtk-v2",
+      "complete": true,
+      "image_sha256": "c99fdcff44145c9202f1c91c8118151ae90ba01d42c7a1da2cdc75a1252eeac0",
+      "worker_codes": [
+        0,
+        0,
+        0
+      ],
+      "ping_codes": [
+        0
+      ],
+      "capture_health": {
+        "eth10": {
+          "packets": 992,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        },
+        "br0": {
+          "packets": 986,
+          "written_matches_pcap": true,
+          "socket_drops": 0,
+          "truncated": 0,
+          "pcap_truncated_packets": 0,
+          "short_pcap_records": 0,
+          "malformed_selected_packets": 0,
+          "missing_timestamps": 0
+        }
+      },
+      "raw_capture_echo_pairs": {
+        "router_to_station": 300,
+        "station_to_router": 20
+      },
+      "echo": {
+        "sent": 300,
+        "received": 300,
+        "duplicate": 0,
+        "invalid": 0,
+        "send_errors": 0,
+        "missing": [],
+        "median_rtt_us": 4491.5,
+        "max_rtt_us": 81578
+      },
+      "gateway_received": 20,
+      "group_sent": [
+        120,
+        120
+      ],
+      "group_received": [
+        120,
+        120
+      ],
+      "group_duplicates": [
+        0,
+        0
+      ],
+      "group_summary_serial": {
+        "broadcast": 120,
+        "multicast": 120,
+        "duplicate": 0,
+        "invalid": 0
+      },
+      "echo_capture_counts_agree": true,
+      "group_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_window_sequence_bounds": [
+        [
+          1,
+          20
+        ],
+        [
+          21,
+          40
+        ],
+        [
+          41,
+          60
+        ],
+        [
+          61,
+          120
+        ]
+      ],
+      "group_ap_capture_counts": {
+        "eth10": [
+          120,
+          120
+        ],
+        "br0": [
+          120,
+          120
+        ]
+      },
+      "group_gaps": [],
+      "gtk_updates": [
+        {
+          "counter": 3,
+          "key_id": 2,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 4,
+          "key_id": 1,
+          "installed": true,
+          "protected": true
+        },
+        {
+          "counter": 5,
+          "key_id": 2,
+          "installed": true,
+          "protected": true
+        }
+      ],
+      "gtk_replies_serial": [
+        3,
+        4,
+        5
+      ],
+      "gtk_reply_results_serial": [
+        {
+          "counter": 3,
+          "success": true
+        },
+        {
+          "counter": 4,
+          "success": true
+        },
+        {
+          "counter": 5,
+          "success": true
+        }
+      ],
+      "gtk_requests_serial": [
+        {
+          "index": 1,
+          "success": true
+        },
+        {
+          "index": 2,
+          "success": true
+        },
+        {
+          "index": 3,
+          "success": true
+        }
+      ],
+      "accepted_request_counters_not_captured": [],
+      "all_three_rotations_observed": true,
+      "eapol_order_per_interface": {
+        "eth10": [
+          {
+            "from": "AP",
+            "flags": "0x8a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x13ca",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "AP",
+            "flags": "0x1382",
+            "counter": 5
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ],
+        "br0": [
+          {
+            "from": "station",
+            "flags": "0x10a",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x30a",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 0
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 3
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 1
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 4
+          },
+          {
+            "from": "station",
+            "flags": "0xb02",
+            "counter": 2
+          },
+          {
+            "from": "station",
+            "flags": "0x302",
+            "counter": 5
+          }
+        ]
+      },
+      "eapol_inbound_capture_order_agrees": true,
+      "eapol_outbound_capture_counts": {
+        "eth10": 5,
+        "br0": 0
+      },
+      "eapol": [
+        {
+          "from": "AP",
+          "flags": "0x8a",
+          "counter": 1,
+          "seconds": 0.0
+        },
+        {
+          "from": "station",
+          "flags": "0x10a",
+          "counter": 1,
+          "seconds": 0.005635
+        },
+        {
+          "from": "AP",
+          "flags": "0x13ca",
+          "counter": 2,
+          "seconds": 0.006399
+        },
+        {
+          "from": "station",
+          "flags": "0x30a",
+          "counter": 2,
+          "seconds": 0.016034
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 0,
+          "seconds": 17.40829
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 3,
+          "seconds": 17.40879
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 3,
+          "seconds": 17.428084
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 1,
+          "seconds": 27.419526
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 4,
+          "seconds": 27.419933
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 4,
+          "seconds": 27.459256
+        },
+        {
+          "from": "station",
+          "flags": "0xb02",
+          "counter": 2,
+          "seconds": 37.433976
+        },
+        {
+          "from": "AP",
+          "flags": "0x1382",
+          "counter": 5,
+          "seconds": 37.434404
+        },
+        {
+          "from": "station",
+          "flags": "0x302",
+          "counter": 5,
+          "seconds": 37.462544
+        }
+      ],
+      "request_roundtrips": [
+        {
+          "request_counter": 0,
+          "request_from_station": true,
+          "g1_counters": [
+            3
+          ],
+          "first_g1_delay_ms": 0.5,
+          "completed_g2_counters": [
+            3
+          ]
+        },
+        {
+          "request_counter": 1,
+          "request_from_station": true,
+          "g1_counters": [
+            4
+          ],
+          "first_g1_delay_ms": 0.407,
+          "completed_g2_counters": [
+            4
+          ]
+        },
+        {
+          "request_counter": 2,
+          "request_from_station": true,
+          "g1_counters": [
+            5
+          ],
+          "first_g1_delay_ms": 0.428,
+          "completed_g2_counters": [
+            5
+          ]
+        }
+      ],
+      "g1_g2_latency_ms": {
+        "3": 19.294,
+        "4": 39.323,
+        "5": 28.14
+      },
+      "g1_without_g2": [],
+      "same_key_retries": [],
+      "other_station_key_requests": 0,
+      "panic_detected": false,
+      "deauth_detected": false,
+      "input_hashes": {
+        "serial.txt": "18b4431703fa6ee700d71d3b34b8a303e0d668539a96d453be3cbee1cd952ccc",
+        "eth10.pcap": "feea7716cfb35c9d39221c963217ff6b578c3af7ff2c75fcea8f3e2424323623",
+        "br0.pcap": "567e5f9dd12806604ea00782f18f446ac6edc689787bcf6fb001408d5e2c63f4",
+        "eth10.stats": "3c61e228a59a337f21ed0ecb733be770fb989f31f974180f5b4abcdb5639ad00",
+        "br0.stats": "f4cd61ad6d3d342909792d70da6f27584af3572d2367cff7f083dd3f6a0a1f17",
+        "echo-1.jsonl": "ebd31113ac7296fd8b26ba259df527c23fbe0080daace4091bbbd05250457add",
+        "group-1.jsonl": "4f371976210064f3abb38abdb26a661fd3850e8d3070a23b0a2cf6490ee5bfa9"
+      }
+    }
+  ],
+  "capture_reader_sha256": "ae0c33d6b6f468e0b52fa979b21977cee99419fb10bf130c4d17667a6b3814e9",
+  "limits": [
+    "Missing completion is reproduced by injecting a MAC result into the actual production EAPOL sender on the host; hardware trials do not force it.",
+    "A successful MAC completion does not prove AP acceptance or a GTK rotation.",
+    "Window event 8 reports 0=MAC success, 1=MAC error, 2=missing completion; the window may include a concurrent G2.",
+    "Sequential bounded hardware trials do not establish indefinite reliability or prove the cause of historical packet loss.",
+    "The earlier S3 I2C missing request remains unexplained; its per-request completion was not recorded."
+  ],
+  "pre_fix_reproduction": {
+    "failed": "actual_eapol_senders_require_a_successful_completion: sender 0, completion None: Ok(()) instead of Err(TxCompletionLost)",
+    "log_sha256": "38e92f358250a451837e1b2a61128e6d7c350d3c2fb2af7bfbc864330418fff6"
+  },
+  "compatibility_checks": [
+    {
+      "chip": "esp32",
+      "exit_code": 0,
+      "log_sha256": "02295c01220c9760d33f682cef8e106de4c365055ade5bbad4ecac9668a01b2d"
+    },
+    {
+      "chip": "esp32s2",
+      "exit_code": 0,
+      "log_sha256": "7c4ef40e7b780bf582d42abb99611786b8a29478634f774452d01582827a25ef"
+    }
+  ]
+}

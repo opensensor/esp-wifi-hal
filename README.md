@@ -105,6 +105,9 @@ reinstalling keys on retries. Final S3/C3 trials completed three GTK exchanges
 per board with all 600 router-originated echoes and 240 multicast datagrams;
 one C3 broadcast was missing. The report includes the M4-retry correction,
 capture-harness failures and the remaining limits of these short trials.
+The subsequent [EAPOL completion fix](docs/network/EAPOL-TX-COMPLETION.md)
+returns an explicit error when the queue loses a completion, instead of
+reporting success. Its C3/S3 comparison keeps the PHY implementation fixed.
 
 The recorded S3 hardware validation includes:
 
