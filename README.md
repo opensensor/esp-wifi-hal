@@ -91,6 +91,14 @@ and WPA2 group-key rotation. RF calibration, channel/frequency helpers,
 vendor state and ROM callbacks remain dependencies; packet losses remain
 tracked with their original evidence.
 
+The [basic PHY replacement](docs/network/PHY-BASIC.md) subsequently removes
+`phy_basic.o`, leaving **13 vendor PHY members** in the tested C3/S3 images.
+Rust supplies I2C master reset, channel-14 configuration and S3 calibration
+interpolation while preserving the existing ROM channel binding. Its
+[device comparison](docs/network/PHY-BASIC-VALIDATION.md) records 841,856
+instruction-oracle cases, native placement checks, lifecycle/RX probes and
+traffic results, including broadcast gaps and an incomplete requested rekey.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
