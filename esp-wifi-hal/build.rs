@@ -103,5 +103,24 @@ fn main() {
         std::fs::write(out.join("libesp-wifi-hal-temperature.a"), script).unwrap();
         println!("cargo:rustc-link-search={}", out.display());
         println!("cargo:rustc-link-lib=esp-wifi-hal-temperature");
+
+        // Redirect the PBUS member's internal save call as well as external
+        // references and callback installation, then let section GC remove it.
+        let mut pbus = String::new();
+        for (original, suffix) in [
+            ("txcal_debuge_mode", "debug_mode"),
+            ("txcal_work_mode", "work_mode"),
+            ("save_pbus_reg", "save"),
+            ("set_pbus_mem", "mem"),
+        ]
+        .into_iter()
+        .chain(cfg!(feature = "esp32c3").then_some(("ram_pbus_force_mode", "force_mode")))
+        {
+            pbus.push_str(&format!(
+                "EXTERN(__opensensor_pbus_{suffix});\n{original} = __opensensor_pbus_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-pbus.a"), pbus).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-pbus");
     }
 }

@@ -75,6 +75,71 @@ unsafe fn inspect_sensor_lifecycle(cycle: u32) {
     }
 }
 
+/// Check the PBUS program ranges after normal initialization, with the sole
+/// PHY guard held. This probe never writes PBUS registers or calls calibration
+/// mode helpers outside their original initialization sequence.
+unsafe fn inspect_pbus(cycle: u32) {
+    #[cfg(feature = "esp32c3")]
+    const PARAM_SIZE: usize = 848;
+    #[cfg(feature = "esp32s3")]
+    const PARAM_SIZE: usize = 740;
+    #[cfg(feature = "esp32c3")]
+    const SAVED: usize = 0x328;
+    #[cfg(feature = "esp32s3")]
+    const SAVED: usize = 0x2ac;
+    #[cfg(feature = "esp32c3")]
+    const EXPECTED: [u32; 6] = [
+        0x05040300, 0x0f0e0d06, 0x14131210, 0x1a191815, 0x2423221b, 0x29282725,
+    ];
+    #[cfg(feature = "esp32s3")]
+    const EXPECTED: [u32; 6] = [
+        0x06040300, 0x110f0e07, 0x16151412, 0x1d1b1a17, 0x2826251e, 0x2d2c2b29,
+    ];
+    unsafe extern "C" {
+        static mut phy_param: [u8; PARAM_SIZE];
+        static mut g_phyFuns: *const u8;
+        fn set_pbus_mem();
+        fn save_pbus_reg();
+        fn txcal_debuge_mode();
+        fn txcal_work_mode();
+        #[cfg(feature = "esp32c3")]
+        fn ram_pbus_force_mode(enabled: u32);
+    }
+    unsafe {
+        let param = (&raw const phy_param).cast::<u8>();
+        assert_ne!(
+            param.add(0x120).cast::<u32>().read_volatile() & 0x10000,
+            0,
+            "PBUS initialization flag missing"
+        );
+        for (index, expected) in EXPECTED.iter().enumerate() {
+            let saved = param.add(SAVED + index * 4).cast::<u32>().read_volatile();
+            let register = ((0x600060e0 + index * 4) as *const u32).read_volatile();
+            assert_eq!(saved, *expected, "Saved PBUS range differs");
+            assert_eq!(register, saved, "Live PBUS range differs");
+        }
+        let table = (&raw const g_phyFuns).read_volatile();
+        #[cfg(feature = "esp32c3")]
+        let force = table.add(0x1c0).cast::<usize>().read_volatile();
+        #[cfg(feature = "esp32c3")]
+        assert_eq!(
+            force, ram_pbus_force_mode as *const () as usize,
+            "PBUS force callback differs"
+        );
+        #[cfg(feature = "esp32s3")]
+        let force = table.add(0x19c).cast::<usize>().read_volatile();
+        info!(
+            "stage=phy_pbus cycle={} ranges_checked=6 force={:#x} mem={:#x} save={:#x} debug={:#x} work={:#x}",
+            cycle,
+            force,
+            set_pbus_mem as *const () as usize,
+            save_pbus_reg as *const () as usize,
+            txcal_debuge_mode as *const () as usize,
+            txcal_work_mode as *const () as usize
+        );
+    }
+}
+
 /// Inspect the initialized temperature path with the sole PHY guard alive and
 /// before starting a MAC driver or periodic tracking task. No table is patched.
 unsafe fn inspect_temperature(cycle: u32) {
@@ -191,6 +256,7 @@ async fn main(_spawner: Spawner) {
         unsafe {
             inspect_sensor_lifecycle(cycle);
             inspect_temperature(cycle);
+            inspect_pbus(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
