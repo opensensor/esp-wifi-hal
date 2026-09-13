@@ -215,5 +215,17 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-feature.a"), feature).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-feature");
+        let mut debug = String::new();
+        for (original, suffix) in [
+            ("get_iq_value", "iq"),
+            ("get_bias_ref_code", "bias"),
+            ("phy_get_vdd33", "voltage"),
+        ] {
+            debug.push_str(&format!(
+                "EXTERN(__opensensor_debug_{suffix});\n{original} = __opensensor_debug_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-debug.a"), debug).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-debug");
     }
 }

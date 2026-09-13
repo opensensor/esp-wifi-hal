@@ -90,6 +90,8 @@ mod phy_api;
 mod phy_basic;
 #[cfg(any(esp32c3, esp32s3))]
 mod phy_feature;
+#[cfg(any(esp32c3, esp32s3))]
+mod phy_debug;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

@@ -389,6 +389,58 @@ unsafe fn inspect_feature(cycle: u32) {
     );
 }
 
+/// Check pure IQ conversion and observe callbacks without additional analog sampling.
+unsafe fn inspect_debug(cycle: u32) {
+    unsafe extern "C" {
+        fn get_iq_value(destination: *mut i8, packed: u32, selector: u32);
+        fn get_bias_ref_code();
+        fn phy_get_vdd33();
+        static mut g_phyFuns: *const u8;
+    }
+    #[cfg(feature = "esp32c3")]
+    let high_selector_first = 16;
+    #[cfg(feature = "esp32s3")]
+    let high_selector_first = -16;
+    let cases = [
+        (0, 0, [0, 0]),
+        (0x3f, 1, [0, -1]),
+        (0x420, 0, [-16, -32]),
+        (0x420, 1, [16, -32]),
+        (0x81f, 0, [0, 31]),
+        (0x81f, 1, [-32, 31]),
+        (0xffff, 0, [-1, -1]),
+        (0xffff, 1, [-1, -1]),
+        (0xffff0420, 0, [-16, -32]),
+        (0x420, 256, [high_selector_first, -32]),
+    ];
+    for (packed, selector, expected) in cases {
+        let mut buffer = [0x55i8; 4];
+        unsafe { get_iq_value(buffer.as_mut_ptr().add(1), packed, selector) };
+        assert_eq!(buffer, [0x55, expected[0], expected[1], 0x55]);
+    }
+    #[cfg(feature = "esp32c3")]
+    let slots = [0x1bc, 0x150, 0x1d4, 0x1cc, 0x1d8];
+    #[cfg(feature = "esp32s3")]
+    let slots = [0x198, 0x12c, 0x1b0, 0x1a8, 0x1b4];
+    for slot in slots {
+        let table = unsafe { (&raw const g_phyFuns).read_volatile() };
+        let target = unsafe { table.add(slot).cast::<usize>().read_volatile() };
+        assert_ne!(target, 0);
+        info!(
+            "stage=phy_debug_slot cycle={} slot={:#x} target={:#x}",
+            cycle, slot, target
+        );
+    }
+    info!(
+        "stage=phy_debug cycle={} iq={:#x} bias={:#x} voltage={:#x} checked={}",
+        cycle,
+        get_iq_value as *const () as usize,
+        get_bias_ref_code as *const () as usize,
+        phy_get_vdd33 as *const () as usize,
+        cases.len()
+    );
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -439,6 +491,7 @@ async fn main(_spawner: Spawner) {
             inspect_api(cycle);
             inspect_basic(cycle);
             inspect_feature(cycle);
+            inspect_debug(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
