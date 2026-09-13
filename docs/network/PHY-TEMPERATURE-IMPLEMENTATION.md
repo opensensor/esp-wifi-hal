@@ -1,5 +1,10 @@
 # C3/S3 temperature measurement in Rust
 
+This records the first measurement milestone. The subsequent
+[sensor lifecycle implementation](PHY-SENSOR-LIFECYCLE.md) replaces the
+remaining allocated sensor functions and attribute table. The retained-member
+and vendor-table descriptions below refer to this earlier five-function stage.
+
 The [temperature source module](../../esp-wifi-hal/src/phy_temperature.rs)
 replaces the five measurement and DAC-range functions selected in the
 [baseline plan](PHY-TEMPERATURE.md). The production Rust matches the independent

@@ -47,6 +47,9 @@ vendor code separately from the replaced MAC and PHY register helpers.
 The [temperature source milestone](docs/network/PHY-TEMPERATURE-IMPLEMENTATION.md)
 adds five Rust helpers per chip and verifies that their original allocated
 bodies disappear, while retaining the analog helpers and calibration policy.
+The [sensor lifecycle milestone](docs/network/PHY-SENSOR-LIFECYCLE.md) replaces
+the remaining allocated sensor functions and table, removing `phy_tsens.o`
+from C3/S3 firmware. ROM analog callbacks and the wider RF dependencies remain.
 
 Other companion forks begin with their upstream code and our fork policy.
 The example still uses the locked published esp-hal dependency. The bindings

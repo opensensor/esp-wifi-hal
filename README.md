@@ -66,8 +66,13 @@ the observed S3 RX-probe failure and intermittent host echo loss.
 Five C3/S3 [temperature measurement and DAC-range helpers](docs/network/PHY-TEMPERATURE-IMPLEMENTATION.md)
 now use Rust, with original-instruction tests and linker checks for all callers.
 The [device comparison](docs/network/PHY-TEMPERATURE-VALIDATION.md) records
-initialization, wakeup, RX recovery and WPA2 traffic. Sensor initialization,
-analog conversion and the remaining PHY dependencies still use vendor code.
+initialization, wakeup, RX recovery and WPA2 traffic. The subsequent
+[sensor lifecycle replacement](docs/network/PHY-SENSOR-LIFECYCLE.md) adds power,
+initialization, tracking-state helpers and the attribute table, eliminating
+allocated `phy_tsens.o` inputs on C3 and S3. C3's ROM sensor-code callback,
+analog conversion and the wider RF initialization/calibration remain vendor
+dependencies. Its [device report](docs/network/PHY-SENSOR-LIFECYCLE-VALIDATION.md)
+keeps observed packet losses and remaining dependencies explicit.
 
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and

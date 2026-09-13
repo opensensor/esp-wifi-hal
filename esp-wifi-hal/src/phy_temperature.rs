@@ -1,5 +1,5 @@
 //! Temperature measurement/range selection for the pinned C3/S3 PHY layout.
-//! Analog conversion, sensor power/init and the attribute table remain vendor code.
+//! Analog conversion remains vendor code; power/init and data live in phy_lifecycle.
 
 pub(crate) trait Access {
     type Table: Copy;
@@ -48,7 +48,7 @@ pub(crate) fn decode(value: u32) -> u32 {
 #[inline(always)]
 fn attribute_row(index: u32) -> usize {
     // Only five DAC settings have attribute rows. The original decoder's
-    // sentinel 5 is not a sixth row. Reject it before accessing vendor data.
+    // sentinel 5 is not a sixth row. Reject it before accessing attribute data.
     assert!(
         index < 5,
         "PHY temperature DAC index outside attribute table"

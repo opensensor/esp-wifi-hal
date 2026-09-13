@@ -1,11 +1,13 @@
 # Temperature reconstruction boundary on C3 and S3
 
 The five-function boundary below is now
-[implemented in Rust](PHY-TEMPERATURE-IMPLEMENTATION.md). The
-[device comparison](PHY-TEMPERATURE-VALIDATION.md) records the tested images,
-remaining allocations and observed retries. The baseline and proposal below
-remain the evidence used to choose this boundary; the complete sensor member
-and the wider PHY are still only partially reconstructed.
+[implemented in Rust](PHY-TEMPERATURE-IMPLEMENTATION.md). The subsequent
+[sensor lifecycle work](PHY-SENSOR-LIFECYCLE.md) replaces the remaining
+allocated sensor functions and table. The original
+[device comparison](PHY-TEMPERATURE-VALIDATION.md) records the first milestone's
+images and retries; the [lifecycle comparison](PHY-SENSOR-LIFECYCLE-VALIDATION.md)
+records removal of `phy_tsens.o`. The baseline and proposal below remain the
+evidence used to choose this work. ROM analog and wider PHY dependencies remain.
 
 ## Original proposal
 

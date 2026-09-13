@@ -1,0 +1,3599 @@
+{
+  "schema": "phy-sensor-lifecycle-validation-v1",
+  "date": "2026-09-13",
+  "source_revision": "2811a8e2c120c91fa3b59db11f8c79766ac6e7b3",
+  "control_revision": "915d3be",
+  "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+  "host": {
+    "oracle": {
+      "esp32c3": {
+        "chip": "esp32c3",
+        "cases": 562184,
+        "oracle_sha256": "af226fa99bdecfbd9918dc8d1f99441aa97145f6791bca94dde0e98c56a46a43"
+      },
+      "esp32s3": {
+        "chip": "esp32s3",
+        "cases": 569768,
+        "oracle_sha256": "5cb58ae34ad03a40ecbc189ae770dbcbe54187ff889e86924162111cb0863931"
+      }
+    },
+    "oracle_tests": 22,
+    "production_tests_per_chip_per_optimization": {
+      "esp32c3": 3,
+      "esp32s3": 2
+    },
+    "optimizations": [
+      0,
+      2
+    ],
+    "allocation_tests": 19,
+    "existing_hal_suite_passed": true,
+    "previous_temperature_suite_passed": true,
+    "dispatcher_suite_passed": true,
+    "compatibility_checks": {
+      "esp32": 0,
+      "esp32s2": 0
+    }
+  },
+  "probe_trials": [
+    {
+      "chip": "esp32c3",
+      "label": "control-rx-v1",
+      "complete": true,
+      "elf_sha256": "6bb5cfb02154fa38ca1fdae06e63224cc0378d49a00a9ba52ad7f7c74822db50",
+      "image_sha256": "2133d8dfb5f18f3915946257e7b7a2275523b03104d83cbf3a5367f8908ce17f",
+      "serial_sha256": "b33f309ca6a0bb9ba48c142e3a5ff357b43f426b3f253b32c7bc9a21183a2666",
+      "received": 6,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-rx-v2",
+      "complete": true,
+      "elf_sha256": "f3edd13240dbe1eb01a0d1c55e74087eed7690fc07da263878acb9170052f427",
+      "image_sha256": "dda6221f892cbf5744260acf8a2547f3a917a9cf8557f7d9a901c32f381dcb0d",
+      "serial_sha256": "995a4e6f89bd15b52fa768f8480e46a829ffd9e4ec01f8f4efed0d4b9cc1ea0d",
+      "received": 9,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "control-lifetime-v1",
+      "complete": true,
+      "elf_sha256": "543c7fa0299ff755070a1e1ccb0ae2c9b66c55a28377bd27791d959deb4c9893",
+      "image_sha256": "affe020bda816b306c4dca5fbedd7533a88358781f96720095d239c56d6900e4",
+      "serial_sha256": "d452b0428f65fc111c7e1d3c3fa945d9475615f7d0681f1cdb3b6e0b7524b801",
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107410560,
+          "shutdown": 1077417420
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107410560,
+          "shutdown": 1077417420
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107410560,
+          "shutdown": 1077417420
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 35,
+          "outer": 1107400430,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 33,
+          "outer": 1107400430,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 33,
+          "outer": 1107400430,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-lifetime-v2",
+      "complete": true,
+      "elf_sha256": "b0c8e2f472a3a44fba4bb2b249359a2f1eaaf4ab857f650338cff8eb1dc755ce",
+      "image_sha256": "2d5bf27a89a774978bf2f51c9cdf9f4b42e81937a3c50efc255d9c0b5b0328fc",
+      "serial_sha256": "d101c976e36ecf7915a6ee72b02ea1531f4613b45b88f2873e5de924eff7d8a3",
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107400714,
+          "shutdown": 1077416960
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107400714,
+          "shutdown": 1077416960
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107400714,
+          "shutdown": 1077416960
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107400678,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 28,
+          "outer": 1107400678,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 28,
+          "outer": 1107400678,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-rx-v1",
+      "complete": true,
+      "elf_sha256": "a84ac38e26c1669a134f6cb6b6775938035093469f68dcb65695ce1baca2a028",
+      "image_sha256": "1cdc1e8253b460435c98a343ba0966923b9d1c6c2cc7229ccb17b769f48036f1",
+      "serial_sha256": "79e6aedf572851748a39e2e17f28102d9fd3a644d3bdf6d864e8ccc7b7197f2e",
+      "received": 7,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-rx-v2",
+      "complete": true,
+      "elf_sha256": "d9fe6a48a6da826db667885defef2defbd8263f94eaaa6fb73841addb3685765",
+      "image_sha256": "2d48eadf3bacd748c6ec16c9a8d365b6975aa07ece39fdd2a6376cde266f4381",
+      "serial_sha256": "e39c6262e22219337b845d46ebc566fae6e03d242c257869f8812dba001ea827",
+      "received": 10,
+      "ofdm": 3,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-lifetime-v1",
+      "complete": true,
+      "elf_sha256": "b8a1e62448738489c10ff14f15ec07e9b4ce21bcc600643d13ec7d8093f113fe",
+      "image_sha256": "12f5c710e729d0f8da94faef2a780b587ffd7a54c99d6114ae7c14e1db42e5de",
+      "serial_sha256": "9663a5bd089cce1cddb0b3d4a4657382ae50a7383e12dc66a6bf4f8747217357",
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107406504,
+          "shutdown": 1077388624
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107406504,
+          "shutdown": 1077388624
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107406504,
+          "shutdown": 1077388624
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 31,
+          "outer": 1107396596,
+          "read": 1073960952,
+          "code": 1107406452,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107396596,
+          "read": 1073960952,
+          "code": 1107406452,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107396596,
+          "read": 1073960952,
+          "code": 1107406452,
+          "convert": 1073963220,
+          "write": 1073961176
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-lifetime-v2",
+      "complete": true,
+      "elf_sha256": "f2b8632322711ef6d21b19fb5edea01aafd3a4a989c61e9ed1fe17d27528f4a9",
+      "image_sha256": "8b77404a6ff6f9c6300ef51a91a663ac37fe0e312f6f3beb6ff6537af2872207",
+      "serial_sha256": "2516761a61a6b5a08c36ede8ea5a65457a39834166f9feb620d3adaf967dd550",
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107396972,
+          "shutdown": 1077387968
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107396972,
+          "shutdown": 1077387968
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107396972,
+          "shutdown": 1077387968
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 32,
+          "outer": 1107396884,
+          "read": 1073960952,
+          "code": 1107396256,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 32,
+          "outer": 1107396884,
+          "read": 1073960952,
+          "code": 1107396256,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 31,
+          "outer": 1107396884,
+          "read": 1073960952,
+          "code": 1107396256,
+          "convert": 1073963220,
+          "write": 1073961176
+        }
+      ],
+      "beacons_after_wakeup": 3,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    }
+  ],
+  "station_trials": [
+    {
+      "chip": "esp32c3",
+      "label": "control-normal-v1",
+      "image_sha256": "bf248934d5af27e40390d499040ecdf4d279af03a0794a6ce81640d685f08b06",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 3173,
+        "median": 3501.0,
+        "p95": 17109,
+        "max": 32191
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 196,
+          "socket_packets": 196,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            89,
+            2,
+            0,
+            0,
+            105,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 199,
+          "socket_packets": 199,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            92,
+            3,
+            0,
+            0,
+            104,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "e792193af831d1327417e9749c75cc51d49eb4fa3121015d2371453fa8c5cc61",
+        "serial.txt": "8125e0d96a1e161802182c564a7e71f029a55b873ee8031075af98a6ff666215",
+        "br0.pcap": "6c9ce6d86ccc6dd0bf28d3107470bbfe97b9bb4c7d53039d9ba72b06dd5d7015",
+        "eth10.stats": "e445bfc71f940c6645ccf228cdbe5ccb96b058b24431ce263287f2b6e5b249ed",
+        "br0.stats": "31ebf66130f250462962af869da3f128c4b5d22316f68f2dc1167ffed995db66",
+        "eth10.pcap": "07b41c33c235ecc6be7aa71a934378fc334e298815888538da97519f0c056d51"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-normal-v2",
+      "image_sha256": "ddd65bcffdc08a77858f169d7d5c50189a0af2da2a31903ef7d17522d01b9699",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 3254,
+        "median": 4108.5,
+        "p95": 17247,
+        "max": 21844
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 209,
+          "socket_packets": 209,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            88,
+            4,
+            0,
+            0,
+            117,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 211,
+          "socket_packets": 211,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            91,
+            4,
+            0,
+            0,
+            116,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "f0cdfc3f0889543f794fcb64f1508112511ffc4b5fab9e8b1d88e6397ccd4ca5",
+        "serial.txt": "42e96ecd31d0aed6db09b84ab4b79a1fc039c292807998d6f8df46f3b235f1f7",
+        "br0.pcap": "3594a79cecc055ae1abbb50a5cda32fcc0cb06c2f1a4ea5f988e2b6f15c6364d",
+        "eth10.stats": "3ecf879c0070b39046b06f42e537f13424b3cb478d40182adbd84370e75f83e7",
+        "br0.stats": "f8cf15fc8057240b9d1df0f8d2e2d46eac16bef3087dcad4ecb2b2e17c48d80c",
+        "eth10.pcap": "07ddbf3e9293fc18be7a272837ed3345d587455e0d74587b77e62b43aab93da3"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "control-gtk-v1",
+      "image_sha256": "716f0001b3359e375f8d39a1e58d51100f5c41b355d08fa3d25254b629beb81e",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 3455,
+        "median": 4567.5,
+        "p95": 22153,
+        "max": 35231
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1008,
+          "socket_packets": 1008,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            365,
+            5,
+            0,
+            0,
+            638,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 993,
+          "socket_packets": 993,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            373,
+            7,
+            0,
+            0,
+            613,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "8bb8b76b4838d320ef065a3a8da89249ada6657194dee04720354763523f7ae7",
+        "serial.txt": "3272169ae38231564deb666ed0dc10ca433053ff0563be34e23ed3090daf3f42",
+        "br0.pcap": "4365c205150bfcbe12f33805e52de2b79c14c718fe815caf9c6ab0c52c02a9ea",
+        "eth10.stats": "5889299fb0e921c6da1055d369e335881f16370718a138e74a2765402f9b3d9b",
+        "br0.stats": "8442a07d976378d4e5e7ac07b82c8aaf37688ba7a6a6622bb45aa1171b25743a",
+        "eth10.pcap": "491c7219a43f6c785883d7216961b44ebe5c89e63bc46561368bdfd3026c60e0"
+      },
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000486
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.024364
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000408
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.012438
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000543
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.025468
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "2": 320,
+        "1": 1063
+      },
+      "independent_ap_review": {
+        "group_gaps": [],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 23.878,
+          "4": 12.03,
+          "5": 24.925
+        }
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-gtk-v2",
+      "image_sha256": "c6c09f0aa07cc11af431c8ee8f81f317e18fb7e005fcd049077ed9e2cc3170af",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 3506,
+        "median": 4148.0,
+        "p95": 21652,
+        "max": 45082
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1017,
+          "socket_packets": 1017,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            368,
+            4,
+            0,
+            0,
+            645,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1005,
+          "socket_packets": 1005,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            381,
+            6,
+            0,
+            0,
+            618,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "d99a5396dc22e2af0384dda15b4f6342a9e294b2a31a192fe2a19a7f16265dc8",
+        "serial.txt": "93840f9f05b35a57f677e1eddaa87476bab6638e5eaca21238372419d100be77",
+        "br0.pcap": "751dcb9f94f293adb727547868aa4098c442b7207dd8bccad8fe9c27d054e40d",
+        "eth10.stats": "ed36a027d87fa7113f5e534195304a4b6ab32aab0a3f0e52eb90be73e4228615",
+        "br0.stats": "c4831dbea04e352e1c7b22cfe70cdc5fafdd2496be4e8131d8c3aca141e8b358",
+        "eth10.pcap": "22b23e2d3ca799913eb4994e7ba1619181dd46ca05e1223df11a8ee535c7a766"
+      },
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000387
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.046675
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000414
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.042844
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000388
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.035557
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "1": 363,
+        "2": 822
+      },
+      "independent_ap_review": {
+        "group_gaps": [],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 46.288,
+          "4": 42.43,
+          "5": 35.169
+        }
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-restored-v2",
+      "image_sha256": "ddd65bcffdc08a77858f169d7d5c50189a0af2da2a31903ef7d17522d01b9699",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 3300,
+        "median": 3915.5,
+        "p95": 16240,
+        "max": 26107
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 196,
+          "socket_packets": 196,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            89,
+            2,
+            0,
+            0,
+            105,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 200,
+          "socket_packets": 200,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            93,
+            2,
+            0,
+            0,
+            105,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "6dc8403318d953012ef20e36ba9bf0782093845cd80fc230ac86f1791e226bb6",
+        "serial.txt": "f82b5da25a87f7211d781793bac021c1494350102b399c829cb61e25f34deffa",
+        "br0.pcap": "09869ba80b878846cb80e8a37f5f18ade436b18540620d9ad5483bb77eab87ea",
+        "eth10.stats": "1e61b73d200e50733399adc7b3c3f083134e96bae7a2a11cc18329f4e45a9ebe",
+        "br0.stats": "9ee5ed267a12b211b517d56fe5524d87b389a4bfe3591208416a48329268b361",
+        "eth10.pcap": "eba80335f56fe9975b0dd7f573ec5485104e2cd492563a7046a8bb58d6f7cdab"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-normal-v1",
+      "image_sha256": "4bc602657732bd3ec618c84df4a44e114f34f415c8df63ba0e0e206d01ed801d",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 2270,
+        "median": 2805.5,
+        "p95": 12419,
+        "max": 53502
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 213,
+          "socket_packets": 213,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            90,
+            2,
+            0,
+            0,
+            121,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 216,
+          "socket_packets": 216,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            93,
+            3,
+            0,
+            0,
+            120,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "9f6a0ba871f4f7306c16a883cbe0f3975666039713afec55130cb98cac77ba60",
+        "serial.txt": "1e546173c978334234c10598a355cc6ef0f059b2bd018aa1c6d67ff6ce95c07e",
+        "br0.pcap": "7f9997f5f0247f0efeda51c8364e18357f97caf715dec40167724b6a0a2d6cf1",
+        "eth10.stats": "28e4e7f5a36cc6de64402673c0b94640fef855419d1f39163629eab188138b70",
+        "br0.stats": "22a93c2265250710444e946c8fe7971baf57e8403284b40ac9151f14a00fcfbd",
+        "eth10.pcap": "d8a82b606b40ae2fa9ea0680e5c2fcb9511854aba31c12847bbe52374c7de91c"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-normal-v2",
+      "image_sha256": "3e3ae5d7e830f466a49a8f2ce33b186396ed4a53047e3d841eec870213946f86",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 2242,
+        "median": 2467.0,
+        "p95": 12593,
+        "max": 15177
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 199,
+          "socket_packets": 199,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            88,
+            4,
+            0,
+            0,
+            107,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 200,
+          "socket_packets": 200,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            90,
+            5,
+            0,
+            0,
+            105,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "b5c3c40ea9ef5c696039f35b6f6e94e02e6abef3ed506c523ebb67109e546231",
+        "serial.txt": "6d636f2997b59b8eee9007c60132b0e059fb5a1fac0106182d7618b007433487",
+        "br0.pcap": "3dd7f9506bca60e72ea3149c0a127f7c3dc97185321f6646e9954ac0a3ac0dae",
+        "eth10.stats": "1671bfe98e5affa10c8a9070bd9d46763b156e7432409e2231cab4ca5cd17d87",
+        "br0.stats": "dc17253311f183a0c6d635052a3b18a29e9cc1d272fa888ce95239c367c2d1c9",
+        "eth10.pcap": "a046d867efbabb533139c78c737114e6d99a8c3281488da3dd0ddcda31706734"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-gtk-v1",
+      "image_sha256": "c6c0f7245a6f2d3bfd49b6deba921309075d6ee6ae2e1100ea3c77dae1235d34",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 2599,
+        "median": 3044.5,
+        "p95": 19264,
+        "max": 39048
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1030,
+          "socket_packets": 1030,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            371,
+            3,
+            0,
+            0,
+            656,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1009,
+          "socket_packets": 1009,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            378,
+            4,
+            0,
+            0,
+            627,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "3c4ff6815fa8b9266fb58c92c3207425449e309ca2c31ce1f1894b72f993c827",
+        "serial.txt": "864b714c5dcc1c21ea940485053bf483efb387d77ec53ee922429be52fff4b8f",
+        "br0.pcap": "8be5f8e62bd97874301d05400183c951fee9895d0ef9df8bb000a85f6337a26c",
+        "eth10.stats": "04eac3941143a8829ff279fb65a0044f80d6c708e59bfae6f7ee033799500ca1",
+        "br0.stats": "77b19b115661fdfaf22ce377d5594b3007de0438ad4dc9d0df6b8cb1bfbafd6e",
+        "eth10.pcap": "b763522101aa38d99738bfedb99bc428d6bcb8027d2c853b332ffded1588d7d0"
+      },
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000404
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.012527
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000399
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.026333
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000389
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.029235
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 119,
+        "multicast": 119
+      },
+      "group_missing_sequences": {
+        "broadcast": [
+          42
+        ],
+        "multicast": [
+          103
+        ]
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          60,
+          59
+        ]
+      ],
+      "group_key_ids": {
+        "2": 493,
+        "1": 1309
+      },
+      "independent_ap_review": {
+        "group_gaps": [
+          {
+            "kind": 0,
+            "sequence": 42,
+            "present_in_eth10": true,
+            "present_in_br0": true,
+            "last_g1_counter": 4,
+            "ms_after_last_g1": 682.109,
+            "last_completed_g2_counter": 4,
+            "ms_after_last_g2": 656.175,
+            "following_multicast_delta_ms": 0.099
+          },
+          {
+            "kind": 1,
+            "sequence": 103,
+            "present_in_eth10": true,
+            "present_in_br0": true,
+            "last_g1_counter": 5,
+            "ms_after_last_g1": 21187.86,
+            "last_completed_g2_counter": 5,
+            "ms_after_last_g2": 21159.014
+          }
+        ],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 12.123,
+          "4": 25.934,
+          "5": 28.846
+        }
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-gtk-v2",
+      "image_sha256": "a1c5bcb0e89b321ad36a9947d5a0ff1d5959079778e18c50a7eab6e1df598b95",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 2569,
+        "median": 2988.5,
+        "p95": 13322,
+        "max": 73380
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1026,
+          "socket_packets": 1026,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            372,
+            3,
+            0,
+            0,
+            651,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1001,
+          "socket_packets": 1001,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            376,
+            5,
+            0,
+            0,
+            620,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "e7d905380352af340efd033405c6f0f08ae22f0984b781820aa7104719416412",
+        "serial.txt": "07e37583ae7e9e57bd86cf1c1cb3c208ba6797444040b3f866faf84397a3ca70",
+        "br0.pcap": "195a4491305f8f2a16877799ff497b76b18a313358ba1df6040f4bed3b5fd027",
+        "eth10.stats": "7f969d6036927cceb2de37e486686486705f4208592ca7edd13707453b1a0405",
+        "br0.stats": "a22b7b0a7abd1243ffc04102cd586cd294e032a3e039997a5fdd3206fe21a592",
+        "eth10.pcap": "678935f43a79b95e341c30ad172f7031c8f81f9ccde794abd3d30ff4aa659736"
+      },
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "false",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "6",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "0x0302": [
+          4,
+          5,
+          6
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3,
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [
+            3
+          ],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000388
+            },
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 1.000546
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 1.010693
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000438
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.017794
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            6
+          ],
+          "g2_counters": [
+            6
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 6,
+              "seconds_after_request": 0.000401
+            },
+            {
+              "flag": "0x0302",
+              "counter": 6,
+              "seconds_after_request": 0.018962
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 119
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": [
+          43
+        ]
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          19
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "1": 304,
+        "2": 840
+      },
+      "independent_ap_review": {
+        "group_gaps": [
+          {
+            "kind": 1,
+            "sequence": 43,
+            "present_in_eth10": true,
+            "present_in_br0": true,
+            "last_g1_counter": 5,
+            "ms_after_last_g1": 1190.401,
+            "last_completed_g2_counter": 5,
+            "ms_after_last_g2": 1173.045
+          }
+        ],
+        "same_key_retries": [
+          {
+            "first_counter": 3,
+            "retry_counter": 4,
+            "delay_ms": 1000.158,
+            "same_encrypted_key_data": true,
+            "only_replay_and_mic_changed": true
+          }
+        ],
+        "g1_without_g2": [
+          3
+        ],
+        "g1_g2_latency_ms": {
+          "4": 10.147,
+          "5": 17.356,
+          "6": 18.561
+        }
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-restored-v2",
+      "image_sha256": "3e3ae5d7e830f466a49a8f2ce33b186396ed4a53047e3d841eec870213946f86",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 2286,
+        "median": 3985.5,
+        "p95": 14594,
+        "max": 22648
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 203,
+          "socket_packets": 203,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            90,
+            4,
+            0,
+            0,
+            109,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 204,
+          "socket_packets": 204,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            92,
+            5,
+            0,
+            0,
+            107,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "1c4fe7ba0320cfbcc3b47977fe93bedb5a1e4c019db670df676dc77a370de609",
+        "serial.txt": "d0f5b25726018459092dc79c1086ae7c90dd2f5c3e6088ee03b2fc14afd0ee47",
+        "br0.pcap": "4f43176f6de5c61612f22f807bfbd64bb948ffaafc352ed380bd2b3991292902",
+        "eth10.stats": "2ae93a98732bd01bd59d8898a63369394010b179dbb6f1086bd8c240c8c8b7f2",
+        "br0.stats": "4f8c9a21470797a8c5f81448f2d7280421843dac0f541d5e4c4d1d724a5a1db6",
+        "eth10.pcap": "80375ab51d75d46b145b5c8fa7e5f88ea41a11f329a5d9865fc2127e2d2d72f2"
+      }
+    }
+  ],
+  "allocations": {
+    "esp32c3/control-v1": {
+      "elf_sha256": "7c968891dc4c85a5367014bdaec88c599856d8355e29e92cb3bbdebe6c9b1e52",
+      "map_sha256": "1b4667340c5f0bc2f8b246fbbf7c55580cb1bd9330a25458c65785e5e533ec6d",
+      "non_string_allocations": {
+        "libphy_bytes": 35173,
+        "phy_tsens_member_bytes": 280,
+        "libphy_member_count": 18
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "temperature",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4202f81c",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4202f81c",
+            "symbol_size_bytes": 42,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "bfe71e3d88490c1590d68047f0ee1c6048086fad6352bb96e561500a00c95e17"
+          }
+        },
+        "tsens_dac_cal1": {
+          "address": "0x4202f9e2",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x4202f9e2",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "55a34eef170f3c70452a08203b8ed04366f50d2e0eed6e2c8963b3b523391523"
+          }
+        },
+        "tsens_temp_read1": {
+          "address": "0x4202f846",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x4202f846",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x4202f846",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x4202f846",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x4202f9be",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x4202f9be",
+            "symbol_size_bytes": 36,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5f0fc48d718a0f4af01e4cd21db9e87d1494cb1f2535185d9b9e88112d19d8bc"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "vendor",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x4038154c",
+            "size_bytes": 168,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32c3/source-v2": {
+      "elf_sha256": "94d293f3f92198d713ee78317aaa11ced2857abe04d2a9a6f3ef51b96da1ddf5",
+      "map_sha256": "b4162bc67f3308dceee25aae8dae99330259abe3f5aa59b303d5f1bd100052d6",
+      "non_string_allocations": {
+        "libphy_bytes": 34893,
+        "phy_tsens_member_bytes": 0,
+        "libphy_member_count": 17
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "lifecycle",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4202f81c",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4202f81c",
+            "symbol_size_bytes": 42,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "52314a0d2bc63811fb196ded67cb5aee2b91a7d26e4a2f1d0e6a9bbec63192a5"
+          }
+        },
+        "tsens_dac_cal1": {
+          "address": "0x4202fb00",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x4202fb00",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "74615ede0600f2538358c51868635102991b000b6644f16f51d08ed0a4f941e7"
+          }
+        },
+        "tsens_temp_read1": {
+          "address": "0x4202f846",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x4202f846",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x4202f846",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x4202f846",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x4202fab6",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x4202fab6",
+            "symbol_size_bytes": 36,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5c375945c1875b0d7351ef9f8cef550b7c9b03d8e9128f3fe161516b61dc237f"
+          }
+        },
+        "phy_set_tsens_power": {
+          "address": "0x4202fada",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_power",
+          "source_body": {
+            "address": "0x4202fada",
+            "symbol_size_bytes": 38,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "80c4308e85c2d4569bdfa71b5d6ea9ce40d2562821c070eb9250df2091844ea1"
+          }
+        },
+        "rom2_tsens_read_init1": {
+          "address": "0x4202fa28",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_init",
+          "source_body": {
+            "address": "0x4202fa28",
+            "symbol_size_bytes": 142,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "fe5137fba35a7d3530d12b86de41be86033ff8f4709e8629f0f1700cadd49bea"
+          }
+        },
+        "rom2_temp_to_power1": {
+          "address": "0x4202fb16",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_temp_to_power",
+          "source_body": {
+            "address": "0x4202fb16",
+            "symbol_size_bytes": 86,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "68efbd35b30331467817774f122d4e04b2129428408bf7a90c8ea96cd5d7b45b"
+          }
+        },
+        "get_temp_init": {
+          "address": "0x4202f9be",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_get_init",
+          "source_body": {
+            "address": "0x4202f9be",
+            "symbol_size_bytes": 106,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "34c2a410300892148bfaba0b9826ba996823644b84637bedaa30f46382a09376"
+          }
+        },
+        "phy_xpd_tsens": {
+          "address": "0x403813f8",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_xpd",
+          "source_body": {
+            "address": "0x403813f8",
+            "symbol_size_bytes": 52,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e6238d99b1e20b98d3e3b1d0df6b16ba38621a419c9ce8cff3ad760eb4fd682f"
+          }
+        },
+        "phy_tsens_attribute": {
+          "address": "0x3c0085f0",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_attribute",
+          "source_body": {
+            "address": "0x3c0085f0",
+            "symbol_size_bytes": 30,
+            "type": "STT_OBJECT",
+            "allocated": true,
+            "absolute": false,
+            "executable": false,
+            "body_contained": true,
+            "body_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "source",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x40381580",
+            "size_bytes": 168,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32c3/control-v1-gtk": {
+      "elf_sha256": "1ea9cf7a3a076f3889722803a2064797b0a8939148644be89ec41b00c7364afa",
+      "map_sha256": "c3274c58628f5dc9c4b51464c3d73f2aace2bc25ce1302d5b1c266968f690581",
+      "non_string_allocations": {
+        "libphy_bytes": 35173,
+        "phy_tsens_member_bytes": 280,
+        "libphy_member_count": 18
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "temperature",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4203561e",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4203561e",
+            "symbol_size_bytes": 42,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "8d69b3ccde619057281e6ecd6c686e4c1512c5d7f84e9dc6b6ad58763e6f36ee"
+          }
+        },
+        "tsens_dac_cal1": {
+          "address": "0x420357e4",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x420357e4",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "55a34eef170f3c70452a08203b8ed04366f50d2e0eed6e2c8963b3b523391523"
+          }
+        },
+        "tsens_temp_read1": {
+          "address": "0x42035648",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x42035648",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x42035648",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x42035648",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x420357c0",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x420357c0",
+            "symbol_size_bytes": 36,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "66cc78afe36894657a81db49a33d42697a6f331cb57b6a328fcbe3634aa830cc"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "vendor",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x4038154c",
+            "size_bytes": 168,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32c3/source-v2-gtk": {
+      "elf_sha256": "18df9ec0ff1967799c047c821315ba58eafb011844c6784261e16dfbef21f004",
+      "map_sha256": "c5c70dc02c1bdc51d64b225414321f1fdafa2a6661d7bb5d3889998cf074594d",
+      "non_string_allocations": {
+        "libphy_bytes": 34893,
+        "phy_tsens_member_bytes": 0,
+        "libphy_member_count": 17
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "lifecycle",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4203561e",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4203561e",
+            "symbol_size_bytes": 42,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "10d0c979f3fc4f8f31b4c6cec23e55ddf48b50bea58da7b79f236a55f5a2503f"
+          }
+        },
+        "tsens_dac_cal1": {
+          "address": "0x42035902",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x42035902",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "74615ede0600f2538358c51868635102991b000b6644f16f51d08ed0a4f941e7"
+          }
+        },
+        "tsens_temp_read1": {
+          "address": "0x42035648",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x42035648",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x42035648",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x42035648",
+            "symbol_size_bytes": 22,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9e8c1cc0910f0097b248c0b91d3f5bd7c7fcb064c33547951c73bed8155059f9"
+          }
+        },
+        "rom1_tsens_temp_read": {
+          "address": "0x420358b8",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x420358b8",
+            "symbol_size_bytes": 36,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "63b9c7b29673561b4d074f18acb0de30ebfe72e88820a9340e0164dc8216cefb"
+          }
+        },
+        "phy_set_tsens_power": {
+          "address": "0x420358dc",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_power",
+          "source_body": {
+            "address": "0x420358dc",
+            "symbol_size_bytes": 38,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "80c4308e85c2d4569bdfa71b5d6ea9ce40d2562821c070eb9250df2091844ea1"
+          }
+        },
+        "rom2_tsens_read_init1": {
+          "address": "0x4203582a",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_init",
+          "source_body": {
+            "address": "0x4203582a",
+            "symbol_size_bytes": 142,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "2346368c1a5410ddc1949ffab6d2ec71a9078b7d1b6e9ff14d6be5c791f24af8"
+          }
+        },
+        "rom2_temp_to_power1": {
+          "address": "0x42035918",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_temp_to_power",
+          "source_body": {
+            "address": "0x42035918",
+            "symbol_size_bytes": 86,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "68efbd35b30331467817774f122d4e04b2129428408bf7a90c8ea96cd5d7b45b"
+          }
+        },
+        "get_temp_init": {
+          "address": "0x420357c0",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_get_init",
+          "source_body": {
+            "address": "0x420357c0",
+            "symbol_size_bytes": 106,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "6de03630e9dd0e527c1817cd43ae8da77791022bbcee477a8d36c3855353ab7d"
+          }
+        },
+        "phy_xpd_tsens": {
+          "address": "0x403813f8",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_xpd",
+          "source_body": {
+            "address": "0x403813f8",
+            "symbol_size_bytes": 52,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7a2d9d00def337dafd2d0bf63bf2702241dc3254fae9bd5d3e093b8f969815a8"
+          }
+        },
+        "phy_tsens_attribute": {
+          "address": "0x3c009bd0",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_attribute",
+          "source_body": {
+            "address": "0x3c009bd0",
+            "symbol_size_bytes": 30,
+            "type": "STT_OBJECT",
+            "allocated": true,
+            "absolute": false,
+            "executable": false,
+            "body_contained": true,
+            "body_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "source",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x40381580",
+            "size_bytes": 168,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/control-v1": {
+      "elf_sha256": "fb88a7a674e2c5825da26e82d5f82b0d0626efc7ee716f96c8d553212cb38fe8",
+      "map_sha256": "e198225a803ac85bdcb09de0ed2c46408b5ff040e1e97c57ff19253f7f26fe73",
+      "non_string_allocations": {
+        "libphy_bytes": 32913,
+        "phy_tsens_member_bytes": 342,
+        "libphy_member_count": 18
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "temperature",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4202e9d8",
+          "alias_symbol_size_bytes": 44,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4202e9d8",
+            "symbol_size_bytes": 33,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "b41bef1afa58fe9f4878e50f640707395438889ce7574c160fb506439cc087c4"
+          }
+        },
+        "tsens_dac_cal_new": {
+          "address": "0x4202eb4c",
+          "alias_symbol_size_bytes": 94,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x4202eb4c",
+            "symbol_size_bytes": 19,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9b88b8b5d068630e75f4a40f53ca5985d4dabaa384af0c2273410b13495ed4d7"
+          }
+        },
+        "ram_tsens_temp_read_new": {
+          "address": "0x4202e9fc",
+          "alias_symbol_size_bytes": 83,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x4202e9fc",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a2f5899c9fb232d8b170f125033dbf39bbb509e54913c940d2a4706d296b232c"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x4202e9fc",
+          "alias_symbol_size_bytes": 13,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x4202e9fc",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a2f5899c9fb232d8b170f125033dbf39bbb509e54913c940d2a4706d296b232c"
+          }
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x4202eb34",
+          "alias_symbol_size_bytes": 19,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x4202eb34",
+            "symbol_size_bytes": 24,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "2b5ae650369b7f5d2a468272866a333b6695fcee539b561c422e113e8937b0fb"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "vendor",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x4037a504",
+            "size_bytes": 105,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/source-v2": {
+      "elf_sha256": "31803a8df90fefc3e6d24f33bb8a55f20eb13b062e0444127e94abd31a51c309",
+      "map_sha256": "4828fdb66528a83048e442b7a2687667f255274164973982fef3ef0598d95aec",
+      "non_string_allocations": {
+        "libphy_bytes": 32575,
+        "phy_tsens_member_bytes": 0,
+        "libphy_member_count": 17
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "lifecycle",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4202e980",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4202e980",
+            "symbol_size_bytes": 33,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "34242bd70eda967f68aa211cdf4c13453c256e11c3b045d9fd94ae89496b7fb7"
+          }
+        },
+        "tsens_dac_cal_new": {
+          "address": "0x4202ec00",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x4202ec00",
+            "symbol_size_bytes": 19,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "70d53dbcb8e6349f4ce6369a2045f2225e5bdc586f6759a87fc97100ed086e25"
+          }
+        },
+        "ram_tsens_temp_read_new": {
+          "address": "0x4202e9a4",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x4202e9a4",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e52741d1a73c48ea6a0c9ba5197eb783815d78240c4c9e7a5887029ffb2fc37e"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x4202e9a4",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x4202e9a4",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e52741d1a73c48ea6a0c9ba5197eb783815d78240c4c9e7a5887029ffb2fc37e"
+          }
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x4202ebbc",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x4202ebbc",
+            "symbol_size_bytes": 24,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "89dfb35ad30e392bc9de668744df3568c126d6b28ef91c58933433df4f7ee014"
+          }
+        },
+        "phy_set_tsens_power": {
+          "address": "0x4202ebd4",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_power",
+          "source_body": {
+            "address": "0x4202ebd4",
+            "symbol_size_bytes": 43,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a9f714ca977c52d0dd6eebdd0d4e46f5d92cf3006355fee6061e00be2d4d38b8"
+          }
+        },
+        "tsens_read_init_new": {
+          "address": "0x4202eb5c",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_init",
+          "source_body": {
+            "address": "0x4202eb5c",
+            "symbol_size_bytes": 96,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "86a5ce03e27da6ffd96bdcb452217b0832d71b1d89c7fd280c0b4602384a1cca"
+          }
+        },
+        "ram_tsens_code_read": {
+          "address": "0x4202e948",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_code",
+          "source_body": {
+            "address": "0x4202e948",
+            "symbol_size_bytes": 53,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "45e7747900b6da35214651c2a4971f2f0f8dd8e40aef2e35a93edeb1a0d9f880"
+          }
+        },
+        "ram_temp_to_power": {
+          "address": "0x4202ec14",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_temp_to_power",
+          "source_body": {
+            "address": "0x4202ec14",
+            "symbol_size_bytes": 76,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "fc41f99d8ad6b367e4a257dafa47b2585379d9855d38eb8b75ee96b352115418"
+          }
+        },
+        "get_temp_init": {
+          "address": "0x4202eadc",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_get_init",
+          "source_body": {
+            "address": "0x4202eadc",
+            "symbol_size_bytes": 128,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "32acc2f7a2c6c1e09c315b000f1b50cf9dd87f9bc2d3a2abdb466446a99d07ff"
+          }
+        },
+        "phy_xpd_tsens": {
+          "address": "0x4037a2c0",
+          "alias_symbol_size_bytes": 29,
+          "source_symbol": "__opensensor_tsens_xpd",
+          "source_body": {
+            "address": "0x4037a2c0",
+            "symbol_size_bytes": 51,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9bf38b39761c0fabb7bd6c37ff5d13b750ab8629f92f3b9047a1a4d8ede4e827"
+          }
+        },
+        "phy_tsens_attribute": {
+          "address": "0x3c0089c8",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_attribute",
+          "source_body": {
+            "address": "0x3c0089c8",
+            "symbol_size_bytes": 30,
+            "type": "STT_OBJECT",
+            "allocated": true,
+            "absolute": false,
+            "executable": false,
+            "body_contained": true,
+            "body_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "source",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x4037a544",
+            "size_bytes": 105,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/control-v1-gtk": {
+      "elf_sha256": "c5c459e75d998d504ab2af5cebe28c01fe4791d2e62b02703f3df5d5f2525d56",
+      "map_sha256": "1be3d841613e91d67d24f8b7ef81ff72fcd3de52feb14d45a26f7c18b7e8ddbf",
+      "non_string_allocations": {
+        "libphy_bytes": 32905,
+        "phy_tsens_member_bytes": 342,
+        "libphy_member_count": 18
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "temperature",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x42034514",
+          "alias_symbol_size_bytes": 44,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x42034514",
+            "symbol_size_bytes": 33,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "66c3df7e8c0fb51329d7a9ca4c11a9b3d3d39b25d7db00d72688970c4213ccd8"
+          }
+        },
+        "tsens_dac_cal_new": {
+          "address": "0x42034688",
+          "alias_symbol_size_bytes": 94,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x42034688",
+            "symbol_size_bytes": 19,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ab5fc28c40d2b52c466c388326816294faeede8c63c3126410545dcd6cd702b0"
+          }
+        },
+        "ram_tsens_temp_read_new": {
+          "address": "0x42034538",
+          "alias_symbol_size_bytes": 83,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x42034538",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f7b8fdccfdb855d26b8c717712f39a656a38360f558fbe96908ef41e799bdd39"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x42034538",
+          "alias_symbol_size_bytes": 13,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x42034538",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f7b8fdccfdb855d26b8c717712f39a656a38360f558fbe96908ef41e799bdd39"
+          }
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x42034670",
+          "alias_symbol_size_bytes": 19,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x42034670",
+            "symbol_size_bytes": 24,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d0380aa2561a1ffa539d97679209d1ce3eb5cc94fa734ae46c1850108061e915"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "vendor",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x4037a504",
+            "size_bytes": 105,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tsens.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/source-v2-gtk": {
+      "elf_sha256": "ae51e529fdf11fa6f9a38af4e57efec47202a4bcc252c01973d9a83ecd37f098",
+      "map_sha256": "eaf6a73127c01589cde4211efa1a1c1e17e4c3579c0090cdd64225b923ebaf62",
+      "non_string_allocations": {
+        "libphy_bytes": 32567,
+        "phy_tsens_member_bytes": 0,
+        "libphy_member_count": 17
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "no_allocated_libpp": true
+      },
+      "stage": "lifecycle",
+      "source_aliases": {
+        "tsens_dac_to_index": {
+          "address": "0x4203455c",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_decode",
+          "source_body": {
+            "address": "0x4203455c",
+            "symbol_size_bytes": 33,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ad2d1bcda96b83e5cadb899a1beb21cbedf5211b4d1c8edd1398f7cbbeedfccf"
+          }
+        },
+        "tsens_dac_cal_new": {
+          "address": "0x420347dc",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_range",
+          "source_body": {
+            "address": "0x420347dc",
+            "symbol_size_bytes": 19,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "761cf1349911cddea7f4b7fcd48d16bbf0598b76dbb4277178a5b778b17ef30f"
+          }
+        },
+        "ram_tsens_temp_read_new": {
+          "address": "0x42034580",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_inner",
+          "source_body": {
+            "address": "0x42034580",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "3da3b34119f2ac42d7a7db070900f84e6ae3ede6468df0b056e3a63f1112c6e5"
+          }
+        },
+        "phy_get_tsens_value": {
+          "address": "0x42034580",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_forward",
+          "source_body": {
+            "address": "0x42034580",
+            "symbol_size_bytes": 15,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "3da3b34119f2ac42d7a7db070900f84e6ae3ede6468df0b056e3a63f1112c6e5"
+          }
+        },
+        "ram_tsens_temp_read": {
+          "address": "0x42034798",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_outer",
+          "source_body": {
+            "address": "0x42034798",
+            "symbol_size_bytes": 24,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e299c2aa1e36694b9c9977c03d9104bc053275579ed387b995534c64f07ed2a6"
+          }
+        },
+        "phy_set_tsens_power": {
+          "address": "0x420347b0",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_power",
+          "source_body": {
+            "address": "0x420347b0",
+            "symbol_size_bytes": 43,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d1d5b2bb3c71a59a4350ec8828f4ed56e757caa4f3152499f9c614162f35acd6"
+          }
+        },
+        "tsens_read_init_new": {
+          "address": "0x42034738",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_init",
+          "source_body": {
+            "address": "0x42034738",
+            "symbol_size_bytes": 96,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "cb0500b8b67a6cad8830b89f823bf22e3b4ca39777b12cde94df2977bf4e43d8"
+          }
+        },
+        "ram_tsens_code_read": {
+          "address": "0x42034524",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_code",
+          "source_body": {
+            "address": "0x42034524",
+            "symbol_size_bytes": 53,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "8d25484871f658e0d565c0c77c81919abce462e61948d04b7511c0633f519710"
+          }
+        },
+        "ram_temp_to_power": {
+          "address": "0x420347f0",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_temp_to_power",
+          "source_body": {
+            "address": "0x420347f0",
+            "symbol_size_bytes": 76,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "2ac6717e5aec34943adcd7befd466b34807e95a3ce16c0fee468e77ffdf5c3f9"
+          }
+        },
+        "get_temp_init": {
+          "address": "0x420346b8",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_get_init",
+          "source_body": {
+            "address": "0x420346b8",
+            "symbol_size_bytes": 128,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "74f0bfca27d03904a148baeb3016b7924d19c0252cfc01c0e0e8e6b611f7af0c"
+          }
+        },
+        "phy_xpd_tsens": {
+          "address": "0x4037a2c0",
+          "alias_symbol_size_bytes": 29,
+          "source_symbol": "__opensensor_tsens_xpd",
+          "source_body": {
+            "address": "0x4037a2c0",
+            "symbol_size_bytes": 51,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9bf38b39761c0fabb7bd6c37ff5d13b750ab8629f92f3b9047a1a4d8ede4e827"
+          }
+        },
+        "phy_tsens_attribute": {
+          "address": "0x3c009fec",
+          "alias_symbol_size_bytes": 0,
+          "source_symbol": "__opensensor_tsens_attribute",
+          "source_body": {
+            "address": "0x3c009fec",
+            "symbol_size_bytes": 30,
+            "type": "STT_OBJECT",
+            "allocated": true,
+            "absolute": false,
+            "executable": false,
+            "body_contained": true,
+            "body_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df"
+          }
+        }
+      },
+      "xpd_routing": {
+        "implementation": "source",
+        "vendor_body_bytes_proven_removed": false,
+        "remaining_shared_phy_api_inputs": [
+          {
+            "member": "phy_api.o",
+            "section": ".iram1",
+            "address": "0x4037a544",
+            "size_bytes": 105,
+            "output_section": ".rwtext.wifi"
+          }
+        ]
+      },
+      "attribute_table_sha256": "009333c3fd8ee4e80abf23fe976bfaa8459d8b72efc21ebe437056a861bd68df",
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pbus.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    }
+  },
+  "builds": {
+    "esp32c3/source-v2-wifi_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "f3edd13240dbe1eb01a0d1c55e74087eed7690fc07da263878acb9170052f427",
+      "map_sha256": "7017b4287a9499282a3df4651bbdee040cd266bee53cbcf019ab518ee606a466",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32c3/source-v2-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "94d293f3f92198d713ee78317aaa11ced2857abe04d2a9a6f3ef51b96da1ddf5",
+      "map_sha256": "b4162bc67f3308dceee25aae8dae99330259abe3f5aa59b303d5f1bd100052d6",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/source-v2-gtk-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "18df9ec0ff1967799c047c821315ba58eafb011844c6784261e16dfbef21f004",
+      "map_sha256": "c5c70dc02c1bdc51d64b225414321f1fdafa2a6661d7bb5d3889998cf074594d",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/source-v2-phy_lifetime_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "b0c8e2f472a3a44fba4bb2b249359a2f1eaaf4ab857f650338cff8eb1dc755ce",
+      "map_sha256": "1aa76189243ee356ed968745c623f9054bcd2e9ee8c31fea5e3a1677f53befc8",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "9819c30401e654736d53b03e050903a71b3827048a4ef56c42a9be192eae6df4"
+      }
+    },
+    "esp32c3/control-v1-wifi_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "6bb5cfb02154fa38ca1fdae06e63224cc0378d49a00a9ba52ad7f7c74822db50",
+      "map_sha256": "54e26097f673cf04c8ead0e91b0bc5702c0d7ea2f8ff58ffc17f67c03a3a417a",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32c3/control-v1-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "7c968891dc4c85a5367014bdaec88c599856d8355e29e92cb3bbdebe6c9b1e52",
+      "map_sha256": "1b4667340c5f0bc2f8b246fbbf7c55580cb1bd9330a25458c65785e5e533ec6d",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/control-v1-gtk-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "1ea9cf7a3a076f3889722803a2064797b0a8939148644be89ec41b00c7364afa",
+      "map_sha256": "c3274c58628f5dc9c4b51464c3d73f2aace2bc25ce1302d5b1c266968f690581",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/control-v1-phy_lifetime_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32c3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "543c7fa0299ff755070a1e1ccb0ae2c9b66c55a28377bd27791d959deb4c9893",
+      "map_sha256": "b6990b3a88faf47dbf06733903b49813126bb8a9f79afdd554540fbb73c7ecaf",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "9819c30401e654736d53b03e050903a71b3827048a4ef56c42a9be192eae6df4"
+      }
+    },
+    "esp32s3/source-v2-wifi_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "d9fe6a48a6da826db667885defef2defbd8263f94eaaa6fb73841addb3685765",
+      "map_sha256": "82959c9ae02b742408f26036ae627eacaf26d535616e264d0aff3f1024eb2ce4",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32s3/source-v2-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "31803a8df90fefc3e6d24f33bb8a55f20eb13b062e0444127e94abd31a51c309",
+      "map_sha256": "4828fdb66528a83048e442b7a2687667f255274164973982fef3ef0598d95aec",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/source-v2-gtk-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "ae51e529fdf11fa6f9a38af4e57efec47202a4bcc252c01973d9a83ecd37f098",
+      "map_sha256": "eaf6a73127c01589cde4211efa1a1c1e17e4c3579c0090cdd64225b923ebaf62",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/source-v2-phy_lifetime_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "f2b8632322711ef6d21b19fb5edea01aafd3a4a989c61e9ed1fe17d27528f4a9",
+      "map_sha256": "6b1e6cb5de314da8bab5fd72e837aac485b2a61288474171a85e0b9716649e81",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "8cc99ee5645b16a9784e5aefe9113e49c2a2d51a7e03a4d82b7aa0f846e69955",
+        "esp-wifi-hal/build.rs": "44366fa443d3051a2b0d471c973658d3a2d342e9fece59c972b366c276aa350d",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "9819c30401e654736d53b03e050903a71b3827048a4ef56c42a9be192eae6df4"
+      }
+    },
+    "esp32s3/control-v1-wifi_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "a84ac38e26c1669a134f6cb6b6775938035093469f68dcb65695ce1baca2a028",
+      "map_sha256": "d1a24248bc17d33815e5d0a81a100a69392e413ecab14ddd3a92522fddd334bd",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32s3/control-v1-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "fb88a7a674e2c5825da26e82d5f82b0d0626efc7ee716f96c8d553212cb38fe8",
+      "map_sha256": "e198225a803ac85bdcb09de0ed2c46408b5ff040e1e97c57ff19253f7f26fe73",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/control-v1-gtk-sta_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "c5c459e75d998d504ab2af5cebe28c01fe4791d2e62b02703f3df5d5f2525d56",
+      "map_sha256": "1be3d841613e91d67d24f8b7ef81ff72fcd3de52feb14d45a26f7c18b7e8ddbf",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/control-v1-phy_lifetime_smoke": {
+      "build_checkout_revision": "915d3bea3aac3dd61ddbe957f293804a1c8e1943",
+      "features": "esp32s3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "b8a1e62448738489c10ff14f15ec07e9b4ce21bcc600643d13ec7d8093f113fe",
+      "map_sha256": "5ec7ed3e8724539f5001a00bec2630ebc8ed0a6b6123b79347e9a66f7db8e95f",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_temperature.rs": "166cfd3b36c15169e5ef35ea59d7e82da7deb8dc9c442d079e30af864c0f5ea9",
+        "esp-wifi-hal/src/lib.rs": "f526b3f695b2bbb94169d36917634f4a0394001fd88beeb13cd37d3b3d3702a6",
+        "esp-wifi-hal/build.rs": "fbe456a5a62f511f53d0779adca43274f9880d0f34fc207a43de8fcbb84ad33a",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "9819c30401e654736d53b03e050903a71b3827048a4ef56c42a9be192eae6df4"
+      }
+    }
+  },
+  "limitations": [
+    "One board per chip, one AP/channel and room-temperature operation; no temperature chamber or calibrated thermometer.",
+    "The sensor member is replaced, but C3 ROM sensor-code and both chips analog/convert callbacks, wider RF init/calibration and vendor state remain. Original xpd bytes remain in shared phy_api.o IRAM despite source routing.",
+    "Host oracle compares modeled instructions in the documented input domain, not analog/RF equivalence.",
+    "C3 DAC initialization accepts used indexes 0..4; other used indexes assert, including raw indexes whose original address arithmetic would wrap. Unused indexes remain unrestricted.",
+    "Packet gaps and latency tails from earlier milestones remain open; record the actual counts from this comparison.",
+    "AP Ethernet captures corroborate EAPOL exchanges but are not complete independent RF captures."
+  ],
+  "independent_review_sha256": "30caaed4b50d28d923a7e4708cdf22a3a0ea87b21b2708506f63d3eb284d2682"
+}
