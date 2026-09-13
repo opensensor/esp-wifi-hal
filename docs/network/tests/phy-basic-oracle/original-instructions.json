@@ -1,0 +1,261 @@
+{
+  "esp32c3": {
+    "elf_sha256": "ae3d09f57f37f2ad94ffc184b5750bb4c8d5dab6b7dec4f8533d75670412f2ec",
+    "map_sha256": "757d929605f0e521755771bca971d7ae17cfc22d5c5fb9ec9ba31baf2b1698d1",
+    "functions": [
+      {
+        "name": "rom1_i2c_master_reset",
+        "address": "0x40381fb2",
+        "size_bytes": 86,
+        "body_sha256": "4e03c318955de7bc9a8fb57404d9e9723d34f6e5154e8172595ad1bbb84c04a6",
+        "code_hex": "411106c6eff02fd2b7e7006098439316670063c70602b7e70060d8439316670063dc060037070004d8c337e700605c4393966700e3cd06feb24041016ff0afce3707000498c337e700601c4393966700e3cd06fec9b7",
+        "instructions": [
+          "40381fb2: 1141 addi sp,sp,-16",
+          "40381fb4: c606 sw ra,12(sp)",
+          "40381fb6: d22ff0ef jal 403814d8",
+          "40381fba: 6000e7b7 lui a5,0x6000e",
+          "40381fbe: 4398 lw a4,0(a5)",
+          "40381fc0: 00671693 slli a3,a4,0x6",
+          "40381fc4: 0206c763 bltz a3,40381ff2",
+          "40381fc8: 6000e7b7 lui a5,0x6000e",
+          "40381fcc: 43d8 lw a4,4(a5)",
+          "40381fce: 00671693 slli a3,a4,0x6",
+          "40381fd2: 0006dc63 bgez a3,40381fea",
+          "40381fd6: 04000737 lui a4,0x4000",
+          "40381fda: c3d8 sw a4,4(a5)",
+          "40381fdc: 6000e737 lui a4,0x6000e",
+          "40381fe0: 435c lw a5,4(a4)",
+          "40381fe2: 00679693 slli a3,a5,0x6",
+          "40381fe6: fe06cde3 bltz a3,40381fe0",
+          "40381fea: 40b2 lw ra,12(sp)",
+          "40381fec: 0141 addi sp,sp,16",
+          "40381fee: ceaff06f j 403814d8",
+          "40381ff2: 04000737 lui a4,0x4000",
+          "40381ff6: c398 sw a4,0(a5)",
+          "40381ff8: 6000e737 lui a4,0x6000e",
+          "40381ffc: 431c lw a5,0(a4)",
+          "40381ffe: 00679693 slli a3,a5,0x6",
+          "40382002: fe06cde3 bltz a3,40381ffc",
+          "40382006: b7c9 j 40381fc8"
+        ]
+      },
+      {
+        "name": "chan14_mic_cfg",
+        "address": "0x4203efc2",
+        "size_bytes": 66,
+        "body_sha256": "f247ad2eb60a91a002071e5f1325d1a713f60f0b1aa8e84b9afd1779a28334f4",
+        "code_hex": "3737c83f8547130707326311f50237c6016083270640e976fd16f58f8966d58f2320f6400305470e6ff08fdeb7c6016083a706401966d18f23a0f64003058709e5b7",
+        "instructions": [
+          "4203efc2: 3fc83737 lui a4,0x3fc83",
+          "4203efc6: 4785 li a5,1",
+          "4203efc8: 32070713 addi a4,a4,800",
+          "4203efcc: 02f51163 bne a0,a5,4203efee",
+          "4203efd0: 6001c637 lui a2,0x6001c",
+          "4203efd4: 40062783 lw a5,1024(a2)",
+          "4203efd8: 76e9 lui a3,0xffffa",
+          "4203efda: 16fd addi a3,a3,-1",
+          "4203efdc: 8ff5 and a5,a5,a3",
+          "4203efde: 6689 lui a3,0x2",
+          "4203efe0: 8fd5 or a5,a5,a3",
+          "4203efe2: 40f62023 sw a5,1024(a2)",
+          "4203efe6: 0e470503 lb a0,228(a4)",
+          "4203efea: de8ff06f j 4203e5d2",
+          "4203efee: 6001c6b7 lui a3,0x6001c",
+          "4203eff2: 4006a783 lw a5,1024(a3)",
+          "4203eff6: 6619 lui a2,0x6",
+          "4203eff8: 8fd1 or a5,a5,a2",
+          "4203effa: 40f6a023 sw a5,1024(a3)",
+          "4203effe: 09870503 lb a0,152(a4)",
+          "4203f002: b7e5 j 4203efea"
+        ]
+      }
+    ],
+    "symbols": {
+      "phy_param": {
+        "address": "0x3fc83320",
+        "size_bytes": 848
+      },
+      "g_phyFuns": {
+        "address": "0x3fca5dbc",
+        "size_bytes": 4
+      },
+      "phy_i2c_enter_critical": {
+        "address": "0x403814d8",
+        "size_bytes": 0
+      },
+      "phy_i2c_exit_critical": {
+        "address": "0x403814d8",
+        "size_bytes": 0
+      },
+      "phy_set_most_tpw": {
+        "address": "0x4203e5d2",
+        "size_bytes": 22
+      },
+      "rom_set_chan_reg": {
+        "address": "0x40001bec",
+        "size_bytes": 0
+      }
+    },
+    "literals": {}
+  },
+  "esp32s3": {
+    "elf_sha256": "0d68f9f76c65b20929ab2d39bd64997aca032e2bcd6d276a15a15b79a8842c4f",
+    "map_sha256": "dae93b08ee814ad51d513d15a7b7d8ac22c4317c4883132d191d9fe377b75050",
+    "functions": [
+      {
+        "name": "ram_i2c_master_reset",
+        "address": "0x4037afbc",
+        "size_bytes": 83,
+        "body_sha256": "4358626109fb164543c5cf26dcee17ce717a06abcf3694c65120c1d9aa494e8b",
+        "code_hex": "364100253aff81fbffc02000980897f90f81f9ffc02000980897f920c60500000091f6ffc02000990891ddffc02000a808978af746f6ffe536ff1df00091efffc02000990891d6ffc02000a808978af7c6f8ff",
+        "instructions": [
+          "4037afbc: 004136 entry a1, 32",
+          "4037afbf: ff3a25 call8 4037a360",
+          "4037afc2: fffb81 l32r a8, 4037afb0",
+          "4037afc5: 0020c0 memw",
+          "4037afc8: 0898 l32i.n a9, a8, 0",
+          "4037afca: 0ff997 bbsi a9, 25, 4037afdd",
+          "4037afcd: fff981 l32r a8, 4037afb4",
+          "4037afd0: 0020c0 memw",
+          "4037afd3: 0898 l32i.n a9, a8, 0",
+          "4037afd5: 20f997 bbsi a9, 25, 4037aff9",
+          "4037afd8: 0005c6 j 4037aff3",
+          "4037afdd: fff691 l32r a9, 4037afb8",
+          "4037afe0: 0020c0 memw",
+          "4037afe3: 0899 s32i.n a9, a8, 0",
+          "4037afe5: ffdd91 l32r a9, 4037af5c",
+          "4037afe8: 0020c0 memw",
+          "4037afeb: 08a8 l32i.n a10, a8, 0",
+          "4037afed: f78a97 bany a10, a9, 4037afe8",
+          "4037aff0: fff646 j 4037afcd",
+          "4037aff3: ff36e5 call8 4037a360",
+          "4037aff6: f01d retw.n",
+          "4037aff9: ffef91 l32r a9, 4037afb8",
+          "4037affc: 0020c0 memw",
+          "4037afff: 0899 s32i.n a9, a8, 0",
+          "4037b001: ffd691 l32r a9, 4037af5c",
+          "4037b004: 0020c0 memw",
+          "4037b007: 08a8 l32i.n a10, a8, 0",
+          "4037b009: f78a97 bany a10, a9, 4037b004",
+          "4037b00c: fff8c6 j 4037aff3"
+        ]
+      },
+      {
+        "name": "chan14_mic_cfg",
+        "address": "0x4203c69c",
+        "size_bytes": 67,
+        "body_sha256": "b6271a88f923ac33743762b6c24150ba24b1220c3784af53fedc0256f7756057",
+        "code_hex": "36410081f655202074c02000a808b1ae51661218915a5590aa1091814e909a20c020009908a20be4c60300000091d255909a20c020009908a20b9800aa23e561ff1df0",
+        "instructions": [
+          "4203c69c: 004136 entry a1, 32",
+          "4203c69f: 55f681 l32r a8, 42011e78",
+          "4203c6a2: 742020 extui a2, a2, 0, 8",
+          "4203c6a5: 0020c0 memw",
+          "4203c6a8: 08a8 l32i.n a10, a8, 0",
+          "4203c6aa: 51aeb1 l32r a11, 42010d64",
+          "4203c6ad: 181266 bnei a2, 1, 4203c6c9",
+          "4203c6b0: 555a91 l32r a9, 42011c18",
+          "4203c6b3: 10aa90 and a10, a10, a9",
+          "4203c6b6: 4e8191 l32r a9, 420100bc",
+          "4203c6b9: 209a90 or a9, a10, a9",
+          "4203c6bc: 0020c0 memw",
+          "4203c6bf: 0899 s32i.n a9, a8, 0",
+          "4203c6c1: e40ba2 l8ui a10, a11, 228",
+          "4203c6c4: 0003c6 j 4203c6d7",
+          "4203c6c9: 55d291 l32r a9, 42011e14",
+          "4203c6cc: 209a90 or a9, a10, a9",
+          "4203c6cf: 0020c0 memw",
+          "4203c6d2: 0899 s32i.n a9, a8, 0",
+          "4203c6d4: 980ba2 l8ui a10, a11, 152",
+          "4203c6d7: 23aa00 sext a10, a10, 7",
+          "4203c6da: ff61e5 call8 4203bcf8",
+          "4203c6dd: f01d retw.n"
+        ]
+      },
+      {
+        "name": "ram_set_chan_cal_interp",
+        "address": "0x4203c634",
+        "size_bytes": 104,
+        "body_sha256": "6b09fab217f2926feab4c651af86341e26308e04d45984ea1a3c943d5a820eba",
+        "code_hex": "3641000b33303074f663259202008202010029230088232088c030388281f7ff8083b2303f318081213038c09a83c60b00a202020ca92b8a80807437392592020100aa2300892380aac032c3fb303a8281ebff8083b2303f318081213088c09a888080742d081df0",
+        "instructions": [
+          "4203c634: 004136 entry a1, 32",
+          "4203c637: 330b addi.n a3, a3, -1",
+          "4203c639: 743030 extui a3, a3, 0, 8",
+          "4203c63c: 2563f6 bgeui a3, 6, 4203c665",
+          "4203c63f: 000292 l8ui a9, a2, 0",
+          "4203c642: 010282 l8ui a8, a2, 1",
+          "4203c645: 232900 sext a2, a9, 7",
+          "4203c648: 238800 sext a8, a8, 7",
+          "4203c64b: c08820 sub a8, a8, a2",
+          "4203c64e: 823830 mull a3, a8, a3",
+          "4203c651: fff781 l32r a8, 4203c630",
+          "4203c654: b28380 mulsh a8, a3, a8",
+          "4203c657: 313f30 srai a3, a3, 31",
+          "4203c65a: 218180 srai a8, a8, 1",
+          "4203c65d: c03830 sub a3, a8, a3",
+          "4203c660: 839a add.n a8, a3, a9",
+          "4203c662: 000bc6 j 4203c695",
+          "4203c665: 0202a2 l8ui a10, a2, 2",
+          "4203c668: a90c movi.n a9, 10",
+          "4203c66a: 8a2b addi.n a8, a10, 2",
+          "4203c66c: 748080 extui a8, a8, 0, 8",
+          "4203c66f: 253937 bltu a9, a3, 4203c698",
+          "4203c672: 010292 l8ui a9, a2, 1",
+          "4203c675: 23aa00 sext a10, a10, 7",
+          "4203c678: 238900 sext a8, a9, 7",
+          "4203c67b: c0aa80 sub a10, a10, a8",
+          "4203c67e: fbc332 addi a3, a3, -5",
+          "4203c681: 823a30 mull a3, a10, a3",
+          "4203c684: ffeb81 l32r a8, 4203c630",
+          "4203c687: b28380 mulsh a8, a3, a8",
+          "4203c68a: 313f30 srai a3, a3, 31",
+          "4203c68d: 218180 srai a8, a8, 1",
+          "4203c690: c08830 sub a8, a8, a3",
+          "4203c693: 889a add.n a8, a8, a9",
+          "4203c695: 748080 extui a8, a8, 0, 8",
+          "4203c698: 082d mov.n a2, a8",
+          "4203c69a: f01d retw.n"
+        ]
+      }
+    ],
+    "symbols": {
+      "phy_param": {
+        "address": "0x3fc8d7ac",
+        "size_bytes": 740
+      },
+      "g_phyFuns": {
+        "address": "0x3fcb0880",
+        "size_bytes": 4
+      },
+      "phy_i2c_enter_critical": {
+        "address": "0x4037a360",
+        "size_bytes": 0
+      },
+      "phy_i2c_exit_critical": {
+        "address": "0x4037a360",
+        "size_bytes": 0
+      },
+      "phy_set_most_tpw": {
+        "address": "0x4203bcf8",
+        "size_bytes": 30
+      },
+      "rom_set_chan_reg": {
+        "address": "0x4000633c",
+        "size_bytes": 116
+      }
+    },
+    "literals": {
+      "0x4037afb0": "0x6000e000",
+      "0x4037afb4": "0x6000e004",
+      "0x4037afb8": "0x4000000",
+      "0x4037af5c": "0x2000000",
+      "0x42011e78": "0x6001c400",
+      "0x42010d64": "0x3fc8d7ac",
+      "0x42011c18": "0xffff9fff",
+      "0x420100bc": "0x2000",
+      "0x42011e14": "0x6000",
+      "0x4203c630": "0x66666667"
+    }
+  }
+}

@@ -302,6 +302,54 @@ unsafe fn inspect_api(cycle: u32) {
     );
 }
 
+/// Observe selected basic helpers; exercise only the pure interpolation helper.
+unsafe fn inspect_basic(cycle: u32) {
+    unsafe extern "C" {
+        #[cfg_attr(feature = "esp32c3", link_name = "rom1_i2c_master_reset")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_i2c_master_reset")]
+        fn basic_reset();
+        fn chan14_mic_cfg();
+        fn rom_set_chan_reg();
+        #[cfg(feature = "esp32s3")]
+        fn ram_set_chan_cal_interp(data: *const u8, channel: u32) -> u32;
+    }
+    let rom = rom_set_chan_reg as *const () as usize;
+    #[cfg(feature = "esp32c3")]
+    assert_eq!(rom, 0x4000_1bec);
+    #[cfg(feature = "esp32s3")]
+    assert_eq!(rom, 0x4000_633c);
+    #[cfg(feature = "esp32s3")]
+    let (interpolation, checked) = {
+        let data = [0x80, 0x7f, 0xfe];
+        for (channel, expected) in [
+            (0, 0),
+            (1, 128),
+            (6, 127),
+            (7, 102),
+            (11, 254),
+            (12, 0),
+            (257, 128),
+        ] {
+            assert_eq!(
+                unsafe { ram_set_chan_cal_interp(data.as_ptr(), channel) },
+                expected
+            );
+        }
+        (ram_set_chan_cal_interp as *const () as usize, 7)
+    };
+    #[cfg(feature = "esp32c3")]
+    let (interpolation, checked) = (0usize, 0);
+    info!(
+        "stage=phy_basic cycle={} reset={:#x} channel14={:#x} rom_channel={:#x} interpolation={:#x} checked={}",
+        cycle,
+        basic_reset as *const () as usize,
+        chan14_mic_cfg as *const () as usize,
+        rom,
+        interpolation,
+        checked
+    );
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -350,6 +398,7 @@ async fn main(_spawner: Spawner) {
             inspect_pbus(cycle);
             inspect_i2c(cycle);
             inspect_api(cycle);
+            inspect_basic(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

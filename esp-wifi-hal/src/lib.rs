@@ -86,6 +86,8 @@ mod phy_i2c;
 mod phy_i2c_iram;
 #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
 mod phy_api;
+#[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+mod phy_basic;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

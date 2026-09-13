@@ -1,0 +1,10 @@
+{
+  "esp32c3": {
+    "elf_sha256": "ae3d09f57f37f2ad94ffc184b5750bb4c8d5dab6b7dec4f8533d75670412f2ec",
+    "map_sha256": "757d929605f0e521755771bca971d7ae17cfc22d5c5fb9ec9ba31baf2b1698d1"
+  },
+  "esp32s3": {
+    "elf_sha256": "0d68f9f76c65b20929ab2d39bd64997aca032e2bcd6d276a15a15b79a8842c4f",
+    "map_sha256": "dae93b08ee814ad51d513d15a7b7d8ac22c4317c4883132d191d9fe377b75050"
+  }
+}
