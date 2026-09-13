@@ -74,6 +74,14 @@ analog conversion and the wider RF initialization/calibration remain vendor
 dependencies. Its [device report](docs/network/PHY-SENSOR-LIFECYCLE-VALIDATION.md)
 keeps observed packet losses and remaining dependencies explicit.
 
+The subsequent [PBUS replacement](docs/network/PHY-PBUS.md) removes all allocated
+`phy_pbus.o` code and data on C3/S3, leaving 16 PHY archive members in the tested
+station images. Rust programs the chip-specific bus tables, saves the range
+registers and preserves calibration-mode transitions through the retained ROM
+callbacks. The [PBUS comparison](docs/network/PHY-PBUS-VALIDATION.md) covers
+original-instruction tests, live range checks, wakeup, traffic and GTK rotation.
+The broader RF/ROM dependencies and intermittent packet losses remain open.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).

@@ -1,5 +1,9 @@
 # Sensor lifecycle: C3/S3 comparison
 
+This is the sensor milestone's historical comparison. The subsequent
+[PBUS report](PHY-PBUS-VALIDATION.md) records the next source replacement and
+its separate control/device trials.
+
 The [sensor lifecycle implementation](PHY-SENSOR-LIFECYCLE.md) removes every
 allocated input from `phy_tsens.o` in the tested C3 and S3 station images.
 Implementation `2811a8e` extends the previous temperature milestone `915d3be`.

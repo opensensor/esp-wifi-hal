@@ -6,6 +6,9 @@ the [measurement helpers](PHY-TEMPERATURE-IMPLEMENTATION.md). The source also
 handles the sensor shutdown wrapper. Full RF initialization, calibration,
 tracking cadence and the remaining ROM callbacks retain their existing policy.
 
+The later [PBUS milestone](PHY-PBUS.md) also removes the allocated PBUS member.
+Allocation counts in this document describe the sensor milestone's own images.
+
 ## Replacement and dependency boundary
 
 | Source suffix (`__opensensor_tsens_`) | C3 original | S3 original |
