@@ -1,0 +1,5886 @@
+{
+  "schema": "phy-i2c-validation-v1",
+  "date": "2026-09-13",
+  "source_revision": "561a000d7d08c8ce44eab3081bb919d0680219c3",
+  "control_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+  "foa_revision": "214311817b5234c1e9c911cd28a664cd392c366e",
+  "host": {
+    "oracle": {
+      "esp32c3": {
+        "chip": "esp32c3",
+        "cases": 167348,
+        "oracle_sha256": "385af56d7d628a5ff62cf241973a7d63d0e61296c05cddf74bfbc3e07be882f1"
+      },
+      "esp32s3": {
+        "chip": "esp32s3",
+        "cases": 101812,
+        "oracle_sha256": "a33badb87e7f8c03609ed7306124f53bd721813a4c92b4a0c96db8be97d153a0"
+      }
+    },
+    "iram_oracle": {
+      "esp32c3": {
+        "chip": "esp32c3",
+        "cases": 104768,
+        "oracle_sha256": "f436a3ea2c86717a31263b939062356af43828d814f36c9f94e3fba598cdab6a"
+      },
+      "esp32s3": {
+        "chip": "esp32s3",
+        "cases": 136000,
+        "oracle_sha256": "d2c007a4c18242bac12a6a5f59ad7746d8aae248b3a3d8da5ea4715b97020f38"
+      }
+    },
+    "oracle_tests": 56,
+    "production_tests_per_chip_per_optimization": {
+      "esp32c3": 2,
+      "esp32s3": 2
+    },
+    "optimizations": [
+      0,
+      2
+    ],
+    "new_allocation_tests": 24,
+    "total_allocation_tests": 90,
+    "existing_hal_suite_passed": true,
+    "previous_temperature_suite_passed": true,
+    "previous_lifecycle_suite_passed": true,
+    "dispatcher_suite_passed": true,
+    "compatibility_checks": {
+      "esp32": 0,
+      "esp32s2": 0
+    }
+  },
+  "probe_trials": [
+    {
+      "chip": "esp32c3",
+      "label": "control-rx-v2",
+      "complete": true,
+      "elf_sha256": "758775421ce756ce5667ac45c9cdfc49e7a1a1f84b728963c6a9dcfc990344aa",
+      "image_sha256": "e3489caf46f799ad34317d6460446f965bbb46df8898ad5e6a8365ec0af0bae9",
+      "serial_sha256": "69dd5724605e1690ed3a976b3a910b670f6da199920f68be8b0963a7bf6134b5",
+      "received": 8,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-rx-v2",
+      "complete": true,
+      "elf_sha256": "a4ea7ba6be1c0fa3a624a788bb96847085948d7cc30d6b08292e925e9ec14e28",
+      "image_sha256": "c585de1792d7ad6a71819a30de4c47b48312e03ee5cb34c74e39fecc2e891848",
+      "serial_sha256": "c85bfc409cdd29233a4d377bcdbd212e0aabb3b36ee82cedd7e88e095229df34",
+      "received": 11,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32c3",
+      "label": "control-lifetime-v2",
+      "complete": true,
+      "elf_sha256": "675d8f0ca6525c8eb6b39d65c69ca43f847fe642289d1c254ff543d26bc522ac",
+      "image_sha256": "7ed4459cf9fbc229ae29ff943da0cf8914aef64db80ad585da594fa7ef0b9d50",
+      "serial_sha256": "eb01e6397335ce17097b3bc8b33293f5c0b65fd690bc62ff068b770cbba4c8b1",
+      "i2c_callback_installations": [
+        {
+          "cycle": 1,
+          "slot": 384,
+          "actual": 1077420784,
+          "expected": 1077420784
+        },
+        {
+          "cycle": 1,
+          "slot": 400,
+          "actual": 1077420986,
+          "expected": 1077420986
+        },
+        {
+          "cycle": 1,
+          "slot": 432,
+          "actual": 1077421092,
+          "expected": 1077421092
+        },
+        {
+          "cycle": 1,
+          "slot": 632,
+          "actual": 1077421206,
+          "expected": 1077421206
+        },
+        {
+          "cycle": 2,
+          "slot": 384,
+          "actual": 1077420784,
+          "expected": 1077420784
+        },
+        {
+          "cycle": 2,
+          "slot": 400,
+          "actual": 1077420986,
+          "expected": 1077420986
+        },
+        {
+          "cycle": 2,
+          "slot": 432,
+          "actual": 1077421092,
+          "expected": 1077421092
+        },
+        {
+          "cycle": 2,
+          "slot": 632,
+          "actual": 1077421206,
+          "expected": 1077421206
+        },
+        {
+          "cycle": 3,
+          "slot": 384,
+          "actual": 1077420784,
+          "expected": 1077420784
+        },
+        {
+          "cycle": 3,
+          "slot": 400,
+          "actual": 1077420986,
+          "expected": 1077420986
+        },
+        {
+          "cycle": 3,
+          "slot": 432,
+          "actual": 1077421092,
+          "expected": 1077421092
+        },
+        {
+          "cycle": 3,
+          "slot": 632,
+          "actual": 1077421206,
+          "expected": 1077421206
+        }
+      ],
+      "pbus": [
+        {
+          "cycle": 1,
+          "ranges_checked": 6,
+          "force": 1107401076,
+          "mem": 1107401226,
+          "save": 1107401490,
+          "debug": 1107400940,
+          "work": 1107401542
+        },
+        {
+          "cycle": 2,
+          "ranges_checked": 6,
+          "force": 1107401076,
+          "mem": 1107401226,
+          "save": 1107401490,
+          "debug": 1107400940,
+          "work": 1107401542
+        },
+        {
+          "cycle": 3,
+          "ranges_checked": 6,
+          "force": 1107401076,
+          "mem": 1107401226,
+          "save": 1107401490,
+          "debug": 1107400940,
+          "work": 1107401542
+        }
+      ],
+      "pbus_init_flag_set": true,
+      "pbus_saved_and_live_ranges_match": true,
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107402308,
+          "shutdown": 1077416960
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107402308,
+          "shutdown": 1077416960
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107402308,
+          "shutdown": 1077416960
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 32,
+          "outer": 1107402272,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107402272,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107402272,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-lifetime-v2",
+      "complete": true,
+      "elf_sha256": "393dcfb1aa614b4bba1200ca16f76d793f5e64ef00f0e3268d097711555073fb",
+      "image_sha256": "30a20eb99aad090171eba9024ea182b2587cb9e4f0749ce00cd45d5347f1a484",
+      "serial_sha256": "2202659f6bef409d989bc170f0c58643e3732453d9921ea8d9c98549a17e4514",
+      "i2c_callback_installations": [
+        {
+          "cycle": 1,
+          "slot": 384,
+          "actual": 1077417060,
+          "expected": 1077417060
+        },
+        {
+          "cycle": 1,
+          "slot": 400,
+          "actual": 1077418040,
+          "expected": 1077418040
+        },
+        {
+          "cycle": 1,
+          "slot": 432,
+          "actual": 1077418260,
+          "expected": 1077418260
+        },
+        {
+          "cycle": 1,
+          "slot": 632,
+          "actual": 1077417120,
+          "expected": 1077417120
+        },
+        {
+          "cycle": 2,
+          "slot": 384,
+          "actual": 1077417060,
+          "expected": 1077417060
+        },
+        {
+          "cycle": 2,
+          "slot": 400,
+          "actual": 1077418040,
+          "expected": 1077418040
+        },
+        {
+          "cycle": 2,
+          "slot": 432,
+          "actual": 1077418260,
+          "expected": 1077418260
+        },
+        {
+          "cycle": 2,
+          "slot": 632,
+          "actual": 1077417120,
+          "expected": 1077417120
+        },
+        {
+          "cycle": 3,
+          "slot": 384,
+          "actual": 1077417060,
+          "expected": 1077417060
+        },
+        {
+          "cycle": 3,
+          "slot": 400,
+          "actual": 1077418040,
+          "expected": 1077418040
+        },
+        {
+          "cycle": 3,
+          "slot": 432,
+          "actual": 1077418260,
+          "expected": 1077418260
+        },
+        {
+          "cycle": 3,
+          "slot": 632,
+          "actual": 1077417120,
+          "expected": 1077417120
+        }
+      ],
+      "pbus": [
+        {
+          "cycle": 1,
+          "ranges_checked": 6,
+          "force": 1107402382,
+          "mem": 1107402532,
+          "save": 1107402796,
+          "debug": 1107402246,
+          "work": 1107402848
+        },
+        {
+          "cycle": 2,
+          "ranges_checked": 6,
+          "force": 1107402382,
+          "mem": 1107402532,
+          "save": 1107402796,
+          "debug": 1107402246,
+          "work": 1107402848
+        },
+        {
+          "cycle": 3,
+          "ranges_checked": 6,
+          "force": 1107402382,
+          "mem": 1107402532,
+          "save": 1107402796,
+          "debug": 1107402246,
+          "work": 1107402848
+        }
+      ],
+      "pbus_init_flag_set": true,
+      "pbus_saved_and_live_ranges_match": true,
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107403614,
+          "shutdown": 1077418394
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107403614,
+          "shutdown": 1077418394
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 4194304,
+          "callback": 1107403614,
+          "shutdown": 1077418394
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 32,
+          "outer": 1107403578,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107403578,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 30,
+          "outer": 1107403578,
+          "read": 1073975650,
+          "code": 1073977584,
+          "convert": 1073977792,
+          "write": 1073975850
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-rx-v2",
+      "complete": true,
+      "elf_sha256": "a4317502f3edd89657293337c01927c5872bbea26712f0aee130f9b9febc0cdf",
+      "image_sha256": "6e2e4295b2a3bd5d2120af5adc6e831368665b882322ae3afa0d46ed67d0856b",
+      "serial_sha256": "ca3e1bcdd710a18ee53afbd6fc0ce501e6e8e086843ed20abbf0b1d04c0ac3ff",
+      "received": 8,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-rx-v2",
+      "complete": true,
+      "elf_sha256": "5a19d0b77ea5ef2a8e89a47007b5aae80e247b4878570fe1c8be92041004bb73",
+      "image_sha256": "c2ee10ed5900117d6b58dcd1e4e75da69179679a9859866cb938dc0b4cd3ce45",
+      "serial_sha256": "4c3c0cc504a5adf4df087518e5b0c28ea2611ffd6f88d79afddc624ddf850cbc",
+      "received": 9,
+      "ofdm": 2,
+      "pending_preserved": true,
+      "exhaustion_recovery": true,
+      "transmit_passed": true
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-lifetime-v2",
+      "complete": true,
+      "elf_sha256": "f6665a3c9b629d07fa8f056a3c67902141a3950b39a241aa0637e06b04e3b800",
+      "image_sha256": "c46551992576654574dba96c8d9673027faf137e55a8bdaec6595808d4952d34",
+      "serial_sha256": "d31395052439f43e7196e7352b006f63e81d96ea14f96d84455c9393680dfbdd",
+      "i2c_callback_installations": [
+        {
+          "cycle": 1,
+          "slot": 348,
+          "actual": 1077393424,
+          "expected": 1077393424
+        },
+        {
+          "cycle": 1,
+          "slot": 364,
+          "actual": 1077393488,
+          "expected": 1077393488
+        },
+        {
+          "cycle": 1,
+          "slot": 396,
+          "actual": 1077393576,
+          "expected": 1077393576
+        },
+        {
+          "cycle": 1,
+          "slot": 596,
+          "actual": 1077392976,
+          "expected": 1077392976
+        },
+        {
+          "cycle": 1,
+          "slot": 256,
+          "actual": 1077392784,
+          "expected": 1077392784
+        },
+        {
+          "cycle": 2,
+          "slot": 348,
+          "actual": 1077393424,
+          "expected": 1077393424
+        },
+        {
+          "cycle": 2,
+          "slot": 364,
+          "actual": 1077393488,
+          "expected": 1077393488
+        },
+        {
+          "cycle": 2,
+          "slot": 396,
+          "actual": 1077393576,
+          "expected": 1077393576
+        },
+        {
+          "cycle": 2,
+          "slot": 596,
+          "actual": 1077392976,
+          "expected": 1077392976
+        },
+        {
+          "cycle": 2,
+          "slot": 256,
+          "actual": 1077392784,
+          "expected": 1077392784
+        },
+        {
+          "cycle": 3,
+          "slot": 348,
+          "actual": 1077393424,
+          "expected": 1077393424
+        },
+        {
+          "cycle": 3,
+          "slot": 364,
+          "actual": 1077393488,
+          "expected": 1077393488
+        },
+        {
+          "cycle": 3,
+          "slot": 396,
+          "actual": 1077393576,
+          "expected": 1077393576
+        },
+        {
+          "cycle": 3,
+          "slot": 596,
+          "actual": 1077392976,
+          "expected": 1077392976
+        },
+        {
+          "cycle": 3,
+          "slot": 256,
+          "actual": 1077392784,
+          "expected": 1077392784
+        }
+      ],
+      "pbus": [
+        {
+          "cycle": 1,
+          "ranges_checked": 6,
+          "force": 1073961316,
+          "mem": 1107397388,
+          "save": 1107397624,
+          "debug": 1107397236,
+          "work": 1107397664
+        },
+        {
+          "cycle": 2,
+          "ranges_checked": 6,
+          "force": 1073961316,
+          "mem": 1107397388,
+          "save": 1107397624,
+          "debug": 1107397236,
+          "work": 1107397664
+        },
+        {
+          "cycle": 3,
+          "ranges_checked": 6,
+          "force": 1073961316,
+          "mem": 1107397388,
+          "save": 1107397624,
+          "debug": 1107397236,
+          "work": 1107397664
+        }
+      ],
+      "pbus_init_flag_set": true,
+      "pbus_saved_and_live_ranges_match": true,
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107398448,
+          "shutdown": 1077387968
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107398448,
+          "shutdown": 1077387968
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107398448,
+          "shutdown": 1077387968
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 34,
+          "outer": 1107398360,
+          "read": 1073960952,
+          "code": 1107397732,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 33,
+          "outer": 1107398360,
+          "read": 1073960952,
+          "code": 1107397732,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 33,
+          "outer": 1107398360,
+          "read": 1073960952,
+          "code": 1107397732,
+          "convert": 1073963220,
+          "write": 1073961176
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-lifetime-v2",
+      "complete": true,
+      "elf_sha256": "7f8cb747ce9b894be16cf06366ee86ad0b1ed35c9d51890a5a42a9fa5427e8b9",
+      "image_sha256": "a4be40a7547754d5ac23abb25ec1dc9bb0e807da4fe80e4f3e8a24292bf62b3f",
+      "serial_sha256": "583229bb089cafa5dd54f6ac955ecb985959b46580d1f1889502ffb8741e23e6",
+      "i2c_callback_installations": [
+        {
+          "cycle": 1,
+          "slot": 348,
+          "actual": 1077388028,
+          "expected": 1077388028
+        },
+        {
+          "cycle": 1,
+          "slot": 364,
+          "actual": 1077389084,
+          "expected": 1077389084
+        },
+        {
+          "cycle": 1,
+          "slot": 396,
+          "actual": 1077389504,
+          "expected": 1077389504
+        },
+        {
+          "cycle": 1,
+          "slot": 596,
+          "actual": 1077388096,
+          "expected": 1077388096
+        },
+        {
+          "cycle": 1,
+          "slot": 256,
+          "actual": 1077389204,
+          "expected": 1077389204
+        },
+        {
+          "cycle": 2,
+          "slot": 348,
+          "actual": 1077388028,
+          "expected": 1077388028
+        },
+        {
+          "cycle": 2,
+          "slot": 364,
+          "actual": 1077389084,
+          "expected": 1077389084
+        },
+        {
+          "cycle": 2,
+          "slot": 396,
+          "actual": 1077389504,
+          "expected": 1077389504
+        },
+        {
+          "cycle": 2,
+          "slot": 596,
+          "actual": 1077388096,
+          "expected": 1077388096
+        },
+        {
+          "cycle": 2,
+          "slot": 256,
+          "actual": 1077389204,
+          "expected": 1077389204
+        },
+        {
+          "cycle": 3,
+          "slot": 348,
+          "actual": 1077388028,
+          "expected": 1077388028
+        },
+        {
+          "cycle": 3,
+          "slot": 364,
+          "actual": 1077389084,
+          "expected": 1077389084
+        },
+        {
+          "cycle": 3,
+          "slot": 396,
+          "actual": 1077389504,
+          "expected": 1077389504
+        },
+        {
+          "cycle": 3,
+          "slot": 596,
+          "actual": 1077388096,
+          "expected": 1077388096
+        },
+        {
+          "cycle": 3,
+          "slot": 256,
+          "actual": 1077389204,
+          "expected": 1077389204
+        }
+      ],
+      "pbus": [
+        {
+          "cycle": 1,
+          "ranges_checked": 6,
+          "force": 1073961316,
+          "mem": 1107398676,
+          "save": 1107398912,
+          "debug": 1107398524,
+          "work": 1107398952
+        },
+        {
+          "cycle": 2,
+          "ranges_checked": 6,
+          "force": 1073961316,
+          "mem": 1107398676,
+          "save": 1107398912,
+          "debug": 1107398524,
+          "work": 1107398952
+        },
+        {
+          "cycle": 3,
+          "ranges_checked": 6,
+          "force": 1073961316,
+          "mem": 1107398676,
+          "save": 1107398912,
+          "debug": 1107398524,
+          "work": 1107398952
+        }
+      ],
+      "pbus_init_flag_set": true,
+      "pbus_saved_and_live_ranges_match": true,
+      "sensor_lifecycle": [
+        {
+          "cycle": 1,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107399736,
+          "shutdown": 1077389644
+        },
+        {
+          "cycle": 2,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107399736,
+          "shutdown": 1077389644
+        },
+        {
+          "cycle": 3,
+          "off_flag": 0,
+          "power_bits": 12582912,
+          "callback": 1107399736,
+          "shutdown": 1077389644
+        }
+      ],
+      "shutdown_flags": [
+        1,
+        1,
+        1
+      ],
+      "cycles": 3,
+      "measurements": [
+        {
+          "cycle": 1,
+          "dac": 15,
+          "index": 2,
+          "temperature": 34,
+          "outer": 1107399648,
+          "read": 1073960952,
+          "code": 1107399020,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 2,
+          "dac": 15,
+          "index": 2,
+          "temperature": 33,
+          "outer": 1107399648,
+          "read": 1073960952,
+          "code": 1107399020,
+          "convert": 1073963220,
+          "write": 1073961176
+        },
+        {
+          "cycle": 3,
+          "dac": 15,
+          "index": 2,
+          "temperature": 33,
+          "outer": 1107399648,
+          "read": 1073960952,
+          "code": 1107399020,
+          "convert": 1073963220,
+          "write": 1073961176
+        }
+      ],
+      "beacons_after_wakeup": 2,
+      "input_calibration_statuses": [
+        "DataCheckFailed",
+        "DataCheckFailed",
+        "DataCheckFailed"
+      ]
+    }
+  ],
+  "station_trials": [
+    {
+      "chip": "esp32c3",
+      "label": "control-normal-v2",
+      "image_sha256": "ee02bef2c72fa9998ed2fd7f713678165d384bdd89d443f3933c1ce23f1be25b",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 3207,
+        "median": 5112.5,
+        "p95": 12273,
+        "max": 24784
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 206,
+          "socket_packets": 206,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            89,
+            2,
+            0,
+            0,
+            115,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 214,
+          "socket_packets": 214,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            95,
+            2,
+            0,
+            0,
+            117,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "a72ff1d0b98126d626e287cf58240ecde4365f87820f2e7db1689107f92ffcaa",
+        "serial.txt": "3776df9984cb99121c6dd21a0aa8ef19413787261fa7958a6d4aa741b9c6f0c3",
+        "br0.pcap": "686738bbf64e747b7c7e31b5ee535c84a650beb8308fee56bed15b558b1e9276",
+        "eth10.stats": "5dedceb7ccf0770c3f48c21166f4ed8638bdbb7eb4bba069c74a8735f256c754",
+        "br0.stats": "ca8d02eb5b5356308a6224790412d2229bb3c7dd91cfdae7a23b9e058edab983",
+        "eth10.pcap": "0a1420eb5b027b34cb0f6f38f3b03a9d5d8c49b603b9273c8398de32fcc05c3b"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-normal-v2",
+      "image_sha256": "001afcb56cecd03754557cd604c7d17f43975fe55baf2b913d2fc81f7736f6fc",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 3178,
+        "median": 5870.0,
+        "p95": 18292,
+        "max": 24006
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 200,
+          "socket_packets": 200,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            90,
+            4,
+            0,
+            0,
+            106,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 203,
+          "socket_packets": 203,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            93,
+            5,
+            0,
+            0,
+            105,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "4762c17f1cde485ae14faf45cd87f38059860a127607d36ebdf6d6177df94757",
+        "serial.txt": "cc402e8b4dba6775838209490cc45a783ac9eab02d25c7a7c7433448ea3b8bff",
+        "br0.pcap": "f1dd3a9130bada4fcfa9a7988cc95307d14a6afb692470774f569efc6d5f35fb",
+        "eth10.stats": "59df29dc4dc564ebfc3f9266dfb84038610cc02e9a20a13e5b901ce3e473636e",
+        "br0.stats": "b966af14eb830e7e7a9f9ec313489b8a51de314fde4ea5af093e2a5bf4d216a0",
+        "eth10.pcap": "8ac9c94fa2047da9b764856fb88920288a743ef448f037c4681834be9523e138"
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "control-gtk-v2",
+      "image_sha256": "b44a675e5fa2918d74ccb9a3a4937c282a76ef7b3cc2397c290d692be1551236",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 3483,
+        "median": 5753.0,
+        "p95": 37370,
+        "max": 96026
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1009,
+          "socket_packets": 1009,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            361,
+            3,
+            0,
+            0,
+            645,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1011,
+          "socket_packets": 1011,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            376,
+            6,
+            0,
+            0,
+            629,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "ebe849c56e2beb3a49dff02b7ff26ca80bd97cf52dabaa07eec39567628e0411",
+        "serial.txt": "cd718f70f15e47ce9306d02f43dea0ad8ec0e723341e7ac21b0289b6f51ad186",
+        "br0.pcap": "4bb5ef4030a6e50a1dfb310c88959a6056125060b161d8c92ec26fc0034c3ced",
+        "eth10.stats": "046f3992530a88e3e33ac3e96fa687e18ce87dac27c1354e946dd2c15fff7371",
+        "br0.stats": "86168a45e5a4f3d31b27894ad58cdcc3f04dceb36cd8dafd4f4ab8754aae824a",
+        "eth10.pcap": "fe0143e97eea45ace24a0896129878c9a9d5847cae2af81ef5301654f0e03258"
+      },
+      "gtk_requests_accepted": [
+        1,
+        2,
+        3
+      ],
+      "gtk_requests_absent_at_ap": [],
+      "gtk_rotations_completed": 3,
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000427
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.023496
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000404
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.022444
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000407
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.016529
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "2": 326,
+        "1": 802
+      },
+      "independent_ap_review": {
+        "group_gaps": [],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 23.069,
+          "4": 22.04,
+          "5": 16.122
+        }
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-gtk-v2",
+      "image_sha256": "6b50a8a4624586701c9b9f31884af7a0418a058fbecea3a291f25efe09319f95",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 3534,
+        "median": 5822.5,
+        "p95": 31297,
+        "max": 77581
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1015,
+          "socket_packets": 1015,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            362,
+            3,
+            0,
+            0,
+            650,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1004,
+          "socket_packets": 1004,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            371,
+            5,
+            0,
+            0,
+            628,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "9409346d387321dd99f8eb6c77fac9405e3734d97397f74a57d675ad3bd39e1f",
+        "serial.txt": "e731ca30c70c8e2fbee7350037222dd9fb2a13e5da255fcb011d08d97e22a2f7",
+        "br0.pcap": "67df25dbb819681c37aade92f71fedd8efde5fa1ba4dcb5085a23f2ca0364e0b",
+        "eth10.stats": "bf74e4ccb8468318f721513f39f4de8b0a3083cca021398e3d6dcd4b0f0d56cf",
+        "br0.stats": "0251bc7b81ee563c056f3d7ac311316a7155818512f98dc60213494f35d16237",
+        "eth10.pcap": "4a42a041d02ffb18768eef14f1515eebbcda4197e8ac16352d37bf4b78e9e228"
+      },
+      "gtk_requests_accepted": [
+        1,
+        2,
+        3
+      ],
+      "gtk_requests_absent_at_ap": [],
+      "gtk_rotations_completed": 3,
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000477
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.039106
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000439
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.016268
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000404
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.019649
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "1": 278,
+        "2": 827
+      },
+      "independent_ap_review": {
+        "group_gaps": [],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 38.629,
+          "4": 15.829,
+          "5": 19.245
+        }
+      }
+    },
+    {
+      "chip": "esp32c3",
+      "label": "source-restored-v2",
+      "image_sha256": "001afcb56cecd03754557cd604c7d17f43975fe55baf2b913d2fc81f7736f6fc",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 3269,
+        "median": 3935.5,
+        "p95": 31882,
+        "max": 54709
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 197,
+          "socket_packets": 197,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            89,
+            2,
+            0,
+            0,
+            106,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 208,
+          "socket_packets": 208,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            96,
+            3,
+            0,
+            0,
+            109,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "5db5536aead3a86f8c08d9b78752d2e68c827a132abb35587c74c8b5a56e0807",
+        "serial.txt": "7042afcf4e895d485402a9a741d36fa78b732e79a0e3e08e66113addd127b564",
+        "br0.pcap": "fe3741c9daaa6043350e90bccf1e0badde30a6800200478be1b6762b32d4d46e",
+        "eth10.stats": "c04075862a3389642073de89ccb8c2674d9354b38588d1a6748ca0a873a74ecd",
+        "br0.stats": "7bb7294fe86ab7f68275b3f59817520517b0aeea39455dbab0df6262b27e2b11",
+        "eth10.pcap": "5c6ffb6236bf0bec80659ab31553b859c6bb7d13707fe4c1361ec89df53e92e0"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-normal-v2",
+      "image_sha256": "2440bba2380cd717b83d31b30b4427ae64629843b5356a679804230f4e15cccb",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 2256,
+        "median": 2418.0,
+        "p95": 14523,
+        "max": 24582
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 200,
+          "socket_packets": 200,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            89,
+            2,
+            0,
+            0,
+            109,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 207,
+          "socket_packets": 207,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            94,
+            3,
+            0,
+            0,
+            110,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "72d6ebbe9c460fdecb5d9f1c99e31114dbb95a938ec80616b7ac9364788eddfb",
+        "serial.txt": "0cbe45617f0e07661d20f29f3287f09eda2ea88491f9ab8752bee702c0e65cc0",
+        "br0.pcap": "27b0bdb56f643105d0f18ca280c21fc1e1ffe0681d3067fdb49dddd689296cf1",
+        "eth10.stats": "1b357ff11e7b725548cebb24979bbd6a1a1005b61d6ee3c3092faf1e236373c4",
+        "br0.stats": "777c92f98d2cb383694ec6f13957cdb4160c43050c4c4e3087462741e44ad03d",
+        "eth10.pcap": "7d241eb1ffd14246cd109e590500b823bb95fe846b1af9b08d02788bdd6e359b"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-normal-v2",
+      "image_sha256": "af73b4b82342b1d970ef5767fc3e07b87c83f1f669078af0135420de708ab9d7",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 2273,
+        "median": 3700.5,
+        "p95": 52349,
+        "max": 73017
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 198,
+          "socket_packets": 198,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            88,
+            4,
+            0,
+            0,
+            106,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 202,
+          "socket_packets": 202,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            92,
+            4,
+            0,
+            0,
+            106,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "bce4e47f4a073fa9e64c811c5caca34af9e04db59398b0b120c7f1075a7c879c",
+        "serial.txt": "ba147d98235f8d776c8f512e08fee986b637f337b87c99fc90f8706ffb77e68b",
+        "br0.pcap": "2fbbf56fa4136cbc1860e292ccb2c2ba93655ba920070ff661665ccfd57cc332",
+        "eth10.stats": "1d16266d38b09ef405bd8fbbd3bdf1980b15936896b3e2635ddaa9e93fac4ce4",
+        "br0.stats": "3e93ef5cadfa0aa6978e087372911bad56c1b18b4f7b888ed6faa86daaa4ad3f",
+        "eth10.pcap": "1d6e731fc585520828b76b574b7e9c5cd1e8e5efe1562f19819009bd77f38402"
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "control-gtk-v2",
+      "image_sha256": "d82b331dc11726e9d6d7673c4e248d88b3866a5b5205220d2989a44e6f18a0f1",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 2593,
+        "median": 3098.0,
+        "p95": 20398,
+        "max": 51720
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1013,
+          "socket_packets": 1013,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            360,
+            3,
+            0,
+            0,
+            650,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 1001,
+          "socket_packets": 1001,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            368,
+            5,
+            0,
+            0,
+            628,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "e8d9dc9a857ff191de2e3e7e589b54e3f866fb2fc253b510c9f1e2925a524f62",
+        "serial.txt": "c3000e17cd5912e9e22c0ddd574e9d915bb862a55fee5af760ff55cf268aaf1f",
+        "br0.pcap": "220ccb7675ea31d833410ccefc82f03d05ed9aad5a9bf4ff59a302f79fa04334",
+        "eth10.stats": "4a4681b37970f53b5eed5331584fdd9557a049f181b2329ab1265423c8ebffb0",
+        "br0.stats": "2df35f661e4780d87df2dbdb2b9f0f8bf1aaacb8047dbe7c4a716bf49769bc70",
+        "eth10.pcap": "7ea4d1a52e2b1ea49b35f8e522810c57ff19d9b2d9c0a7c59ef11ad4a659d05e"
+      },
+      "gtk_requests_accepted": [
+        1,
+        2,
+        3
+      ],
+      "gtk_requests_absent_at_ap": [],
+      "gtk_rotations_completed": 3,
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.000387
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.031841
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000384
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.016656
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000397
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.014283
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "2": 314,
+        "1": 826
+      },
+      "independent_ap_review": {
+        "group_gaps": [],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 31.454,
+          "4": 16.272,
+          "5": 13.886
+        }
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-gtk-v2",
+      "image_sha256": "cdd96af2b5008f09ba99b76576a1b00686771c4a7784b19bf1d0678834375610",
+      "complete": true,
+      "cycles": 1,
+      "echo_results": [
+        {
+          "sent": 300,
+          "received": 300,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 300,
+      "router_echo_received": 300,
+      "gateway_sent": 20,
+      "gateway_received": 20,
+      "router_rtt_us": {
+        "min": 2545,
+        "median": 3127.0,
+        "p95": 25090,
+        "max": 48957
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 1008,
+          "socket_packets": 1008,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            364,
+            3,
+            0,
+            0,
+            641,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 993,
+          "socket_packets": 993,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            372,
+            5,
+            0,
+            0,
+            616,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "fd88fbe4183766c60502773b74a84353fe473e3134b1c89ecd10a0cfc7fa36ec",
+        "serial.txt": "c99b7f344b45cc0425649b2192ffc5b7f1baae6350c12d9d1fe0f9a9133a3aee",
+        "br0.pcap": "c40eaf742c74ad94aeaf0d3b60eec26b885b91208fd2b4eef95fe8aafab4d7f8",
+        "eth10.stats": "cf2d16e222fc834a8056da078ec188be3c3dbd552f54e2adc90f630bf8d22dab",
+        "br0.stats": "fb2062e8594bdd2ef4222b1a9f52ddb65a07840c00378819ae43f6915622189a",
+        "eth10.pcap": "ef9a46a808e4fc7034785df990681e072983b5286ed247a57e5b6f4fbc868434"
+      },
+      "gtk_requests_accepted": [
+        1,
+        2,
+        3
+      ],
+      "gtk_requests_absent_at_ap": [],
+      "gtk_rotations_completed": 3,
+      "gtk_updates": [
+        {
+          "counter": "3",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "4",
+          "key_id": "1",
+          "installed": "true",
+          "protected": "true"
+        },
+        {
+          "counter": "5",
+          "key_id": "2",
+          "installed": "true",
+          "protected": "true"
+        }
+      ],
+      "ap_eapol_counters": {
+        "0x0b02": [
+          0,
+          1,
+          2
+        ],
+        "0x1382": [
+          3,
+          4,
+          5
+        ],
+        "0x0302": [
+          3,
+          4,
+          5
+        ]
+      },
+      "gtk_request_intervals": [
+        {
+          "request": 0,
+          "g1_counters": [
+            3
+          ],
+          "g2_counters": [
+            3
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 3,
+              "seconds_after_request": 0.00044
+            },
+            {
+              "flag": "0x0302",
+              "counter": 3,
+              "seconds_after_request": 0.022446
+            }
+          ]
+        },
+        {
+          "request": 1,
+          "g1_counters": [
+            4
+          ],
+          "g2_counters": [
+            4
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 4,
+              "seconds_after_request": 0.000477
+            },
+            {
+              "flag": "0x0302",
+              "counter": 4,
+              "seconds_after_request": 0.01859
+            }
+          ]
+        },
+        {
+          "request": 2,
+          "g1_counters": [
+            5
+          ],
+          "g2_counters": [
+            5
+          ],
+          "g2_absent_at_ap": [],
+          "messages": [
+            {
+              "flag": "0x1382",
+              "counter": 5,
+              "seconds_after_request": 0.000418
+            },
+            {
+              "flag": "0x0302",
+              "counter": 5,
+              "seconds_after_request": 0.014784
+            }
+          ]
+        }
+      ],
+      "group_received": {
+        "broadcast": 120,
+        "multicast": 120
+      },
+      "group_missing_sequences": {
+        "broadcast": [],
+        "multicast": []
+      },
+      "group_receive_windows": [
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "group_key_ids": {
+        "1": 325,
+        "2": 831
+      },
+      "independent_ap_review": {
+        "group_gaps": [],
+        "same_key_retries": [],
+        "g1_without_g2": [],
+        "g1_g2_latency_ms": {
+          "3": 22.006,
+          "4": 18.113,
+          "5": 14.366
+        }
+      }
+    },
+    {
+      "chip": "esp32s3",
+      "label": "source-restored-v2",
+      "image_sha256": "af73b4b82342b1d970ef5767fc3e07b87c83f1f669078af0135420de708ab9d7",
+      "complete": true,
+      "cycles": 2,
+      "echo_results": [
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        },
+        {
+          "sent": 20,
+          "received": 20,
+          "duplicate": 0,
+          "invalid": 0,
+          "send_errors": 0,
+          "missing": []
+        }
+      ],
+      "router_echo_sent": 40,
+      "router_echo_received": 40,
+      "gateway_sent": 40,
+      "gateway_received": 40,
+      "router_rtt_us": {
+        "min": 2184,
+        "median": 2689.0,
+        "p95": 19257,
+        "max": 32817
+      },
+      "capture_stats": {
+        "eth10": {
+          "written": 204,
+          "socket_packets": 204,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            89,
+            2,
+            0,
+            0,
+            113,
+            0,
+            0,
+            0
+          ]
+        },
+        "br0": {
+          "written": 211,
+          "socket_packets": 211,
+          "socket_drops": 0,
+          "truncated": 0,
+          "missing_kernel_timestamp": 0,
+          "packet_types": [
+            98,
+            3,
+            0,
+            0,
+            110,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "private_evidence_sha256": {
+        "result.json": "1dae5f17dc8aa24a0d1526bf7fb4e4f7efa1ea90376cd04701d3600d9d48891f",
+        "serial.txt": "3f163cedbf4f599ce8e97f2645c63bec6cde2a51ea252e919ed96b2a3889fece",
+        "br0.pcap": "fc30c85800ae4518a2123c262ad4df74a27d11dea7dcb90f337cc55fc2b7ed36",
+        "eth10.stats": "1355bcd66019518cd73afae5ff8c25282c875c481e5a65242551ee3ff2f4f8bb",
+        "br0.stats": "4701af54d56254b767a3f80a4d8cb5f0e39ea00d3e725b53a7063bac56dde5ae",
+        "eth10.pcap": "7fbe2387dc223366ad05ada0836764f4c21e4fd10ac79f3d58994a72d35f345f"
+      }
+    }
+  ],
+  "allocations": {
+    "esp32c3/control-v2": {
+      "elf_sha256": "d99ec9a8bf050f92d938dc7f76ca6a59cab54603dd676ebd91955c78fb6b2149",
+      "map_sha256": "f42cf34f922367e6e2d565eab3f82a6f4e80a9e53d1382f94c9647be5f1d9293",
+      "non_string_allocations": {
+        "libphy_bytes": 33797,
+        "libphy_member_count": 16,
+        "phy_i2c_member_bytes": 2418,
+        "phy_i2c_iram_input_bytes": 1086,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "vendor",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x42041c84",
+            "symbol_size_bytes": 78,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "dad63b606e558455ade597083fac311085ae76ac47085cea6a338aaf6bf7f4aa"
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x42041cd2",
+            "symbol_size_bytes": 152,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "336ce0b4b224c0a69caf3830e1192412ff31c1533daedbba76cd94580bdbd354"
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x42041d6a",
+            "symbol_size_bytes": 252,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a7af8763d3f32fe747b49b63d90490379b28c24fe6a0a2c1c23911c11016bd0c"
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x42041932",
+            "symbol_size_bytes": 850,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "c591d606d537ac892a457b3e951946c2a689533c78d587ffb642d172f4c3da59"
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x403823ae",
+            "symbol_size_bytes": 2,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7529d4e6ceb037815e2664a7277abb404b02f0bf9ddbf5c11658f52448221cba"
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x403823b0",
+            "symbol_size_bytes": 2,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7529d4e6ceb037815e2664a7277abb404b02f0bf9ddbf5c11658f52448221cba"
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x40382654",
+            "symbol_size_bytes": 86,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "8b40847d2399d39a8bb5dbfa2701798d04d2efe20415378603eb1f550233baff"
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "bias_dreg_i2c_set": {
+          "original_or_alias": {
+            "address": "0x403822a8",
+            "symbol_size_bytes": 64,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "41dd8b95d42a808de855687baf3c293fbe16186c824be00d18023efac09e2322"
+          },
+          "source_symbol": "__opensensor_i2c_bias_dreg",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x403822e8",
+            "symbol_size_bytes": 56,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "592e417b547569b0ae299ccba7964f8df13988a3a2884748ce20b18dd3627814"
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x403823b2",
+            "symbol_size_bytes": 106,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5774cf6ebe8ea549733421c436d45c88b571baeb03026a0b8bb62fd6f3ad2ef2"
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4038241c",
+            "symbol_size_bytes": 114,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ae3a88611d390df8c8fab8674857bfe1fb9c4caf82a5877f572606f8fb8a9bfd"
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x4038248e",
+            "symbol_size_bytes": 454,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e637471d0524358e019428d4a372cb5fe8d3c260792552947aa2b175b420da30"
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": null,
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40001948",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40001ac4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x40001acc",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40001ad0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40001ad4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x40001ae8",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40001954",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40001958",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x4000195c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40001960",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40001be0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x400019f4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": null,
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32c3/source-v2": {
+      "elf_sha256": "c8afeb36a3182c726417b9d1790dbddbe45033fba875d2405c4f9aab39a6afe7",
+      "map_sha256": "cdea76f95ad54598563f345b1e1d21da514cba2ec4a2c59657f77f0a098bb501",
+      "non_string_allocations": {
+        "libphy_bytes": 31377,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "source",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x4202f932",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": {
+            "address": "0x4202f932",
+            "symbol_size_bytes": 92,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e0a89f056f4637d96c8f9ff968605aece7a1e1ceb7f2575da53aaa85f26b5010"
+          },
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x4202f894",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": {
+            "address": "0x4202f894",
+            "symbol_size_bytes": 158,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "27294eb2d7104f946857f5cd23adb423c3e238de575d39564df44ae2b53f0160"
+          },
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x4202f74c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": {
+            "address": "0x4202f74c",
+            "symbol_size_bytes": 328,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "6366f83d3d7252ceabc987431059c5e0c835970d425d5c9c8026b98999f820e8"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x4202f98e",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": {
+            "address": "0x4202f98e",
+            "symbol_size_bytes": 728,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "defdb01859a45572283e0ab4cdcb0b5d78418d251d4830891250bdf184b6139c"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 16,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e31aa562e0eec78d925dbe722c0d2c8590b2d4880c7d075e2f9915eae92c5906"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 16,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e31aa562e0eec78d925dbe722c0d2c8590b2d4880c7d075e2f9915eae92c5906"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x403818b4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": {
+            "address": "0x403818b4",
+            "symbol_size_bytes": 88,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "587558a04652830073a1f17cd825be20b0b456331d8be9248eabf08c54baffd9"
+          },
+          "requires_iram": true
+        },
+        "bias_dreg_i2c_set": {
+          "original_or_alias": {
+            "address": "0x403813f8",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bias_dreg",
+          "source_body": {
+            "address": "0x403813f8",
+            "symbol_size_bytes": 84,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "9b26cea5a00079800589f953319bbd787f23fe4433406712f0471cca8cbf7f92"
+          },
+          "requires_iram": true
+        },
+        "rom1_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x4038145c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": {
+            "address": "0x4038145c",
+            "symbol_size_bytes": 60,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "62a84e3792b47201cc2984a3d58b33f958ac3384276201a47c996e8f5ab251f9"
+          },
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x40381830",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": {
+            "address": "0x40381830",
+            "symbol_size_bytes": 132,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7599f21405fa4826b5dab72359e97b6163e5f39fcc9fc6634c89395bcb3abf4c"
+          },
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4038190c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": {
+            "address": "0x4038190c",
+            "symbol_size_bytes": 134,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "92a73bb3f88d6c9dd5a2a8e63361017e50d4759eec4a59cda9d05626b7740d9f"
+          },
+          "requires_iram": true
+        },
+        "rom1_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x40381498",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": {
+            "address": "0x40381498",
+            "symbol_size_bytes": 920,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "fc69962713ed736880cb025b45eb9320230825f10eafcb29b25c9a3aca46258c"
+          },
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40001948",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40001ac4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x40001acc",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40001ad0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40001ad4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x40001ae8",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40001954",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40001958",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x4000195c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40001960",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40001be0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x400019f4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": {
+        "address": "0x3fc82f08",
+        "symbol_size_bytes": 40,
+        "type": "STT_OBJECT",
+        "allocated": true,
+        "absolute": false,
+        "executable": false,
+        "body_contained": true,
+        "body_sha256": "80bff8b7d758d09011f9945d97a5b89c7cd28e064b1afd79ee46cf74b50c3df0"
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32c3/control-v2-gtk": {
+      "elf_sha256": "bd2e2a9f667d77701d923ecf97aaad4279d06d04cfe88e7acbc044e1944ba0b5",
+      "map_sha256": "0430a1e6461e1a9aae6465eb43f85355c56d1448182337b17ae23b6d6c1ed82d",
+      "non_string_allocations": {
+        "libphy_bytes": 33797,
+        "libphy_member_count": 16,
+        "phy_i2c_member_bytes": 2418,
+        "phy_i2c_iram_input_bytes": 1086,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "vendor",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x4204a636",
+            "symbol_size_bytes": 78,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d2500761982ba7a90b8cfeb310ed873b09a70df1e2572442365d9e63f6d92f13"
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x4204a684",
+            "symbol_size_bytes": 152,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "cf27297427d6c86157ccb95b062737a180cd09c5548c0bce3db24571698f3ab3"
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x4204a71c",
+            "symbol_size_bytes": 252,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "10e0785dcfe85ec74c5ae29c45976f527a0af2b47aae9e8be0f3d13aaf7eb885"
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x4204a2e4",
+            "symbol_size_bytes": 850,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "45952034e0c7925025b83d15b6f27b1316709f0994e73ff0f58e04ab19d84147"
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x403823ae",
+            "symbol_size_bytes": 2,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7529d4e6ceb037815e2664a7277abb404b02f0bf9ddbf5c11658f52448221cba"
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x403823b0",
+            "symbol_size_bytes": 2,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7529d4e6ceb037815e2664a7277abb404b02f0bf9ddbf5c11658f52448221cba"
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x40382654",
+            "symbol_size_bytes": 86,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "20aae79f770f9077f18e2b4b0945e588de82848a7660da1c03037f525426f74e"
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "bias_dreg_i2c_set": {
+          "original_or_alias": {
+            "address": "0x403822a8",
+            "symbol_size_bytes": 64,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ad0810fd5e797c02292e660093fb090eb249505a73d8c0ecb901accef8ebbcc7"
+          },
+          "source_symbol": "__opensensor_i2c_bias_dreg",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x403822e8",
+            "symbol_size_bytes": 56,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "592e417b547569b0ae299ccba7964f8df13988a3a2884748ce20b18dd3627814"
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x403823b2",
+            "symbol_size_bytes": 106,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f0a2463715c618b52e1560e09c2394bfab7d5df6f8b88c271484bf806a93dbb0"
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4038241c",
+            "symbol_size_bytes": 114,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "842def079c550953eb4ab458f4c46da2e99a3a06d9b393a07ac1082c6f47c834"
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "rom1_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x4038248e",
+            "symbol_size_bytes": 454,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ec129d6dcb41b2c7dc31474e827d7e8ef8dac9878ad761763522ccebb33d8576"
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": null,
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40001948",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40001ac4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x40001acc",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40001ad0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40001ad4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x40001ae8",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40001954",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40001958",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x4000195c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40001960",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40001be0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x400019f4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": null,
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32c3/source-v2-gtk": {
+      "elf_sha256": "2ec660c85aedcb617ed7478c473565714a1653c5eac5de2a86894592cba14544",
+      "map_sha256": "54b7976c13c67dff6e1b7d24d40ca356395cd16aff4c7e14beffeb60f4a6310f",
+      "non_string_allocations": {
+        "libphy_bytes": 31377,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "source",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x42035804",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": {
+            "address": "0x42035804",
+            "symbol_size_bytes": 92,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "0ea27aa61c0c4afd3f61da5a97d2d9be69432f96bf3cd4d0d647fd76973d9066"
+          },
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x42035766",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": {
+            "address": "0x42035766",
+            "symbol_size_bytes": 158,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "3520a7745f6280a9db378c4bb53f54a7dff224e9d6d5a8f7b93d96bb31f80a2c"
+          },
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x4203561e",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": {
+            "address": "0x4203561e",
+            "symbol_size_bytes": 328,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "4baec0468fb72db8b6fba9cc70d94b6415f34c368166fa122adefbd69e88fde0"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x42035860",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": {
+            "address": "0x42035860",
+            "symbol_size_bytes": 728,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "43cb3bdc02b974a48b2caf44bb78a70cb30c8e3ebc689e841c686b3fb5844d20"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 16,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e31aa562e0eec78d925dbe722c0d2c8590b2d4880c7d075e2f9915eae92c5906"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": {
+            "address": "0x4038144c",
+            "symbol_size_bytes": 16,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e31aa562e0eec78d925dbe722c0d2c8590b2d4880c7d075e2f9915eae92c5906"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x403818b4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": {
+            "address": "0x403818b4",
+            "symbol_size_bytes": 88,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e1361c281cc59f65c11089e686bfac74dbb2ea7b4c4ddce1010644d7be761408"
+          },
+          "requires_iram": true
+        },
+        "bias_dreg_i2c_set": {
+          "original_or_alias": {
+            "address": "0x403813f8",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bias_dreg",
+          "source_body": {
+            "address": "0x403813f8",
+            "symbol_size_bytes": 84,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5bce77e5bca161d9548de549a85c2332f30a32413321310b88030791074fbead"
+          },
+          "requires_iram": true
+        },
+        "rom1_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x4038145c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": {
+            "address": "0x4038145c",
+            "symbol_size_bytes": 60,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "62a84e3792b47201cc2984a3d58b33f958ac3384276201a47c996e8f5ab251f9"
+          },
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x40381830",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": {
+            "address": "0x40381830",
+            "symbol_size_bytes": 132,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "c7143f751357e1c3280f19016f74b5688af75ab685550a07884fe883eee8f620"
+          },
+          "requires_iram": true
+        },
+        "rom1_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4038190c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": {
+            "address": "0x4038190c",
+            "symbol_size_bytes": 134,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "549d262ecd6372fb3b7cd574601c842a3fe62c0f76c09035c27ddff158c425c0"
+          },
+          "requires_iram": true
+        },
+        "rom1_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x40381498",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": {
+            "address": "0x40381498",
+            "symbol_size_bytes": 920,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "0e2bd8e7f381dd23dd5c9f3e8edfbd1f1004d509a9ee39ad0b51d07249d82617"
+          },
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40001948",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40001ac4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x40001acc",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40001ad0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40001ad4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x40001ae8",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40001954",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40001958",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x4000195c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40001960",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40001be0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x400019f4",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": {
+        "address": "0x3fc82fe0",
+        "symbol_size_bytes": 40,
+        "type": "STT_OBJECT",
+        "allocated": true,
+        "absolute": false,
+        "executable": false,
+        "body_contained": true,
+        "body_sha256": "80bff8b7d758d09011f9945d97a5b89c7cd28e064b1afd79ee46cf74b50c3df0"
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "94c0e05bb4d5a79917a382496c108fff4ed96f784575550a6d931caaca104aa9",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "02a0e1c01f747676e10b2c7eb7340e31cdb886c26de6450a48f02b05481a1f18",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/control-v2": {
+      "elf_sha256": "e0a15adc679bf0f35649dc282c40011329a7b7c1e4e9f1998406b3022877ef0d",
+      "map_sha256": "391f31a7a97eeb8bede32a05cdf9811eb2234cd55a16356dfb133ed5c7c1fe18",
+      "non_string_allocations": {
+        "libphy_bytes": 31603,
+        "libphy_member_count": 16,
+        "phy_i2c_member_bytes": 1985,
+        "phy_i2c_iram_input_bytes": 970,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "vendor",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x4203eec0",
+            "symbol_size_bytes": 129,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e89b2c19ea30c9312f6ffb459577f5165527498d367169512dcffa2cb151e1b5"
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x4203efe4",
+            "symbol_size_bytes": 100,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "650a88ec3e67a62e68f4e7d74763d84546ee20e78e31dea4c0039c2ce9ef99f1"
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x4203ef44",
+            "symbol_size_bytes": 158,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "747a93f8490361ee41ae7e30f8158a65212ebc6369b6a3a6953451ead7eb59bc"
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x4203ec4c",
+            "symbol_size_bytes": 628,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "25c1230630d8734842af4a413669c6a3d442a1bc924aa0ab88a4a55b84e229c9"
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x4037b57c",
+            "symbol_size_bytes": 5,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a50f595a12cc6e7e90d28fa2424790fbfac53a684610d6fe5637b2112f16f23d"
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x4037b584",
+            "symbol_size_bytes": 5,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a50f595a12cc6e7e90d28fa2424790fbfac53a684610d6fe5637b2112f16f23d"
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x4037b910",
+            "symbol_size_bytes": 54,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "85cb690454e1a9dce04b4faf98cb9535144357f638734a1c8417e8a268022998"
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_set_txcap_reg": {
+          "original_or_alias": {
+            "address": "0x4037b590",
+            "symbol_size_bytes": 187,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e812f668c3ca888948c243c859a3753228e397786300cbabbee2033266d5a47e"
+          },
+          "source_symbol": "__opensensor_i2c_txcap",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x4037b810",
+            "symbol_size_bytes": 63,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "2d7afb0389d45d8e3e6aec4131509123ed345f17f0bee8018db031960a11de2b"
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x4037b850",
+            "symbol_size_bytes": 82,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f52a7a5014291e9b5f1260b1124bd43570d76a3cec4d3321d0bac70e1b113e8e"
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4037b8a8",
+            "symbol_size_bytes": 98,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e943da30b213abe332f9862476a24273d60fc346f2a1a4d6d81ce7bf6095fa43"
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x4037b650",
+            "symbol_size_bytes": 446,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ea53cb7647b448222450be0e2adfa3a94c28436e6e239df15f9cb6a61438c515"
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": null,
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40005d30",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40006144",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x4000615c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40006168",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40006174",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x400061b0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40005d48",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40005d54",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x40005d60",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40005d6c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40006318",
+          "symbol_size_bytes": 52,
+          "type": "STT_FUNC",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x40005f28",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": null,
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/source-v2": {
+      "elf_sha256": "2823f6a54511bb675a9b5144d01a4cd367a1f8ef7e6274916435aa6b95513932",
+      "map_sha256": "81ace9bd419d201fa55debec208ff4b85592e46b9c64e7aa5f4a3c103e6525ef",
+      "non_string_allocations": {
+        "libphy_bytes": 29618,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "source",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x4202eae0",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": {
+            "address": "0x4202eae0",
+            "symbol_size_bytes": 264,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d1eee7cb1741cb5e80ff30a0aacf7d6a04e38088c885cf5de1d7e09bf81b68be"
+          },
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x4202ea68",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": {
+            "address": "0x4202ea68",
+            "symbol_size_bytes": 119,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "3cd70c366468cbe7ab19492d2cddb040ae6451e5cd9e62d69689128676a1e31d"
+          },
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x4202e96c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": {
+            "address": "0x4202e96c",
+            "symbol_size_bytes": 250,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "02ee8a5042e3617a08d21f3597a419a498680128aba03c6b600b5f0567d971a5"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x4202ebe8",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": {
+            "address": "0x4202ebe8",
+            "symbol_size_bytes": 652,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "7ac195a4a2e099942646c97a2fc232b85f13ff6b41f54c16abc6cb0c1dfd57c9"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 7,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5c6112f9ff3b36ebd4ef58068b0799fce65392d576a62540ad2e04e4c2f14dc7"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 7,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5c6112f9ff3b36ebd4ef58068b0799fce65392d576a62540ad2e04e4c2f14dc7"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x4037a878",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": {
+            "address": "0x4037a878",
+            "symbol_size_bytes": 69,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "16b4f05cf9b3ab0a6278e23232905ae9cec9c4a7d5610fd01818bab1318f4103"
+          },
+          "requires_iram": true
+        },
+        "ram_set_txcap_reg": {
+          "original_or_alias": {
+            "address": "0x4037a794",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_txcap",
+          "source_body": {
+            "address": "0x4037a794",
+            "symbol_size_bytes": 227,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "26026dc1bc8cbf35e8252c0bf529ba35fd5b2ef4e935b93164c71d07e890e928"
+          },
+          "requires_iram": true
+        },
+        "ram_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x4037a2fc",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": {
+            "address": "0x4037a2fc",
+            "symbol_size_bytes": 66,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f393a70cf6210d428dcd4fc6a051da99019d592de08e4bca5e5b568b71dec2f1"
+          },
+          "requires_iram": true
+        },
+        "ram_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x4037a71c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": {
+            "address": "0x4037a71c",
+            "symbol_size_bytes": 119,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d0240bf61497143329940dc33ee0702f5d05896c7fbb590bdf55102c066280c5"
+          },
+          "requires_iram": true
+        },
+        "ram_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4037a8c0",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": {
+            "address": "0x4037a8c0",
+            "symbol_size_bytes": 137,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e855df79e0104250a38c13dbf20c15ad385867450d58b180c20681cf49e6eced"
+          },
+          "requires_iram": true
+        },
+        "ram_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x4037a340",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": {
+            "address": "0x4037a340",
+            "symbol_size_bytes": 988,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ddfe6ad30bc7a1642ad683a0fa5c28398404b9682a867ed6bf95ae121ec87aed"
+          },
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40005d30",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40006144",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x4000615c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40006168",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40006174",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x400061b0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40005d48",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40005d54",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x40005d60",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40005d6c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40006318",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x40005f28",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": {
+        "address": "0x3fc8d148",
+        "symbol_size_bytes": 40,
+        "type": "STT_OBJECT",
+        "allocated": true,
+        "absolute": false,
+        "executable": false,
+        "body_contained": true,
+        "body_sha256": "80bff8b7d758d09011f9945d97a5b89c7cd28e064b1afd79ee46cf74b50c3df0"
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/control-v2-gtk": {
+      "elf_sha256": "e9287299e33de1ef130da4d0504148b23e57404cc2ea04a7989667f1ba0f785a",
+      "map_sha256": "84877eb5067c55aca08e60d0312f86477163341d1f4626a4f8c5edd7a5ce47b9",
+      "non_string_allocations": {
+        "libphy_bytes": 31595,
+        "libphy_member_count": 16,
+        "phy_i2c_member_bytes": 1985,
+        "phy_i2c_iram_input_bytes": 970,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "vendor",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x42046d30",
+            "symbol_size_bytes": 129,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "2f870935c7649ba58ff1f829e381030bf872638f65c6deb8412fc8d9c1ee42ae"
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x42046e54",
+            "symbol_size_bytes": 100,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "69d91376c57a8bd53bc7a85ee9af610a39046d3c28d2e792055fada089ff2c99"
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x42046db4",
+            "symbol_size_bytes": 158,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "0e1eefe065c5274ad5fbab29323ac32fac623423c2bd8ff6798498ec5d01b7c8"
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x42046abc",
+            "symbol_size_bytes": 628,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d7d15a72aab072eb215c92c2e024ba7f1b38bf6b9f3bc9a8974e0e2138e1f7fd"
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": null,
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x4037b57c",
+            "symbol_size_bytes": 5,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a50f595a12cc6e7e90d28fa2424790fbfac53a684610d6fe5637b2112f16f23d"
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x4037b584",
+            "symbol_size_bytes": 5,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "a50f595a12cc6e7e90d28fa2424790fbfac53a684610d6fe5637b2112f16f23d"
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x4037b910",
+            "symbol_size_bytes": 54,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "85cb690454e1a9dce04b4faf98cb9535144357f638734a1c8417e8a268022998"
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_set_txcap_reg": {
+          "original_or_alias": {
+            "address": "0x4037b590",
+            "symbol_size_bytes": 187,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e812f668c3ca888948c243c859a3753228e397786300cbabbee2033266d5a47e"
+          },
+          "source_symbol": "__opensensor_i2c_txcap",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x4037b810",
+            "symbol_size_bytes": 63,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "2d7afb0389d45d8e3e6aec4131509123ed345f17f0bee8018db031960a11de2b"
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x4037b850",
+            "symbol_size_bytes": 82,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f52a7a5014291e9b5f1260b1124bd43570d76a3cec4d3321d0bac70e1b113e8e"
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4037b8a8",
+            "symbol_size_bytes": 98,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e943da30b213abe332f9862476a24273d60fc346f2a1a4d6d81ce7bf6095fa43"
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": null,
+          "requires_iram": true
+        },
+        "ram_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x4037b650",
+            "symbol_size_bytes": 446,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ea53cb7647b448222450be0e2adfa3a94c28436e6e239df15f9cb6a61438c515"
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": null,
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40005d30",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40006144",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x4000615c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40006168",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40006174",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x400061b0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40005d48",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40005d54",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x40005d60",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40005d6c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40006318",
+          "symbol_size_bytes": 52,
+          "type": "STT_FUNC",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x40005f28",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": null,
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_i2c.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    },
+    "esp32s3/source-v2-gtk": {
+      "elf_sha256": "315b4e31c2cb1ebe7323f6fcbb19adff0f98d5a24e97f007d533c41c57854f1f",
+      "map_sha256": "7a95932f7f5b42d2ffa0f88c8ac895a1b0e0bd75f27050b0f05747b3aef0a247",
+      "non_string_allocations": {
+        "libphy_bytes": 29610,
+        "libphy_member_count": 15,
+        "phy_i2c_member_bytes": 0,
+        "phy_i2c_iram_input_bytes": 0,
+        "phy_tsens_member_bytes": 0,
+        "phy_pbus_member_bytes": 0
+      },
+      "previous_source_gates": {
+        "printf": true,
+        "wrappers": true,
+        "dispatcher": true,
+        "temperature": true,
+        "sensor_lifecycle": true,
+        "pbus": true,
+        "no_allocated_libpp": true
+      },
+      "expect_i2c": "source",
+      "selected_symbols": {
+        "phy_get_i2c_data": {
+          "original_or_alias": {
+            "address": "0x420346bc",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_get_data",
+          "source_body": {
+            "address": "0x420346bc",
+            "symbol_size_bytes": 264,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "79f93fda986f6437a3b8225bf4960da323f6f0f58cf4fce1642a46859574a911"
+          },
+          "requires_iram": false
+        },
+        "bias_reg_set": {
+          "original_or_alias": {
+            "address": "0x42034644",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bias",
+          "source_body": {
+            "address": "0x42034644",
+            "symbol_size_bytes": 119,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "1c4b84c7ebb761f947232fa1ed99ea56fba0b7200b0da16bc7669a3783ebf8ab"
+          },
+          "requires_iram": false
+        },
+        "i2c_bbpll_set": {
+          "original_or_alias": {
+            "address": "0x42034548",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_bbpll",
+          "source_body": {
+            "address": "0x42034548",
+            "symbol_size_bytes": 250,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "6437b1ff912de04e9bef56d598e5f1f36e708c883554e0c6ba620881087011c2"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_init2": {
+          "original_or_alias": {
+            "address": "0x420347c4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init2",
+          "source_body": {
+            "address": "0x420347c4",
+            "symbol_size_bytes": 652,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "6f84df12a5fd814b4acf0821097557bc7831d5f4ef7fbf3e21fdbed8d02b50ab"
+          },
+          "requires_iram": false
+        },
+        "phy_i2c_enter_critical": {
+          "original_or_alias": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_enter",
+          "source_body": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 7,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5c6112f9ff3b36ebd4ef58068b0799fce65392d576a62540ad2e04e4c2f14dc7"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_exit_critical": {
+          "original_or_alias": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_exit",
+          "source_body": {
+            "address": "0x4037a2f4",
+            "symbol_size_bytes": 7,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "5c6112f9ff3b36ebd4ef58068b0799fce65392d576a62540ad2e04e4c2f14dc7"
+          },
+          "requires_iram": true
+        },
+        "phy_i2c_bbtop_wakeup": {
+          "original_or_alias": {
+            "address": "0x4037a878",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_wakeup",
+          "source_body": {
+            "address": "0x4037a878",
+            "symbol_size_bytes": 69,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "16b4f05cf9b3ab0a6278e23232905ae9cec9c4a7d5610fd01818bab1318f4103"
+          },
+          "requires_iram": true
+        },
+        "ram_set_txcap_reg": {
+          "original_or_alias": {
+            "address": "0x4037a794",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_txcap",
+          "source_body": {
+            "address": "0x4037a794",
+            "symbol_size_bytes": 227,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "26026dc1bc8cbf35e8252c0bf529ba35fd5b2ef4e935b93164c71d07e890e928"
+          },
+          "requires_iram": true
+        },
+        "ram_get_i2c_hostid": {
+          "original_or_alias": {
+            "address": "0x4037a2fc",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_hostid",
+          "source_body": {
+            "address": "0x4037a2fc",
+            "symbol_size_bytes": 66,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "f393a70cf6210d428dcd4fc6a051da99019d592de08e4bca5e5b568b71dec2f1"
+          },
+          "requires_iram": true
+        },
+        "ram_chip_i2c_readReg": {
+          "original_or_alias": {
+            "address": "0x4037a71c",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_read",
+          "source_body": {
+            "address": "0x4037a71c",
+            "symbol_size_bytes": 119,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "d0240bf61497143329940dc33ee0702f5d05896c7fbb590bdf55102c066280c5"
+          },
+          "requires_iram": true
+        },
+        "ram_chip_i2c_writeReg": {
+          "original_or_alias": {
+            "address": "0x4037a8c0",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_write",
+          "source_body": {
+            "address": "0x4037a8c0",
+            "symbol_size_bytes": 137,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "e855df79e0104250a38c13dbf20c15ad385867450d58b180c20681cf49e6eced"
+          },
+          "requires_iram": true
+        },
+        "ram_phy_i2c_init1": {
+          "original_or_alias": {
+            "address": "0x4037a340",
+            "symbol_size_bytes": 0,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": null
+          },
+          "source_symbol": "__opensensor_i2c_init1",
+          "source_body": {
+            "address": "0x4037a340",
+            "symbol_size_bytes": 988,
+            "type": "STT_FUNC",
+            "allocated": true,
+            "absolute": false,
+            "executable": true,
+            "body_contained": true,
+            "body_sha256": "ddfe6ad30bc7a1642ad683a0fa5c28398404b9682a867ed6bf95ae121ec87aed"
+          },
+          "requires_iram": true
+        }
+      },
+      "retained_i2c_rom_dependencies": {
+        "rom_get_i2c_read_mask": {
+          "address": "0x40005d30",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_get_i2c_mst0_mask": {
+          "address": "0x40006144",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_enter_critical_phy": {
+          "address": "0x4000615c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_exit_critical_phy": {
+          "address": "0x40006168",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_chip_i2c_readReg_org": {
+          "address": "0x40006174",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_paral_write_num": {
+          "address": "0x400061b0",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg": {
+          "address": "0x40005d48",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_readReg_Mask": {
+          "address": "0x40005d54",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg": {
+          "address": "0x40005d60",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_writeReg_Mask": {
+          "address": "0x40005d6c",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_i2c_sar2_init_code": {
+          "address": "0x40006318",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        },
+        "rom_set_txcap_reg": {
+          "address": "0x40005f28",
+          "symbol_size_bytes": 0,
+          "type": "STT_NOTYPE",
+          "allocated": false,
+          "absolute": true,
+          "executable": false,
+          "body_contained": false,
+          "body_sha256": null
+        }
+      },
+      "source_program_table": {
+        "address": "0x3fc8d22c",
+        "symbol_size_bytes": 40,
+        "type": "STT_OBJECT",
+        "allocated": true,
+        "absolute": false,
+        "executable": false,
+        "body_contained": true,
+        "body_sha256": "80bff8b7d758d09011f9945d97a5b89c7cd28e064b1afd79ee46cf74b50c3df0"
+      },
+      "input_archives_observed": [
+        {
+          "archive": "libphy.a",
+          "sha256_observed_at_audit": "29dcc18a035801bd41486d5d59f3caeb62f8ed153533c488828bffef1abb99fd",
+          "members_referenced_in_selected_map_rows": [
+            "phy_analog_cal.o",
+            "phy_api.o",
+            "phy_basic.o",
+            "phy_debug.o",
+            "phy_feature.o",
+            "phy_hw_freq.o",
+            "phy_init.o",
+            "phy_pwdet.o",
+            "phy_reg.o",
+            "phy_rfpll.o",
+            "phy_rx_cal.o",
+            "phy_rx_gain.o",
+            "phy_track.o",
+            "phy_tx_cal.o",
+            "phy_tx_gain.o"
+          ]
+        },
+        {
+          "archive": "libprintf.a",
+          "sha256_observed_at_audit": "310f874e8f137dd74d2b79a319bf777e8c808b83f3d5c33ad14e24509e3568d1",
+          "members_referenced_in_selected_map_rows": [
+            "420925bbbd38959a-printf.o"
+          ]
+        }
+      ]
+    }
+  },
+  "builds": {
+    "esp32c3/source-v2-wifi_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32c3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "a4ea7ba6be1c0fa3a624a788bb96847085948d7cc30d6b08292e925e9ec14e28",
+      "map_sha256": "7ec92cdde6b8c0419e4b6f1d3c6debac3995a97d77a0895da3b001fc9b38e248",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32c3/source-v2-sta_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32c3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "c8afeb36a3182c726417b9d1790dbddbe45033fba875d2405c4f9aab39a6afe7",
+      "map_sha256": "cdea76f95ad54598563f345b1e1d21da514cba2ec4a2c59657f77f0a098bb501",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/source-v2-gtk-sta_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32c3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "2ec660c85aedcb617ed7478c473565714a1653c5eac5de2a86894592cba14544",
+      "map_sha256": "54b7976c13c67dff6e1b7d24d40ca356395cd16aff4c7e14beffeb60f4a6310f",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/source-v2-phy_lifetime_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32c3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "393dcfb1aa614b4bba1200ca16f76d793f5e64ef00f0e3268d097711555073fb",
+      "map_sha256": "ca899d93bf58d408bb7a33fee0c9a9fff8b7725156b15226b6c9489b19e93ce0",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f"
+      }
+    },
+    "esp32c3/control-v2-wifi_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32c3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "758775421ce756ce5667ac45c9cdfc49e7a1a1f84b728963c6a9dcfc990344aa",
+      "map_sha256": "c46b52a2d2afcf6afd0fd65e4c89d651b0a11506117fcc0cf0b0ed780325650b",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32c3/control-v2-sta_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32c3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "d99ec9a8bf050f92d938dc7f76ca6a59cab54603dd676ebd91955c78fb6b2149",
+      "map_sha256": "f42cf34f922367e6e2d565eab3f82a6f4e80a9e53d1382f94c9647be5f1d9293",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/control-v2-gtk-sta_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32c3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "bd2e2a9f667d77701d923ecf97aaad4279d06d04cfe88e7acbc044e1944ba0b5",
+      "map_sha256": "0430a1e6461e1a9aae6465eb43f85355c56d1448182337b17ae23b6d6c1ed82d",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32c3/control-v2-phy_lifetime_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32c3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "675d8f0ca6525c8eb6b39d65c69ca43f847fe642289d1c254ff543d26bc522ac",
+      "map_sha256": "0632f3e48ceba4918b10298a8712bde77e5751312baaafd4bdbc06989c0c2a15",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f"
+      }
+    },
+    "esp32s3/source-v2-wifi_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32s3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "5a19d0b77ea5ef2a8e89a47007b5aae80e247b4878570fe1c8be92041004bb73",
+      "map_sha256": "eaa6642d3d19a11c208efc2600311339d52500bde8d53dd9a154c2cc1295b3eb",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32s3/source-v2-sta_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32s3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "2823f6a54511bb675a9b5144d01a4cd367a1f8ef7e6274916435aa6b95513932",
+      "map_sha256": "81ace9bd419d201fa55debec208ff4b85592e46b9c64e7aa5f4a3c103e6525ef",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/source-v2-gtk-sta_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32s3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "315b4e31c2cb1ebe7323f6fcbb19adff0f98d5a24e97f007d533c41c57854f1f",
+      "map_sha256": "7a95932f7f5b42d2ffa0f88c8ac895a1b0e0bd75f27050b0f05747b3aef0a247",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/source-v2-phy_lifetime_smoke": {
+      "build_checkout_revision": "8d227bad29ac4052380c5b06fdb67185e48c9974",
+      "features": "esp32s3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "7f8cb747ce9b894be16cf06366ee86ad0b1ed35c9d51890a5a42a9fa5427e8b9",
+      "map_sha256": "576918adce3bdecb9ad6ec7f335347750bd639e28f5067535abb67d46c76333b",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_i2c_iram.rs": "acb2abfd2ec4965993c9a261d0ec103864ae2cd499f907d56e46e7eb2124999e",
+        "esp-wifi-hal/src/phy_i2c.rs": "97eaafd9066830d2a3fa29b450c0d0df8bd3d221483fcf6c77bf05cd3e26f144",
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "6f42fd73e9f295a6adb8f0f94ba86b2c34459305df5499673e23289ce8ba8489",
+        "esp-wifi-hal/build.rs": "707217f500a2aa9ac20b6e672e783ff38b93a7b832ea6215338a9e6955fb6f0b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f"
+      }
+    },
+    "esp32s3/control-v2-wifi_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32s3,rx-probe",
+      "cycles": "1",
+      "elf_sha256": "a4317502f3edd89657293337c01927c5872bbea26712f0aee130f9b9febc0cdf",
+      "map_sha256": "ab6c8f06c0878f999d8cd01659b4b1cf09d9c74b2f6bc6c3b2d04b1928bf8fde",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/wifi_smoke.rs": "debf270bbf1b97c62cbbd0299b76001f9a04e018e65b6a3fe284ffc84804ba7c"
+      }
+    },
+    "esp32s3/control-v2-sta_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32s3,foa-smoke",
+      "cycles": "2",
+      "elf_sha256": "e0a15adc679bf0f35649dc282c40011329a7b7c1e4e9f1998406b3022877ef0d",
+      "map_sha256": "391f31a7a97eeb8bede32a05cdf9811eb2234cd55a16356dfb133ed5c7c1fe18",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/control-v2-gtk-sta_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32s3,neighbor-probe,gtk-rekey-probe",
+      "cycles": "1",
+      "elf_sha256": "e9287299e33de1ef130da4d0504148b23e57404cc2ea04a7989667f1ba0f785a",
+      "map_sha256": "84877eb5067c55aca08e60d0312f86477163341d1f4626a4f8c5edd7a5ce47b9",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/sta_smoke.rs": "f1f7fcd093da6ec90b5be03ef2fec7516bd59e7fcf99b97ec0429b7ed2d3529c"
+      }
+    },
+    "esp32s3/control-v2-phy_lifetime_smoke": {
+      "build_checkout_revision": "2d1a58a86dacff722b1648e64c8bd4fd7644473f",
+      "features": "esp32s3,phy-smoke",
+      "cycles": "1",
+      "elf_sha256": "f6665a3c9b629d07fa8f056a3c67902141a3950b39a241aa0637e06b04e3b800",
+      "map_sha256": "4bf57b59094a156bf232c882ac943bc25747a7febea5d865579c1c6917d413be",
+      "cargo_lock_sha256": "4a8c3c62daca24d9c2d0749dd8879554367f5d527039c47d7ab493dc7a7ee88d",
+      "compiled_source_files": {
+        "esp-wifi-hal/src/phy_pbus.rs": "902e3a3d9661bf5a970f0630c7110bee7e527b9c16a2bb1511ca213175e7226c",
+        "esp-wifi-hal/src/phy_temperature.rs": "9bebb5645d29ba363a301a9c4e9b73f301ca27bfb252a200c7b01473af493bdf",
+        "esp-wifi-hal/src/phy_lifecycle.rs": "6c7a89da2df96642bbd51c37c47a581d2eb3224d87fb835706fc71dae5b5a874",
+        "esp-wifi-hal/src/lib.rs": "01dd734c050d21bc7bb64ffa48e2b81bbd82e274d39c227d8a85bfaa29d5c91d",
+        "esp-wifi-hal/build.rs": "7354a704029c4a917fd9f62aaf78794d2c43c573eeffd73a8a646b65e21d3c5b",
+        "esp-wifi-hal/Cargo.toml": "b73cd676d47953e0eccebc7a9e052156c8a44c28fb87a5f7249d2245cbb5eec2",
+        "examples/Cargo.toml": "a61e1929969003fb557bfd00c66979a348d72468fee9b5fe3f9ea5b92a135361",
+        "examples/src/bin/phy_lifetime_smoke.rs": "f9c739f5be073cb7956e09f63faee6a2b79f109d255074931adc1a0b0536f83f"
+      }
+    }
+  },
+  "limitations": [
+    "One board per chip, one AP and room-temperature conditions; no calibrated RF measurement or long-duration reliability claim.",
+    "Entire allocated I2C member replaced; ROM I2C helpers, C3 ROM TXCAP, vendor PHY state, RF initialization and calibration remain.",
+    "Original-instruction oracle compares ordered modeled boundary behavior; it does not prove cycle timing, RF or analog equivalence.",
+    "Packet gaps and latency tails remain open; this comparison records actual counts without claiming a fix.",
+    "AP Ethernet captures corroborate EAPOL exchanges but are not complete independent RF captures."
+  ],
+  "independent_review_sha256": "4fdcbd7d8d0b6603b86122d4d8acab34a99e0aebea589ca528c5c992620978c1"
+}
