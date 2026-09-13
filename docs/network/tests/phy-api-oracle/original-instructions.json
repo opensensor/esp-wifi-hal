@@ -1,0 +1,209 @@
+{
+  "esp32c3": {
+    "elf_sha256": "8b2c875412868521a20f652d66b0f7abe5285d9625d6bee01d5984ecacc0b6f1",
+    "map_sha256": "35ec12399a879fcc5ee3511d801ab7e3c5d8ee77bb837e3e5c44ee2892bdf794",
+    "functions": [
+      {
+        "name": "phy_wakeup_init",
+        "address": "0x40381b1c",
+        "size_bytes": 72,
+        "body_sha256": "916b5c21fbde2492800eb9b04c562e6134ebec208c829e4d8afb785e32cc04cd",
+        "code_hex": "411122c43734c83f06c61304843365228327041293f7070285e797c0cb01e780a053b767ca3f83a747dd0345241f83a7870d82978327041293e707022320f412b240224441018280",
+        "instructions": [
+          "40381b1c: 1141 addi sp,sp,-16",
+          "40381b1e: c422 sw s0,8(sp)",
+          "40381b20: 3fc83437 lui s0,0x3fc83",
+          "40381b24: c606 sw ra,12(sp)",
+          "40381b26: 33840413 addi s0,s0,824",
+          "40381b2a: 2265 jal 40381cd2",
+          "40381b2c: 12042783 lw a5,288(s0)",
+          "40381b30: 0207f793 andi a5,a5,32",
+          "40381b34: e785 bnez a5,40381b5c",
+          "40381b36: 01cbc097 auipc ra,0x1cbc",
+          "40381b3a: 53a080e7 jalr 1338(ra)",
+          "40381b3e: 3fca67b7 lui a5,0x3fca6",
+          "40381b42: dd47a783 lw a5,-556(a5)",
+          "40381b46: 1f244503 lbu a0,498(s0)",
+          "40381b4a: 0d87a783 lw a5,216(a5)",
+          "40381b4e: 9782 jalr a5",
+          "40381b50: 12042783 lw a5,288(s0)",
+          "40381b54: 0207e793 ori a5,a5,32",
+          "40381b58: 12f42023 sw a5,288(s0)",
+          "40381b5c: 40b2 lw ra,12(sp)",
+          "40381b5e: 4422 lw s0,8(sp)",
+          "40381b60: 0141 addi sp,sp,16",
+          "40381b62: 8082 ret"
+        ]
+      },
+      {
+        "name": "phy_close_rf",
+        "address": "0x40381b64",
+        "size_bytes": 48,
+        "body_sha256": "b502cf079b9ff01f0aa3d80334964fd1fce5d090574f815b61ee8af8cf656e2c",
+        "code_hex": "4111b737c83f22c406c6138787330347f7311384873309e797e0ca01e780206c552c85472300f432b240224441018280",
+        "instructions": [
+          "40381b64: 1141 addi sp,sp,-16",
+          "40381b66: 3fc837b7 lui a5,0x3fc83",
+          "40381b6a: c422 sw s0,8(sp)",
+          "40381b6c: c606 sw ra,12(sp)",
+          "40381b6e: 33878713 addi a4,a5,824",
+          "40381b72: 31f74703 lbu a4,799(a4)",
+          "40381b76: 33878413 addi s0,a5,824",
+          "40381b7a: e709 bnez a4,40381b84",
+          "40381b7c: 01cae097 auipc ra,0x1cae",
+          "40381b80: 6c2080e7 jalr 1730(ra)",
+          "40381b84: 2c55 jal 40381e38",
+          "40381b86: 4785 li a5,1",
+          "40381b88: 32f40023 sb a5,800(s0)",
+          "40381b8c: 40b2 lw ra,12(sp)",
+          "40381b8e: 4422 lw s0,8(sp)",
+          "40381b90: 0141 addi sp,sp,16",
+          "40381b92: 8082 ret"
+        ]
+      },
+      {
+        "name": "phy_get_rf_cal_version",
+        "address": "0x4203cde8",
+        "size_bytes": 6,
+        "body_sha256": "770d73b367c7d746a5f5efbeb388873511a5c9d1b280436031d39d6bd7b3320a",
+        "code_hex": "1305004d8280",
+        "instructions": [
+          "4203cde8: 4d000513 li a0,1232",
+          "4203cdec: 8082 ret"
+        ]
+      }
+    ],
+    "symbols": {
+      "phy_param": {
+        "address": "0x3fc83338",
+        "size_bytes": 848
+      },
+      "g_phyFuns": {
+        "address": "0x3fca5dd4",
+        "size_bytes": 4
+      },
+      "ram1_phy_wakeup_init": {
+        "address": "0x40381cd2",
+        "size_bytes": 358
+      },
+      "get_rf_freq_init": {
+        "address": "0x4203e070",
+        "size_bytes": 398
+      },
+      "rom1_tsens_temp_read": {
+        "address": "0x4203023e",
+        "size_bytes": 0
+      },
+      "ram1_phy_close_rf": {
+        "address": "0x40381e38",
+        "size_bytes": 70
+      }
+    },
+    "literals": {}
+  },
+  "esp32s3": {
+    "elf_sha256": "d1ffd751422652ccf3f6864efc20e741729e719ee9b96a6f674bbf43b46d6bf0",
+    "map_sha256": "3afd10478c376b19b786019947f3954a7f08219623e54495bbd94e4d4087e1b0",
+    "functions": [
+      {
+        "name": "phy_wakeup_init",
+        "address": "0x4037abdc",
+        "size_bytes": 51,
+        "body_sha256": "4391a155788de62024cae045de07c6827d79bec9de00814b8e22e7b313a36f9a",
+        "code_hex": "364100e5180021fbff2c0382224887831f81faffe0080081f8ff92d2018808a209f2822833e008008222483038203262481df0",
+        "instructions": [
+          "4037abdc: 004136 entry a1, 32",
+          "4037abdf: 0018e5 call8 4037ad6c",
+          "4037abe2: fffb21 l32r a2, 4037abd0",
+          "4037abe5: 032c movi.n a3, 32",
+          "4037abe7: 482282 l32i a8, a2, 0x120",
+          "4037abea: 1f8387 bany a3, a8, 4037ac0d",
+          "4037abed: fffa81 l32r a8, 4037abd8",
+          "4037abf0: 0008e0 callx8 a8",
+          "4037abf3: fff881 l32r a8, 4037abd4",
+          "4037abf6: 01d292 addmi a9, a2, 0x100",
+          "4037abf9: 0888 l32i.n a8, a8, 0",
+          "4037abfb: f209a2 l8ui a10, a9, 242",
+          "4037abfe: 332882 l32i a8, a8, 204",
+          "4037ac01: 0008e0 callx8 a8",
+          "4037ac04: 482282 l32i a8, a2, 0x120",
+          "4037ac07: 203830 or a3, a8, a3",
+          "4037ac0a: 486232 s32i a3, a2, 0x120",
+          "4037ac0d: f01d retw.n"
+        ]
+      },
+      {
+        "name": "phy_close_rf",
+        "address": "0x4037ac10",
+        "size_bytes": 8,
+        "body_sha256": "2f5ccbfe08f03b18e527cdd4c222af39a9b0e5a06adf463caa397820467f433e",
+        "code_hex": "364100252b001df0",
+        "instructions": [
+          "4037ac10: 004136 entry a1, 32",
+          "4037ac13: 002b25 call8 4037aec4",
+          "4037ac16: f01d retw.n"
+        ]
+      },
+      {
+        "name": "phy_get_rf_cal_version",
+        "address": "0x42041cc4",
+        "size_bytes": 8,
+        "body_sha256": "c1602f993db17b4e761e3a61bfd2c4be58ea56e6d305eb64d7cda702e71ca161",
+        "code_hex": "36410022a2c71df0",
+        "instructions": [
+          "42041cc4: 004136 entry a1, 32",
+          "42041cc7: c7a222 movi a2, 0x2c7",
+          "42041cca: f01d retw.n"
+        ]
+      },
+      {
+        "name": "phy_set_tx_seed",
+        "address": "0x4203a628",
+        "size_bytes": 30,
+        "body_sha256": "2b54288af62a0883aecb86b0fcea220118c9ff3428d2bf07a00ea6ac3e39568e",
+        "code_hex": "36410091feff82af80c02000a809202064808a10202820c0200029091df0",
+        "instructions": [
+          "4203a628: 004136 entry a1, 32",
+          "4203a62b: fffe91 l32r a9, 4203a624",
+          "4203a62e: 80af82 movi a8, -128",
+          "4203a631: 0020c0 memw",
+          "4203a634: 09a8 l32i.n a10, a9, 0",
+          "4203a636: 642020 extui a2, a2, 0, 7",
+          "4203a639: 108a80 and a8, a10, a8",
+          "4203a63c: 202820 or a2, a8, a2",
+          "4203a63f: 0020c0 memw",
+          "4203a642: 0929 s32i.n a2, a9, 0",
+          "4203a644: f01d retw.n"
+        ]
+      }
+    ],
+    "symbols": {
+      "phy_param": {
+        "address": "0x3fc8d79c",
+        "size_bytes": 740
+      },
+      "g_phyFuns": {
+        "address": "0x3fcb0840",
+        "size_bytes": 4
+      },
+      "ram_phy_wakeup_init": {
+        "address": "0x4037ad6c",
+        "size_bytes": 344
+      },
+      "get_rf_freq_init": {
+        "address": "0x4203b840",
+        "size_bytes": 330
+      },
+      "ram_phy_close_rf": {
+        "address": "0x4037aec4",
+        "size_bytes": 87
+      }
+    },
+    "literals": {
+      "0x4037abd0": "0x3fc8d79c",
+      "0x4037abd8": "0x4203b840",
+      "0x4037abd4": "0x3fcb0840",
+      "0x4203a624": "0x6001c400"
+    }
+  }
+}

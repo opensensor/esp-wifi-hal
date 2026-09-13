@@ -74,11 +74,17 @@ def check_aliases(base, symbols, names):
             raise ValueError(f"Original sensor function input still allocated: {original}")
 
 
-def check_lifecycle(base, symbols, stage, table_sha256):
+API_REPLACEMENTS = {"phy_wakeup_init": "__opensensor_api_wakeup",
+                    "phy_close_rf": "__opensensor_api_close"}
+
+
+def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False):
     if stage not in ("temperature", "lifecycle"):
         raise ValueError("Expected stage temperature or lifecycle")
     chip = base["chip"]
     if stage == "temperature":
+        if api_source:
+            raise ValueError("API replacement requires complete sensor lifecycle source")
         temperature.check_temperature(base, symbols, "source")
         if any(symbols.get(name) is not None for name in (*LIFECYCLE[chip].values(), SOURCE_TABLE)):
             raise ValueError("Lifecycle source symbol present in temperature-only stage")
@@ -111,7 +117,19 @@ def check_lifecycle(base, symbols, stage, table_sha256):
         "address": new_outer["address"], "size_bytes": new_outer["symbol_size_bytes"]}
     allocations.check_expectations(gate_base, "source", "source", "source")
 
+    # A later API stage replaces exactly these two former vendor helpers.
+    # Verify their real source bodies and aliases before exempting them from
+    # vendor ownership; every other retained-helper gate remains unchanged.
+    if api_source:
+        check_aliases(base, symbols, API_REPLACEMENTS)
+        for source in API_REPLACEMENTS.values():
+            body = symbols[source]
+            address = int(body["address"], 0)
+            if not 0x40370000 <= address < address + body["symbol_size_bytes"] <= 0x403e0000:
+                raise ValueError("API source entry is outside IRAM")
     for name in RETAINED_FUNCTIONS:
+        if api_source and name in API_REPLACEMENTS:
+            continue
         symbol = temperature.require_body(symbols, name)
         if not any(temperature.contains(row, symbol) for row in inputs):
             raise ValueError(f"Missing retained vendor helper input: {name}")

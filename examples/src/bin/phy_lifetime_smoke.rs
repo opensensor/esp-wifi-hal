@@ -263,6 +263,45 @@ unsafe fn inspect_temperature(cycle: u32) {
     }
 }
 
+/// Inspect API state after normal enable; no extra wakeup or calibration call.
+unsafe fn inspect_api(cycle: u32) {
+    #[cfg(feature = "esp32c3")]
+    const PARAM_SIZE: usize = 848;
+    #[cfg(feature = "esp32s3")]
+    const PARAM_SIZE: usize = 740;
+    unsafe extern "C" {
+        static mut phy_param: [u8; PARAM_SIZE];
+        fn phy_get_rf_cal_version() -> u32;
+        fn phy_wakeup_init();
+        fn phy_close_rf();
+    }
+    let (flags, version) = unsafe {
+        (
+            (&raw const phy_param)
+                .cast::<u8>()
+                .add(0x120)
+                .cast::<u32>()
+                .read_volatile(),
+            phy_get_rf_cal_version(),
+        )
+    };
+    #[cfg(feature = "esp32c3")]
+    assert_eq!(version, 0x4d0);
+    #[cfg(feature = "esp32s3")]
+    assert_eq!(version, 0x2c7);
+    if cycle > 1 {
+        assert_ne!(flags & 0x20, 0, "API wakeup did not record initialization");
+    }
+    info!(
+        "stage=phy_api cycle={} flags={:#x} calibration_version={} wakeup={:#x} close={:#x}",
+        cycle,
+        flags,
+        version,
+        phy_wakeup_init as *const () as usize,
+        phy_close_rf as *const () as usize
+    );
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -310,11 +349,24 @@ async fn main(_spawner: Spawner) {
             inspect_temperature(cycle);
             inspect_pbus(cycle);
             inspect_i2c(cycle);
+            inspect_api(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
         // invokes the adapter's register backup, RF shutdown and clock release.
         drop(guard);
+        #[cfg(feature = "esp32c3")]
+        unsafe {
+            unsafe extern "C" {
+                static mut phy_param: [u8; 848];
+            }
+            let closed = (&raw const phy_param)
+                .cast::<u8>()
+                .add(0x320)
+                .read_volatile();
+            assert_eq!(closed, 1, "API RF-close state was not recorded");
+            info!("stage=phy_api_closed cycle={} flag={}", cycle, closed);
+        }
         let off_flag = unsafe { sensor_off_flag() };
         assert_eq!(off_flag, 1, "Sensor shutdown state was not recorded");
         info!(

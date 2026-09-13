@@ -164,5 +164,21 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-i2c.a"), i2c).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-i2c");
+        let mut api = String::new();
+        let mut entries = vec![
+            ("phy_wakeup_init", "wakeup"),
+            ("phy_close_rf", "close"),
+            ("phy_get_rf_cal_version", "calibration_version"),
+        ];
+        if cfg!(feature = "esp32s3") {
+            entries.push(("phy_set_tx_seed", "tx_seed"));
+        }
+        for (original, suffix) in entries {
+            api.push_str(&format!(
+                "EXTERN(__opensensor_api_{suffix});\n{original} = __opensensor_api_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-api.a"), api).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-api");
     }
 }

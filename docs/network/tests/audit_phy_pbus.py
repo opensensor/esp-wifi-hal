@@ -56,10 +56,10 @@ BASELINE = {
 }
 
 
-def check_pbus(base, symbols, expected, attribute_hash):
+def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False):
     if expected not in ("source", "vendor"):
         raise ValueError("Expected PBUS source or vendor")
-    lifecycle.check_lifecycle(base, symbols, "lifecycle", attribute_hash)
+    lifecycle.check_lifecycle(base, symbols, "lifecycle", attribute_hash, api_source=api_source)
     chip = base["chip"]
     inputs = base["allocations"]["libphy.a"]["inputs"]
     pbus_inputs = [row for row in inputs if row["member"] == "phy_pbus.o"]
