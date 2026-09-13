@@ -99,6 +99,14 @@ interpolation while preserving the existing ROM channel binding. Its
 instruction-oracle cases, native placement checks, lifecycle/RX probes and
 traffic results, including broadcast gaps and an incomplete requested rekey.
 
+The [PHY feature replacement](docs/network/PHY-FEATURE.md) then removes
+`phy_feature.o`, leaving **12 vendor PHY members** in the tested C3/S3 images.
+It supplies the ROM backup adapters, power adjustment and channel-mode helper
+with 414,480 original-instruction cases at two optimization levels. The
+[device comparison](docs/network/PHY-FEATURE-VALIDATION.md) records lifecycle,
+RX, ordinary traffic and group-key rotation results, preserving observed
+packet gaps and remaining RF/ROM dependencies.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
