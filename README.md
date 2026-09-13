@@ -123,6 +123,16 @@ reference vectors, the sixteen-byte ROM sample-buffer contract, RX recovery,
 ordinary traffic and group-key rotation. ROM ADC/conversion callbacks and
 wider RF calibration remain dependencies; historical packet gaps remain open.
 
+The [RC measurement/calibration replacement](docs/network/PHY-ANALOG.md)
+removes `phy_analog_cal.o`, leaving **nine vendor PHY members** in the tested
+C3/S3 images. It supplies ordered masked analog operations, calibration
+arithmetic and C3's writable divisor globals, with 541,656 original-instruction
+cases at O0 and O2. The [device comparison](docs/network/PHY-ANALOG-VALIDATION.md)
+records normal calibration, unchanged calibrated early returns, native ABI
+checks, RX recovery and paired WPA2/GTK traffic. ROM analog access and
+soft-double arithmetic remain dependencies; packet-loss investigations remain
+open.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
