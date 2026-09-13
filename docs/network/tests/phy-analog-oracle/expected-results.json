@@ -1,0 +1,20 @@
+{
+  "esp32c3": {
+    "cases": 336364,
+    "operations": [
+      68740,
+      267624
+    ],
+    "case_stream_sha256": "ec73012b2bc17147419942906dd668f38090383e32370077d9cb3c2dd626207d",
+    "fixture_sha256": "9ee0b96949b17d8bbfc38cb110d6920d5ef293c134632147c14674dd35bee512"
+  },
+  "esp32s3": {
+    "cases": 205292,
+    "operations": [
+      68740,
+      136552
+    ],
+    "case_stream_sha256": "aa85ff0bccfae0d049acb0644f8bcd0ae1e8d38de9caa18df7c8c5dc088a3687",
+    "fixture_sha256": "12eb55574fb7029cfbf9ec496c32b629d045cd9e4d369ec26fa1ceb471969988"
+  }
+}

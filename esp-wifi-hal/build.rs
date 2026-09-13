@@ -252,5 +252,15 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-pwdet.a"), pwdet).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-pwdet");
+        let mut analog = String::new();
+        let mut entries = vec![("get_rc_dout", "measurement"), ("rc_cal", "calibrate")];
+        if cfg!(feature = "esp32c3") {
+            entries.extend([("wifi_ht20", "ht20"), ("wifi_ht40", "ht40")]);
+        }
+        for (original, suffix) in entries {
+            analog.push_str(&format!("EXTERN(__opensensor_analog_{suffix});\n{original} = __opensensor_analog_{suffix};\n"));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-analog.a"), analog).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-analog");
     }
 }

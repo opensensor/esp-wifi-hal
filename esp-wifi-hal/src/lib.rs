@@ -95,6 +95,8 @@ mod phy_feature;
 mod phy_debug;
 #[cfg(any(esp32c3, esp32s3))]
 mod phy_pwdet;
+#[cfg(any(esp32c3, esp32s3))]
+mod phy_analog;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

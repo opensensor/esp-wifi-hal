@@ -532,6 +532,81 @@ unsafe fn inspect_pwdet(cycle: u32) {
     );
 }
 
+/// Observe the normal RC calibration result, then exercise only its already-
+/// calibrated early return. No extra measurement or analog programming is added.
+unsafe fn inspect_analog(cycle: u32) {
+    unsafe extern "C" {
+        #[cfg(feature = "esp32c3")]
+        static mut phy_param: [u8; 848];
+        #[cfg(feature = "esp32s3")]
+        static mut phy_param: [u8; 740];
+        static mut g_phyFuns: *const u8;
+        fn get_rc_dout(selector: u32) -> u32;
+        fn rc_cal();
+        #[cfg(feature = "esp32c3")]
+        static mut wifi_ht20: u16;
+        #[cfg(feature = "esp32c3")]
+        static mut wifi_ht40: u16;
+    }
+    unsafe {
+        let param = (&raw const phy_param).cast::<u8>();
+        let flags = param.add(0x120).cast::<u32>().read_volatile();
+        assert_ne!(
+            flags & (1 << 23),
+            0,
+            "Normal RC calibration did not complete"
+        );
+        let mut codes = [0u8; 9];
+        for (i, value) in codes.iter_mut().enumerate() {
+            *value = param.add(0x166 + i).read_volatile();
+        }
+        assert!(codes[1..].iter().all(|v| (2..=63).contains(v)));
+        rc_cal();
+        assert_eq!(param.add(0x120).cast::<u32>().read_volatile(), flags);
+        for (i, value) in codes.iter().enumerate() {
+            assert_eq!(param.add(0x166 + i).read_volatile(), *value);
+        }
+        let mode_offset = if cfg!(feature = "esp32c3") {
+            0x322
+        } else {
+            0x2a5
+        };
+        info!(
+            "stage=phy_analog cycle={} measurement={:#x} calibrate={:#x} flags={:#x} selector={} mode={} codes={:?} early_return_unchanged=true",
+            cycle,
+            get_rc_dout as *const () as usize,
+            rc_cal as *const () as usize,
+            flags,
+            param.add(0xf3).read_volatile(),
+            param.add(mode_offset).read_volatile(),
+            codes
+        );
+        let write = if cfg!(feature = "esp32c3") {
+            0x1bc
+        } else {
+            0x198
+        };
+        for slot in [write - 4, write] {
+            let table = (&raw const g_phyFuns).read_volatile();
+            let target = table.add(slot).cast::<usize>().read_volatile();
+            assert_ne!(target, 0);
+            info!(
+                "stage=phy_analog_slot cycle={} slot={:#x} target={:#x}",
+                cycle, slot, target
+            );
+        }
+        #[cfg(feature = "esp32c3")]
+        info!(
+            "stage=phy_analog_divisors cycle={} ht20={} ht40={} left={:#x} right={:#x}",
+            cycle,
+            (&raw const wifi_ht20).read_volatile(),
+            (&raw const wifi_ht40).read_volatile(),
+            (&raw const wifi_ht20) as usize,
+            (&raw const wifi_ht40) as usize
+        );
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -584,6 +659,7 @@ async fn main(_spawner: Spawner) {
             inspect_feature(cycle);
             inspect_debug(cycle);
             inspect_pwdet(cycle);
+            inspect_analog(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
