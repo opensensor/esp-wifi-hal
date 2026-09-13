@@ -341,12 +341,38 @@ async fn main(spawner: Spawner) {
             embassy_futures::join::join(group_traffic(stack, traffic_seconds), async {
                 for request in 1..=3 {
                     Timer::after_secs(10).await;
+                    let first_event = foa_sta::handshake_probe::snapshot().total_events;
+                    let started = embassy_time::Instant::now();
                     let result = control.request_group_rekey().await;
+                    let completed = embassy_time::Instant::now();
+                    let probe = foa_sta::handshake_probe::snapshot();
                     info!(
-                        "stage=gtk_request index={} success={}",
+                        "stage=gtk_request index={} success={} result={:?} started_us={} completed_us={}",
                         request,
-                        result.is_ok()
+                        result.is_ok(),
+                        result,
+                        started.as_micros(),
+                        completed.as_micros()
                     );
+                    // Record only metadata produced during this request. A G2
+                    // may also complete in the window; these are window events,
+                    // not an assertion that every event belongs to the request.
+                    let count = probe.total_events.wrapping_sub(first_event);
+                    let retained = count.min(probe.events.len() as u32);
+                    info!(
+                        "stage=gtk_request_events index={} count={} overwritten={}",
+                        request, count, count - retained
+                    );
+                    for offset in 0..retained {
+                        let ordinal = probe.total_events.wrapping_sub(retained).wrapping_add(offset);
+                        let event = probe.events[ordinal as usize % probe.events.len()];
+                        if event.kind == 8 {
+                            info!(
+                                "stage=eapol_tx_window request={} ordinal={} reset_us={} phase={} outcome={}",
+                                request, ordinal, event.us, event.phase, event.a
+                            );
+                        }
+                    }
                     result.expect("Group-key request failed");
                 }
                 Timer::after_secs(traffic_seconds - 30).await;
