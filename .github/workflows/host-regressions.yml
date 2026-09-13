@@ -29,12 +29,16 @@ jobs:
         run: sh docs/network/tests/run-phy-dispatcher.sh
       - name: Compare PHY temperature path to original instructions
         run: sh docs/network/tests/run-phy-temperature.sh
+      - name: Compare sensor lifecycle to original instructions
+        run: sh docs/network/tests/run-phy-lifecycle.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
           python3 -O docs/network/tests/test_audit_phy_allocations.py
           python3 docs/network/tests/test_audit_phy_temperature.py
           python3 -O docs/network/tests/test_audit_phy_temperature.py
+          python3 docs/network/tests/test_audit_phy_lifecycle.py
+          python3 -O docs/network/tests/test_audit_phy_lifecycle.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu

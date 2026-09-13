@@ -11,6 +11,70 @@ use log::info;
 #[cfg(not(any(feature = "esp32c3", feature = "esp32s3")))]
 compile_error!("The PHY lifetime probe has only been reviewed for C3 and S3");
 
+/// Only read software state after guard release; peripheral clocks may be off.
+unsafe fn sensor_off_flag() -> u8 {
+    #[cfg(feature = "esp32c3")]
+    const FLAG: usize = 0x31f;
+    #[cfg(feature = "esp32s3")]
+    const FLAG: usize = 0x2a2;
+    #[cfg(feature = "esp32c3")]
+    const PARAM_SIZE: usize = 848;
+    #[cfg(feature = "esp32s3")]
+    const PARAM_SIZE: usize = 740;
+    unsafe extern "C" {
+        static mut phy_param: [u8; PARAM_SIZE];
+    }
+    unsafe {
+        (&raw const phy_param)
+            .cast::<u8>()
+            .add(FLAG)
+            .read_volatile()
+    }
+}
+
+unsafe fn inspect_sensor_lifecycle(cycle: u32) {
+    unsafe extern "C" {
+        static mut g_phyFuns: *const u8;
+        fn phy_xpd_tsens();
+        #[cfg(feature = "esp32c3")]
+        fn phy_set_tsens_power(enabled: u32);
+        #[cfg(feature = "esp32s3")]
+        fn ram_temp_to_power(current: u32, reference: u32, mode: u32) -> u32;
+        #[cfg(feature = "esp32s3")]
+        fn ram_tsens_code_read() -> u32;
+    }
+    #[cfg(feature = "esp32c3")]
+    let (address, mask, slot, expected) = (
+        0x6004_0058usize,
+        1u32 << 22,
+        0x130,
+        phy_set_tsens_power as *const () as usize,
+    );
+    #[cfg(feature = "esp32s3")]
+    let (address, mask, slot, expected) = (
+        0x6000_8850usize,
+        3u32 << 22,
+        0x144,
+        ram_temp_to_power as *const () as usize,
+    );
+    unsafe {
+        let table = (&raw const g_phyFuns).read_volatile();
+        let callback = table.add(slot).cast::<usize>().read_volatile();
+        assert_eq!(callback, expected, "Sensor lifecycle callback differs");
+        #[cfg(feature = "esp32s3")]
+        assert_eq!(
+            table.add(0x1e4).cast::<usize>().read_volatile(),
+            ram_tsens_code_read as *const () as usize
+        );
+        let power_bits = (address as *const u32).read_volatile() & mask;
+        let off_flag = sensor_off_flag();
+        info!(
+            "stage=phy_sensor_lifecycle cycle={} off_flag={} power_bits={:#x} callback={:#x} shutdown={:#x}",
+            cycle, off_flag, power_bits, callback, phy_xpd_tsens as *const () as usize
+        );
+    }
+}
+
 /// Inspect the initialized temperature path with the sole PHY guard alive and
 /// before starting a MAC driver or periodic tracking task. No table is patched.
 unsafe fn inspect_temperature(cycle: u32) {
@@ -125,12 +189,19 @@ async fn main(_spawner: Spawner) {
         );
         info!("stage=phy_enabled cycle={}", cycle);
         unsafe {
+            inspect_sensor_lifecycle(cycle);
             inspect_temperature(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard
         // invokes the adapter's register backup, RF shutdown and clock release.
         drop(guard);
+        let off_flag = unsafe { sensor_off_flag() };
+        assert_eq!(off_flag, 1, "Sensor shutdown state was not recorded");
+        info!(
+            "stage=phy_sensor_released cycle={} off_flag={}",
+            cycle, off_flag
+        );
         info!("stage=phy_released cycle={}", cycle);
         Timer::after_millis(100).await;
     }

@@ -75,6 +75,31 @@ fn main() {
                 "EXTERN(__opensensor_tsens_{suffix});\n{original} = __opensensor_tsens_{suffix};\n"
             ));
         }
+        let lifecycle: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
+            &[
+                ("phy_set_tsens_power", "power"),
+                ("phy_xpd_tsens", "xpd"),
+                ("rom2_tsens_read_init1", "init"),
+                ("rom2_temp_to_power1", "temp_to_power"),
+                ("get_temp_init", "get_init"),
+                ("phy_tsens_attribute", "attribute"),
+            ]
+        } else {
+            &[
+                ("phy_set_tsens_power", "power"),
+                ("phy_xpd_tsens", "xpd"),
+                ("tsens_read_init_new", "init"),
+                ("ram_tsens_code_read", "code"),
+                ("ram_temp_to_power", "temp_to_power"),
+                ("get_temp_init", "get_init"),
+                ("phy_tsens_attribute", "attribute"),
+            ]
+        };
+        for (original, suffix) in lifecycle {
+            script.push_str(&format!(
+                "EXTERN(__opensensor_tsens_{suffix});\n{original} = __opensensor_tsens_{suffix};\n"
+            ));
+        }
         std::fs::write(out.join("libesp-wifi-hal-temperature.a"), script).unwrap();
         println!("cargo:rustc-link-search={}", out.display());
         println!("cargo:rustc-link-lib=esp-wifi-hal-temperature");
