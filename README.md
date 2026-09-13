@@ -114,6 +114,15 @@ cases at two optimization levels. Its
 [device comparison](docs/network/PHY-DEBUG-VALIDATION.md) includes guarded IQ
 vectors, callback observations and actual traffic results, including losses.
 
+The [power-detector replacement](docs/network/PHY-PWDET.md) removes
+`phy_pwdet.o`, leaving **10 vendor PHY members** in the tested C3/S3 images.
+Rust supplies tone/sample sequencing, reference arithmetic and power
+calculation, checked against 913,536 instruction cases at O0 and O2. Its
+[device comparison](docs/network/PHY-PWDET-VALIDATION.md) records guarded
+reference vectors, the sixteen-byte ROM sample-buffer contract, RX recovery,
+ordinary traffic and group-key rotation. ROM ADC/conversion callbacks and
+wider RF calibration remain dependencies; historical packet gaps remain open.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
