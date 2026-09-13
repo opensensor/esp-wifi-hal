@@ -107,6 +107,13 @@ with 414,480 original-instruction cases at two optimization levels. The
 RX, ordinary traffic and group-key rotation results, preserving observed
 packet gaps and remaining RF/ROM dependencies.
 
+The [PHY debug replacement](docs/network/PHY-DEBUG.md) removes `phy_debug.o`,
+leaving **11 vendor PHY members** in the tested C3/S3 images. It supplies IQ
+conversion, bias reference and voltage calculation with 748,260 instruction
+cases at two optimization levels. Its
+[device comparison](docs/network/PHY-DEBUG-VALIDATION.md) includes guarded IQ
+vectors, callback observations and actual traffic results, including losses.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
