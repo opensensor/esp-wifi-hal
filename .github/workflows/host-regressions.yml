@@ -33,6 +33,8 @@ jobs:
         run: sh docs/network/tests/run-phy-lifecycle.sh
       - name: Compare PBUS programming to original instructions
         run: sh docs/network/tests/run-phy-pbus.sh
+      - name: Compare analog I2C setup to original instructions
+        run: sh docs/network/tests/run-phy-i2c.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
@@ -43,6 +45,8 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_lifecycle.py
           python3 docs/network/tests/test_audit_phy_pbus.py
           python3 -O docs/network/tests/test_audit_phy_pbus.py
+          python3 docs/network/tests/test_audit_phy_i2c.py
+          python3 -O docs/network/tests/test_audit_phy_i2c.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu

@@ -122,5 +122,19 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-pbus.a"), pbus).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-pbus");
+
+        let mut i2c = String::new();
+        for (original, suffix) in [
+            ("phy_get_i2c_data", "get_data"),
+            ("bias_reg_set", "bias"),
+            ("i2c_bbpll_set", "bbpll"),
+            ("phy_i2c_init2", "init2"),
+        ] {
+            i2c.push_str(&format!(
+                "EXTERN(__opensensor_i2c_{suffix});\n{original} = __opensensor_i2c_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-i2c.a"), i2c).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-i2c");
     }
 }

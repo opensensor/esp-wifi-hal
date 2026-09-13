@@ -80,6 +80,8 @@ mod phy_temperature;
 mod phy_lifecycle;
 #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
 mod phy_pbus;
+#[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+mod phy_i2c;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;
