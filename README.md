@@ -29,9 +29,11 @@ gain triggering, IQ-estimator control and saturation checking on both chips.
 [IQ conversion and correction](docs/network/PHY-RX-IQ.md) and
 [RF IQ orchestration](docs/network/PHY-RF-IQ.md) now also run in Rust, including
 tone sequencing, convergence, signed averaging and coefficient packing.
+[DC estimate selection and channel filling](docs/network/PHY-RX-DC.md) preserve
+live parameter gates, signed score thresholds and the C3 column-state behavior.
 Tested station images retain **two vendor PHY members: RX and TX calibration**;
-Six C3 / eight S3 RX routines remain, alongside TX calibration and ROM
-dependencies. The [paired validation report](docs/network/PHY-RF-IQ-VALIDATION.md)
+four C3 / six S3 RX routines remain, alongside TX calibration and ROM
+dependencies. The [paired validation report](docs/network/PHY-RX-DC-VALIDATION.md)
 records instruction comparisons, ownership, lifecycle/RX tests, reconnects,
 GTK rotation and actual packet counts. Earlier packet loss and latency limits
 remain open.

@@ -18,3 +18,17 @@ The C3 column-reset counterexample and signed-byte callback negative controls
 must continue to fail the deliberately incorrect models. Full original PC and
 conditional-edge coverage is required and trace digests are pinned. Future
 corpus changes must update expectations with an explicit review of the changes.
+
+The emitted C3 sort routine contains a redundant `14 < candidate` branch.
+`native_bounds.prove(program, start, end)` checks its infeasibility using finite
+abstract execution of the decoded function. It tracks a0/a1/s9, collapses
+unknown values and writes, takes both unknown branch outcomes, and preserves
+s9 across C ABI callbacks. The recorded native checks cover every instruction
+and every other edge. Starting the candidate at 15 or incrementing it by 3
+invalidates the proof. Both mutations and an unsupported control-flow opcode
+are rejected in all four C3 profiles. The [device report](../../PHY-RX-DC-VALIDATION.md) records profile hashes and
+proof results. This bound argument says nothing about analog or RF behavior.
+
+Four additional unit tests exercise this conservative bound checker, including
+a safe increment of two that still exits at 14. They run in normal and optimized
+Python alongside the nine contract tests in the existing host/CI script.
