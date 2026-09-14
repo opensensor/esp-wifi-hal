@@ -968,6 +968,106 @@ unsafe fn inspect_hw_freq(cycle: u32) {
     }
 }
 
+/// Observe register-member entries and immutable parameter snapshots after init.
+/// Does not call tone, IQ, AGC, RF switching or any register-programming helper.
+unsafe fn inspect_registers(cycle: u32) {
+    unsafe extern "C" {
+        static mut phy_param: u8;
+        static mut g_phyFuns: *const u8;
+        #[cfg_attr(feature = "esp32c3", link_name = "ram1_set_pbus_reg")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_set_pbus_reg")]
+        fn entry_0();
+        #[cfg_attr(feature = "esp32c3", link_name = "rom1_tx_paon_set")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_wifi_tx_dig_gain_reg")]
+        fn entry_1();
+        #[link_name = "btbb_wifi_bb_cfg2"]
+        fn entry_2();
+        #[link_name = "rx_agc_reg_opt"]
+        fn entry_3();
+        #[link_name = "rx_11b_opt"]
+        fn entry_4();
+        #[cfg_attr(feature = "esp32c3", link_name = "rom1_disable_wifi_agc")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_disable_wifi_agc")]
+        fn entry_5();
+        #[cfg_attr(feature = "esp32c3", link_name = "rom1_enable_wifi_agc")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_enable_wifi_agc")]
+        fn entry_6();
+        #[cfg_attr(feature = "esp32c3", link_name = "ram1_fe_i2c_reg_renew")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_fe_i2c_reg_renew")]
+        fn entry_7();
+        #[link_name = "phy_wifi_enable_set"]
+        fn entry_8();
+        #[link_name = "txiq_set_reg"]
+        fn entry_9();
+        #[link_name = "rxiq_set_reg"]
+        fn entry_10();
+        #[link_name = "start_tx_tone_step"]
+        fn entry_11();
+        #[link_name = "stop_tx_tone"]
+        fn entry_12();
+        #[cfg_attr(feature = "esp32c3", link_name = "rom1_set_noise_floor")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_set_noise_floor")]
+        fn entry_13();
+        #[link_name = "phy_freq_correct"]
+        fn entry_14();
+        #[link_name = "force_txrx_off"]
+        fn entry_15();
+    }
+    unsafe {
+        let entries = [
+            entry_0 as *const () as usize,
+            entry_1 as *const () as usize,
+            entry_2 as *const () as usize,
+            entry_3 as *const () as usize,
+            entry_4 as *const () as usize,
+            entry_5 as *const () as usize,
+            entry_6 as *const () as usize,
+            entry_7 as *const () as usize,
+            entry_8 as *const () as usize,
+            entry_9 as *const () as usize,
+            entry_10 as *const () as usize,
+            entry_11 as *const () as usize,
+            entry_12 as *const () as usize,
+            entry_13 as *const () as usize,
+            entry_14 as *const () as usize,
+            entry_15 as *const () as usize,
+        ];
+        for (operation, address) in entries.into_iter().enumerate() {
+            if operation < 9 {
+                assert!((0x40300000..0x40400000).contains(&address));
+            }
+            info!(
+                "stage=phy_reg_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let p = (&raw const phy_param).add(if cfg!(feature = "esp32s3") {
+            0x2ac
+        } else {
+            0x328
+        });
+        for index in 0..6 {
+            let value = p.add(index * 4).cast::<u32>().read_volatile();
+            info!(
+                "stage=phy_reg_param cycle={} index={} value={:#x} passive=true",
+                cycle, index, value
+            );
+        }
+        let slot = if cfg!(feature = "esp32s3") {
+            0x190
+        } else {
+            0x1b4
+        };
+        let table = (&raw const g_phyFuns).read_volatile();
+        let target = table.add(slot).cast::<usize>().read_volatile();
+        assert_ne!(target, 0);
+        info!(
+            "stage=phy_reg_slot cycle={} slot={:#x} target={:#x}",
+            cycle, slot, target
+        );
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -1024,6 +1124,7 @@ async fn main(_spawner: Spawner) {
             inspect_track(cycle);
             inspect_rfpll(cycle);
             inspect_hw_freq(cycle);
+            inspect_registers(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

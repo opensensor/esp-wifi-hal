@@ -87,10 +87,10 @@ def in_iram(body):
     return 0x40370000 <= start < start + body["symbol_size_bytes"] <= 0x403e0000
 
 
-def check_i2c(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False):
+def check_i2c(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False, reg_source=False):
     if expected not in ("vendor", "flash", "source"):
         raise ValueError("Expected I2C vendor, flash, or source")
-    pbus.check_pbus(base, symbols, "source", attribute_hash, api_source=api_source, feature_source=feature_source)
+    pbus.check_pbus(base, symbols, "source", attribute_hash, api_source=api_source, feature_source=feature_source,reg_source=reg_source)
     chip = base["chip"]
     inputs = base["allocations"]["libphy.a"]["inputs"]
     member_inputs = [row for row in inputs if row["member"] == "phy_i2c.o"]
@@ -155,7 +155,7 @@ def check_i2c(base, symbols, expected, attribute_hash, *, api_source=False, feat
             raise ValueError(f"Missing or changed I2C ROM reference: {name}")
 
 
-def audit(elf_path, map_path, label, expected, *, api_source=False, feature_source=False):
+def audit(elf_path, map_path, label, expected, *, api_source=False, feature_source=False, reg_source=False):
     from elftools.elf.elffile import ELFFile
 
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", label):
@@ -170,6 +170,7 @@ def audit(elf_path, map_path, label, expected, *, api_source=False, feature_sour
     names.update(pbus.SELECTED[chip])
     names.update(pbus.ALL_SOURCE_NAMES)
     names.update(pbus.RETAINED_FUNCTIONS)
+    if reg_source: names.add("__opensensor_reg_stop_tone")
     names.update(pbus.ROM_REFERENCES[chip])
     names.update(FLASH)
     names.update(IRAM[chip])
@@ -186,7 +187,7 @@ def audit(elf_path, map_path, label, expected, *, api_source=False, feature_sour
         symbols = temperature.inspect_symbols(ELFFile(stream), sorted(names))
     oracle = json.loads(lifecycle.ORACLE.read_text())["chips"][chip]
     attribute_hash = hashlib.sha256(bytes(oracle["attribute_bytes"])).hexdigest()
-    check_i2c(base, symbols, expected, attribute_hash, api_source=api_source, feature_source=feature_source)
+    check_i2c(base, symbols, expected, attribute_hash, api_source=api_source, feature_source=feature_source, reg_source=reg_source)
     phy = base["allocations"]["libphy.a"]
     member_inputs = [row for row in phy["inputs"] if row["member"] == "phy_i2c.o"]
     return {

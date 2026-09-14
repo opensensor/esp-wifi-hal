@@ -1,0 +1,16 @@
+{
+  "esp32c3": {
+    "source_revision": "be4e11d6ffb44e2847b3eb3bdf2df58c61a2be8d",
+    "elf_sha256": "c2e0c0c5206acf2a88d91b9d94949aa40b3c76a936ceaf920fc89e1aa6d16af6",
+    "map_sha256": "08b64313055dbc63739147efe8c8cf8cff9a04578ae7c62d1037463ad9125d64",
+    "fixture_sha256": "4818e4292c4859cc764e98845a009b2c7be4539ca2eb50a45bfba834d4da46fa",
+    "member": "phy_reg.o"
+  },
+  "esp32s3": {
+    "source_revision": "be4e11d6ffb44e2847b3eb3bdf2df58c61a2be8d",
+    "elf_sha256": "ae4f93cd89db3c12bddaf7e906e248cb1e583b196036902f358ee3954c23bfe0",
+    "map_sha256": "dec4b3396ad1f19542feb9d6b522c4c99d26d1b4cf3dca8b535c7087c6563c54",
+    "fixture_sha256": "4818e4292c4859cc764e98845a009b2c7be4539ca2eb50a45bfba834d4da46fa",
+    "member": "phy_reg.o"
+  }
+}

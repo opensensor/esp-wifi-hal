@@ -106,6 +106,56 @@ fn main() {
 
         // Redirect the PBUS member's internal save call as well as external
         // references and callback installation, then let section GC remove it.
+        let mut reg = String::new();
+        for (original, suffix) in [
+            if cfg!(feature = "esp32c3") {
+                ("ram1_set_pbus_reg", "pbus")
+            } else {
+                ("ram_set_pbus_reg", "pbus")
+            },
+            if cfg!(feature = "esp32c3") {
+                ("rom1_tx_paon_set", "paon")
+            } else {
+                ("ram_wifi_tx_dig_gain_reg", "digital_gain")
+            },
+            ("btbb_wifi_bb_cfg2", "btbb"),
+            ("rx_agc_reg_opt", "agc_options"),
+            ("rx_11b_opt", "options_11b"),
+            if cfg!(feature = "esp32c3") {
+                ("rom1_disable_wifi_agc", "disable_agc")
+            } else {
+                ("ram_disable_wifi_agc", "disable_agc")
+            },
+            if cfg!(feature = "esp32c3") {
+                ("rom1_enable_wifi_agc", "enable_agc")
+            } else {
+                ("ram_enable_wifi_agc", "enable_agc")
+            },
+            if cfg!(feature = "esp32c3") {
+                ("ram1_fe_i2c_reg_renew", "renew")
+            } else {
+                ("ram_fe_i2c_reg_renew", "renew")
+            },
+            ("phy_wifi_enable_set", "wifi_enable"),
+            ("txiq_set_reg", "tx_iq"),
+            ("rxiq_set_reg", "rx_iq"),
+            ("start_tx_tone_step", "start_tone"),
+            ("stop_tx_tone", "stop_tone"),
+            if cfg!(feature = "esp32c3") {
+                ("rom1_set_noise_floor", "noise_floor")
+            } else {
+                ("ram_set_noise_floor", "noise_floor")
+            },
+            ("phy_freq_correct", "frequency_correct"),
+            ("force_txrx_off", "force_off"),
+        ] {
+            reg.push_str(&format!(
+                "EXTERN(__opensensor_reg_{suffix});\n{original} = __opensensor_reg_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-reg.a"), reg).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-reg");
+
         let mut pbus = String::new();
         for (original, suffix) in [
             ("txcal_debuge_mode", "debug_mode"),

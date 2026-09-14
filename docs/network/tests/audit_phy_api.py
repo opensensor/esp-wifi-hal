@@ -62,10 +62,10 @@ def check_api(base,symbols,expected,*,hw_freq_source=False):
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained API helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected,*,feature_source=False,hw_freq_source=False):
+def audit(elf_path,map_path,label,expected,*,feature_source=False,hw_freq_source=False,reg_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=i2c.audit(elf_path,map_path,label,'source',api_source=expected=='source',feature_source=feature_source)
+    prior=i2c.audit(elf_path,map_path,label,'source',api_source=expected=='source',feature_source=feature_source,reg_source=reg_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|{'__opensensor_hw_freq_initialize'}
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(names))

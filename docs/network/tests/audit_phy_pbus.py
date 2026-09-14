@@ -56,7 +56,7 @@ BASELINE = {
 }
 
 
-def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False):
+def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False, reg_source=False):
     if expected not in ("source", "vendor"):
         raise ValueError("Expected PBUS source or vendor")
     lifecycle.check_lifecycle(base, symbols, "lifecycle", attribute_hash, api_source=api_source, feature_source=feature_source)
@@ -92,7 +92,18 @@ def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False, fea
             rows = [row for row in pbus_inputs if row["section"] == section]
             if len(rows) != 1 or rows[0]["size_bytes"] != size:
                 raise ValueError(f"Missing or changed vendor PBUS table input: {section}")
+    if reg_source and expected != "source":
+        raise ValueError("Register replacement requires PBUS source")
     for name in RETAINED_FUNCTIONS:
+        if reg_source and name == "stop_tx_tone":
+            body = temperature.require_body(symbols, "__opensensor_reg_stop_tone")
+            if not lifecycle.alias_matches(symbols.get(name), body, executable=True):
+                raise ValueError("Incorrect register helper alias: " + name)
+            if any(temperature.overlaps(row, body) for row in inputs):
+                raise ValueError("Register helper overlaps vendor input")
+            if temperature.original_sections(inputs, name):
+                raise ValueError("Original register helper still allocated")
+            continue
         symbol = temperature.require_body(symbols, name)
         if not any(temperature.contains(row, symbol) for row in inputs):
             raise ValueError(f"Retained PBUS helper lacks vendor input: {name}")
