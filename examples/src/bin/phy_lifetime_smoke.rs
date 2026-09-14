@@ -607,6 +607,113 @@ unsafe fn inspect_analog(cycle: u32) {
     }
 }
 
+/// Observe the installed tracking entry points and normal calibration state.
+/// Only the completed offset path is called; no additional tracking is scheduled.
+unsafe fn inspect_track(cycle: u32) {
+    unsafe extern "C" {
+        static mut phy_param: u8;
+        static mut g_phyFuns: *const u8;
+        fn txpwr_offset();
+        #[cfg(feature = "esp32c3")]
+        fn rom2_wait_hw_freq_busy();
+        #[cfg(feature = "esp32c3")]
+        fn rom2_ulp_ext_code_set(first: u32, second: u32);
+        #[cfg(feature = "esp32c3")]
+        fn rom2_ulp_code_track(debug: u32);
+        #[cfg(feature = "esp32c3")]
+        fn ram2_rfpll_cap_track(debug: u32);
+        #[cfg(feature = "esp32c3")]
+        fn rom1_txpwr_cal_track(radio: u32, apply: u32, debug: u32);
+        #[cfg(feature = "esp32c3")]
+        fn rfcal_track(first: u32, second: u32);
+        #[cfg(feature = "esp32s3")]
+        fn wait_hw_freq_busy();
+        #[cfg(feature = "esp32s3")]
+        fn ulp_ext_code_set(first: u32, second: u32);
+        #[cfg(feature = "esp32s3")]
+        fn ulp_code_track(debug: u32);
+        #[cfg(feature = "esp32s3")]
+        fn rfpll_cap_track(debug: u32);
+        #[cfg(feature = "esp32s3")]
+        fn ram_txpwr_cal_track(radio: u32, apply: u32, debug: u32);
+        #[cfg(feature = "esp32s3")]
+        fn ram_wifi_track_tx_power(first: u32, second: u32);
+        #[cfg(feature = "esp32s3")]
+        fn ram_bt_track_tx_power(first: u32, second: u32);
+    }
+    unsafe {
+        let param = (&raw const phy_param).cast::<u8>();
+        let flags = param.add(0x120).cast::<u32>().read_volatile();
+        assert_ne!(
+            flags & (1 << 22),
+            0,
+            "Normal voltage offset did not complete"
+        );
+        let packed = param.add(0x200).cast::<u32>().read_volatile();
+        txpwr_offset();
+        assert_eq!(param.add(0x120).cast::<u32>().read_volatile(), flags);
+        assert_eq!(param.add(0x200).cast::<u32>().read_volatile(), packed);
+        let current = param.add(0x92).cast::<i16>().read_volatile();
+        let previous = param.add(0x94).cast::<i16>().read_volatile();
+        let power_previous = param.add(0x96).cast::<i16>().read_volatile();
+        info!(
+            "stage=phy_track cycle={} flags={:#x} packed={:#x} current={} previous={} power_previous={} ulp_base={} ulp_current={} early_return_unchanged=true",
+            cycle,
+            flags,
+            packed,
+            current,
+            previous,
+            power_previous,
+            param.add(0x9f).read_volatile(),
+            param.add(0xa0).read_volatile()
+        );
+        #[cfg(feature = "esp32c3")]
+        let entries = [
+            (0, rom2_wait_hw_freq_busy as *const () as usize),
+            (1, rom2_ulp_ext_code_set as *const () as usize),
+            (2, rom2_ulp_code_track as *const () as usize),
+            (3, ram2_rfpll_cap_track as *const () as usize),
+            (4, rom1_txpwr_cal_track as *const () as usize),
+            (5, txpwr_offset as *const () as usize),
+            (6, rfcal_track as *const () as usize),
+        ];
+        #[cfg(feature = "esp32s3")]
+        let entries = [
+            (0, wait_hw_freq_busy as *const () as usize),
+            (1, ulp_ext_code_set as *const () as usize),
+            (2, ulp_code_track as *const () as usize),
+            (3, rfpll_cap_track as *const () as usize),
+            (4, ram_txpwr_cal_track as *const () as usize),
+            (5, txpwr_offset as *const () as usize),
+            (7, ram_wifi_track_tx_power as *const () as usize),
+            (8, ram_bt_track_tx_power as *const () as usize),
+        ];
+        for (operation, address) in entries {
+            info!(
+                "stage=phy_track_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        #[cfg(feature = "esp32c3")]
+        let slots = [
+            0x100, 0x28, 0x1ac, 0x1b4, 0x1bc, 0x228, 0x224, 0x118, 0x8, 0xc,
+        ];
+        #[cfg(feature = "esp32s3")]
+        let slots = [
+            0xec, 0x28, 0x188, 0x190, 0x198, 0x204, 0x200, 0x194, 0x104, 0x240, 0x264, 0x270, 0x268,
+        ];
+        for slot in slots {
+            let table = (&raw const g_phyFuns).read_volatile();
+            let target = table.add(slot).cast::<usize>().read_volatile();
+            assert_ne!(target, 0);
+            info!(
+                "stage=phy_track_slot cycle={} slot={:#x} target={:#x}",
+                cycle, slot, target
+            );
+        }
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -660,6 +767,7 @@ async fn main(_spawner: Spawner) {
             inspect_debug(cycle);
             inspect_pwdet(cycle);
             inspect_analog(cycle);
+            inspect_track(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

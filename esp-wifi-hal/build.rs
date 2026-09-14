@@ -262,5 +262,35 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-analog.a"), analog).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-analog");
+        let entries = if cfg!(feature = "esp32c3") {
+            vec![
+                ("rom2_wait_hw_freq_busy", "wait"),
+                ("rom2_ulp_ext_code_set", "ulp_set"),
+                ("rom2_ulp_code_track", "ulp"),
+                ("ram2_rfpll_cap_track", "pll"),
+                ("rom1_txpwr_cal_track", "power"),
+                ("txpwr_offset", "offset"),
+                ("rfcal_track", "rfcal"),
+            ]
+        } else {
+            vec![
+                ("wait_hw_freq_busy", "wait"),
+                ("ulp_ext_code_set", "ulp_set"),
+                ("ulp_code_track", "ulp"),
+                ("rfpll_cap_track", "pll"),
+                ("ram_txpwr_cal_track", "power"),
+                ("txpwr_offset", "offset"),
+                ("ram_wifi_track_tx_power", "wifi"),
+                ("ram_bt_track_tx_power", "bt"),
+            ]
+        };
+        let mut track = String::new();
+        for (original, suffix) in entries {
+            track.push_str(&format!(
+                "EXTERN(__opensensor_track_{suffix});\n{original} = __opensensor_track_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-track.a"), track).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-track");
     }
 }

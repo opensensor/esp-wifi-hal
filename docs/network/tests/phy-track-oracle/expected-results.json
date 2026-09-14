@@ -1,0 +1,33 @@
+{
+  "esp32c3": {
+    "cases": 238658,
+    "operations": {
+      "0": 5250,
+      "1": 5058,
+      "2": 137154,
+      "3": 6114,
+      "4": 72482,
+      "5": 6678,
+      "6": 5922
+    },
+    "busy_prefix_cases": 2,
+    "case_stream_sha256": "152c2116d5b3ff3a3881e6f0d7456d65c89f37e4be88dd35fd2f7839382a683e",
+    "fixture_sha256": "db7af76f2019c142fff2447eedb7f63640eae0c7b646744793fd0454dc8bcebf"
+  },
+  "esp32s3": {
+    "cases": 244580,
+    "operations": {
+      "0": 5250,
+      "1": 5058,
+      "2": 137154,
+      "3": 6114,
+      "4": 72482,
+      "5": 6678,
+      "7": 5922,
+      "8": 5922
+    },
+    "busy_prefix_cases": 2,
+    "case_stream_sha256": "c9f8894e0097e771d23b480e4bbe0a3984cb6c715db69264ac0bf79d73b17399",
+    "fixture_sha256": "3dcc4f23be33cb7349b2564dbd2a6e5bd708ff0afeb05c8ceecf9e05129b17e0"
+  }
+}
