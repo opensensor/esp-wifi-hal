@@ -1,0 +1,71 @@
+{
+  "esp32c3": {
+    "functions": [
+      "rxiq_get_mis",
+      "rxiq_cover_mg_mp"
+    ],
+    "symbols": [
+      "rxiq_get_mis",
+      "rxiq_cover_mg_mp",
+      "rxiq_set_reg",
+      "phy_printf",
+      "__divdi3",
+      "g_phyFuns"
+    ],
+    "helpers": [
+      "rxiq_set_reg",
+      "phy_printf",
+      "__divdi3",
+      "g_phyFuns"
+    ],
+    "readonly": [],
+    "logs": [
+      {
+        "address": "0x3c00a40c",
+        "bytes": "25642c2025642d25642c2000",
+        "sha256": "f4a76038875d12cca4d6c3a298a48112e8b26323f774e69e71c1b319d7579545",
+        "instruction_provenance": [
+          "42041282: 3c00a537 lui a0,0x3c00a",
+          "42041286: 40c50513 addi a0,a0,1036"
+        ],
+        "unchanged_from_initialization_baseline": true
+      }
+    ],
+    "elf_sha256": "76c95ca97e3e3a401590d930173d3da2d4fd3e4cd534d56b2dce1bcdf63e53bf",
+    "map_sha256": "e8872c0683f27ee8ab6044f305744a7f4d1b0eb55ec451a70f2c927de7f18afd"
+  },
+  "esp32s3": {
+    "functions": [
+      "rxiq_get_mis",
+      "rxiq_cover_mg_mp"
+    ],
+    "symbols": [
+      "rxiq_get_mis",
+      "rxiq_cover_mg_mp",
+      "rxiq_set_reg",
+      "phy_printf",
+      "__divdi3",
+      "g_phyFuns"
+    ],
+    "helpers": [
+      "rxiq_set_reg",
+      "phy_printf",
+      "__divdi3",
+      "g_phyFuns"
+    ],
+    "readonly": [],
+    "logs": [
+      {
+        "address": "0x3c004d90",
+        "bytes": "25642c2025642d25642c2000",
+        "sha256": "f4a76038875d12cca4d6c3a298a48112e8b26323f774e69e71c1b319d7579545",
+        "instruction_provenance": [
+          "4203ee65: ffbda1 l32r a10, 4203ed5c"
+        ],
+        "unchanged_from_initialization_baseline": true
+      }
+    ],
+    "elf_sha256": "e6bf3b1aca5fb2a60943a53f5aecfa653caed4fd0d06c2684282bb7acd6f3e93",
+    "map_sha256": "532dbb0c592bb51abc2053cfcc0f8829b677acdb492dd3f1465457cd24699250"
+  }
+}

@@ -63,6 +63,8 @@ jobs:
         run: sh docs/network/tests/run-phy-init.sh
       - name: Check receive saturation and IQ-estimator controls
         run: sh docs/network/tests/run-phy-rx-controls.sh
+      - name: Check receive IQ conversion and correction
+        run: sh docs/network/tests/run-phy-rx-iq.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
@@ -103,6 +105,8 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_init.py
           python3 docs/network/tests/test_audit_phy_rx_controls.py
           python3 -O docs/network/tests/test_audit_phy_rx_controls.py
+          python3 docs/network/tests/test_audit_phy_rx_iq.py
+          python3 -O docs/network/tests/test_audit_phy_rx_iq.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu
