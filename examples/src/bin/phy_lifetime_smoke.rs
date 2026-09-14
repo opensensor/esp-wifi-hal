@@ -889,6 +889,85 @@ unsafe fn inspect_rfpll(cycle: u32) {
     }
 }
 
+/// Observe hardware-frequency entry placement and state after normal PHY init.
+/// This probe neither starts a busy wait nor programs frequency memory.
+unsafe fn inspect_hw_freq(cycle: u32) {
+    unsafe extern "C" {
+        static mut phy_param: u8;
+        static mut g_phyFuns: *const u8;
+        fn wait_freq_set_busy();
+        #[cfg_attr(feature = "esp32c3", link_name = "ram1_phy_dis_hw_set_freq")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_phy_dis_hw_set_freq")]
+        fn disable();
+        #[cfg_attr(feature = "esp32c3", link_name = "rom1_phy_en_hw_set_freq")]
+        #[cfg_attr(feature = "esp32s3", link_name = "ram_phy_en_hw_set_freq")]
+        fn enable();
+        fn wr_rf_freq_mem();
+        fn freq_i2c_write_set();
+        #[cfg_attr(feature = "esp32c3", link_name = "rom2_pll_cap_mem_update")]
+        #[cfg_attr(feature = "esp32s3", link_name = "pll_cap_mem_update")]
+        fn cap_memory();
+        fn get_rf_freq_init();
+        fn freq_get_i2c_data();
+        fn freq_i2c_data_write();
+        fn set_chan_freq_hw_init();
+        fn set_chan_freq_sw_start();
+    }
+    unsafe {
+        let param = &raw const phy_param;
+        let flags = param.add(0x120).cast::<u32>().read_volatile();
+        let bias = param.add(0xde).cast::<u16>().read_volatile();
+        let offset = param.add(0xe2).cast::<i16>().read_volatile();
+        let saved = param
+            .add(if cfg!(feature = "esp32s3") {
+                0x2aa
+            } else {
+                0x326
+            })
+            .cast::<u16>()
+            .read_volatile();
+        info!(
+            "stage=phy_hw_freq cycle={} flags={:#x} bias={} offset={} saved={} passive=true",
+            cycle, flags, bias, offset, saved
+        );
+        let entries = [
+            wait_freq_set_busy as *const () as usize,
+            disable as *const () as usize,
+            enable as *const () as usize,
+            wr_rf_freq_mem as *const () as usize,
+            freq_i2c_write_set as *const () as usize,
+            cap_memory as *const () as usize,
+            get_rf_freq_init as *const () as usize,
+            freq_get_i2c_data as *const () as usize,
+            freq_i2c_data_write as *const () as usize,
+            set_chan_freq_hw_init as *const () as usize,
+            set_chan_freq_sw_start as *const () as usize,
+        ];
+        for (operation, address) in entries.into_iter().enumerate() {
+            if operation < 3 {
+                assert!((0x40300000..0x40400000).contains(&address));
+            }
+            info!(
+                "stage=phy_hw_freq_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        #[cfg(feature = "esp32c3")]
+        let slots = [0x28, 0x114, 0x1ac, 0x1b8, 0x1bc];
+        #[cfg(feature = "esp32s3")]
+        let slots = [0x28, 0x100, 0x188, 0x194, 0x198, 0x20c];
+        for slot in slots {
+            let table = (&raw const g_phyFuns).read_volatile();
+            let target = table.add(slot).cast::<usize>().read_volatile();
+            assert_ne!(target, 0);
+            info!(
+                "stage=phy_hw_freq_slot cycle={} slot={:#x} target={:#x}",
+                cycle, slot, target
+            );
+        }
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -944,6 +1023,7 @@ async fn main(_spawner: Spawner) {
             inspect_analog(cycle);
             inspect_track(cycle);
             inspect_rfpll(cycle);
+            inspect_hw_freq(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

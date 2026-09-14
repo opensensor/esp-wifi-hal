@@ -1,0 +1,310 @@
+{
+  "esp32c3": {
+    "source_revision": "683a5468474e07b40dd801fb9eb12797bdb3dde1",
+    "elf_sha256": "6fc83d9cba67c1fd3094739798a61e4890c2cf50ab720a74f2f26df8a10de4f8",
+    "map_sha256": "2a9458a23259f8736647cd069fe164d6f931eb2e60671ec3f0a4dd14f6c7fca4",
+    "member": "phy_hw_freq.o",
+    "allocated_bytes": 3036,
+    "inputs": [
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".iram1",
+        "address": "0x40381eee",
+        "size_bytes": 64,
+        "output_section": ".rwtext.wifi"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".rodata.freq_i2c_write_set",
+        "address": "0x3c009fb8",
+        "size_bytes": 36,
+        "output_section": ".rodata"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".rodata.freq_get_i2c_data",
+        "address": "0x3c009fdc",
+        "size_bytes": 40,
+        "output_section": ".rodata"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.wr_rf_freq_mem",
+        "address": "0x4203ed64",
+        "size_bytes": 86,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.freq_i2c_write_set",
+        "address": "0x4203edba",
+        "size_bytes": 1328,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.rom2_pll_cap_mem_update",
+        "address": "0x4203f2ea",
+        "size_bytes": 112,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.get_rf_freq_init",
+        "address": "0x4203f35a",
+        "size_bytes": 400,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.freq_get_i2c_data",
+        "address": "0x4203f4ea",
+        "size_bytes": 566,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.freq_i2c_data_write",
+        "address": "0x4203f720",
+        "size_bytes": 60,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.set_chan_freq_hw_init",
+        "address": "0x4203f75c",
+        "size_bytes": 158,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.set_chan_freq_sw_start",
+        "address": "0x4203f7fa",
+        "size_bytes": 186,
+        "output_section": ".text"
+      }
+    ],
+    "functions": [
+      {
+        "name": "wait_freq_set_busy",
+        "address": "0x40381eee",
+        "size_bytes": 14,
+        "body_sha256": "b8c431dd879f1626b4b39deec377d30319fbd28ab0adfb6a1b0555086c39932a"
+      },
+      {
+        "name": "ram1_phy_dis_hw_set_freq",
+        "address": "0x40381efc",
+        "size_bytes": 28,
+        "body_sha256": "274434ab5a1bb605fa2b326bfeeed6e95dfbb4715828911e10251176fb42dd84"
+      },
+      {
+        "name": "rom1_phy_en_hw_set_freq",
+        "address": "0x40381f18",
+        "size_bytes": 22,
+        "body_sha256": "c1cf6451dc818ea538ad0dbd8acee4c515c7b4a42ce6558b1642f5c063d4ddb0"
+      },
+      {
+        "name": "wr_rf_freq_mem",
+        "address": "0x4203ed64",
+        "size_bytes": 86,
+        "body_sha256": "f9020c74011a749de180435aae529905e06113371bcacbd4380456cf98e2f1a8"
+      },
+      {
+        "name": "freq_i2c_write_set",
+        "address": "0x4203edba",
+        "size_bytes": 1328,
+        "body_sha256": "bd4d54cb6d1d4f8b055941094504496499e7cd0d5a18ab1a5d18e71c05b64002"
+      },
+      {
+        "name": "rom2_pll_cap_mem_update",
+        "address": "0x4203f2ea",
+        "size_bytes": 112,
+        "body_sha256": "a14e06f25f155e36a73baef34a035d7fca2a63ad8cf278678e738d0ef7cae60e"
+      },
+      {
+        "name": "get_rf_freq_init",
+        "address": "0x4203f35a",
+        "size_bytes": 400,
+        "body_sha256": "b611fc5cb03b5ade87b6383d6936af2d734ffa5675d5915aa82b78036f6eb16f"
+      },
+      {
+        "name": "freq_get_i2c_data",
+        "address": "0x4203f4ea",
+        "size_bytes": 566,
+        "body_sha256": "53eb73af882e9bbccd551bb37b361d92ca1fcbd85c7179c321a5b5e00db992db"
+      },
+      {
+        "name": "freq_i2c_data_write",
+        "address": "0x4203f720",
+        "size_bytes": 60,
+        "body_sha256": "09c14b2727ce205b3f9d1901639eee6bf1c01067ace0f16226d71491dd8e32f6"
+      },
+      {
+        "name": "set_chan_freq_hw_init",
+        "address": "0x4203f75c",
+        "size_bytes": 158,
+        "body_sha256": "5b7005f5e2b5e176103b936760d3536316ec648e13da416d15174c98182147af"
+      },
+      {
+        "name": "set_chan_freq_sw_start",
+        "address": "0x4203f7fa",
+        "size_bytes": 186,
+        "body_sha256": "e80953488218119d1823f868307113ee5c3a12a839979501c17fdb29ba7cff4f"
+      }
+    ]
+  },
+  "esp32s3": {
+    "source_revision": "683a5468474e07b40dd801fb9eb12797bdb3dde1",
+    "elf_sha256": "4ff3660a7b1b1f146fa0a77f93727f4388477ef97e20c1746b1c8d7c58148ba2",
+    "map_sha256": "3bfb89c2633a31c9851927c6ca2a49b5a730b5408e3084041120a80b7697fd45",
+    "member": "phy_hw_freq.o",
+    "allocated_bytes": 3110,
+    "inputs": [
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".iram1",
+        "address": "0x4037afc0",
+        "size_bytes": 92,
+        "output_section": ".rwtext.wifi"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".rodata.freq_i2c_write_set",
+        "address": "0x3c00a8b4",
+        "size_bytes": 36,
+        "output_section": ".rodata"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".rodata.freq_get_i2c_data",
+        "address": "0x3c00a8d8",
+        "size_bytes": 40,
+        "output_section": ".rodata"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.wr_rf_freq_mem",
+        "address": "0x4203c514",
+        "size_bytes": 95,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.freq_i2c_write_set",
+        "address": "0x4203c574",
+        "size_bytes": 1512,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.pll_cap_mem_update",
+        "address": "0x4203cb5c",
+        "size_bytes": 132,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.get_rf_freq_init",
+        "address": "0x4203cbe0",
+        "size_bytes": 338,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.freq_get_i2c_data",
+        "address": "0x4203cd34",
+        "size_bytes": 419,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.freq_i2c_data_write",
+        "address": "0x4203ced8",
+        "size_bytes": 70,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.set_chan_freq_hw_init",
+        "address": "0x4203cf20",
+        "size_bytes": 166,
+        "output_section": ".text"
+      },
+      {
+        "member": "phy_hw_freq.o",
+        "section": ".text.set_chan_freq_sw_start",
+        "address": "0x4203cfc8",
+        "size_bytes": 210,
+        "output_section": ".text"
+      }
+    ],
+    "functions": [
+      {
+        "name": "wait_freq_set_busy",
+        "address": "0x4037afc4",
+        "size_bytes": 16,
+        "body_sha256": "e2510033ef89cd70c4694ca32a518db55aa6cad846c88271bd4eb7fe7d1383d9"
+      },
+      {
+        "name": "ram_phy_en_hw_set_freq",
+        "address": "0x4037afdc",
+        "size_bytes": 24,
+        "body_sha256": "ba363633f93d6ee4655d218c45e386db60dcbd70f50addc4248e2c4eaec39a28"
+      },
+      {
+        "name": "ram_phy_dis_hw_set_freq",
+        "address": "0x4037affc",
+        "size_bytes": 32,
+        "body_sha256": "3a96e32494042d20683c032f57983d4fdf44f9606e5c0dcefcd1a24946be4bdb"
+      },
+      {
+        "name": "wr_rf_freq_mem",
+        "address": "0x4203c514",
+        "size_bytes": 95,
+        "body_sha256": "e6f8940a819a6bba89725109005a2756e764dac231c0c556ad288c6abd090e50"
+      },
+      {
+        "name": "freq_i2c_write_set",
+        "address": "0x4203c5e0",
+        "size_bytes": 1404,
+        "body_sha256": "e1a5c580f7e3d7434576df022d620f8dd77b87e47f3326b6e3a19aa8a201786b"
+      },
+      {
+        "name": "pll_cap_mem_update",
+        "address": "0x4203cb60",
+        "size_bytes": 128,
+        "body_sha256": "d7825cb051b5a52e7d7206d5929076fd8566a22f8566b2afa3713f9c974954ee"
+      },
+      {
+        "name": "get_rf_freq_init",
+        "address": "0x4203cbe8",
+        "size_bytes": 330,
+        "body_sha256": "f27ea14c1bbdb5998dd15fbcfe8f8684c3c89cb3595f880dbe8bddc22eb644c8"
+      },
+      {
+        "name": "freq_get_i2c_data",
+        "address": "0x4203cd3c",
+        "size_bytes": 411,
+        "body_sha256": "8c4db825c1b044f925a5765a0c82b38cbd7ab521d227988ffca57b2932a5e177"
+      },
+      {
+        "name": "freq_i2c_data_write",
+        "address": "0x4203ced8",
+        "size_bytes": 70,
+        "body_sha256": "1cfabc4ea3dcc792e0566802d59b7b02eddf865c59355ccee5c9fd2ee539722a"
+      },
+      {
+        "name": "set_chan_freq_hw_init",
+        "address": "0x4203cf30",
+        "size_bytes": 150,
+        "body_sha256": "4e603804c9eb5d312ceefcf949af5edfe8ada36af081c254de244b2a5c5aca38"
+      },
+      {
+        "name": "set_chan_freq_sw_start",
+        "address": "0x4203cfd4",
+        "size_bytes": 198,
+        "body_sha256": "283cf140bda46e6821a091d3b4fb8bf0af8f81c6c79859886191137b4d8a5e48"
+      }
+    ]
+  }
+}

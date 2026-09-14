@@ -330,5 +330,36 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-rfpll.a"), rfpll).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-rfpll");
+        let mut entries = vec![
+            ("wait_freq_set_busy", "wait"),
+            ("wr_rf_freq_mem", "memory"),
+            ("freq_i2c_write_set", "write_i2c"),
+            ("get_rf_freq_init", "initialize"),
+            ("freq_get_i2c_data", "read_i2c"),
+            ("freq_i2c_data_write", "program_i2c"),
+            ("set_chan_freq_hw_init", "hardware_init"),
+            ("set_chan_freq_sw_start", "software_start"),
+        ];
+        if cfg!(feature = "esp32c3") {
+            entries.extend([
+                ("ram1_phy_dis_hw_set_freq", "disable"),
+                ("rom1_phy_en_hw_set_freq", "enable"),
+                ("rom2_pll_cap_mem_update", "cap_memory"),
+            ]);
+        } else {
+            entries.extend([
+                ("ram_phy_dis_hw_set_freq", "disable"),
+                ("ram_phy_en_hw_set_freq", "enable"),
+                ("pll_cap_mem_update", "cap_memory"),
+            ]);
+        }
+        let mut hw_freq = String::new();
+        for (original, suffix) in entries {
+            hw_freq.push_str(&format!(
+                "EXTERN(__opensensor_hw_freq_{suffix});\n{original} = __opensensor_hw_freq_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-hw-freq.a"), hw_freq).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-hw-freq");
     }
 }

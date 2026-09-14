@@ -149,6 +149,12 @@ instructions match 289,110 host cases at O0/O2; compiled firmware adds 6,456
 native case executions. The [paired report](docs/network/PHY-RFPLL-VALIDATION.md)
 records board trials and remaining limits.
 
+The [hardware-frequency replacement](docs/network/PHY-HW-FREQ.md) supplies all
+11 `phy_hw_freq.o` functions per chip in Rust. It preserves IRAM helpers,
+nine-argument I2C transport, frequency-memory packing and channel sequencing.
+The 2,860 host cases at O0/O2 reach every recorded instruction and branch edge;
+ownership checks also enforce the IRAM placement of the three small helpers.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).
