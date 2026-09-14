@@ -43,7 +43,7 @@ are pre-network-fix results; the reports retain the failures. See the
 
 Further work replaces direct AGC and low-rate PHY helpers in Rust on both chips
 and uses measured C3 slow-clock calibration. RF initialization/calibration,
-channel tuning, power tracking and internal PHY ROM dependencies remain external;
+channel tuning and internal PHY ROM dependencies remain partly external;
 see the [C3](docs/esp32c3/PHY-ROM.md) and [S3](docs/esp32s3/PHY-ROM.md) inventories.
 The [original dependency audit](docs/network/PHY-DEPENDENCIES.md) records exact
 allocated archive sizes and distinguishes direct ROM calls from installed RAM
@@ -56,7 +56,7 @@ printf support library from C source. Both the driver and its vendored
 archives retain the published 0.2.0 baseline. See the
 [combined source and device validation](docs/network/PHY-SOURCE-VALIDATION.md)
 for the remaining allocations, formatter ABI, RX recovery, PHY lifetime and
-station results. RF initialization and calibration are still vendor code.
+station results. Wider RF initialization and calibration still depend on vendor code.
 
 The [source PHY dispatcher](docs/network/PHY-DISPATCHER.md) replaces the
 C3/S3 RAM dispatch body while retaining its analog helpers and callback table.
@@ -124,14 +124,22 @@ ordinary traffic and group-key rotation. ROM ADC/conversion callbacks and
 wider RF calibration remain dependencies; historical packet gaps remain open.
 
 The [RC measurement/calibration replacement](docs/network/PHY-ANALOG.md)
-removes `phy_analog_cal.o`, leaving **nine vendor PHY members** in the tested
-C3/S3 images. It supplies ordered masked analog operations, calibration
+removes `phy_analog_cal.o`, leaving nine vendor PHY members at that milestone. It supplies ordered masked analog operations, calibration
 arithmetic and C3's writable divisor globals, with 541,656 original-instruction
 cases at O0 and O2. The [device comparison](docs/network/PHY-ANALOG-VALIDATION.md)
 records normal calibration, unchanged calibrated early returns, native ABI
 checks, RX recovery and paired WPA2/GTK traffic. ROM analog access and
 soft-double arithmetic remain dependencies; packet-loss investigations remain
 open.
+
+The [PHY tracking replacement](docs/network/PHY-TRACK.md) removes all allocated
+`phy_track.o` inputs, leaving **eight vendor PHY members** on C3/S3. Rust
+preserves busy polling, ULP/PLL/power tracking, voltage offset and chip-specific
+wrappers. Production passes 483,238 original-instruction cases at O0 and O2;
+native checks cover 60 emitted bodies across eight source profiles. The
+[paired device report](docs/network/PHY-TRACK-VALIDATION.md) records lifetime,
+RX, reconnects, GTK rotation and observed packet gaps. RF calibration/gain
+internals and ROM callbacks remain dependencies; packet-loss work remains open.
 
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
