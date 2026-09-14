@@ -195,6 +195,58 @@ fn main() {
         for (original, suffix) in tx_gain_names {
             reg.push_str(&format!("EXTERN(__opensensor_tx_gain_{suffix});\n{original} = __opensensor_tx_gain_{suffix};\n"));
         }
+        let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
+            &[
+                ("phy_get_romfunc_addr", "callbacks"),
+                ("rf_init", "rf"),
+                ("register_chipv7_phy_init_param", "init_param"),
+                ("phy_set_mac_data", "mac_data"),
+                ("phy_rfcal_data_sub", "transfer"),
+                ("rf_cal_data_recovery", "recovery"),
+                ("phy_rfcal_data_check_value", "check_value"),
+                ("rf_cal_data_backup", "backup"),
+                ("phy_rfcal_data_check", "check"),
+                ("rf_cal_level_check", "level"),
+                ("bb_init", "bb"),
+                ("register_chipv7_phy", "register"),
+                ("get_txcap_data", "txcap"),
+                ("ram1_phy_wakeup_init", "wakeup"),
+                ("ram1_phy_close_rf", "close"),
+            ]
+        } else {
+            &[
+                ("phy_get_romfunc_addr", "callbacks"),
+                ("rf_init", "rf"),
+                ("register_chipv7_phy_init_param", "init_param"),
+                ("phy_set_mac_data", "mac_data"),
+                ("phy_rfcal_data_sub", "transfer"),
+                ("rf_cal_data_recovery", "recovery"),
+                ("phy_rfcal_data_check_value", "check_value"),
+                ("rf_cal_data_backup", "backup"),
+                ("phy_rfcal_data_check", "check"),
+                ("bb_init", "bb"),
+                ("register_chipv7_phy", "register"),
+                ("pwr_limit_force", "power_limits"),
+                ("esp_phy_efuse_get_chip_ver_pkg", "package"),
+                ("get_chip_version", "chip_version"),
+                ("ram_phy_wakeup_init", "wakeup"),
+                ("ram_phy_close_rf", "close"),
+            ]
+        };
+        for (old, suffix) in init_names {
+            reg.push_str(&format!(
+                "EXTERN(__opensensor_init_{suffix});\n{old} = __opensensor_init_{suffix};\n"
+            ));
+        }
+        for (old, suffix) in [
+            ("phy_param", "parameters"),
+            ("chip7_phy_init_ctrl", "control"),
+            ("g_phyFuns", "table"),
+        ] {
+            reg.push_str(&format!(
+                "EXTERN(__opensensor_init_{suffix});\n{old} = __opensensor_init_{suffix};\n"
+            ));
+        }
         std::fs::write(out.join("libesp-wifi-hal-reg.a"), reg).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-reg");
 

@@ -1,0 +1,903 @@
+{
+  "esp32c3": {
+    "functions": {
+      "0": {
+        "name": "phy_get_romfunc_addr",
+        "arity": 0,
+        "returns": false
+      },
+      "1": {
+        "name": "rf_init",
+        "arity": 0,
+        "returns": false
+      },
+      "2": {
+        "name": "register_chipv7_phy_init_param",
+        "arity": 1,
+        "returns": false
+      },
+      "3": {
+        "name": "phy_set_mac_data",
+        "arity": 2,
+        "returns": false
+      },
+      "4": {
+        "name": "phy_rfcal_data_sub",
+        "arity": 2,
+        "returns": false
+      },
+      "5": {
+        "name": "rf_cal_data_recovery",
+        "arity": 1,
+        "returns": false
+      },
+      "6": {
+        "name": "phy_rfcal_data_check_value",
+        "arity": 3,
+        "returns": true
+      },
+      "7": {
+        "name": "rf_cal_data_backup",
+        "arity": 1,
+        "returns": false
+      },
+      "8": {
+        "name": "phy_rfcal_data_check",
+        "arity": 4,
+        "returns": true
+      },
+      "9": {
+        "name": "rf_cal_level_check",
+        "arity": 0,
+        "returns": false
+      },
+      "10": {
+        "name": "bb_init",
+        "arity": 0,
+        "returns": false
+      },
+      "11": {
+        "name": "register_chipv7_phy",
+        "arity": 3,
+        "returns": true
+      },
+      "12": {
+        "name": "get_txcap_data",
+        "arity": 0,
+        "returns": false
+      },
+      "16": {
+        "name": "ram1_phy_wakeup_init",
+        "arity": 0,
+        "returns": false
+      },
+      "17": {
+        "name": "ram1_phy_close_rf",
+        "arity": 0,
+        "returns": false
+      }
+    },
+    "symbol_ids": {
+      "bias_dreg_i2c_set": 0,
+      "bias_reg_set": 1,
+      "bt_tx_gain_init": 2,
+      "chip726_phyrom_version_num": 3,
+      "chip_v7_set_chan": 4,
+      "chip_v7_set_chan_offset": 5,
+      "freq_i2c_data_write": 6,
+      "get_iq_value": 7,
+      "get_temp_init": 8,
+      "i2c_bbpll_set": 9,
+      "memcpy": 10,
+      "memset": 11,
+      "phy_check_rx_sat": 12,
+      "phy_get_i2c_data": 13,
+      "phy_get_rf_cal_version": 14,
+      "phy_get_romfuncs": 15,
+      "phy_get_tsens_value": 16,
+      "phy_i2c_bbtop_wakeup": 17,
+      "phy_i2c_enter_critical": 18,
+      "phy_i2c_exit_critical": 18,
+      "phy_i2c_init2": 19,
+      "phy_rx_table_init": 20,
+      "phy_set_pwdet_power": 21,
+      "phy_set_tsens_power": 22,
+      "phy_wifi_enable_set": 23,
+      "pwdet_code_cal": 24,
+      "ram1_fe_i2c_reg_renew": 25,
+      "ram1_phy_dis_hw_set_freq": 26,
+      "ram1_set_pbus_reg": 27,
+      "ram1_wifi_set_tx_gain": 28,
+      "ram_iq_est_enable": 29,
+      "ram_pbus_force_mode": 30,
+      "ram_pkdet_vol_start": 31,
+      "rc_cal": 32,
+      "rfrx_sat_rst": 33,
+      "rom1_bt_get_tx_gain_new": 34,
+      "rom1_chip_i2c_readReg": 35,
+      "rom1_chip_i2c_writeReg": 36,
+      "rom1_disable_wifi_agc": 37,
+      "rom1_enable_wifi_agc": 38,
+      "rom1_get_i2c_hostid": 39,
+      "rom1_get_rate_fcc_index": 40,
+      "rom1_i2c_master_reset": 41,
+      "rom1_phy_en_hw_set_freq": 42,
+      "rom1_phy_i2c_init1": 43,
+      "rom1_read_sar2_code": 44,
+      "rom1_set_noise_floor": 45,
+      "rom1_tsens_temp_read": 46,
+      "rom1_tx_paon_set": 47,
+      "rom1_txpwr_cal_track": 48,
+      "rom1_wifi_get_tx_gain": 49,
+      "rom1_wifi_tx_dig_gain": 50,
+      "rom2_tsens_read_init1": 51,
+      "rom_agc_reg_init": 52,
+      "rom_bb_reg_init": 53,
+      "rom_bt_filter_reg": 54,
+      "rom_bt_tx_dig_gain": 55,
+      "rom_index_to_txbbgain": 56,
+      "rom_open_i2c_xpd": 57,
+      "rom_pbus_xpd_tx_on": 58,
+      "rom_phy_ant_init": 59,
+      "rom_phy_bbpll_cal": 60,
+      "rom_phy_param_addr": 61,
+      "rom_phy_reg_init": 62,
+      "rom_phy_xpd_rf": 63,
+      "rom_set_chan_reg": 64,
+      "rom_set_tx_dig_gain": 65,
+      "rom_set_txcap_reg": 66,
+      "rom_tsens_code_read": 67,
+      "rom_txbbgain_to_index": 68,
+      "rom_wifi_agc_sat_gain": 69,
+      "rom_write_txrate_power_offset": 70,
+      "rx_11b_opt": 71,
+      "set_chan_freq_hw_init": 72,
+      "set_pbus_mem": 73,
+      "set_rx_gain_table": 74,
+      "tx_cap_init": 75,
+      "tx_pwctrl_init": 76,
+      "txcal_gain_check": 77,
+      "txdc_cal_init": 78,
+      "txiq_cal_init": 79,
+      "txpwr_offset": 80,
+      "wait_freq_set_busy": 81
+    },
+    "helpers": {
+      "0": {
+        "name": "bias_dreg_i2c_set",
+        "address": "0x4038157e",
+        "arity": 1,
+        "returns": false
+      },
+      "1": {
+        "name": "bias_reg_set",
+        "address": "0x42030a46",
+        "arity": 1,
+        "returns": false
+      },
+      "2": {
+        "name": "bt_tx_gain_init",
+        "address": "0x4203345c",
+        "arity": 0,
+        "returns": false
+      },
+      "3": {
+        "name": "chip726_phyrom_version_num",
+        "address": "0x40001c34",
+        "arity": 0,
+        "returns": true
+      },
+      "4": {
+        "name": "chip_v7_set_chan",
+        "address": "0x42031740",
+        "arity": 2,
+        "returns": false
+      },
+      "5": {
+        "name": "chip_v7_set_chan_offset",
+        "address": "0x42031d26",
+        "arity": 1,
+        "returns": false
+      },
+      "6": {
+        "name": "freq_i2c_data_write",
+        "address": "0x42030230",
+        "arity": 0,
+        "returns": false
+      },
+      "7": {
+        "name": "get_iq_value",
+        "address": "0x4202fcc8",
+        "arity": 3,
+        "returns": false
+      },
+      "8": {
+        "name": "get_temp_init",
+        "address": "0x42033136",
+        "arity": 2,
+        "returns": false
+      },
+      "9": {
+        "name": "i2c_bbpll_set",
+        "address": "0x420308fe",
+        "arity": 0,
+        "returns": false
+      },
+      "10": {
+        "name": "memcpy",
+        "address": "0x40000358",
+        "arity": 3,
+        "returns": true
+      },
+      "11": {
+        "name": "memset",
+        "address": "0x40000354",
+        "arity": 3,
+        "returns": true
+      },
+      "12": {
+        "name": "phy_check_rx_sat",
+        "address": "0x4204214c",
+        "arity": 0,
+        "returns": false
+      },
+      "13": {
+        "name": "phy_get_i2c_data",
+        "address": "0x42030ae4",
+        "arity": 0,
+        "returns": false
+      },
+      "14": {
+        "name": "phy_get_rf_cal_version",
+        "address": "0x4202fbd6",
+        "arity": 0,
+        "returns": true
+      },
+      "15": {
+        "name": "phy_get_romfuncs",
+        "address": "0x400018fc",
+        "arity": 0,
+        "returns": true
+      },
+      "17": {
+        "name": "phy_i2c_bbtop_wakeup",
+        "address": "0x40381a3a",
+        "arity": 0,
+        "returns": false
+      },
+      "19": {
+        "name": "phy_i2c_init2",
+        "address": "0x42030b40",
+        "arity": 0,
+        "returns": false
+      },
+      "20": {
+        "name": "phy_rx_table_init",
+        "address": "0x420321fa",
+        "arity": 0,
+        "returns": false
+      },
+      "21": {
+        "name": "phy_set_pwdet_power",
+        "address": "0x4202b4d4",
+        "arity": 1,
+        "returns": false
+      },
+      "22": {
+        "name": "phy_set_tsens_power",
+        "address": "0x42033252",
+        "arity": 1,
+        "returns": false
+      },
+      "23": {
+        "name": "phy_wifi_enable_set",
+        "address": "0x40381e86",
+        "arity": 1,
+        "returns": false
+      },
+      "24": {
+        "name": "pwdet_code_cal",
+        "address": "0x42042c4c",
+        "arity": 0,
+        "returns": false
+      },
+      "25": {
+        "name": "ram1_fe_i2c_reg_renew",
+        "address": "0x40381dbc",
+        "arity": 0,
+        "returns": false
+      },
+      "32": {
+        "name": "rc_cal",
+        "address": "0x4202f8c6",
+        "arity": 0,
+        "returns": false
+      },
+      "33": {
+        "name": "rfrx_sat_rst",
+        "address": "0x42042120",
+        "arity": 1,
+        "returns": false
+      },
+      "41": {
+        "name": "rom1_i2c_master_reset",
+        "address": "0x40381484",
+        "arity": 0,
+        "returns": false
+      },
+      "43": {
+        "name": "rom1_phy_i2c_init1",
+        "address": "0x4038161e",
+        "arity": 0,
+        "returns": false
+      },
+      "46": {
+        "name": "rom1_tsens_temp_read",
+        "address": "0x4203322e",
+        "arity": 0,
+        "returns": false
+      },
+      "50": {
+        "name": "rom1_wifi_tx_dig_gain",
+        "address": "0x40381edc",
+        "arity": 1,
+        "returns": false
+      },
+      "51": {
+        "name": "rom2_tsens_read_init1",
+        "address": "0x420331a0",
+        "arity": 2,
+        "returns": false
+      },
+      "55": {
+        "name": "rom_bt_tx_dig_gain",
+        "address": "0x40001bb4",
+        "arity": 1,
+        "returns": false
+      },
+      "60": {
+        "name": "rom_phy_bbpll_cal",
+        "address": "0x40001bdc",
+        "arity": 1,
+        "returns": false
+      },
+      "61": {
+        "name": "rom_phy_param_addr",
+        "address": "0x40001be4",
+        "arity": 1,
+        "returns": false
+      },
+      "62": {
+        "name": "rom_phy_reg_init",
+        "address": "0x40001be8",
+        "arity": 0,
+        "returns": false
+      },
+      "64": {
+        "name": "rom_set_chan_reg",
+        "address": "0x40001bec",
+        "arity": 1,
+        "returns": false
+      },
+      "71": {
+        "name": "rx_11b_opt",
+        "address": "0x40381c5c",
+        "arity": 1,
+        "returns": false
+      },
+      "72": {
+        "name": "set_chan_freq_hw_init",
+        "address": "0x4202ff86",
+        "arity": 2,
+        "returns": false
+      },
+      "73": {
+        "name": "set_pbus_mem",
+        "address": "0x42030f36",
+        "arity": 0,
+        "returns": false
+      },
+      "74": {
+        "name": "set_rx_gain_table",
+        "address": "0x42032400",
+        "arity": 2,
+        "returns": false
+      },
+      "75": {
+        "name": "tx_cap_init",
+        "address": "0x42042dde",
+        "arity": 0,
+        "returns": false
+      },
+      "76": {
+        "name": "tx_pwctrl_init",
+        "address": "0x42043266",
+        "arity": 1,
+        "returns": false
+      },
+      "77": {
+        "name": "txcal_gain_check",
+        "address": "0x42033528",
+        "arity": 0,
+        "returns": false
+      },
+      "78": {
+        "name": "txdc_cal_init",
+        "address": "0x420424b0",
+        "arity": 4,
+        "returns": false
+      },
+      "79": {
+        "name": "txiq_cal_init",
+        "address": "0x42042b44",
+        "arity": 0,
+        "returns": false
+      },
+      "80": {
+        "name": "txpwr_offset",
+        "address": "0x42032aa4",
+        "arity": 1,
+        "returns": false
+      },
+      "81": {
+        "name": "wait_freq_set_busy",
+        "address": "0x40381562",
+        "arity": 0,
+        "returns": false
+      }
+    },
+    "slots": {
+      "388": 0,
+      "392": 1,
+      "552": 0,
+      "436": 4,
+      "212": 0,
+      "180": 0,
+      "292": 0,
+      "204": 0,
+      "352": 0,
+      "508": 0,
+      "216": 1,
+      "4": 0,
+      "548": 0,
+      "172": 0,
+      "468": 0,
+      "496": 1,
+      "488": 0,
+      "480": 0,
+      "472": 0,
+      "164": 1,
+      "256": 1,
+      "428": 3,
+      "224": 0
+    },
+    "version_state": 1070225784
+  },
+  "esp32s3": {
+    "functions": {
+      "0": {
+        "name": "phy_get_romfunc_addr",
+        "arity": 0,
+        "returns": false
+      },
+      "1": {
+        "name": "rf_init",
+        "arity": 0,
+        "returns": false
+      },
+      "2": {
+        "name": "register_chipv7_phy_init_param",
+        "arity": 1,
+        "returns": false
+      },
+      "3": {
+        "name": "phy_set_mac_data",
+        "arity": 2,
+        "returns": false
+      },
+      "4": {
+        "name": "phy_rfcal_data_sub",
+        "arity": 2,
+        "returns": false
+      },
+      "5": {
+        "name": "rf_cal_data_recovery",
+        "arity": 1,
+        "returns": false
+      },
+      "6": {
+        "name": "phy_rfcal_data_check_value",
+        "arity": 3,
+        "returns": true
+      },
+      "7": {
+        "name": "rf_cal_data_backup",
+        "arity": 1,
+        "returns": false
+      },
+      "8": {
+        "name": "phy_rfcal_data_check",
+        "arity": 4,
+        "returns": true
+      },
+      "10": {
+        "name": "bb_init",
+        "arity": 0,
+        "returns": false
+      },
+      "11": {
+        "name": "register_chipv7_phy",
+        "arity": 3,
+        "returns": true
+      },
+      "13": {
+        "name": "pwr_limit_force",
+        "arity": 1,
+        "returns": false
+      },
+      "14": {
+        "name": "esp_phy_efuse_get_chip_ver_pkg",
+        "arity": 0,
+        "returns": true
+      },
+      "15": {
+        "name": "get_chip_version",
+        "arity": 0,
+        "returns": false
+      },
+      "16": {
+        "name": "ram_phy_wakeup_init",
+        "arity": 0,
+        "returns": false
+      },
+      "17": {
+        "name": "ram_phy_close_rf",
+        "arity": 0,
+        "returns": false
+      }
+    },
+    "symbol_ids": {
+      "bias_reg_set": 0,
+      "bt_tx_gain_init": 1,
+      "chip_v7_set_chan": 2,
+      "chip_v7_set_chan_offset": 3,
+      "freq_i2c_data_write": 4,
+      "get_iq_value": 5,
+      "get_temp_init": 6,
+      "i2c_bbpll_set": 7,
+      "memcpy": 8,
+      "memset": 9,
+      "phy_2448m_spur_pwr": 10,
+      "phy_check_rx_sat": 11,
+      "phy_get_i2c_data": 12,
+      "phy_get_rf_cal_version": 13,
+      "phy_get_romfuncs": 14,
+      "phy_i2c_bbtop_wakeup": 15,
+      "phy_i2c_init2": 16,
+      "phy_rx_table_init": 17,
+      "phy_set_pwdet_power": 18,
+      "phy_set_tsens_power": 19,
+      "phy_set_tx_seed": 20,
+      "phy_wifi_enable_set": 21,
+      "pwdet_code_cal": 22,
+      "ram_bt_get_tx_gain": 23,
+      "ram_bt_set_tx_gain": 24,
+      "ram_bt_track_tx_power": 25,
+      "ram_chip_i2c_readReg": 26,
+      "ram_chip_i2c_writeReg": 27,
+      "ram_disable_wifi_agc": 28,
+      "ram_enable_wifi_agc": 29,
+      "ram_fe_i2c_reg_renew": 30,
+      "ram_get_i2c_hostid": 31,
+      "ram_i2c_master_reset": 32,
+      "ram_iq_est_enable": 33,
+      "ram_phy_dis_hw_set_freq": 34,
+      "ram_phy_en_hw_set_freq": 35,
+      "ram_phy_i2c_init1": 36,
+      "ram_pll_vol_cal": 37,
+      "ram_read_sar2_code": 38,
+      "ram_set_chan_cal_interp": 39,
+      "ram_set_noise_floor": 40,
+      "ram_set_pbus_reg": 41,
+      "ram_set_txcap_reg": 42,
+      "ram_temp_to_power": 43,
+      "ram_tsens_code_read": 44,
+      "ram_tsens_temp_read": 45,
+      "ram_txpwr_cal_track": 46,
+      "ram_wifi_get_tx_gain": 47,
+      "ram_wifi_set_tx_gain": 48,
+      "ram_wifi_track_tx_power": 49,
+      "ram_wifi_tx_dig_gain": 50,
+      "ram_write_pll_cap": 51,
+      "rc_cal": 52,
+      "rfrx_sat_rst": 53,
+      "rom_phy_param_addr": 54,
+      "rom_phy_reg_init": 55,
+      "rom_phy_xpd_rf": 56,
+      "rx_11b_opt": 57,
+      "set_chan_freq_hw_init": 58,
+      "set_pbus_mem": 59,
+      "set_rx_gain_table": 60,
+      "spur_coef_cfg_new": 61,
+      "tsens_read_init_new": 62,
+      "tx_cap_init": 63,
+      "tx_gain_set": 64,
+      "tx_pwctrl_init": 65,
+      "txdc_cal_init": 66,
+      "txiq_cal_init": 67,
+      "txpwr_offset": 68,
+      "wait_freq_set_busy": 69
+    },
+    "helpers": {
+      "0": {
+        "name": "bias_reg_set",
+        "address": "0x4202febc",
+        "arity": 1,
+        "returns": false
+      },
+      "1": {
+        "name": "bt_tx_gain_init",
+        "address": "0x42032758",
+        "arity": 0,
+        "returns": false
+      },
+      "2": {
+        "name": "chip_v7_set_chan",
+        "address": "0x42030adc",
+        "arity": 2,
+        "returns": false
+      },
+      "3": {
+        "name": "chip_v7_set_chan_offset",
+        "address": "0x42031014",
+        "arity": 1,
+        "returns": false
+      },
+      "4": {
+        "name": "freq_i2c_data_write",
+        "address": "0x4202f68c",
+        "arity": 0,
+        "returns": false
+      },
+      "5": {
+        "name": "get_iq_value",
+        "address": "0x42042260",
+        "arity": 3,
+        "returns": false
+      },
+      "6": {
+        "name": "get_temp_init",
+        "address": "0x4203248c",
+        "arity": 2,
+        "returns": false
+      },
+      "7": {
+        "name": "i2c_bbpll_set",
+        "address": "0x4202fdc0",
+        "arity": 0,
+        "returns": false
+      },
+      "8": {
+        "name": "memcpy",
+        "address": "0x400011f4",
+        "arity": 3,
+        "returns": true
+      },
+      "9": {
+        "name": "memset",
+        "address": "0x400011e8",
+        "arity": 3,
+        "returns": true
+      },
+      "10": {
+        "name": "phy_2448m_spur_pwr",
+        "address": "0x4203f968",
+        "arity": 1,
+        "returns": false
+      },
+      "11": {
+        "name": "phy_check_rx_sat",
+        "address": "0x4203fa98",
+        "arity": 0,
+        "returns": false
+      },
+      "12": {
+        "name": "phy_get_i2c_data",
+        "address": "0x4202ff34",
+        "arity": 0,
+        "returns": false
+      },
+      "13": {
+        "name": "phy_get_rf_cal_version",
+        "address": "0x42042254",
+        "arity": 0,
+        "returns": true
+      },
+      "14": {
+        "name": "phy_get_romfuncs",
+        "address": "0x40005c58",
+        "arity": 0,
+        "returns": true
+      },
+      "15": {
+        "name": "phy_i2c_bbtop_wakeup",
+        "address": "0x4037aaa4",
+        "arity": 0,
+        "returns": false
+      },
+      "16": {
+        "name": "phy_i2c_init2",
+        "address": "0x4203003c",
+        "arity": 0,
+        "returns": false
+      },
+      "17": {
+        "name": "phy_rx_table_init",
+        "address": "0x420315c0",
+        "arity": 0,
+        "returns": false
+      },
+      "18": {
+        "name": "phy_set_pwdet_power",
+        "address": "0x42042180",
+        "arity": 1,
+        "returns": false
+      },
+      "19": {
+        "name": "phy_set_tsens_power",
+        "address": "0x42032584",
+        "arity": 1,
+        "returns": false
+      },
+      "20": {
+        "name": "phy_set_tx_seed",
+        "address": "0x4202efb4",
+        "arity": 1,
+        "returns": false
+      },
+      "21": {
+        "name": "phy_wifi_enable_set",
+        "address": "0x4037aecc",
+        "arity": 1,
+        "returns": false
+      },
+      "22": {
+        "name": "pwdet_code_cal",
+        "address": "0x42040308",
+        "arity": 0,
+        "returns": false
+      },
+      "52": {
+        "name": "rc_cal",
+        "address": "0x4202ecd4",
+        "arity": 0,
+        "returns": false
+      },
+      "53": {
+        "name": "rfrx_sat_rst",
+        "address": "0x4203f900",
+        "arity": 1,
+        "returns": false
+      },
+      "54": {
+        "name": "rom_phy_param_addr",
+        "address": "0x40006324",
+        "arity": 1,
+        "returns": false
+      },
+      "55": {
+        "name": "rom_phy_reg_init",
+        "address": "0x40006330",
+        "arity": 0,
+        "returns": false
+      },
+      "57": {
+        "name": "rx_11b_opt",
+        "address": "0x4037ad08",
+        "arity": 1,
+        "returns": false
+      },
+      "58": {
+        "name": "set_chan_freq_hw_init",
+        "address": "0x4202f3f8",
+        "arity": 2,
+        "returns": false
+      },
+      "59": {
+        "name": "set_pbus_mem",
+        "address": "0x42030360",
+        "arity": 0,
+        "returns": false
+      },
+      "60": {
+        "name": "set_rx_gain_table",
+        "address": "0x420317f4",
+        "arity": 2,
+        "returns": false
+      },
+      "62": {
+        "name": "tsens_read_init_new",
+        "address": "0x4203250c",
+        "arity": 2,
+        "returns": false
+      },
+      "63": {
+        "name": "tx_cap_init",
+        "address": "0x4204044c",
+        "arity": 0,
+        "returns": false
+      },
+      "64": {
+        "name": "tx_gain_set",
+        "address": "0x42032794",
+        "arity": 0,
+        "returns": false
+      },
+      "65": {
+        "name": "tx_pwctrl_init",
+        "address": "0x420407b0",
+        "arity": 1,
+        "returns": false
+      },
+      "66": {
+        "name": "txdc_cal_init",
+        "address": "0x4203fd44",
+        "arity": 4,
+        "returns": false
+      },
+      "67": {
+        "name": "txiq_cal_init",
+        "address": "0x4204023c",
+        "arity": 0,
+        "returns": false
+      },
+      "68": {
+        "name": "txpwr_offset",
+        "address": "0x42031e24",
+        "arity": 1,
+        "returns": false
+      },
+      "69": {
+        "name": "wait_freq_set_busy",
+        "address": "0x4037a50c",
+        "arity": 0,
+        "returns": false
+      }
+    },
+    "slots": {
+      "352": 0,
+      "356": 1,
+      "516": 0,
+      "400": 4,
+      "200": 0,
+      "168": 0,
+      "556": 0,
+      "272": 0,
+      "548": 1,
+      "532": 1,
+      "192": 0,
+      "316": 0,
+      "472": 0,
+      "596": 0,
+      "204": 1,
+      "584": 0,
+      "588": 1,
+      "4": 0,
+      "512": 0,
+      "576": 1,
+      "600": 0,
+      "212": 0,
+      "160": 0,
+      "432": 0,
+      "460": 1,
+      "452": 0,
+      "444": 0,
+      "436": 0,
+      "152": 1,
+      "236": 1,
+      "564": 0,
+      "392": 3
+    },
+    "version_state": null
+  }
+}

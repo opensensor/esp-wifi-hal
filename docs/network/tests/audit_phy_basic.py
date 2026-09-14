@@ -58,10 +58,10 @@ def check_basic(base,symbols,expected,feature_source=False):
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained basic helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected,feature_source=False,*,hw_freq_source=False,reg_source=False):
+def audit(elf_path,map_path,label,expected,feature_source=False,*,hw_freq_source=False,reg_source=False,init_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=api.audit(elf_path,map_path,label,'source',feature_source=feature_source,hw_freq_source=hw_freq_source,reg_source=reg_source)
+    prior=api.audit(elf_path,map_path,label,'source',feature_source=feature_source,hw_freq_source=hw_freq_source,reg_source=reg_source,init_source=init_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|{'rom_set_chan_reg'}
     if feature_source:names.add('__opensensor_feature_power')

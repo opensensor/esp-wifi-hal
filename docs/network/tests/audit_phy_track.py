@@ -31,10 +31,10 @@ def check_track(base,symbols,expected):
                 raise ValueError('Original tracking body lacks member ownership: '+old)
 
 
-def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False,init_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=analog.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source,reg_source=reg_source,tx_gain_source=tx_gain_source)
+    prior=analog.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source,reg_source=reg_source,tx_gain_source=tx_gain_source,init_source=init_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(set().union(*(set(v) for v in SELECTED.values()))|ALL_SOURCE_NAMES))
     check_track(base,symbols,expected);phy=base['allocations']['libphy.a']

@@ -1,0 +1,22 @@
+{
+  "esp32c3": {
+    "cases": 1600,
+    "sha256": "a144d5ccca3d860f6e2e8df39b4e34a2dd15698478e6badf908967e4a728ed3c",
+    "instructions": 1178,
+    "visited": 1178,
+    "edges": 110,
+    "visited_edges": 110,
+    "missing_instructions": [],
+    "missing_edges": []
+  },
+  "esp32s3": {
+    "cases": 1675,
+    "sha256": "e52ec0802e09c5b1f4db4dfdb4d9b05dcf4535e8ae7bf20a84da8006707edd96",
+    "instructions": 1075,
+    "visited": 1075,
+    "edges": 92,
+    "visited_edges": 92,
+    "missing_instructions": [],
+    "missing_edges": []
+  }
+}

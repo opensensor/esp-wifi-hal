@@ -15,6 +15,7 @@ import re
 
 import audit_phy_allocations as allocations
 import audit_phy_lifecycle as lifecycle
+import phy_init_ownership as init_ownership
 import audit_phy_temperature as temperature
 
 
@@ -56,10 +57,10 @@ BASELINE = {
 }
 
 
-def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False, reg_source=False):
+def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False, reg_source=False, init_source=False):
     if expected not in ("source", "vendor"):
         raise ValueError("Expected PBUS source or vendor")
-    lifecycle.check_lifecycle(base, symbols, "lifecycle", attribute_hash, api_source=api_source, feature_source=feature_source)
+    lifecycle.check_lifecycle(base, symbols, "lifecycle", attribute_hash, api_source=api_source, feature_source=feature_source, init_source=init_source)
     chip = base["chip"]
     inputs = base["allocations"]["libphy.a"]["inputs"]
     pbus_inputs = [row for row in inputs if row["member"] == "phy_pbus.o"]
@@ -95,6 +96,9 @@ def check_pbus(base, symbols, expected, attribute_hash, *, api_source=False, fea
     if reg_source and expected != "source":
         raise ValueError("Register replacement requires PBUS source")
     for name in RETAINED_FUNCTIONS:
+        if init_source and name=='bb_init':
+            if expected!='source':raise ValueError('Initialization replacement requires PBUS source')
+            init_ownership.function(base,symbols,name);continue
         if reg_source and name == "stop_tx_tone":
             body = temperature.require_body(symbols, "__opensensor_reg_stop_tone")
             if not lifecycle.alias_matches(symbols.get(name), body, executable=True):

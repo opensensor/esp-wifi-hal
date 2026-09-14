@@ -57,10 +57,10 @@ def check_feature(base,symbols,expected,*,tx_gain_source=False):
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained feature helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False,init_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=basic.audit(elf_path,map_path,label,'source',feature_source=(expected=='source'),hw_freq_source=hw_freq_source,reg_source=reg_source)
+    prior=basic.audit(elf_path,map_path,label,'source',feature_source=(expected=='source'),hw_freq_source=hw_freq_source,reg_source=reg_source,init_source=init_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|set(ROM[chip])
     if tx_gain_source and RETAINED[chip]:names.add('__opensensor_tx_gain_wifi_set')

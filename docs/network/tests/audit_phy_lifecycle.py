@@ -15,6 +15,7 @@ import re
 
 import audit_phy_allocations as allocations
 import audit_phy_temperature as temperature
+import phy_init_ownership as init_ownership
 
 
 LIFECYCLE = {
@@ -79,11 +80,13 @@ API_REPLACEMENTS = {"phy_wakeup_init": "__opensensor_api_wakeup",
 FEATURE_REPLACEMENTS = {"phy_dig_reg_backup": "__opensensor_feature_dig"}
 
 
-def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False, feature_source=False):
+def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False, feature_source=False, init_source=False):
     if stage not in ("temperature", "lifecycle"):
         raise ValueError("Expected stage temperature or lifecycle")
     if feature_source and not api_source:
         raise ValueError("Feature replacement requires complete API source")
+    if init_source and (stage!="lifecycle" or not api_source or not feature_source):
+        raise ValueError("Initialization replacement requires full lifecycle/API/feature source")
     chip = base["chip"]
     if stage == "temperature":
         if api_source:
@@ -118,6 +121,13 @@ def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False, fea
     new_outer = symbols[temperature.source_names(chip)[outer]]
     gate_base["selected_allocated_symbols"][outer] = {
         "address": new_outer["address"], "size_bytes": new_outer["symbol_size_bytes"]}
+    if init_source:
+        for old in ("phy_get_romfunc_addr","register_chipv7_phy"):
+            body=init_ownership.function(base,symbols,old)
+            gate_base["selected_allocated_symbols"][old]={"address":body["address"],"size_bytes":body["symbol_size_bytes"]}
+        for old in init_ownership.DATA:
+            body=init_ownership.state(base,symbols,old)
+            gate_base["selected_allocated_symbols"][old]={"address":body["address"],"size_bytes":body["symbol_size_bytes"]}
     allocations.check_expectations(gate_base, "source", "source", "source")
 
     # Later API and feature stages replace explicitly named vendor helpers.
@@ -134,12 +144,16 @@ def check_lifecycle(base, symbols, stage, table_sha256, *, api_source=False, fea
             if not 0x40370000 <= address < address + body["symbol_size_bytes"] <= 0x403e0000:
                 raise ValueError("API/feature source entry is outside IRAM")
     for name in RETAINED_FUNCTIONS:
+        if init_source and name in init_ownership.FUNCTIONS[chip]:
+            init_ownership.function(base,symbols,name);continue
         if name in replacements:
             continue
         symbol = temperature.require_body(symbols, name)
         if not any(temperature.contains(row, symbol) for row in inputs):
             raise ValueError(f"Missing retained vendor helper input: {name}")
     for name, size in (("phy_param", temperature.STATE_SIZES[chip]), ("g_phyFuns", 4)):
+        if init_source:
+            init_ownership.state(base,symbols,name);continue
         symbol = symbols.get(name)
         if not (symbol and symbol["allocated"] and symbol["body_contained"]
                 and symbol["type"] == "STT_OBJECT" and symbol["symbol_size_bytes"] == size

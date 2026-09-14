@@ -7,6 +7,7 @@ import re
 import audit_phy_allocations as allocations
 import audit_phy_i2c as i2c
 import audit_phy_lifecycle as lifecycle
+import phy_init_ownership as init_ownership
 import audit_phy_temperature as temperature
 
 COMMON={
@@ -26,7 +27,7 @@ RETAINED={
                'get_rf_freq_init':('phy_hw_freq.o','.text.get_rf_freq_init')},
 }
 
-def check_api(base,symbols,expected,*,hw_freq_source=False):
+def check_api(base,symbols,expected,*,hw_freq_source=False,init_source=False):
     if expected not in ('vendor','source'):raise ValueError('Expected API vendor or source')
     if hw_freq_source and expected!='source':raise ValueError('Hardware frequency source requires API source')
     chip=base['chip'];inputs=base['allocations']['libphy.a']['inputs'];selected=SELECTED[chip]
@@ -50,6 +51,9 @@ def check_api(base,symbols,expected,*,hw_freq_source=False):
             if not any(temperature.contains(row,body) for row in rows):raise ValueError('Original API body lacks member ownership: '+old)
         if old in IRAM and not i2c.in_iram(body):raise ValueError('API routine is outside IRAM: '+old)
     for name,(member_name,section) in RETAINED[chip].items():
+        if init_source and member_name=='phy_init.o':
+            if expected!='source':raise ValueError('Initialization replacement requires API source')
+            init_ownership.function(base,symbols,name);continue
         if name=='get_rf_freq_init' and hw_freq_source:
             body=temperature.require_body(symbols,'__opensensor_hw_freq_initialize')
             if not lifecycle.alias_matches(symbols.get(name),body,executable=True):raise ValueError('Incorrect hardware frequency API helper alias')
@@ -62,14 +66,15 @@ def check_api(base,symbols,expected,*,hw_freq_source=False):
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained API helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected,*,feature_source=False,hw_freq_source=False,reg_source=False):
+def audit(elf_path,map_path,label,expected,*,feature_source=False,hw_freq_source=False,reg_source=False,init_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=i2c.audit(elf_path,map_path,label,'source',api_source=expected=='source',feature_source=feature_source,reg_source=reg_source)
+    prior=i2c.audit(elf_path,map_path,label,'source',api_source=expected=='source',feature_source=feature_source,reg_source=reg_source,init_source=init_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|{'__opensensor_hw_freq_initialize'}
+    if init_source:names.update(init_ownership.names(chip))
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(names))
-    check_api(base,symbols,expected,hw_freq_source=hw_freq_source)
+    check_api(base,symbols,expected,hw_freq_source=hw_freq_source,init_source=init_source)
     phy=base['allocations']['libphy.a']
     return {'schema':'phy-api-allocation-audit-v1','chip':chip,'label':label,'expect_api':expected,'checks_passed':True,
         'profile':'full-tracking-station','elf_sha256':base['elf_sha256'],'map_sha256':base['map_sha256'],

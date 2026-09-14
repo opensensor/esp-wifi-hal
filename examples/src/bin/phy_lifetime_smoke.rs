@@ -1224,6 +1224,157 @@ unsafe fn inspect_tx_gain(cycle: u32) {
     }
 }
 
+/// Observe initialization bindings and configuration after the PHY owns state.
+/// Reading these bytes does not invoke initialization or calibration a second time.
+unsafe fn inspect_init(cycle: u32) {
+    #[cfg(feature = "esp32c3")]
+    unsafe {
+        unsafe extern "C" {
+            static mut phy_param: u8;
+            static mut chip7_phy_init_ctrl: u8;
+            static mut g_phyFuns: *const u8;
+            fn phy_get_romfunc_addr();
+            fn rf_init();
+            fn register_chipv7_phy_init_param();
+            fn phy_set_mac_data();
+            fn phy_rfcal_data_sub();
+            fn rf_cal_data_recovery();
+            fn phy_rfcal_data_check_value();
+            fn rf_cal_data_backup();
+            fn phy_rfcal_data_check();
+            fn rf_cal_level_check();
+            fn bb_init();
+            fn register_chipv7_phy();
+            fn get_txcap_data();
+            fn ram1_phy_wakeup_init();
+            fn ram1_phy_close_rf();
+        }
+        let entries = [
+            (0u32, phy_get_romfunc_addr as *const () as usize),
+            (1u32, rf_init as *const () as usize),
+            (2u32, register_chipv7_phy_init_param as *const () as usize),
+            (3u32, phy_set_mac_data as *const () as usize),
+            (4u32, phy_rfcal_data_sub as *const () as usize),
+            (5u32, rf_cal_data_recovery as *const () as usize),
+            (6u32, phy_rfcal_data_check_value as *const () as usize),
+            (7u32, rf_cal_data_backup as *const () as usize),
+            (8u32, phy_rfcal_data_check as *const () as usize),
+            (9u32, rf_cal_level_check as *const () as usize),
+            (10u32, bb_init as *const () as usize),
+            (11u32, register_chipv7_phy as *const () as usize),
+            (12u32, get_txcap_data as *const () as usize),
+            (16u32, ram1_phy_wakeup_init as *const () as usize),
+            (17u32, ram1_phy_close_rf as *const () as usize),
+        ];
+        for (operation, address) in entries {
+            info!(
+                "stage=phy_init_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let param = &raw const phy_param;
+        let control = &raw const chip7_phy_init_ctrl;
+        let table = (&raw const g_phyFuns).read_volatile();
+        let initialized = param.add(229).read_volatile();
+        assert_eq!(initialized, 1, "PHY initialization flag was not recorded");
+        assert!(!table.is_null());
+        info!(
+            "stage=phy_init_state cycle={} param={:#x} size=848 control={:#x} table_global={:#x} table={:#x} initialized={}",
+            cycle,
+            param as usize,
+            control as usize,
+            (&raw const g_phyFuns) as usize,
+            table as usize,
+            initialized
+        );
+        for (region, base, count) in [(0, param.add(242), 46), (1, control, 42)] {
+            let mut fingerprint = 0x811c9dc5u32;
+            for i in 0..count {
+                fingerprint =
+                    (fingerprint ^ base.add(i).read_volatile() as u32).wrapping_mul(0x01000193);
+            }
+            info!(
+                "stage=phy_init_config cycle={} region={} fingerprint={:#x} passive=true",
+                cycle, region, fingerprint
+            );
+        }
+    }
+    #[cfg(feature = "esp32s3")]
+    unsafe {
+        unsafe extern "C" {
+            static mut phy_param: u8;
+            static mut chip7_phy_init_ctrl: u8;
+            static mut g_phyFuns: *const u8;
+            fn phy_get_romfunc_addr();
+            fn rf_init();
+            fn register_chipv7_phy_init_param();
+            fn phy_set_mac_data();
+            fn phy_rfcal_data_sub();
+            fn rf_cal_data_recovery();
+            fn phy_rfcal_data_check_value();
+            fn rf_cal_data_backup();
+            fn phy_rfcal_data_check();
+            fn bb_init();
+            fn register_chipv7_phy();
+            fn pwr_limit_force();
+            fn esp_phy_efuse_get_chip_ver_pkg();
+            fn get_chip_version();
+            fn ram_phy_wakeup_init();
+            fn ram_phy_close_rf();
+        }
+        let entries = [
+            (0u32, phy_get_romfunc_addr as *const () as usize),
+            (1u32, rf_init as *const () as usize),
+            (2u32, register_chipv7_phy_init_param as *const () as usize),
+            (3u32, phy_set_mac_data as *const () as usize),
+            (4u32, phy_rfcal_data_sub as *const () as usize),
+            (5u32, rf_cal_data_recovery as *const () as usize),
+            (6u32, phy_rfcal_data_check_value as *const () as usize),
+            (7u32, rf_cal_data_backup as *const () as usize),
+            (8u32, phy_rfcal_data_check as *const () as usize),
+            (10u32, bb_init as *const () as usize),
+            (11u32, register_chipv7_phy as *const () as usize),
+            (13u32, pwr_limit_force as *const () as usize),
+            (14u32, esp_phy_efuse_get_chip_ver_pkg as *const () as usize),
+            (15u32, get_chip_version as *const () as usize),
+            (16u32, ram_phy_wakeup_init as *const () as usize),
+            (17u32, ram_phy_close_rf as *const () as usize),
+        ];
+        for (operation, address) in entries {
+            info!(
+                "stage=phy_init_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let param = &raw const phy_param;
+        let control = &raw const chip7_phy_init_ctrl;
+        let table = (&raw const g_phyFuns).read_volatile();
+        let initialized = param.add(229).read_volatile();
+        assert_eq!(initialized, 1, "PHY initialization flag was not recorded");
+        assert!(!table.is_null());
+        info!(
+            "stage=phy_init_state cycle={} param={:#x} size=740 control={:#x} table_global={:#x} table={:#x} initialized={}",
+            cycle,
+            param as usize,
+            control as usize,
+            (&raw const g_phyFuns) as usize,
+            table as usize,
+            initialized
+        );
+        for (region, base, count) in [(0, param.add(242), 46), (1, control, 42)] {
+            let mut fingerprint = 0x811c9dc5u32;
+            for i in 0..count {
+                fingerprint =
+                    (fingerprint ^ base.add(i).read_volatile() as u32).wrapping_mul(0x01000193);
+            }
+            info!(
+                "stage=phy_init_config cycle={} region={} fingerprint={:#x} passive=true",
+                cycle, region, fingerprint
+            );
+        }
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -1283,6 +1434,7 @@ async fn main(_spawner: Spawner) {
             inspect_registers(cycle);
             inspect_rx_gain(cycle);
             inspect_tx_gain(cycle);
+            inspect_init(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

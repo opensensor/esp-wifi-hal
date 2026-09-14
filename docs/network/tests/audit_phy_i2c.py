@@ -14,6 +14,7 @@ import re
 
 import audit_phy_allocations as allocations
 import audit_phy_lifecycle as lifecycle
+import phy_init_ownership as init_ownership
 import audit_phy_pbus as pbus
 import audit_phy_temperature as temperature
 
@@ -87,10 +88,10 @@ def in_iram(body):
     return 0x40370000 <= start < start + body["symbol_size_bytes"] <= 0x403e0000
 
 
-def check_i2c(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False, reg_source=False):
+def check_i2c(base, symbols, expected, attribute_hash, *, api_source=False, feature_source=False, reg_source=False, init_source=False):
     if expected not in ("vendor", "flash", "source"):
         raise ValueError("Expected I2C vendor, flash, or source")
-    pbus.check_pbus(base, symbols, "source", attribute_hash, api_source=api_source, feature_source=feature_source,reg_source=reg_source)
+    pbus.check_pbus(base, symbols, "source", attribute_hash, api_source=api_source, feature_source=feature_source,reg_source=reg_source,init_source=init_source)
     chip = base["chip"]
     inputs = base["allocations"]["libphy.a"]["inputs"]
     member_inputs = [row for row in inputs if row["member"] == "phy_i2c.o"]
@@ -155,7 +156,7 @@ def check_i2c(base, symbols, expected, attribute_hash, *, api_source=False, feat
             raise ValueError(f"Missing or changed I2C ROM reference: {name}")
 
 
-def audit(elf_path, map_path, label, expected, *, api_source=False, feature_source=False, reg_source=False):
+def audit(elf_path, map_path, label, expected, *, api_source=False, feature_source=False, reg_source=False,init_source=False):
     from elftools.elf.elffile import ELFFile
 
     if not re.fullmatch(r"[A-Za-z0-9_.-]+", label):
@@ -178,6 +179,7 @@ def audit(elf_path, map_path, label, expected, *, api_source=False, feature_sour
     names.update(ROM_REFERENCES[chip])
     names.add(LOCAL_PARTIAL)
     names.add(PROGRAM)
+    if init_source: names.update(init_ownership.names(chip))
     if feature_source:
         names.update(lifecycle.FEATURE_REPLACEMENTS)
         names.update(lifecycle.FEATURE_REPLACEMENTS.values())
@@ -187,7 +189,7 @@ def audit(elf_path, map_path, label, expected, *, api_source=False, feature_sour
         symbols = temperature.inspect_symbols(ELFFile(stream), sorted(names))
     oracle = json.loads(lifecycle.ORACLE.read_text())["chips"][chip]
     attribute_hash = hashlib.sha256(bytes(oracle["attribute_bytes"])).hexdigest()
-    check_i2c(base, symbols, expected, attribute_hash, api_source=api_source, feature_source=feature_source, reg_source=reg_source)
+    check_i2c(base, symbols, expected, attribute_hash, api_source=api_source, feature_source=feature_source, reg_source=reg_source,init_source=init_source)
     phy = base["allocations"]["libphy.a"]
     member_inputs = [row for row in phy["inputs"] if row["member"] == "phy_i2c.o"]
     return {
