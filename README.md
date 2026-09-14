@@ -22,11 +22,14 @@ and applications are in `examples/`. Select exactly one chip feature:
 `esp32`, `esp32s2`, `esp32s3` or `esp32c3`. The `critical_section` feature allows using the
 driver across cores; without it, the driver does not use critical sections.
 
-The latest [PHY initialization replacement](docs/network/PHY-INIT.md) supplies
-all 15 C3 / 16 S3 live initialization functions and their state in Rust. The
-tested station images retain only **two vendor PHY members: RX and TX
-calibration**. ROM remains a dependency. The [paired validation report](docs/network/PHY-INIT-VALIDATION.md)
-records instruction comparisons, link ownership, lifecycle/RX tests, reconnects,
+The [PHY initialization replacement](docs/network/PHY-INIT.md) supplies all
+15 C3 / 16 S3 live initialization functions and their state in Rust. The latest
+[RX-control replacement](docs/network/PHY-RX-CONTROLS.md) adds receive saturation,
+gain triggering, IQ-estimator control and saturation checking on both chips.
+Tested station images retain **two vendor PHY members: RX and TX calibration**;
+the remaining RX searches and conversion routines still need replacement. ROM
+remains a dependency. The [paired validation report](docs/network/PHY-RX-CONTROLS-VALIDATION.md)
+records instruction comparisons, ownership, lifecycle/RX tests, reconnects,
 GTK rotation and actual packet counts. Earlier packet loss and latency limits
 remain open.
 
