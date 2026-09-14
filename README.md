@@ -23,12 +23,15 @@ and applications are in `examples/`. Select exactly one chip feature:
 driver across cores; without it, the driver does not use critical sections.
 
 The [PHY initialization replacement](docs/network/PHY-INIT.md) supplies all
-15 C3 / 16 S3 live initialization functions and their state in Rust. The latest
+15 C3 / 16 S3 live initialization functions and their state in Rust. The
 [RX-control replacement](docs/network/PHY-RX-CONTROLS.md) adds receive saturation,
 gain triggering, IQ-estimator control and saturation checking on both chips.
+[IQ conversion and correction](docs/network/PHY-RX-IQ.md) and
+[RF IQ orchestration](docs/network/PHY-RF-IQ.md) now also run in Rust, including
+tone sequencing, convergence, signed averaging and coefficient packing.
 Tested station images retain **two vendor PHY members: RX and TX calibration**;
-the remaining RX searches and conversion routines still need replacement. ROM
-remains a dependency. The [paired validation report](docs/network/PHY-RX-CONTROLS-VALIDATION.md)
+Six C3 / eight S3 RX routines remain, alongside TX calibration and ROM
+dependencies. The [paired validation report](docs/network/PHY-RF-IQ-VALIDATION.md)
 records instruction comparisons, ownership, lifecycle/RX tests, reconnects,
 GTK rotation and actual packet counts. Earlier packet loss and latency limits
 remain open.

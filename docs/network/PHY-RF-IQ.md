@@ -18,7 +18,8 @@ rejects surviving original text/literal inputs and still requires the six C3
 or eight S3 remaining RX calibration bodies. Earlier gates retain their strict
 defaults; the new gate explicitly permits only this ownership transition.
 
-See the [instruction comparison](tests/phy-rf-iq-oracle/README.md). Receive DC
+See the [instruction comparison](tests/phy-rf-iq-oracle/README.md) and
+[paired validation](PHY-RF-IQ-VALIDATION.md). Receive DC
 and gain searches, S3 spur routines, transmit calibration and ROM/analog
 dependencies remain. Instruction equivalence under the documented boundaries
 does not establish analog accuracy or explain packet loss.
