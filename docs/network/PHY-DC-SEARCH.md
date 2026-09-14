@@ -52,7 +52,9 @@ zero and two, comparing ordered traces from original machine instructions.
 Traces retain caller-buffer reads/writes and helper calls/results. Private
 stack spills, compiler scheduling of private loads and immutable table loads
 are excluded. Callback target generations still detect cached dispatch.
-The test callbacks initialize all three estimator output words.
+The test callbacks initialize all three estimator output words. Caller buffers
+may overlap each other in the tested cases; they do not overlap the callback
+table, immutable storage or private stack buffers.
 
 `audit_phy_dc_search.py` composes all earlier ownership gates and verifies
 both source aliases, executable body extents, absence of the selected vendor
@@ -61,7 +63,7 @@ require an explicit DC-search transition; their default requirements are
 unchanged. Remaining RX bodies are gain IQ/DC calibration on both chips and
 two spur helpers on S3. TX calibration and analog/ROM dependencies remain.
 
-Device comparison and native emitted-code results are recorded separately
-when completed. These synthetic boundary tests do not establish analog/RF,
+The [completed device and native-code report](PHY-DC-SEARCH-VALIDATION.md)
+records all 18 hardware trials and eight emitted source profiles. These synthetic boundary tests do not establish analog/RF,
 cycle-count, long-duration or packet-loss equivalence. FoA logging and network
 policy remain fixed during this PHY comparison.
