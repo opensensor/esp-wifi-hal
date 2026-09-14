@@ -1102,6 +1102,128 @@ unsafe fn inspect_rx_gain(cycle: u32) {
     }
 }
 
+/// Observe gain bindings and table fingerprints without starting calibration.
+unsafe fn inspect_tx_gain(cycle: u32) {
+    #[cfg(feature = "esp32c3")]
+    unsafe {
+        unsafe extern "C" {
+            static mut phy_param: u8;
+            static mut g_phyFuns: *const u8;
+            fn rom1_wifi_tx_dig_gain();
+            fn bt_chan_pwr_interp();
+            fn rom1_get_rate_fcc_index();
+            fn rom1_get_chan_target_power();
+            fn rom2_get_tx_gain_value1();
+            fn rom1_bt_get_tx_gain_new();
+            fn rom1_wifi_get_tx_gain();
+            fn ram1_wifi_set_tx_gain();
+            fn rom1_bt_set_tx_gain();
+            fn bt_tx_gain_init();
+            fn txcal_gain_check();
+        }
+        let entries = [
+            rom1_wifi_tx_dig_gain as *const () as usize,
+            bt_chan_pwr_interp as *const () as usize,
+            rom1_get_rate_fcc_index as *const () as usize,
+            rom1_get_chan_target_power as *const () as usize,
+            rom2_get_tx_gain_value1 as *const () as usize,
+            rom1_bt_get_tx_gain_new as *const () as usize,
+            rom1_wifi_get_tx_gain as *const () as usize,
+            ram1_wifi_set_tx_gain as *const () as usize,
+            rom1_bt_set_tx_gain as *const () as usize,
+            bt_tx_gain_init as *const () as usize,
+            txcal_gain_check as *const () as usize,
+        ];
+        for (operation, address) in entries.into_iter().enumerate() {
+            info!(
+                "stage=phy_tx_gain_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let table = (&raw const g_phyFuns).read_volatile();
+        for slot in [296, 648, 588, 572, 584] {
+            let target = table.add(slot).cast::<usize>().read_volatile();
+            assert_ne!(target, 0);
+            info!(
+                "stage=phy_tx_gain_slot cycle={} slot={:#x} target={:#x}",
+                cycle, slot, target
+            );
+        }
+        let param = &raw const phy_param;
+        for (table, offset, count) in [(0, 14, 90), (1, 0x68, 42)] {
+            let mut fingerprint = 0x811c9dc5u32;
+            for index in 0..count {
+                fingerprint = (fingerprint ^ param.add(offset + index).read_volatile() as u32)
+                    .wrapping_mul(0x01000193);
+            }
+            info!(
+                "stage=phy_tx_gain_table cycle={} table={} fingerprint={:#x} passive=true",
+                cycle, table, fingerprint
+            );
+        }
+    }
+    #[cfg(feature = "esp32s3")]
+    unsafe {
+        unsafe extern "C" {
+            static mut phy_param: u8;
+            static mut g_phyFuns: *const u8;
+            fn ram_wifi_tx_dig_gain();
+            fn bt_chan_pwr_interp();
+            fn ram_get_rate_fcc_index();
+            fn ram_get_chan_target_power();
+            fn get_tx_gain_value();
+            fn ram_bt_get_tx_gain();
+            fn ram_wifi_get_tx_gain();
+            fn ram_wifi_set_tx_gain();
+            fn ram_bt_set_tx_gain();
+            fn bt_tx_gain_init();
+            fn tx_gain_set();
+            fn dig_gain_check();
+        }
+        let entries = [
+            ram_wifi_tx_dig_gain as *const () as usize,
+            bt_chan_pwr_interp as *const () as usize,
+            ram_get_rate_fcc_index as *const () as usize,
+            ram_get_chan_target_power as *const () as usize,
+            get_tx_gain_value as *const () as usize,
+            ram_bt_get_tx_gain as *const () as usize,
+            ram_wifi_get_tx_gain as *const () as usize,
+            ram_wifi_set_tx_gain as *const () as usize,
+            ram_bt_set_tx_gain as *const () as usize,
+            bt_tx_gain_init as *const () as usize,
+            tx_gain_set as *const () as usize,
+            dig_gain_check as *const () as usize,
+        ];
+        for (operation, address) in entries.into_iter().enumerate() {
+            info!(
+                "stage=phy_tx_gain_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let table = (&raw const g_phyFuns).read_volatile();
+        for slot in [612, 552, 536, 548, 624, 252] {
+            let target = table.add(slot).cast::<usize>().read_volatile();
+            assert_ne!(target, 0);
+            info!(
+                "stage=phy_tx_gain_slot cycle={} slot={:#x} target={:#x}",
+                cycle, slot, target
+            );
+        }
+        let param = &raw const phy_param;
+        for (table, offset, count) in [(0, 14, 90), (1, 0x68, 42)] {
+            let mut fingerprint = 0x811c9dc5u32;
+            for index in 0..count {
+                fingerprint = (fingerprint ^ param.add(offset + index).read_volatile() as u32)
+                    .wrapping_mul(0x01000193);
+            }
+            info!(
+                "stage=phy_tx_gain_table cycle={} table={} fingerprint={:#x} passive=true",
+                cycle, table, fingerprint
+            );
+        }
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -1160,6 +1282,7 @@ async fn main(_spawner: Spawner) {
             inspect_hw_freq(cycle);
             inspect_registers(cycle);
             inspect_rx_gain(cycle);
+            inspect_tx_gain(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

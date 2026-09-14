@@ -101,4 +101,31 @@ class LifecycleFeatureTransition(unittest.TestCase):
         b,s=self.fixture();append_input(b,'other.o','.iram1',0x4038c008)
         with self.assertRaisesRegex(ValueError,'Source body overlaps vendor input'):self.check(b,s,api_source=True,feature_source=True)
 
+class TransmitGainTransition(unittest.TestCase):
+    def fixture(self):
+        b,s=fixture();b['allocations']['libphy.a']['inputs']=[]
+        s['__opensensor_tx_gain_wifi_set']=symbol(0x4200f000)
+        s['ram1_wifi_set_tx_gain'].update(type='STT_NOTYPE',absolute=True,allocated=False,executable=False,symbol_size_bytes=99999)
+        return b,s
+    def test_transition_requires_source_stage(self):
+        with self.assertRaisesRegex(ValueError,'requires complete feature'):feature.check_feature(*self.fixture(),'vendor',tx_gain_source=True)
+    def test_transition_requires_explicit_flag(self):
+        b,s=self.fixture();feature.check_feature(b,s,'source',tx_gain_source=True)
+        with self.assertRaisesRegex(ValueError,'Missing allocated function'):feature.check_feature(b,s,'source')
+    def test_real_source_body_required(self):
+        for field,value in [('allocated',False),('body_contained',False),('symbol_size_bytes',0),('type','STT_OBJECT'),('executable',False)]:
+            b,s=self.fixture();s['__opensensor_tx_gain_wifi_set'][field]=value
+            with self.assertRaisesRegex(ValueError,'Missing allocated function'):feature.check_feature(b,s,'source',tx_gain_source=True)
+    def test_alias_required(self):
+        b,s=self.fixture();s['ram1_wifi_set_tx_gain']['address']='0x4200f008'
+        with self.assertRaisesRegex(ValueError,'Incorrect transmit gain helper alias'):feature.check_feature(b,s,'source',tx_gain_source=True)
+    def test_overlap_rejected(self):
+        b,s=self.fixture();append_input(b,'other.o','.data',0x4200f008,16)
+        with self.assertRaisesRegex(ValueError,'overlaps vendor'):feature.check_feature(b,s,'source',tx_gain_source=True)
+    def test_old_named_input_rejected(self):
+        b,s=self.fixture();append_input(b,'other.o','.text.ram1_wifi_set_tx_gain')
+        with self.assertRaisesRegex(ValueError,'Original transmit gain helper input'):feature.check_feature(b,s,'source',tx_gain_source=True)
+    def test_s3_has_no_retained_transition(self):
+        feature.check_feature(*fixture('esp32s3'),'source',tx_gain_source=True)
+
 if __name__=='__main__':unittest.main()

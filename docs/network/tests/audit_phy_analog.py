@@ -61,10 +61,10 @@ def inspect(elf):
         body['writable']=bool(section and section['sh_flags']&1)
     return symbols
 
-def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=pwdet.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source,reg_source=reg_source)
+    prior=pwdet.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source,reg_source=reg_source,tx_gain_source=tx_gain_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     with elf_path.open('rb') as stream:symbols=inspect(ELFFile(stream))
     check_analog(base,symbols,expected);phy=base['allocations']['libphy.a']

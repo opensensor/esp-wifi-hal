@@ -162,6 +162,39 @@ fn main() {
         ] {
             reg.push_str(&format!("EXTERN(__opensensor_rx_gain_{suffix});\n{original} = __opensensor_rx_gain_{suffix};\n"));
         }
+        let tx_gain_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
+            &[
+                ("rom1_wifi_tx_dig_gain", "digital"),
+                ("bt_chan_pwr_interp", "interpolate"),
+                ("rom1_get_rate_fcc_index", "fcc"),
+                ("rom1_get_chan_target_power", "limits"),
+                ("rom2_get_tx_gain_value1", "lookup"),
+                ("rom1_bt_get_tx_gain_new", "bt_get"),
+                ("rom1_wifi_get_tx_gain", "wifi_get"),
+                ("ram1_wifi_set_tx_gain", "wifi_set"),
+                ("rom1_bt_set_tx_gain", "bt_set"),
+                ("bt_tx_gain_init", "bt_initialize"),
+                ("txcal_gain_check", "calibration_tables"),
+            ]
+        } else {
+            &[
+                ("ram_wifi_tx_dig_gain", "digital"),
+                ("bt_chan_pwr_interp", "interpolate"),
+                ("ram_get_rate_fcc_index", "fcc"),
+                ("ram_get_chan_target_power", "limits"),
+                ("get_tx_gain_value", "lookup"),
+                ("ram_bt_get_tx_gain", "bt_get"),
+                ("ram_wifi_get_tx_gain", "wifi_get"),
+                ("ram_wifi_set_tx_gain", "wifi_set"),
+                ("ram_bt_set_tx_gain", "bt_set"),
+                ("bt_tx_gain_init", "bt_initialize"),
+                ("tx_gain_set", "calibration_tables"),
+                ("dig_gain_check", "dig_check"),
+            ]
+        };
+        for (original, suffix) in tx_gain_names {
+            reg.push_str(&format!("EXTERN(__opensensor_tx_gain_{suffix});\n{original} = __opensensor_tx_gain_{suffix};\n"));
+        }
         std::fs::write(out.join("libesp-wifi-hal-reg.a"), reg).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-reg");
 

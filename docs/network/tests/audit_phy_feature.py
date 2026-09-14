@@ -17,8 +17,9 @@ RETAINED={'esp32c3':{'ram1_wifi_set_tx_gain':('phy_tx_gain.o','.text.ram1_wifi_s
 ROM={'esp32c3':{'rom_phy_dig_reg_backup':0x40001c30,'rom_phy_freq_mem_backup':0x40001c20},'esp32s3':{'rom_phy_dig_reg_backup':0x40006408,'rom_phy_freq_mem_backup':0x400063d8}}
 
 
-def check_feature(base,symbols,expected):
+def check_feature(base,symbols,expected,*,tx_gain_source=False):
     if expected not in ('vendor','source'):raise ValueError('Expected feature vendor or source')
+    if tx_gain_source and expected!='source':raise ValueError('Transmit gain transition requires complete feature source stage')
     chip=base['chip'];inputs=base['allocations']['libphy.a']['inputs'];selected=SELECTED[chip]
     member=[row for row in inputs if row['member']=='phy_feature.o']
     if expected=='source':
@@ -43,27 +44,35 @@ def check_feature(base,symbols,expected):
         rom=symbols.get(name)
         if not (rom and rom.get('absolute') and int(rom['address'],0)==address):raise ValueError('Changed ROM backup binding: '+name)
     for name,(member_name,section) in RETAINED[chip].items():
+        if tx_gain_source:
+            new='__opensensor_tx_gain_wifi_set'
+            body=temperature.require_body(symbols,new)
+            if not lifecycle.alias_matches(symbols.get(name),body,executable=True):raise ValueError('Incorrect transmit gain helper alias: '+name)
+            if any(temperature.overlaps(row,body) for row in inputs):raise ValueError('Transmit gain helper overlaps vendor input: '+name)
+            if temperature.original_sections(inputs,name):raise ValueError('Original transmit gain helper input still allocated: '+name)
+            continue
         body=temperature.require_body(symbols,name)
         if not any(row['member']==member_name and row['section']==section and temperature.contains(row,body) for row in inputs):
             raise ValueError('Retained feature helper lacks original ownership: '+name)
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained feature helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
     prior=basic.audit(elf_path,map_path,label,'source',feature_source=(expected=='source'),hw_freq_source=hw_freq_source,reg_source=reg_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|set(ROM[chip])
+    if tx_gain_source and RETAINED[chip]:names.add('__opensensor_tx_gain_wifi_set')
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(names))
-    check_feature(base,symbols,expected)
+    check_feature(base,symbols,expected,tx_gain_source=tx_gain_source)
     phy=base['allocations']['libphy.a']
     return {'schema':'phy-feature-allocation-audit-v1','chip':chip,'label':label,'expect_feature':expected,'checks_passed':True,
         'profile':'full-tracking-station','elf_sha256':base['elf_sha256'],'map_sha256':base['map_sha256'],
         'method':base['method'],'previous_source_gates':{**prior['previous_source_gates'],'basic':True},
         'non_string_allocations':{**prior['non_string_allocations'],'phy_feature_member_bytes':phy['members'].get('phy_feature.o',0)},
         'selected_symbols':{old:{'original_or_alias':symbols[old],'source_symbol':new,'source_body':symbols.get(new),'requires_iram':old in IRAM} for old,new in SELECTED[chip].items()},
-        'retained_helpers':{name:symbols[name] for name in RETAINED[chip]},'rom_backups':{name:symbols[name] for name in ROM[chip]},
+        'retained_helpers':{name:symbols[name] for name in RETAINED[chip]},'tx_gain_source':tx_gain_source,'rom_backups':{name:symbols[name] for name in ROM[chip]},
         'allocated_phy_members':phy['members'],'allocated_phy_inputs':phy['inputs'],'input_archives_observed':base['input_archives_observed'],
         'limits':['This is linked-image ownership evidence, not an archive-wide replacement claim.',
                   'Source aliases may have stale sizes; actual source bodies are checked separately.',

@@ -1,0 +1,66 @@
+{
+  "esp32c3": {
+    "fixture_sha256": "65a2770d6d82fb1e046f3f89ab562eda979174c0fafb76360043328be392073b",
+    "elf_sha256": "01bfa3bc68c3f09c26ecbf7a7496ee2cb7c3dc2eaa8d8d1a9efbe86820ea71ae",
+    "map_sha256": "0832a65f904b79d82df3c1a7bcf8bb8a274bbeb635850668d7fb3c043826df34",
+    "source_revision": "55b8d70343bc63115a53e27821c3baeed5dfb04b",
+    "readonly": [
+      {
+        "member": "phy_tx_gain.o",
+        "section": ".rodata",
+        "address": "0x3c00a178",
+        "size_bytes": 104,
+        "output_section": ".rodata",
+        "bytes": "525252527f7f7f6f5f4f77577353352313123020100000002000180010000c0006000000f9fff0ffe2ffd7ffcbffc1ffb2ffa9ff9dff92ff84ff6cff7f6f5f4f3f2f1f0f0b0703020100000020001d001700110009000000f2ffdbffd1ffc2ffaaffa1ff94ff7cff",
+        "sha256": "f91c57003a987fbe955de19354320d14086ae2c308d40c63093ecf315d3b2c34",
+        "elf_section": ".rodata"
+      }
+    ],
+    "logs": [
+      {
+        "address": "0x3c00a2e8",
+        "format": "%d,0x%x,%d, %d, power=%d, %d\n",
+        "bytes": "25642c307825782c25642c2025642c20706f7765723d25642c2025640a00",
+        "sha256": "57cb44cd3bb0fcb7a0b198cecb1342dda1f510f0048b0e99dafebbdf177f7220"
+      },
+      {
+        "address": "0x3c00a228",
+        "format": "%d,0x%x,0x%x,%d, %d, power=%d, %d\n",
+        "bytes": "25642c307825782c307825782c25642c2025642c20706f7765723d25642c2025640a00",
+        "sha256": "803c6d0d647ecc30ab31b648c1446d685afcaea3f154d3cccf5db8dc7b3d573f"
+      }
+    ]
+  },
+  "esp32s3": {
+    "fixture_sha256": "65a2770d6d82fb1e046f3f89ab562eda979174c0fafb76360043328be392073b",
+    "elf_sha256": "883d7a288dcc53b00d4406d2e7729ab752d1ac5f5bebe9d49bf37ccd32572060",
+    "map_sha256": "2490c12bf074dc2b4f44dd44ea55afc7eb10f07314fd5a6ec75175893a132e33",
+    "source_revision": "55b8d70343bc63115a53e27821c3baeed5dfb04b",
+    "readonly": [
+      {
+        "member": "phy_tx_gain.o",
+        "section": ".rodata",
+        "address": "0x3c00aa34",
+        "size_bytes": 166,
+        "output_section": ".rodata",
+        "bytes": "646464647f7f7f7f7f6f5f6b77577352513130201000a00020000001800000000000000000000000000000000000000000000000000000000000300028002000180010000c0006000000f9fff0ffe2ffcbffc1ffb2ff9dff92ff84ff6cff7f007f007f007f006f005f004f004b00470037003600430033003200130006000300020028002000180010000c0006000000f6ffe8ffe1ffd8ffd1ffc9ffc0ffb1ffa8ff99ff90ff",
+        "sha256": "b1b282f23e76c5cb04597fa5f02b46a08f5fa9b88492e630981d86262cda9d63",
+        "elf_section": ".rodata"
+      }
+    ],
+    "logs": [
+      {
+        "address": "0x3c004cc7",
+        "format": "%d,0x%x,%d, %d, power=%d, %d\n",
+        "bytes": "25642c307825782c25642c2025642c20706f7765723d25642c2025640a00",
+        "sha256": "57cb44cd3bb0fcb7a0b198cecb1342dda1f510f0048b0e99dafebbdf177f7220"
+      },
+      {
+        "address": "0x3c004ce5",
+        "format": "%d,0x%x,0x%x,%d, %d, power=%d, %d\n",
+        "bytes": "25642c307825782c307825782c25642c2025642c20706f7765723d25642c2025640a00",
+        "sha256": "803c6d0d647ecc30ab31b648c1446d685afcaea3f154d3cccf5db8dc7b3d573f"
+      }
+    ]
+  }
+}

@@ -30,10 +30,10 @@ def check_debug(base,symbols,expected):
             if not any(temperature.contains(r,body) for r in temperature.original_sections(member,old)):
                 raise ValueError('Original debug body lacks member ownership: '+old)
 
-def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False,reg_source=False,tx_gain_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=feature.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source,reg_source=reg_source)
+    prior=feature.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source,reg_source=reg_source,tx_gain_source=tx_gain_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(set(SELECTED[chip])|ALL_SOURCE_NAMES))
     check_debug(base,symbols,expected);phy=base['allocations']['libphy.a']

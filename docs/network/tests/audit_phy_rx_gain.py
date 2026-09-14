@@ -36,10 +36,10 @@ def check_rx_gain(base,symbols,expected):
                 raise ValueError('Original receive gain body lacks member ownership: '+old)
 
 
-def audit(elf_path,map_path,label,expected):
+def audit(elf_path,map_path,label,expected,*,tx_gain_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=previous.audit(elf_path,map_path,label,'source')
+    prior=previous.audit(elf_path,map_path,label,'source',tx_gain_source=tx_gain_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(set().union(*(set(v) for v in SELECTED.values()))|ALL_SOURCE_NAMES))
     check_rx_gain(base,symbols,expected);phy=base['allocations']['libphy.a']

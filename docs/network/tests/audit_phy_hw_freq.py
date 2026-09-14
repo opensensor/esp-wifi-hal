@@ -36,10 +36,10 @@ def check_hw_freq(base,symbols,expected):
                 raise ValueError('Original hardware frequency body lacks member ownership: '+old)
 
 
-def audit(elf_path,map_path,label,expected,*,reg_source=False):
+def audit(elf_path,map_path,label,expected,*,reg_source=False,tx_gain_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=previous.audit(elf_path,map_path,label,'source',hw_freq_source=(expected=='source'),reg_source=reg_source)
+    prior=previous.audit(elf_path,map_path,label,'source',hw_freq_source=(expected=='source'),reg_source=reg_source,tx_gain_source=tx_gain_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(set().union(*(set(v) for v in SELECTED.values()))|ALL_SOURCE_NAMES))
     check_hw_freq(base,symbols,expected);phy=base['allocations']['libphy.a']

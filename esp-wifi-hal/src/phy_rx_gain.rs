@@ -432,7 +432,7 @@ pub(crate) const CONSTANTS: [u8; 88] = [
 
 #[cfg(not(test))]
 mod native {
-    use super::{Access, CONSTANTS, S3};
+    use super::{Access, CONSTANTS};
     unsafe extern "C" {
         static mut phy_param: u8;
         static mut g_phyFuns: *const u8;
