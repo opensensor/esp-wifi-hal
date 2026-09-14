@@ -1267,6 +1267,22 @@ unsafe fn inspect_init(cycle: u32) {
             );
         }
     }
+    #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+    unsafe {
+        unsafe extern "C" {
+            fn set_rx_gain_cal_iq();
+            fn set_rx_gain_cal_dc();
+        }
+        for (operation, address) in [
+            (0, set_rx_gain_cal_iq as *const () as usize),
+            (1, set_rx_gain_cal_dc as *const () as usize),
+        ] {
+            info!(
+                "stage=phy_rx_gain_cal_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+    }
 
     #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
     unsafe {

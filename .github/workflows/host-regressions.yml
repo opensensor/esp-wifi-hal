@@ -142,3 +142,9 @@ jobs:
           rustc --edition 2024 --test examples/src/capture_protocol.rs -o /tmp/capture-protocol-tests
           /tmp/capture-protocol-tests
           python3 -m unittest discover -s docs/network/tools/raw-capture -p 'test_*.py'
+
+      - name: Compare receive gain calibration to original instructions
+        run: |
+          sh docs/network/tests/run-phy-rx-gain-cal.sh
+          python3 docs/network/tests/test_audit_phy_rx_gain_cal.py
+          python3 -O docs/network/tests/test_audit_phy_rx_gain_cal.py

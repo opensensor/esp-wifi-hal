@@ -234,6 +234,10 @@ fn main() {
         for (original, suffix) in [("pbus_rx_dco_cal", "general"), (one_step, "one_step")] {
             reg.push_str(&format!("EXTERN(__opensensor_dc_search_{suffix});\n{original} = __opensensor_dc_search_{suffix};\n"));
         }
+        for (original, suffix) in [("set_rx_gain_cal_iq", "iq"), ("set_rx_gain_cal_dc", "dc")] {
+            reg.push_str(&format!("EXTERN(__opensensor_rx_gain_cal_{suffix});\n{original} = __opensensor_rx_gain_cal_{suffix};\n"));
+        }
+
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[
                 ("phy_get_romfunc_addr", "callbacks"),

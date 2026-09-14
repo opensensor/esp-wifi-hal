@@ -1,0 +1,20 @@
+{
+  "tool_sha256": {
+    "extract.py": "910396457c860179cb93243c05ec04374080c6ac74efa165e068a918fd172446",
+    "machine.py": "d3ebdbab913463e67f5c9548df7c48d7e98da9c995794824d88cfa47e0900b1c"
+  },
+  "chips": {
+    "esp32c3": {
+      "elf_sha256": "7f982311aabba9fd4fcb4c372edffae35dc39d983490dd09e1e81865b51aeabb",
+      "map_sha256": "335fe08bf6ebb490a8f59e4be31feb90e8a99c6298666363c8897845a91b4985",
+      "instructions_sha256": "86316c4bb4379535bca0376074478e9e5b280970e89ec5e9f958fa9a3c672d8a",
+      "baseline_sha256": "278c8d8df1ff2f96a2ef5af5e311c427ddaf8e6f5574274249109f76b1f0c335"
+    },
+    "esp32s3": {
+      "elf_sha256": "9a0fc0d964531d81220c272bc0c5f1a7cfa32bb6d37d6ebecb8059e66d61a60f",
+      "map_sha256": "d886ce78745bdcc45d0dfb156c2d464d8c04110e41f7cb3a7b008a111985432a",
+      "instructions_sha256": "0ae52bcf885564625418ab8fd2e7438d3c512e3296b62e7661e078a322cfd6b6",
+      "baseline_sha256": "e7c67e3911dbbc6020a973a7764206d327b9b22cf3d7c2c0c1bc9f6d43e22780"
+    }
+  }
+}

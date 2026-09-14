@@ -1,0 +1,59 @@
+{
+  "functions": [
+    "set_rx_gain_cal_iq",
+    "set_rx_gain_cal_dc"
+  ],
+  "helpers": [
+    "g_phyFuns",
+    "phy_param",
+    "phy_printf",
+    "pbus_rx_dco_cal",
+    "pbus_rx_dco_cal_1step",
+    "txiq_set_reg",
+    "start_tx_tone_step",
+    "stop_tx_tone",
+    "get_rfcal_rxiq_data",
+    "chip_v7_set_chan_ana",
+    "rx_chan_dc_sort",
+    "memcpy"
+  ],
+  "symbols": [
+    "set_rx_gain_cal_iq",
+    "set_rx_gain_cal_dc",
+    "g_phyFuns",
+    "phy_param",
+    "phy_printf",
+    "pbus_rx_dco_cal",
+    "pbus_rx_dco_cal_1step",
+    "txiq_set_reg",
+    "start_tx_tone_step",
+    "stop_tx_tone",
+    "get_rfcal_rxiq_data",
+    "chip_v7_set_chan_ana",
+    "rx_chan_dc_sort",
+    "memcpy"
+  ],
+  "readonly": [
+    {
+      "name": "rx_gain_cal_tables",
+      "address": "0x3c00ab50",
+      "size_bytes": 22,
+      "bytes": "3f1f0f070301000020282c2e0000010005000d001d00",
+      "sha256": "b29dff5a3035cf3515734af2152c78d37e13d225825d0755653ca833ce261c72"
+    }
+  ],
+  "logs": [
+    {
+      "address": "0x3c004dc1",
+      "bytes": "746f74616c5f7077723d256c642c206d696e3d256c642c206d61783d256c642c20726674783d307825782c2062623d307825782c206174743d25642c2064635f693d25642c2064635f713d25640a00",
+      "format": "total_pwr=%ld, min=%ld, max=%ld, rftx=0x%x, bb=0x%x, att=%d, dc_i=%d, dc_q=%d\n"
+    },
+    {
+      "address": "0x3c004e10",
+      "bytes": "727869713a20726674783d307825782c20726672783d7825782c206174743d25642c2062623d307825782c2025642c2025640a00",
+      "format": "rxiq: rftx=0x%x, rfrx=x%x, att=%d, bb=0x%x, %d, %d\n"
+    }
+  ],
+  "elf_sha256": "9a0fc0d964531d81220c272bc0c5f1a7cfa32bb6d37d6ebecb8059e66d61a60f",
+  "map_sha256": "d886ce78745bdcc45d0dfb156c2d464d8c04110e41f7cb3a7b008a111985432a"
+}
