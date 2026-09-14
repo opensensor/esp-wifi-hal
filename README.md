@@ -36,6 +36,12 @@ records instruction comparisons, ownership, lifecycle/RX tests, reconnects,
 GTK rotation and actual packet counts. Earlier packet loss and latency limits
 remain open.
 
+The pinned FoA station stack now requests MAC ACK waiting for unicast EAPOL
+frames, enabling its existing retry policy to react to a missing ACK. The
+[ACK-policy comparison](docs/network/EAPOL-ACK-VALIDATION.md) records the
+production-sender regression and paired C3/S3 traffic results. A MAC ACK does
+not establish AP decryption or EAPOL acceptance.
+
 The S3 port adds Rust MAC initialization, RX/TX handling and hardware crypto
 integration. [S3 MAC helper initialization](docs/esp32s3/MAC-HELPERS.md) now runs
 in Rust with no `libpp.a` code/data in the tested images. PHY and ROM code remain, so this is
