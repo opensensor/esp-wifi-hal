@@ -75,6 +75,8 @@ including mergeable string inputs.
 The 570 C3 instructions have 569 executed instructions and 59/60 conditional
 edges, with only the documented upper-clamp exemption. All 520 S3 instructions
 and 54 conditional edges execute. These finite software cases do not establish
-analog/RF behavior, cycle counts or packet-loss equivalence. Device and final
-emitted-profile results are recorded separately when complete. Network logging,
-FoA/sys revisions and radio policy stay fixed for the PHY comparison.
+analog/RF behavior, cycle counts or packet-loss equivalence. The
+[validation report](PHY-RX-GAIN-CAL-VALIDATION.md) records all eight emitted
+profiles and eighteen device trials, including restoration and retained losses.
+Network logging, FoA/sys revisions and radio policy stayed fixed for the PHY
+comparison.

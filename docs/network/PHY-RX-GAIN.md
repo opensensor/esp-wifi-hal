@@ -21,8 +21,9 @@ Callback table loads remain explicit. Calibration can replace the table between
 calls; the write target captured before a read callback is intentionally retained.
 Table initialization programs 79 C3 or 82 S3 entries. C3 then calls the existing
 `rom_phy_reg_init`; S3 calls slot `0x248`. Both subsequently reload slot `4`.
-These dependencies remain in ROM. RX IQ/DC calibration remains in the vendor
-calibration member, and frequency adjustment uses the preceding Rust replacement.
+These dependencies remain in ROM. RX gain IQ/DC calibration is now covered by
+the [gain-calibration replacement](PHY-RX-GAIN-CAL.md); frequency adjustment
+uses the preceding Rust replacement.
 
 The entry wrappers preserve machine argument widths. S3 narrows the original
 byte/halfword arguments where the binary did. `set_rx_gain_param` ignores its
