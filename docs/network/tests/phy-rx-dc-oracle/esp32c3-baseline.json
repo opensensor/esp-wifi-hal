@@ -1,0 +1,20 @@
+{
+  "functions": [
+    "rxdc_est_min_new",
+    "rx_chan_dc_sort"
+  ],
+  "symbols": [
+    "rxdc_est_min_new",
+    "rx_chan_dc_sort",
+    "g_phyFuns",
+    "phy_param"
+  ],
+  "helpers": [
+    "g_phyFuns",
+    "phy_param"
+  ],
+  "readonly": [],
+  "logs": [],
+  "elf_sha256": "999af06e8c73b285df07f44b2fbd0b94a0150d163f85bf10b206aa3dd7220f04",
+  "map_sha256": "b1384e9b3c193e1ec05bdad989148d77d34c661e26182a42a75960e7d83b57ba"
+}

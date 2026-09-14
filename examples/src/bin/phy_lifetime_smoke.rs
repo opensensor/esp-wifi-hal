@@ -1230,6 +1230,27 @@ unsafe fn inspect_init(cycle: u32) {
     #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
     unsafe {
         unsafe extern "C" {
+            #[cfg(feature = "esp32c3")]
+            fn rxdc_est_min_new();
+            #[cfg(feature = "esp32s3")]
+            fn rxdc_est_min();
+            fn rx_chan_dc_sort();
+        }
+        #[cfg(feature = "esp32c3")]
+        let minimum = rxdc_est_min_new as *const () as usize;
+        #[cfg(feature = "esp32s3")]
+        let minimum = rxdc_est_min as *const () as usize;
+        for (operation, address) in [(0, minimum), (1, rx_chan_dc_sort as *const () as usize)] {
+            info!(
+                "stage=phy_rx_dc_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+    }
+
+    #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+    unsafe {
+        unsafe extern "C" {
             fn rfcal_rxiq();
             fn get_rfcal_rxiq_data();
         }

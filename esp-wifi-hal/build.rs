@@ -212,7 +212,19 @@ fn main() {
             ));
         }
         for (original, suffix) in [("rfcal_rxiq", "sample"), ("get_rfcal_rxiq_data", "collect")] {
-            reg.push_str(&format!("EXTERN(__opensensor_rf_iq_{suffix});\n{original} = __opensensor_rf_iq_{suffix};\n"));
+            reg.push_str(&format!(
+                "EXTERN(__opensensor_rf_iq_{suffix});\n{original} = __opensensor_rf_iq_{suffix};\n"
+            ));
+        }
+        let minimum = if cfg!(feature = "esp32c3") {
+            "rxdc_est_min_new"
+        } else {
+            "rxdc_est_min"
+        };
+        for (original, suffix) in [(minimum, "minimum"), ("rx_chan_dc_sort", "sort")] {
+            reg.push_str(&format!(
+                "EXTERN(__opensensor_rx_dc_{suffix});\n{original} = __opensensor_rx_dc_{suffix};\n"
+            ));
         }
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[

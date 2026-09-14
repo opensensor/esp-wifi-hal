@@ -109,8 +109,12 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_rx_iq.py
           python3 docs/network/tests/test_audit_phy_rf_iq.py
           python3 -O docs/network/tests/test_audit_phy_rf_iq.py
+          python3 docs/network/tests/test_audit_phy_rx_dc.py
+          python3 -O docs/network/tests/test_audit_phy_rx_dc.py
       - name: Compare RF IQ orchestration against pinned C3 and S3 instructions
         run: sh docs/network/tests/run-phy-rf-iq.sh
+      - name: Compare RX DC selection and channel filling to original instructions
+        run: sh docs/network/tests/run-phy-rx-dc.sh
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu

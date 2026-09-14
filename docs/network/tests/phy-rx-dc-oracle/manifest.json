@@ -1,0 +1,60 @@
+{
+  "hal_revision": "8be97be804e23d47ed216e43a85cce24226dbe07",
+  "hal_source_revision": "0284ccb4bb5abf3249fa8fe0f15892e5c22d39d6",
+  "foa_revision": "9178988e373d14084dab06bde4f6bc679d4753e8",
+  "preparation_only": true,
+  "chips": {
+    "esp32c3": {
+      "elf_sha256": "999af06e8c73b285df07f44b2fbd0b94a0150d163f85bf10b206aa3dd7220f04",
+      "map_sha256": "b1384e9b3c193e1ec05bdad989148d77d34c661e26182a42a75960e7d83b57ba",
+      "symbols": {
+        "rxdc_est_min_new": {
+          "address": "0x420418a0",
+          "size_bytes": 166
+        },
+        "rx_chan_dc_sort": {
+          "address": "0x42042036",
+          "size_bytes": 260
+        },
+        "g_phyFuns": {
+          "address": "0x3fca5270",
+          "size_bytes": 0
+        },
+        "phy_param": {
+          "address": "0x3fc82a20",
+          "size_bytes": 0
+        }
+      },
+      "instruction_count": 168,
+      "instructions_sha256": "1201cea7c0158111389a58fad49f1f355cf1d01ce6fedc03d0da7ff4ed261912"
+    },
+    "esp32s3": {
+      "elf_sha256": "3a88067ca7b3bed724c24c08a6c87b101455f3c64c4151195193cd4f6673d7bc",
+      "map_sha256": "b83752f6b9e9af55922dfb95a11d2aeda1ca93e854ebec0beeec3bca1e03e2ed",
+      "symbols": {
+        "rxdc_est_min": {
+          "address": "0x4203f4c4",
+          "size_bytes": 111
+        },
+        "rx_chan_dc_sort": {
+          "address": "0x4203fb84",
+          "size_bytes": 145
+        },
+        "g_phyFuns": {
+          "address": "0x3fcaf144",
+          "size_bytes": 0
+        },
+        "phy_param": {
+          "address": "0x3fc8cb20",
+          "size_bytes": 0
+        }
+      },
+      "instruction_count": 101,
+      "instructions_sha256": "55e32250e0c3f18afbe28cf27dc72bd2543a5153372af2759abbb1201bfbdb91"
+    }
+  },
+  "tool_sha256": {
+    "machine.py": "12816afdf570ebca1c6eb60eb4c4cca63debdfc882e931bd9559dc8e9f028104",
+    "extract.py": "c476d0f68e733bb465cf9fa037a15802a2fc9cdba9bfd564e4b3f8ba96520eb4"
+  }
+}
