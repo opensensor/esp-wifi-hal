@@ -30,10 +30,10 @@ def check_pwdet(base,symbols,expected):
             if not any(temperature.contains(r,body) for r in temperature.original_sections(member,old)):
                 raise ValueError('Original pwdet body lacks member ownership: '+old)
 
-def audit(elf_path,map_path,label,expected):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=debug.audit(elf_path,map_path,label,'source')
+    prior=debug.audit(elf_path,map_path,label,'source',hw_freq_source=hw_freq_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(set(SELECTED[chip])|ALL_SOURCE_NAMES))
     check_pwdet(base,symbols,expected);phy=base['allocations']['libphy.a']

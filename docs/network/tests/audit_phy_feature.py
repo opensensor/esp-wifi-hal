@@ -49,10 +49,10 @@ def check_feature(base,symbols,expected):
         if section=='.iram1' and not i2c.in_iram(body):raise ValueError('Retained feature helper is outside IRAM: '+name)
 
 
-def audit(elf_path,map_path,label,expected):
+def audit(elf_path,map_path,label,expected,*,hw_freq_source=False):
     from elftools.elf.elffile import ELFFile
     if not re.fullmatch(r'[A-Za-z0-9_.-]+',label):raise ValueError('Label must be a simple artifact identifier')
-    prior=basic.audit(elf_path,map_path,label,'source',feature_source=(expected=='source'))
+    prior=basic.audit(elf_path,map_path,label,'source',feature_source=(expected=='source'),hw_freq_source=hw_freq_source)
     base=allocations.audit(elf_path,map_path,label,exclude_strings=True);chip=base['chip']
     names=set(SELECTED[chip])|ALL_SOURCE_NAMES|set(RETAINED[chip])|set(ROM[chip])
     with elf_path.open('rb') as stream:symbols=temperature.inspect_symbols(ELFFile(stream),sorted(names))

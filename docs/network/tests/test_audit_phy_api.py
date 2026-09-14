@@ -112,4 +112,33 @@ class LifecycleComposition(unittest.TestCase):
             with self.subTest(name=name),self.assertRaisesRegex(ValueError,'Missing allocated function body'):
                 self.check(b,s,api_source=True)
 
+class HardwareFrequencyComposition(unittest.TestCase):
+    def fixture(self,chip='esp32c3'):
+        b,s=fixture(chip);b['allocations']['libphy.a']['inputs']=[r for r in b['allocations']['libphy.a']['inputs'] if r['member']!='phy_hw_freq.o']
+        s['__opensensor_hw_freq_initialize']=s['get_rf_freq_init'].copy()
+        s['get_rf_freq_init'].update(absolute=True,allocated=False,type='STT_NOTYPE',symbol_size_bytes=0)
+        return b,s
+    def test_explicit_stage_accepts_checked_body(self):
+        for chip in api.SELECTED:api.check_api(*self.fixture(chip),'source',hw_freq_source=True)
+    def test_default_still_requires_vendor_helper(self):
+        with self.assertRaisesRegex(ValueError,'Missing allocated function'):api.check_api(*self.fixture(),'source')
+    def test_cannot_enable_for_vendor_api(self):
+        with self.assertRaisesRegex(ValueError,'requires API source'):api.check_api(*fixture(),'vendor',hw_freq_source=True)
+    def test_helper_alias_and_body_and_ownership_checked(self):
+        for chip in api.SELECTED:
+            b,s=self.fixture(chip);s['get_rf_freq_init']['address']='0x42010000'
+            with self.assertRaisesRegex(ValueError,'helper alias'):api.check_api(b,s,'source',hw_freq_source=True)
+            for field,value in [('allocated',False),('executable',False),('body_contained',False),('symbol_size_bytes',0),('type','STT_OBJECT')]:
+                b,s=self.fixture(chip);s['__opensensor_hw_freq_initialize'][field]=value
+                with self.assertRaisesRegex(ValueError,'Missing allocated function'):api.check_api(b,s,'source',hw_freq_source=True)
+            b,s=self.fixture(chip);append_input(b,'other.o','.data',int(s['__opensensor_hw_freq_initialize']['address'],0)+8)
+            with self.assertRaisesRegex(ValueError,'overlaps vendor'):api.check_api(b,s,'source',hw_freq_source=True)
+            b,s=self.fixture(chip);append_input(b,'other.o','.text.get_rf_freq_init')
+            with self.assertRaisesRegex(ValueError,'still allocated'):api.check_api(b,s,'source',hw_freq_source=True)
+    def test_other_retained_helpers_still_require_vendor_ownership(self):
+        for chip in api.SELECTED:
+            for name in set(api.RETAINED[chip])-{'get_rf_freq_init'}:
+                b,s=self.fixture(chip);s[name]=None
+                with self.assertRaisesRegex(ValueError,'Missing allocated function'):api.check_api(b,s,'source',hw_freq_source=True)
+
 if __name__=='__main__':unittest.main()
