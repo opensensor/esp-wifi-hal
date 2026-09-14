@@ -714,6 +714,181 @@ unsafe fn inspect_track(cycle: u32) {
     }
 }
 
+/// Check pure frequency arithmetic and observe entry points after normal calibration.
+/// This probe does not start an additional calibration or program an RF register.
+unsafe fn inspect_rfpll(cycle: u32) {
+    unsafe extern "C" {
+        static mut phy_param: u8;
+        static mut g_phyFuns: *const u8;
+        fn rfpll_set_freq(frequency: u32, selector: u32, offset: u32, out: *mut u8);
+        #[cfg(feature = "esp32c3")]
+        fn restart_cal();
+        #[cfg(feature = "esp32c3")]
+        fn write_rfpll_sdm();
+        #[cfg(feature = "esp32c3")]
+        fn wait_rfpll_cal_end();
+        #[cfg(feature = "esp32c3")]
+        fn correct_rfpll_offset();
+        #[cfg(feature = "esp32c3")]
+        fn rom2_write_pll_cap();
+        #[cfg(feature = "esp32c3")]
+        fn rom2_read_pll_cap();
+        #[cfg(feature = "esp32c3")]
+        fn ram2_rfpll_cap_correct();
+        #[cfg(feature = "esp32c3")]
+        fn rfpll_cap_init_cal();
+        #[cfg(feature = "esp32c3")]
+        fn set_rfpll_freq();
+        #[cfg(feature = "esp32c3")]
+        fn set_rf_freq_offset();
+        #[cfg(feature = "esp32c3")]
+        fn set_channel_rfpll_freq();
+        #[cfg(feature = "esp32c3")]
+        fn chip_v7_set_chan_misc();
+        #[cfg(feature = "esp32c3")]
+        fn chip_v7_set_chan();
+        #[cfg(feature = "esp32c3")]
+        fn chip_v7_set_chan_offset();
+        #[cfg(feature = "esp32c3")]
+        fn chip_v7_set_chan_ana();
+        #[cfg(feature = "esp32s3")]
+        fn restart_cal();
+        #[cfg(feature = "esp32s3")]
+        fn write_rfpll_sdm();
+        #[cfg(feature = "esp32s3")]
+        fn wait_rfpll_cal_end();
+        #[cfg(feature = "esp32s3")]
+        fn correct_rfpll_offset();
+        #[cfg(feature = "esp32s3")]
+        fn ram_write_pll_cap();
+        #[cfg(feature = "esp32s3")]
+        fn read_pll_cap();
+        #[cfg(feature = "esp32s3")]
+        fn rfpll_cap_correct();
+        #[cfg(feature = "esp32s3")]
+        fn rfpll_cap_init_cal();
+        #[cfg(feature = "esp32s3")]
+        fn set_rfpll_freq();
+        #[cfg(feature = "esp32s3")]
+        fn set_rf_freq_offset();
+        #[cfg(feature = "esp32s3")]
+        fn set_channel_rfpll_freq();
+        #[cfg(feature = "esp32s3")]
+        fn chip_v7_set_chan_misc();
+        #[cfg(feature = "esp32s3")]
+        fn chip_v7_set_chan();
+        #[cfg(feature = "esp32s3")]
+        fn chip_v7_set_chan_offset();
+        #[cfg(feature = "esp32s3")]
+        fn chip_v7_set_chan_ana();
+        #[cfg(feature = "esp32s3")]
+        fn phy_set_freq();
+        #[cfg(feature = "esp32s3")]
+        fn ram_pll_vol_cal();
+    }
+    unsafe {
+        #[cfg(feature = "esp32c3")]
+        let cases = [
+            (2412u32, 1u32, 0u32, [91, 177, 59]),
+            (2437u32, 2u32, 100u32, [69, 139, 187]),
+            (2484u32, 3u32, 0u32, [37, 0, 0]),
+            (2400u32, 0u32, 0u32, [48, 0, 0]),
+            (0u32, 1u32, 0u32, [224, 24, 55]),
+            (2412u32, 257u32, 65535u32, [95, 13, 150]),
+            (65535u32, 3u32, 32768u32, [253, 183, 49]),
+            (4294967295u32, 255u32, 4294967295u32, [224, 150, 56]),
+        ];
+        #[cfg(feature = "esp32s3")]
+        let cases = [
+            (2412u32, 1u32, 0u32, [91, 177, 59]),
+            (2437u32, 2u32, 100u32, [69, 139, 187]),
+            (2484u32, 3u32, 0u32, [50, 204, 204]),
+            (2400u32, 0u32, 0u32, [48, 0, 0]),
+            (0u32, 1u32, 0u32, [224, 24, 55]),
+            (2412u32, 257u32, 65535u32, [91, 177, 55]),
+            (65535u32, 3u32, 32768u32, [103, 66, 97]),
+            (4294967295u32, 255u32, 4294967295u32, [224, 150, 56]),
+        ];
+        for (frequency, selector, offset, expected) in cases {
+            let mut output = [0xa5u8; 5];
+            rfpll_set_freq(frequency, selector, offset, output.as_mut_ptr().add(1));
+            assert_eq!(output[0], 0xa5);
+            assert_eq!(output[4], 0xa5);
+            assert_eq!(&output[1..4], &expected);
+        }
+        let param = (&raw const phy_param).cast::<u8>();
+        info!(
+            "stage=phy_rfpll cycle={} checked={} channel={} selector={} offset={}",
+            cycle,
+            cases.len(),
+            param.add(0x1f2).read_volatile(),
+            param.add(0xf3).read_volatile(),
+            param.add(0xe0).cast::<i16>().read_volatile()
+        );
+        #[cfg(feature = "esp32c3")]
+        let entries = [
+            (0, restart_cal as *const () as usize),
+            (1, write_rfpll_sdm as *const () as usize),
+            (2, wait_rfpll_cal_end as *const () as usize),
+            (3, rfpll_set_freq as *const () as usize),
+            (4, correct_rfpll_offset as *const () as usize),
+            (5, rom2_write_pll_cap as *const () as usize),
+            (6, rom2_read_pll_cap as *const () as usize),
+            (7, ram2_rfpll_cap_correct as *const () as usize),
+            (8, rfpll_cap_init_cal as *const () as usize),
+            (9, set_rfpll_freq as *const () as usize),
+            (10, set_rf_freq_offset as *const () as usize),
+            (11, set_channel_rfpll_freq as *const () as usize),
+            (12, chip_v7_set_chan_misc as *const () as usize),
+            (13, chip_v7_set_chan as *const () as usize),
+            (14, chip_v7_set_chan_offset as *const () as usize),
+            (15, chip_v7_set_chan_ana as *const () as usize),
+        ];
+        #[cfg(feature = "esp32s3")]
+        let entries = [
+            (0, restart_cal as *const () as usize),
+            (1, write_rfpll_sdm as *const () as usize),
+            (2, wait_rfpll_cal_end as *const () as usize),
+            (3, rfpll_set_freq as *const () as usize),
+            (4, correct_rfpll_offset as *const () as usize),
+            (5, ram_write_pll_cap as *const () as usize),
+            (6, read_pll_cap as *const () as usize),
+            (7, rfpll_cap_correct as *const () as usize),
+            (8, rfpll_cap_init_cal as *const () as usize),
+            (9, set_rfpll_freq as *const () as usize),
+            (10, set_rf_freq_offset as *const () as usize),
+            (11, set_channel_rfpll_freq as *const () as usize),
+            (12, chip_v7_set_chan_misc as *const () as usize),
+            (13, chip_v7_set_chan as *const () as usize),
+            (14, chip_v7_set_chan_offset as *const () as usize),
+            (15, chip_v7_set_chan_ana as *const () as usize),
+            (16, phy_set_freq as *const () as usize),
+            (17, ram_pll_vol_cal as *const () as usize),
+        ];
+        for (operation, address) in entries {
+            info!(
+                "stage=phy_rfpll_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        #[cfg(feature = "esp32c3")]
+        let slots = [40, 428, 436, 440, 444, 504, 388, 392, 8, 12, 120, 96];
+        #[cfg(feature = "esp32s3")]
+        let slots = [
+            40, 392, 400, 404, 408, 524, 468, 352, 356, 8, 12, 108, 588, 612,
+        ];
+        for slot in slots {
+            let table = (&raw const g_phyFuns).read_volatile();
+            let target = table.add(slot).cast::<usize>().read_volatile();
+            assert_ne!(target, 0);
+            info!(
+                "stage=phy_rfpll_slot cycle={} slot={:#x} target={:#x}",
+                cycle, slot, target
+            );
+        }
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -768,6 +943,7 @@ async fn main(_spawner: Spawner) {
             inspect_pwdet(cycle);
             inspect_analog(cycle);
             inspect_track(cycle);
+            inspect_rfpll(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

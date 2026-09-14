@@ -141,6 +141,14 @@ native checks cover 60 emitted bodies across eight source profiles. The
 RX, reconnects, GTK rotation and observed packet gaps. RF calibration/gain
 internals and ROM callbacks remain dependencies; packet-loss work remains open.
 
+The [RF PLL replacement](docs/network/PHY-RFPLL.md) removes every allocated
+`phy_rfpll.o` input through 16 C3 / 18 S3 Rust entries, leaving seven allocated
+vendor PHY members. It preserves chip-specific frequency arithmetic, bounded
+capacitor calibration, MMIO offset updates and channel helpers. The original
+instructions match 289,110 host cases at O0/O2; compiled firmware adds 6,456
+native case executions. The [paired report](docs/network/PHY-RFPLL-VALIDATION.md)
+records board trials and remaining limits.
+
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
 [TX queue completion ownership/buffer recovery](docs/network/TX-QUEUE.md).

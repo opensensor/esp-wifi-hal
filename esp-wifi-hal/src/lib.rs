@@ -99,6 +99,8 @@ mod phy_pwdet;
 mod phy_analog;
 #[cfg(any(esp32c3, esp32s3))]
 mod phy_track;
+#[cfg(any(esp32c3, esp32s3))]
+mod phy_rfpll;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

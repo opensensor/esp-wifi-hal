@@ -1,0 +1,56 @@
+{
+  "esp32c3": {
+    "cases": 143805,
+    "operations": {
+      "0": 750,
+      "1": 752,
+      "2": 851,
+      "3": 66288,
+      "4": 752,
+      "5": 66286,
+      "6": 750,
+      "7": 1318,
+      "8": 806,
+      "9": 752,
+      "10": 750,
+      "11": 750,
+      "12": 750,
+      "13": 750,
+      "14": 750,
+      "15": 750
+    },
+    "case_stream_sha256": "270b98d83ecdc51ba30f2c3f7d3e7f6775643c057e04060e0d32b8eae5a599b4",
+    "fixture_sha256": "9ce3d1541bdf85f87ebbfed0ccd2b204f302f7e874a60239b3e9b0f128c916ef",
+    "visited_instructions": 754,
+    "reachable_instructions": 754,
+    "conditional_edges": 68
+  },
+  "esp32s3": {
+    "cases": 145305,
+    "operations": {
+      "0": 750,
+      "1": 752,
+      "2": 851,
+      "3": 66288,
+      "4": 752,
+      "5": 66286,
+      "6": 750,
+      "7": 1318,
+      "8": 806,
+      "9": 752,
+      "10": 750,
+      "11": 750,
+      "12": 750,
+      "13": 750,
+      "14": 750,
+      "15": 750,
+      "16": 750,
+      "17": 750
+    },
+    "case_stream_sha256": "8a94d799b30b7f3dc6a93c662603539887e046fe2957c4abddfadd80d2254f55",
+    "fixture_sha256": "d7039c5d9ed056e5f10bb399516aaa87e8d112c8088bb8437f9d598ce8bff55f",
+    "visited_instructions": 707,
+    "reachable_instructions": 707,
+    "conditional_edges": 64
+  }
+}

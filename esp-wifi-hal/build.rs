@@ -292,5 +292,43 @@ fn main() {
         }
         std::fs::write(out.join("libesp-wifi-hal-track.a"), track).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-track");
+        let mut entries = vec![
+            ("restart_cal", "restart"),
+            ("write_rfpll_sdm", "sdm"),
+            ("wait_rfpll_cal_end", "wait"),
+            ("rfpll_set_freq", "frequency"),
+            ("correct_rfpll_offset", "correct_offset"),
+            ("rfpll_cap_init_cal", "init_cap"),
+            ("set_rfpll_freq", "set"),
+            ("set_rf_freq_offset", "set_offset"),
+            ("set_channel_rfpll_freq", "set_channel"),
+            ("chip_v7_set_chan_misc", "misc"),
+            ("chip_v7_set_chan", "channel"),
+            ("chip_v7_set_chan_offset", "channel_offset"),
+            ("chip_v7_set_chan_ana", "channel_analog"),
+        ];
+        if cfg!(feature = "esp32c3") {
+            entries.extend([
+                ("rom2_write_pll_cap", "write_cap"),
+                ("rom2_read_pll_cap", "read_cap"),
+                ("ram2_rfpll_cap_correct", "correct_cap"),
+            ]);
+        } else {
+            entries.extend([
+                ("ram_write_pll_cap", "write_cap"),
+                ("read_pll_cap", "read_cap"),
+                ("rfpll_cap_correct", "correct_cap"),
+                ("phy_set_freq", "phy_frequency"),
+                ("ram_pll_vol_cal", "voltage"),
+            ]);
+        }
+        let mut rfpll = String::new();
+        for (original, suffix) in entries {
+            rfpll.push_str(&format!(
+                "EXTERN(__opensensor_rfpll_{suffix});\n{original} = __opensensor_rfpll_{suffix};\n"
+            ));
+        }
+        std::fs::write(out.join("libesp-wifi-hal-rfpll.a"), rfpll).unwrap();
+        println!("cargo:rustc-link-lib=esp-wifi-hal-rfpll");
     }
 }

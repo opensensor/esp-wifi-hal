@@ -49,6 +49,8 @@ jobs:
         run: sh docs/network/tests/run-phy-analog.sh
       - name: Compare PHY tracking to original instructions
         run: sh docs/network/tests/run-phy-track.sh
+      - name: Compare RF PLL and channel helpers to original instructions
+        run: sh docs/network/tests/run-phy-rfpll.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
@@ -75,6 +77,8 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_analog.py
           python3 docs/network/tests/test_audit_phy_track.py
           python3 -O docs/network/tests/test_audit_phy_track.py
+          python3 docs/network/tests/test_audit_phy_rfpll.py
+          python3 -O docs/network/tests/test_audit_phy_rfpll.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu
