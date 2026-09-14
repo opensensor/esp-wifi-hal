@@ -38,5 +38,5 @@ python3 -O docs/network/tests/test_audit_phy_reg.py
 
 ROM, PHY-owned state, initialization, RX/TX gain and RX/TX calibration remain
 dependencies. Host comparison and ownership checks alone do not establish native
-ABI, board behavior, or packet-loss/timing improvement. Paired native/device
-validation is recorded separately when complete.
+ABI, board behavior, or packet-loss/timing improvement. [Paired native/device validation](PHY-REG-VALIDATION.md) records the completed
+trials and retained packet losses.
