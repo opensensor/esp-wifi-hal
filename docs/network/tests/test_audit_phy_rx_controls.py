@@ -7,7 +7,7 @@ def fixture(chip='esp32c3',mode='source'):
  for i,(old,new) in enumerate(audit.SELECTED.items()):
   a=0x42002000+i*64;s[old]=symbol(a);s[new]=symbol(a) if mode=='source' else None
   if mode=='vendor':append_input(b,'phy_rx_cal.o','.text.'+old,a,32)
- for i,name in enumerate(DEPENDENCIES):
+ for i,name in enumerate(audit.RETAINED[chip]):
   a=0x42003000+i*64;s[name]=symbol(a);append_input(b,'phy_rx_cal.o','.text.'+name,a,32)
  return b,s
 class Tests(unittest.TestCase):
@@ -34,9 +34,10 @@ class Tests(unittest.TestCase):
   b,s=fixture();append_input(b,'wrong.o','.text',0x42002001,12)
   with self.assertRaises(ValueError):audit.check_controls(b,s,'source')
  def test_retained_dependencies(self):
-  for name in DEPENDENCIES:
-   b,s=fixture();s[name]['address']='0x42009900'
-   with self.assertRaises(ValueError):audit.check_controls(b,s,'source')
+  for chip in audit.RETAINED:
+   for name in audit.RETAINED[chip]:
+    b,s=fixture(chip);s[name]['address']='0x42009900'
+    with self.assertRaises(ValueError):audit.check_controls(b,s,'source')
  def test_vendor_cannot_have_source(self):
   b,s=fixture(mode='vendor');s[next(iter(audit.SELECTED.values()))]=symbol(0x42004000)
   with self.assertRaises(ValueError):audit.check_controls(b,s,'vendor')
