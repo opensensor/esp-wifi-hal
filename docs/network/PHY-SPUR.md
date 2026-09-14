@@ -76,9 +76,11 @@ The tests include callback-table and parameter changes between calls. Volatile
 parameter/MMIO accesses retain their widths and order; private stack scheduling,
 memory-barrier timing and asynchronous analog behavior are outside the model.
 
-Application-profile and device results will be recorded in a separate validation
-report. A standalone emitted-code test does not replace application linking,
-ownership checks or paired hardware trials. Keep firmware logging, FoA/sys pins
-and radio policy fixed for that comparison; no packet-loss fix is claimed here.
+The [validation report](PHY-SPUR-VALIDATION.md) records all ten immutable builds,
+four emitted S3 application profiles and ten device trials including restoration.
+Both paired GTK trials completed all three rotations; the control lost one echo
+and one broadcast packet, and the source trial received every measured packet.
+Logging, FoA/sys pins and radio policy were fixed. This finite comparison does
+not establish a packet-loss fix, timing equivalence or calibrated RF performance.
 
 See [oracle and reproduction](tests/phy-spur-oracle/README.md).

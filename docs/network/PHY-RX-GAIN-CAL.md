@@ -80,3 +80,9 @@ analog/RF behavior, cycle counts or packet-loss equivalence. The
 profiles and eighteen device trials, including restoration and retained losses.
 Network logging, FoA/sys revisions and radio policy stayed fixed for the PHY
 comparison.
+
+The subsequent [S3 spur milestone](PHY-SPUR-VALIDATION.md) removes the two
+remaining S3 RX bodies. Its composed gate explicitly enables that transition
+and requires the entire RX archive member, including strings, to disappear.
+The gain-calibration gate still preserves spur ownership by default for earlier
+profiles. Both chips retain TX calibration and analog/ROM dependencies.
