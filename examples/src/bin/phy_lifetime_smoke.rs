@@ -1227,6 +1227,39 @@ unsafe fn inspect_tx_gain(cycle: u32) {
 /// Observe initialization bindings and configuration after the PHY owns state.
 /// Reading these bytes does not invoke initialization or calibration a second time.
 unsafe fn inspect_init(cycle: u32) {
+    #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+    unsafe {
+        unsafe extern "C" {
+            fn rfrx_sat_rst();
+            fn phy_force_rx_gain_trig();
+            fn ram_iq_est_enable();
+            fn phy_check_rx_sat();
+            static mut g_phyFuns: *const u8;
+        }
+        for (operation, address) in [
+            (0, rfrx_sat_rst as *const () as usize),
+            (1, phy_force_rx_gain_trig as *const () as usize),
+            (2, ram_iq_est_enable as *const () as usize),
+            (3, phy_check_rx_sat as *const () as usize),
+        ] {
+            info!(
+                "stage=phy_rx_controls_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let table = (&raw const g_phyFuns).read_volatile();
+        let slot = if cfg!(feature = "esp32s3") {
+            0xf0
+        } else {
+            0x104
+        };
+        let target = table.add(slot).cast::<usize>().read_volatile();
+        info!(
+            "stage=phy_rx_controls_slot cycle={} slot={:#x} target={:#x}",
+            cycle, slot, target
+        );
+    }
+
     #[cfg(feature = "esp32c3")]
     unsafe {
         unsafe extern "C" {

@@ -1,0 +1,14 @@
+{
+  "esp32c3": {
+    "cases": 754,
+    "sha256": "a25bd5f6d6a954246fc4377efef905ff2c682b9c429d3acd025a906e06f79591",
+    "instructions": 178,
+    "conditional_edges": 14
+  },
+  "esp32s3": {
+    "cases": 712,
+    "sha256": "c40726b8f8d2f91f2bf82b6caf1f8e7734baf8ca2d5b42ce777548644af24c32",
+    "instructions": 173,
+    "conditional_edges": 12
+  }
+}

@@ -195,6 +195,14 @@ fn main() {
         for (original, suffix) in tx_gain_names {
             reg.push_str(&format!("EXTERN(__opensensor_tx_gain_{suffix});\n{original} = __opensensor_tx_gain_{suffix};\n"));
         }
+        for (original, suffix) in [
+            ("rfrx_sat_rst", "reset"),
+            ("phy_force_rx_gain_trig", "trigger"),
+            ("ram_iq_est_enable", "estimate"),
+            ("phy_check_rx_sat", "check"),
+        ] {
+            reg.push_str(&format!("EXTERN(__opensensor_rx_controls_{suffix});\n{original} = __opensensor_rx_controls_{suffix};\n"));
+        }
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[
                 ("phy_get_romfunc_addr", "callbacks"),

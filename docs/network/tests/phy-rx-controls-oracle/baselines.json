@@ -1,0 +1,86 @@
+{
+  "esp32c3": {
+    "elf_sha256": "4e1c092ccb3019a6d129b5ec353d2bfb41e3f3ee610d196870464bb09c8adcf7",
+    "map_sha256": "49cef2c9495afc0f01239f11453fc25ac356d0f71dc04c9166c4998bbb3ae664",
+    "functions": [
+      "rfrx_sat_rst",
+      "phy_force_rx_gain_trig",
+      "ram_iq_est_enable",
+      "phy_check_rx_sat",
+      "rfrx_sat_rst.part.0"
+    ],
+    "helpers": [
+      "ets_delay_us",
+      "phy_param",
+      "g_phyFuns"
+    ],
+    "symbols": [
+      "ets_delay_us",
+      "g_phyFuns",
+      "phy_check_rx_sat",
+      "phy_force_rx_gain_trig",
+      "phy_param",
+      "ram_iq_est_enable",
+      "rfrx_sat_rst",
+      "rfrx_sat_rst.part.0"
+    ],
+    "readonly": [
+      {
+        "address": "0x3c00a248",
+        "size_bytes": 8,
+        "bytes": "0001000100010001",
+        "sha256": "9d523143304148a2b2d887da817f10830e37f50d7689ca5a9e69f10d7b2eb31f",
+        "section": ".rodata"
+      },
+      {
+        "address": "0x3c00a250",
+        "size_bytes": 6,
+        "bytes": "50473f38322c",
+        "sha256": "2247dc132060777bee69351813323929be43bd174d001832bb0931b942edcb51",
+        "section": ".rodata.dco_gain_coarse.4699"
+      }
+    ],
+    "logs": []
+  },
+  "esp32s3": {
+    "elf_sha256": "28d5283d3e9e88e34dea2c1c2cd73a9db7c7eed6364a13ea343a3ce60c6f5c62",
+    "map_sha256": "62752d92b5df177aab612e475b66939b8b9a6e4a041e892e17f39de3d4671965",
+    "functions": [
+      "rfrx_sat_rst",
+      "phy_force_rx_gain_trig",
+      "ram_iq_est_enable",
+      "phy_check_rx_sat"
+    ],
+    "helpers": [
+      "ets_delay_us",
+      "phy_param",
+      "g_phyFuns"
+    ],
+    "symbols": [
+      "ets_delay_us",
+      "g_phyFuns",
+      "phy_check_rx_sat",
+      "phy_force_rx_gain_trig",
+      "phy_param",
+      "ram_iq_est_enable",
+      "rfrx_sat_rst"
+    ],
+    "readonly": [
+      {
+        "address": "0x3c00ab00",
+        "size_bytes": 34,
+        "bytes": "3f1f0f070301000020282c2e0000010005000d001d00c8c8c8c80001000100010001",
+        "sha256": "017f34d5988f23fb89295d0de5c918eeb5e91b9a6e437c95274df4c1ccea59b3",
+        "section": ".rodata"
+      },
+      {
+        "address": "0x3c00ab22",
+        "size_bytes": 6,
+        "bytes": "50473f38322c",
+        "sha256": "2247dc132060777bee69351813323929be43bd174d001832bb0931b942edcb51",
+        "section": ".rodata.dco_gain_coarse$4336"
+      }
+    ],
+    "logs": []
+  }
+}
