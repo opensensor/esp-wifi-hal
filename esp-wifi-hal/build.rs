@@ -211,6 +211,9 @@ fn main() {
                 "EXTERN(__opensensor_rx_iq_{suffix});\n{original} = __opensensor_rx_iq_{suffix};\n"
             ));
         }
+        for (original, suffix) in [("rfcal_rxiq", "sample"), ("get_rfcal_rxiq_data", "collect")] {
+            reg.push_str(&format!("EXTERN(__opensensor_rf_iq_{suffix});\n{original} = __opensensor_rf_iq_{suffix};\n"));
+        }
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[
                 ("phy_get_romfunc_addr", "callbacks"),

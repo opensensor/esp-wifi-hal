@@ -1,0 +1,68 @@
+{
+  "esp32c3": {
+    "cases": 5031,
+    "sha256": "be1f0824df6deaf15b1dbf234a57f2e5ea777559ec03f90d8c58133e75956037",
+    "instructions": 162,
+    "conditional_edges": 18,
+    "coverage": {
+      "0": {
+        "cases": 2740,
+        "instructions": 162,
+        "conditional_edges": 18,
+        "uncovered_pcs": [],
+        "uncovered_edges": []
+      },
+      "1": {
+        "cases": 2291,
+        "instructions": 158,
+        "conditional_edges": 14,
+        "uncovered_pcs": [
+          "0x420414d0",
+          "0x420414de",
+          "0x420414ec",
+          "0x42041504"
+        ],
+        "uncovered_edges": [
+          [
+            "0x420414cc",
+            false
+          ],
+          [
+            "0x420414da",
+            false
+          ],
+          [
+            "0x420414e8",
+            false
+          ],
+          [
+            "0x42041500",
+            false
+          ]
+        ]
+      }
+    }
+  },
+  "esp32s3": {
+    "cases": 5031,
+    "sha256": "935c51b22b20020a066b2bff8bee8604b570ce07a0306fa16feda866981df218",
+    "instructions": 119,
+    "conditional_edges": 10,
+    "coverage": {
+      "0": {
+        "cases": 2740,
+        "instructions": 119,
+        "conditional_edges": 10,
+        "uncovered_pcs": [],
+        "uncovered_edges": []
+      },
+      "1": {
+        "cases": 2291,
+        "instructions": 119,
+        "conditional_edges": 10,
+        "uncovered_pcs": [],
+        "uncovered_edges": []
+      }
+    }
+  }
+}

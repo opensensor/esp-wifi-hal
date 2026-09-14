@@ -1230,6 +1230,23 @@ unsafe fn inspect_init(cycle: u32) {
     #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
     unsafe {
         unsafe extern "C" {
+            fn rfcal_rxiq();
+            fn get_rfcal_rxiq_data();
+        }
+        for (operation, address) in [
+            (0, rfcal_rxiq as *const () as usize),
+            (1, get_rfcal_rxiq_data as *const () as usize),
+        ] {
+            info!(
+                "stage=phy_rf_iq_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+    }
+
+    #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+    unsafe {
+        unsafe extern "C" {
             fn rxiq_get_mis();
             fn rxiq_cover_mg_mp();
         }

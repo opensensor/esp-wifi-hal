@@ -1,0 +1,73 @@
+{
+  "esp32c3": {
+    "functions": [
+      "rfcal_rxiq",
+      "get_rfcal_rxiq_data"
+    ],
+    "symbols": [
+      "rfcal_rxiq",
+      "get_rfcal_rxiq_data",
+      "rxiq_cover_mg_mp",
+      "start_tx_tone_step",
+      "stop_tx_tone",
+      "phy_printf",
+      "g_phyFuns"
+    ],
+    "helpers": [
+      "rxiq_cover_mg_mp",
+      "start_tx_tone_step",
+      "stop_tx_tone",
+      "phy_printf",
+      "g_phyFuns"
+    ],
+    "readonly": [],
+    "logs": [
+      {
+        "address": "0x3c00a304",
+        "bytes": "25645f25645f25640a00",
+        "sha256": "13bb4848d4f229d418790205ae1e3107cae05fa2ee3aea1a55b65b85c58af4c7",
+        "instruction_provenance": [
+          "4204146c: 3c00ad37 lui s10,0x3c00a",
+          "42041492: 304d0513 addi a0,s10,772"
+        ]
+      }
+    ],
+    "elf_sha256": "240877d17f7223a1b7ebd4136bafeeb358511ea6e622f620a3252ea6c9a58f1d",
+    "map_sha256": "eb042c32259e415546a2573eebb34f9af5d14bb0f83e679f4f02ccf1f224a6be"
+  },
+  "esp32s3": {
+    "functions": [
+      "rfcal_rxiq",
+      "get_rfcal_rxiq_data"
+    ],
+    "symbols": [
+      "rfcal_rxiq",
+      "get_rfcal_rxiq_data",
+      "rxiq_cover_mg_mp",
+      "start_tx_tone_step",
+      "stop_tx_tone",
+      "phy_printf",
+      "g_phyFuns"
+    ],
+    "helpers": [
+      "rxiq_cover_mg_mp",
+      "start_tx_tone_step",
+      "stop_tx_tone",
+      "phy_printf",
+      "g_phyFuns"
+    ],
+    "readonly": [],
+    "logs": [
+      {
+        "address": "0x3c004d3c",
+        "bytes": "25645f25645f25640a00",
+        "sha256": "13bb4848d4f229d418790205ae1e3107cae05fa2ee3aea1a55b65b85c58af4c7",
+        "instruction_provenance": [
+          "4203f03f: fff4a1 l32r a10, 4203f010"
+        ]
+      }
+    ],
+    "elf_sha256": "5c4669fbfedfa908a754d38d3fe7a4b7d717d1bfa881c65c0da3331abaa1e9d1",
+    "map_sha256": "920f665ede852553a0ac479ee23cee1e689be2731575b6f500b043d9e1b61451"
+  }
+}
