@@ -47,7 +47,7 @@ sweep adds 704 cases per chip at both optimization levels.
 The allocation gate composes the RF PLL and preceding source gates. It rejects
 any allocated member code, data, literals or excluded mergeable strings, checks
 every alias against a real source body, and rejects the three IRAM helpers if
-they move to flash. All 225 allocation regressions run normally and under
+they move to flash. All 230 allocation regressions run normally and under
 Python -O. The passive lifetime probe observes entry addresses, callback slots
 and state after ordinary PHY initialization; it does not start another RF
 operation or busy wait.
@@ -58,7 +58,7 @@ finite domain; production does not add a clamp. S3 narrows count to a byte.
 Modeled callbacks can mutate buffers, state and table generations, but this does
 not validate the opaque callback bodies, calibrated RF behavior, cycle timing,
 other temperatures, sleep/coexistence or long-duration reliability. Device
-comparisons and packet-loss findings must be assessed separately.
+comparisons and packet-loss findings are recorded in the [paired report](PHY-HW-FREQ-VALIDATION.md).
 
 This continues the initial local Qwen3.8-flash-next / closed-source re-framework
 reconstruction with manual Rust correction, instruction comparison and device

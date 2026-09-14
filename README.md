@@ -154,6 +154,9 @@ The [hardware-frequency replacement](docs/network/PHY-HW-FREQ.md) supplies all
 nine-argument I2C transport, frequency-memory packing and channel sequencing.
 The 2,860 host cases at O0/O2 reach every recorded instruction and branch edge;
 ownership checks also enforce the IRAM placement of the three small helpers.
+The [paired device report](docs/network/PHY-HW-FREQ-VALIDATION.md) records
+11,440 native case executions, 16 image audits and board trials. Six vendor
+PHY members remain in those images; packet loss and latency remain open.
 
 The examples now pin OpenSensor stack corrections for
 [replies lost during neighbor discovery](docs/network/PENDING-RESPONSES.md) and
