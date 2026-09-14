@@ -100,13 +100,13 @@ pub unsafe extern "C" fn __opensensor_spur_config(
     g: u32,
 ) {
     unsafe {
-        phy_spur::configure::<Hardware>([a, b, c, d, e, f, g]);
+        configure::<Hardware>([a, b, c, d, e, f, g]);
     }
 }
 
 #[unsafe(no_mangle)]
 pub unsafe extern "C" fn __opensensor_spur_power(logging: u32) {
     unsafe {
-        phy_spur::power::<Hardware>(logging);
+        power::<Hardware>(logging);
     }
 }
