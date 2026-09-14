@@ -1068,6 +1068,40 @@ unsafe fn inspect_registers(cycle: u32) {
     }
 }
 
+/// Observe receive-gain entries and post-init counts without starting calibration.
+unsafe fn inspect_rx_gain(cycle: u32) {
+    unsafe extern "C" {
+        static mut phy_param: u8;
+        fn gen_rx_gain_table();
+        fn wr_rx_gain_mem();
+        fn set_rx_gain_param();
+        fn set_rx_gain_table();
+        fn phy_rx_table_init();
+    }
+    unsafe {
+        let entries = [
+            gen_rx_gain_table as *const () as usize,
+            wr_rx_gain_mem as *const () as usize,
+            set_rx_gain_param as *const () as usize,
+            set_rx_gain_table as *const () as usize,
+            phy_rx_table_init as *const () as usize,
+        ];
+        for (operation, address) in entries.into_iter().enumerate() {
+            info!(
+                "stage=phy_rx_gain_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+        let p = &raw const phy_param;
+        let first = p.add(0x1f5).read_volatile();
+        let second = p.add(0x1f6).read_volatile();
+        info!(
+            "stage=phy_rx_gain_counts cycle={} first={} second={} passive=true",
+            cycle, first, second
+        );
+    }
+}
+
 /// Exercise full PHY guard teardown/wakeup before creating the MAC driver.
 /// Station reconnects alone keep a PHY guard alive and do not cover this path.
 #[esp_rtos::main]
@@ -1125,6 +1159,7 @@ async fn main(_spawner: Spawner) {
             inspect_rfpll(cycle);
             inspect_hw_freq(cycle);
             inspect_registers(cycle);
+            inspect_rx_gain(cycle);
         }
         Timer::after_millis(100).await;
         // No MAC driver or other PHY guard exists: releasing this last guard

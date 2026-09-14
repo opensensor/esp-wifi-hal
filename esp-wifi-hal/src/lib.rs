@@ -105,6 +105,8 @@ mod phy_rfpll;
 mod phy_hw_freq;
 #[cfg(any(esp32c3, esp32s3))]
 mod phy_reg;
+#[cfg(any(esp32c3, esp32s3))]
+mod phy_rx_gain;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

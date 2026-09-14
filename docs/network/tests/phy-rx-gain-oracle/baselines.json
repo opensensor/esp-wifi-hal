@@ -1,0 +1,62 @@
+{
+  "esp32c3": {
+    "fixture_sha256": "cb1588164929e3ce2c41c75508acb74af0b2a9c1fed30a2afb080daa4946fe02",
+    "elf_sha256": "3f92f9938966dd76de68a1d15369fe9e9d6d98bea4e1164c957733181cc84445",
+    "map_sha256": "d1acdaa5e7263725dba624b9f6c332c7d1470cc247da01e80591dee567e3e65a",
+    "source_revision": "aaf086d32976146b42b2c6586b020cb6a9f5c407",
+    "readonly": [
+      {
+        "member": "phy_rx_gain.o",
+        "section": ".rodata",
+        "address": "0x3c00a038",
+        "size_bytes": 75,
+        "output_section": ".rodata",
+        "bytes": "090c0b08090c040400000000000000000002010306030c0b0a00000000000000a0848ee8eed2f2f8fe000000060c0a0d0c09040400000000000000000302010008080e0d0c000000000000",
+        "sha256": "6b1256c8842c4e83db59e2fc4222e3b6c893db8a19a7fc7ea84452ff621a8a70",
+        "elf_section": ".rodata"
+      }
+    ],
+    "logs": [
+      {
+        "address": "0x3c00a0bc",
+        "text": "index: %d value: 0x%x 0x%x 0x%x %d %d %d %d\n",
+        "bytes": "696e6465783a2025642076616c75653a2030782578203078257820307825782025642025642025642025640a00"
+      },
+      {
+        "address": "0x3c00a0ec",
+        "text": "max_gain: %d\n",
+        "bytes": "6d61785f6761696e3a2025640a00"
+      }
+    ]
+  },
+  "esp32s3": {
+    "fixture_sha256": "cb1588164929e3ce2c41c75508acb74af0b2a9c1fed30a2afb080daa4946fe02",
+    "elf_sha256": "dbc07503ff763d7192b415e695cfd74ce674137c8397caec622ce7061b3ccb61",
+    "map_sha256": "77decdc63ba42cbed6186c1532a72c69cda0c6004da0453f788d07a72258a6ca",
+    "source_revision": "aaf086d32976146b42b2c6586b020cb6a9f5c407",
+    "readonly": [
+      {
+        "member": "phy_rx_gain.o",
+        "section": ".rodata",
+        "address": "0x3c00a934",
+        "size_bytes": 88,
+        "output_section": ".rodata",
+        "bytes": "0000010005000d001d00070d0a050c08050900000000000000a0848ee8eed2f2f8fea08486e2e8d0f4f8fe07090805080c0b070000000000000000000000000004040800000000000000000000000004080a000000000000",
+        "sha256": "18424581d8237d0c1e5f8a44bba6c17eb233d6cf6ed1247317879782e05f8daa",
+        "elf_section": ".rodata"
+      }
+    ],
+    "logs": [
+      {
+        "address": "0x3c004c10",
+        "text": "index: %d value: 0x%x 0x%x 0x%x %d %d %d %d\n",
+        "bytes": "696e6465783a2025642076616c75653a2030782578203078257820307825782025642025642025642025640a00"
+      },
+      {
+        "address": "0x3c004c3d",
+        "text": "max_gain: %d\n",
+        "bytes": "6d61785f6761696e3a2025640a00"
+      }
+    ]
+  }
+}

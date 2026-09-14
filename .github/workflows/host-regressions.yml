@@ -55,6 +55,8 @@ jobs:
         run: sh docs/network/tests/run-phy-hw-freq.sh
       - name: Compare PHY register programming to original instructions
         run: sh docs/network/tests/run-phy-reg.sh
+      - name: Compare PHY receive gain to original instructions
+        run: sh docs/network/tests/run-phy-rx-gain.sh
       - name: Count only live PHY and formatter allocations
         run: |
           python3 docs/network/tests/test_audit_phy_allocations.py
@@ -87,6 +89,8 @@ jobs:
           python3 -O docs/network/tests/test_audit_phy_hw_freq.py
           python3 docs/network/tests/test_audit_phy_reg.py
           python3 -O docs/network/tests/test_audit_phy_reg.py
+          python3 docs/network/tests/test_audit_phy_rx_gain.py
+          python3 -O docs/network/tests/test_audit_phy_rx_gain.py
       - name: Reproduce smoltcp neighbor-cache behavior
         run: >-
           cargo +stable test --locked --target x86_64-unknown-linux-gnu

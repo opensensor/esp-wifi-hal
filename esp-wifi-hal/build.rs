@@ -153,6 +153,15 @@ fn main() {
                 "EXTERN(__opensensor_reg_{suffix});\n{original} = __opensensor_reg_{suffix};\n"
             ));
         }
+        for (original, suffix) in [
+            ("gen_rx_gain_table", "generate"),
+            ("wr_rx_gain_mem", "write_memory"),
+            ("set_rx_gain_param", "set_param"),
+            ("set_rx_gain_table", "set_table"),
+            ("phy_rx_table_init", "initialize"),
+        ] {
+            reg.push_str(&format!("EXTERN(__opensensor_rx_gain_{suffix});\n{original} = __opensensor_rx_gain_{suffix};\n"));
+        }
         std::fs::write(out.join("libesp-wifi-hal-reg.a"), reg).unwrap();
         println!("cargo:rustc-link-lib=esp-wifi-hal-reg");
 
