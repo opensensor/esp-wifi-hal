@@ -1,0 +1,34 @@
+{
+  "functions": [
+    "spur_coef_cfg_new",
+    "phy_2448m_spur_pwr"
+  ],
+  "helpers": [
+    "g_phyFuns",
+    "phy_param",
+    "chip_v7_set_chan",
+    "phy_set_freq",
+    "start_tx_tone_step",
+    "phy_printf"
+  ],
+  "symbols": [
+    "spur_coef_cfg_new",
+    "phy_2448m_spur_pwr",
+    "g_phyFuns",
+    "phy_param",
+    "chip_v7_set_chan",
+    "phy_set_freq",
+    "start_tx_tone_step",
+    "phy_printf"
+  ],
+  "readonly": [],
+  "logs": [
+    {
+      "address": "0x3c004ee2",
+      "bytes": "693d25642c25642c25642c25640a00",
+      "sha256": "37b483817989825af094bde139fd5fbf2777ce185612147b522cdd6b5f2b9439"
+    }
+  ],
+  "elf_sha256": "b3c917b285569b56cbde6e389038cbb0b46dcf86a70eeb6ab426e19dba86d253",
+  "map_sha256": "65950c0068f93499390a0d8d68c524e74d87334b234934f8f4d8a0c7e1c0fe6a"
+}

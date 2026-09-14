@@ -1,0 +1,10 @@
+{
+  "cases": 4308,
+  "instructions": 237,
+  "covered_instructions": 237,
+  "edges": 30,
+  "covered_edges": 30,
+  "uncovered_pcs": [],
+  "uncovered_edges": [],
+  "trace_sha256": "90db6f7e94f7e5343e3e99420fd80c161abf0a18ccd4c57e85a370b076b966e8"
+}

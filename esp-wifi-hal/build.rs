@@ -238,6 +238,12 @@ fn main() {
             reg.push_str(&format!("EXTERN(__opensensor_rx_gain_cal_{suffix});\n{original} = __opensensor_rx_gain_cal_{suffix};\n"));
         }
 
+        if cfg!(feature = "esp32s3") {
+            for (original, suffix) in [("spur_coef_cfg_new", "config"), ("phy_2448m_spur_pwr", "power")] {
+                reg.push_str(&format!("EXTERN(__opensensor_spur_{suffix});\n{original} = __opensensor_spur_{suffix};\n"));
+            }
+        }
+
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[
                 ("phy_get_romfunc_addr", "callbacks"),

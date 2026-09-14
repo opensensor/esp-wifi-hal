@@ -1,0 +1,14 @@
+{
+  "original_revision": "2839a19e1af9a80c36ebffef380c6b0c73900763",
+  "files_sha256": {
+    "machine.py": "b5fa53ae545cdc2c774c95c110a47b29a3121bf97b5b33f8bfe58d4274f66e75",
+    "extract.py": "910396457c860179cb93243c05ec04374080c6ac74efa165e068a918fd172446",
+    "verify_contract.py": "20af9f55866db878680cefebbaeb8c2aa9a1534eb750c16d401822a853fca419",
+    "generate.py": "08ea285215f810174eb0af267f2139acd73ac4b23e9d733fe37757267d1a3bfb",
+    "test_contract.py": "0067edfaba6a8002ff2d92e5342dc57d5a97063f9c9e5110bc76353f370385bb",
+    "README.md": "95dc1a03d6af536f42130f1555262956815e4856c1ac2eec017cfc0546a30bf9",
+    "esp32s3-baseline.json": "5aa1f1e8e258e799ccf9f8d1dd032d6a10674dd35328994a4404ce5eed3462e6",
+    "esp32s3-instructions.json": "36ba73bd061876f9ea61727a3ecc0a741d2251674696225e3897f863135acdb6",
+    "expected-results.json": "11d9aca74c7a899ebff6b7f4e62daf8604c1f85edd489c4ec35eb708038e34ce"
+  }
+}

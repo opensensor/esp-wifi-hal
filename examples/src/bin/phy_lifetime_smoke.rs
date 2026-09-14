@@ -1284,6 +1284,21 @@ unsafe fn inspect_init(cycle: u32) {
         }
     }
 
+    #[cfg(feature = "esp32s3")]
+    unsafe {
+        unsafe extern "C" {
+            fn spur_coef_cfg_new();
+            fn phy_2448m_spur_pwr();
+        }
+        for (operation, address) in [
+            (0, spur_coef_cfg_new as *const () as usize),
+            (1, phy_2448m_spur_pwr as *const () as usize),
+        ] {
+            info!("stage=phy_spur_entry cycle={} operation={} address={:#x}", cycle, operation, address);
+        }
+    }
+
+
     #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
     unsafe {
         unsafe extern "C" {

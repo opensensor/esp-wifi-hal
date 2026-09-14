@@ -148,3 +148,8 @@ jobs:
           sh docs/network/tests/run-phy-rx-gain-cal.sh
           python3 docs/network/tests/test_audit_phy_rx_gain_cal.py
           python3 -O docs/network/tests/test_audit_phy_rx_gain_cal.py
+      - name: Compare S3 spur routines to original instructions
+        run: |
+          sh docs/network/tests/run-phy-spur.sh
+          python3 -m unittest discover -s docs/network/tests -p test_audit_phy_spur.py
+          python3 -O -m unittest discover -s docs/network/tests -p test_audit_phy_spur.py
