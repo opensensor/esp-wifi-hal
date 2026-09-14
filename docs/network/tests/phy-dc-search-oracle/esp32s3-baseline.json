@@ -1,0 +1,61 @@
+{
+  "functions": [
+    "pbus_rx_dco_cal",
+    "pbus_rx_dco_cal_1step"
+  ],
+  "symbols": [
+    "pbus_rx_dco_cal",
+    "pbus_rx_dco_cal_1step",
+    "g_phyFuns",
+    "phy_param",
+    "rxdc_est_min",
+    "__opensensor_rx_dc_minimum",
+    "ets_delay_us",
+    "phy_printf"
+  ],
+  "helpers": [
+    "g_phyFuns",
+    "phy_param",
+    "rxdc_est_min",
+    "__opensensor_rx_dc_minimum",
+    "ets_delay_us",
+    "phy_printf"
+  ],
+  "readonly": [
+    {
+      "name": "dco_gain_coarse",
+      "address": "0x3c00ab32",
+      "size_bytes": 6,
+      "bytes": "50473f38322c",
+      "sha256": "2247dc132060777bee69351813323929be43bd174d001832bb0931b942edcb51"
+    }
+  ],
+  "logs": [
+    {
+      "name": "coefficients",
+      "address": "0x3c004d46",
+      "bytes": "202825642c2564292000",
+      "sha256": "93785dbad45de0bf82a539b4f1c18b0fc07b5358d8e313fedc3d15220acc79da"
+    },
+    {
+      "name": "estimate",
+      "address": "0x3c004d50",
+      "bytes": "25642c25642000",
+      "sha256": "4d3658c4f48a31ff3db7ec1e36d0c382e62faaeffe34e914d802057ad677229a"
+    },
+    {
+      "name": "summary",
+      "address": "0x3c004d57",
+      "bytes": "73746167652025643a20434741494e3d256420464741494e3d25642c202825642c2564292025643b2000",
+      "sha256": "0bf6ae22c67ae96a071f61f3a42afa2c303c3fc1c41b734f9346ff883255b458"
+    },
+    {
+      "name": "newline",
+      "address": "0x3c003578",
+      "bytes": "0a00",
+      "sha256": "102b51b9765a56a3e899f7cf0ee38e5251f9c503b357b330a49183eb7b155604"
+    }
+  ],
+  "elf_sha256": "afc752344b53c56642c0bd67ee535ea038576d72409a0714d43587e4731a974f",
+  "map_sha256": "0f7c049601c534506be09c9a9420a37a2a450798b46a3ff44e9d9869445a010c"
+}

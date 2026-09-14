@@ -1247,6 +1247,26 @@ unsafe fn inspect_init(cycle: u32) {
             );
         }
     }
+    #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+    unsafe {
+        unsafe extern "C" {
+            fn pbus_rx_dco_cal();
+            #[cfg(feature = "esp32c3")]
+            fn pbus_rx_dco_cal_1step_new();
+            #[cfg(feature = "esp32s3")]
+            fn pbus_rx_dco_cal_1step();
+        }
+        #[cfg(feature = "esp32c3")]
+        let step = pbus_rx_dco_cal_1step_new as *const () as usize;
+        #[cfg(feature = "esp32s3")]
+        let step = pbus_rx_dco_cal_1step as *const () as usize;
+        for (operation, address) in [(0, pbus_rx_dco_cal as *const () as usize), (1, step)] {
+            info!(
+                "stage=phy_dc_search_entry cycle={} operation={} address={:#x}",
+                cycle, operation, address
+            );
+        }
+    }
 
     #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
     unsafe {

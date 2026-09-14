@@ -1,0 +1,20 @@
+{
+  "chips": {
+    "esp32c3": {
+      "elf_sha256": "2c62fb97b53bb6eb69ca0ec2ea3d8456253c40b4bd5cc8b5565b12c0473a522d",
+      "map_sha256": "cc66e488ce780c592215eebbda4b51e24ba61fa9161f177f2818713be65b1eac",
+      "instructions_sha256": "c15dc05dd23d9dd76adc1b57e593c7187784329680dda4e96e00a0a7c705ee17",
+      "baseline_sha256": "a16c72ea6e9f716d7f884e0d6c72e467ed611041d0ef3771832ef8b4a00d081b"
+    },
+    "esp32s3": {
+      "elf_sha256": "afc752344b53c56642c0bd67ee535ea038576d72409a0714d43587e4731a974f",
+      "map_sha256": "0f7c049601c534506be09c9a9420a37a2a450798b46a3ff44e9d9869445a010c",
+      "instructions_sha256": "88e2de58e59e3f702f57197851fffaf3cbb19055e9e2fb07d5eb759d1efaa8fb",
+      "baseline_sha256": "b4176fa307e12bac3d915c32b10c2c7158645346cc79bfca8ae856b8e42a3aac"
+    }
+  },
+  "tool_sha256": {
+    "extract.py": "c476d0f68e733bb465cf9fa037a15802a2fc9cdba9bfd564e4b3f8ba96520eb4",
+    "machine.py": "d3ebdbab913463e67f5c9548df7c48d7e98da9c995794824d88cfa47e0900b1c"
+  }
+}
