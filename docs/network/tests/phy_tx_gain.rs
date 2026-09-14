@@ -288,7 +288,11 @@ impl production::Access for Mock {
             let c = state(|s| s.c);
             for i in 0..4 {
                 unsafe {
-                    Self::write(a[1] + i, 1, c[25].wrapping_add(i as u32 * c[16]));
+                    Self::write(
+                        a[1] + i,
+                        1,
+                        c[25].wrapping_add((i as u32).wrapping_mul(c[16])),
+                    );
                 }
             }
             0
@@ -354,13 +358,21 @@ impl production::Access for Mock {
                 }
                 2 => {
                     for i in 0..4 {
-                        Self::write(a[1] + i, 1, c[25].wrapping_add(i as u32 * c[16]));
+                        Self::write(
+                            a[1] + i,
+                            1,
+                            c[25].wrapping_add((i as u32).wrapping_mul(c[16])),
+                        );
                     }
                     0
                 }
                 3 => {
                     for i in 0..14 {
-                        Self::write(a[2] + i, 1, c[25].wrapping_add(i as u32 * c[16]));
+                        Self::write(
+                            a[2] + i,
+                            1,
+                            c[25].wrapping_add((i as u32).wrapping_mul(c[16])),
+                        );
                     }
                     0
                 }
@@ -530,4 +542,38 @@ fn production_matches_original_instruction_effects() {
             .parse::<usize>()
             .unwrap()
     );
+}
+
+#[test]
+fn opaque_callback_and_child_outputs_wrap_like_machine_words() {
+    for kind in [2, 3] {
+        let mut c = [0u32; 48];
+        c[16] = u32::MAX;
+        STATE.with(|s| *s.borrow_mut() = Some(State::new(c)));
+        let mut args = [0usize; 7];
+        args[if kind == 2 { 1 } else { 2 }] = 0x310000;
+        unsafe {
+            <Mock as production::Access>::child(kind, &args);
+        }
+        assert_eq!(
+            state(|s| (0..4).map(|i| s.get(0x310000 + i, 1)).collect::<Vec<_>>()),
+            [0, 255, 254, 253]
+        );
+    }
+    if !S3 {
+        let mut c = [0u32; 48];
+        c[16] = u32::MAX;
+        STATE.with(|s| *s.borrow_mut() = Some(State::new(c)));
+        unsafe {
+            <Mock as production::Access>::call(
+                0x71000128,
+                &[1, 0x310000, 0x320000, 0x330000],
+                false,
+            );
+        }
+        assert_eq!(
+            state(|s| (0..4).map(|i| s.get(0x310000 + i, 1)).collect::<Vec<_>>()),
+            [0, 255, 254, 253]
+        );
+    }
 }
