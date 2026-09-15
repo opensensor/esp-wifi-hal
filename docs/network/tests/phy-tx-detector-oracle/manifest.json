@@ -1,0 +1,16 @@
+{
+  "schema": "phy-tx-detector-oracle-v1",
+  "files": {
+    "README.md": "f18c8d8f3d77bd3bf9d62655857e5ceb4611f07dc4c42231c3ec508489fa8948",
+    "esp32c3-baseline.json": "3ce18c6654b85e25973b978592fc4bb05d1793a25ae938d9b230c0af89a73c3b",
+    "esp32c3-instructions.json": "893352fbb2377204d929647ad6174697ad4e8b7fe187cc8ae01108f428cd8739",
+    "esp32s3-baseline.json": "3fb80e23fc98c3c97eb8433cfda23dc9240c5b06f0772532adc388533625e2e2",
+    "esp32s3-instructions.json": "84a68211e8c956cdfeda41e5f3ef6968fbff26234bf48ad35a66bcb6a9def704",
+    "expected-results.json": "34f0579dbd66c179ce31aec75b676120e95ffe1b1f01776283ef85a993f3f814",
+    "extract.py": "910396457c860179cb93243c05ec04374080c6ac74efa165e068a918fd172446",
+    "host_compare.py": "991af32724794cd91afc85a5a26886e7789262d420da85199b4c68cb43a1acff",
+    "machine.py": "5763378ba3bb92cc80f886b5c008812bdb016ee1dfc4779f62fbb26e16138c56",
+    "test_contract.py": "26706de7c808e4aa66856c9bef57bbcce1d37b022a051b7bbfc2051b83509eaa",
+    "verify.py": "ba73944cda1006126eba30c0e959cadbfdd11ad0d0bf1f9500ad7fb6e5ba67a7"
+  }
+}

@@ -244,6 +244,10 @@ fn main() {
             }
         }
 
+        for (original, suffix) in [("pwdet_ref_code", "reference"), ("pwdet_code_cal", "calibrate")] {
+            reg.push_str(&format!("EXTERN(__opensensor_tx_detector_{suffix});\n{original} = __opensensor_tx_detector_{suffix};\n"));
+        }
+
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[
                 ("phy_get_romfunc_addr", "callbacks"),

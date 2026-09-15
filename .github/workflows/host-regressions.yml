@@ -153,3 +153,9 @@ jobs:
           sh docs/network/tests/run-phy-spur.sh
           python3 -m unittest discover -s docs/network/tests -p test_audit_phy_spur.py
           python3 -O -m unittest discover -s docs/network/tests -p test_audit_phy_spur.py
+
+      - name: Compare TX detector reference calibration to original instructions
+        run: |
+          sh docs/network/tests/run-phy-tx-detector.sh
+          python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_detector.py'
+          python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_detector.py'

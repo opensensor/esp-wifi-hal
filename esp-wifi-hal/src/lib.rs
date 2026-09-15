@@ -126,6 +126,8 @@ mod phy_rx_gain_cal;
 #[cfg(esp32s3)]
 mod phy_spur;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
+mod phy_tx_detector;
+#[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]

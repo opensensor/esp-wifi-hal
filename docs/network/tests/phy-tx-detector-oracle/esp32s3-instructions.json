@@ -1,0 +1,114 @@
+{
+  "readonly": [],
+  "logs": [],
+  "elf_sha256": "826c8ee310c19c90a8abce778d1d79c270c8c37c839e91e3447118689baaf940",
+  "map_sha256": "d9a8c19dd25e99b60b6d9f180ef74c6548e35971174ed40db74d8b3727f6bb47",
+  "functions": [
+    {
+      "name": "pwdet_ref_code",
+      "address": "0x42040dc4",
+      "size_bytes": 101,
+      "body_sha256": "d7504aa1590812d69fa10afa4f599f43e3c9078877f96ed949a47a30341c1d90",
+      "code_hex": "364100f2a00020c074ed0ff0df20b2a080a2a001a545f121f7ff315e3fc0200048020c4a304410c0200049026506f1c02000880241db3f30981081efffa2546d808920c0200089020c4aa504f1a2546ec02000480281e9ff303410803320c0200039021df0",
+      "instructions": [
+        "42040dc4: 004136 entry a1, 32",
+        "42040dc7: 00a0f2 movi a15, 0",
+        "42040dca: 74c020 extui a12, a2, 0, 8",
+        "42040dcd: 0fed mov.n a14, a15",
+        "42040dcf: 20dff0 or a13, a15, a15",
+        "42040dd2: 80a0b2 movi a11, 128",
+        "42040dd5: 01a0a2 movi a10, 1",
+        "42040dd8: f145a5 call8 42032234",
+        "42040ddb: fff721 l32r a2, 42040db8",
+        "42040dde: 3f5e31 l32r a3, 42010b58",
+        "42040de1: 0020c0 memw",
+        "42040de4: 0248 l32i.n a4, a2, 0",
+        "42040de6: 4a0c movi.n a10, 4",
+        "42040de8: 104430 and a4, a4, a3",
+        "42040deb: 0020c0 memw",
+        "42040dee: 0249 s32i.n a4, a2, 0",
+        "42040df0: f10665 call8 42031e58",
+        "42040df3: 0020c0 memw",
+        "42040df6: 0288 l32i.n a8, a2, 0",
+        "42040df8: 3fdb41 l32r a4, 42010d64",
+        "42040dfb: 109830 and a9, a8, a3",
+        "42040dfe: ffef81 l32r a8, 42040dbc",
+        "42040e01: 6d54a2 s16i a10, a4, 218",
+        "42040e04: 208980 or a8, a9, a8",
+        "42040e07: 0020c0 memw",
+        "42040e0a: 0289 s32i.n a8, a2, 0",
+        "42040e0c: 4a0c movi.n a10, 4",
+        "42040e0e: f104a5 call8 42031e58",
+        "42040e11: 6e54a2 s16i a10, a4, 220",
+        "42040e14: 0020c0 memw",
+        "42040e17: 0248 l32i.n a4, a2, 0",
+        "42040e19: ffe981 l32r a8, 42040dc0",
+        "42040e1c: 103430 and a3, a4, a3",
+        "42040e1f: 203380 or a3, a3, a8",
+        "42040e22: 0020c0 memw",
+        "42040e25: 0239 s32i.n a3, a2, 0",
+        "42040e27: f01d retw.n"
+      ]
+    },
+    {
+      "name": "pwdet_code_cal",
+      "address": "0x42040e2c",
+      "size_bytes": 38,
+      "body_sha256": "0cdeca4a96474ec87657b077ffeec4a52e0fed45fa6c63896d91dce3bbe115ff",
+      "code_hex": "36410031cd3f211b3f82234827881425dcf0a2a05025f8ff25f6f08223482028202263481df0",
+      "instructions": [
+        "42040e2c: 004136 entry a1, 32",
+        "42040e2f: 3fcd31 l32r a3, 42010d64",
+        "42040e32: 3f1b21 l32r a2, 42010aa0",
+        "42040e35: 482382 l32i a8, a3, 0x120",
+        "42040e38: 148827 bany a8, a2, 42040e50",
+        "42040e3b: f0dc25 call8 42031bfc",
+        "42040e3e: 50a0a2 movi a10, 80",
+        "42040e41: fff825 call8 42040dc4",
+        "42040e44: f0f625 call8 42031da8",
+        "42040e47: 482382 l32i a8, a3, 0x120",
+        "42040e4a: 202820 or a2, a8, a2",
+        "42040e4d: 486322 s32i a2, a3, 0x120",
+        "42040e50: f01d retw.n"
+      ]
+    }
+  ],
+  "symbols": {
+    "pwdet_ref_code": {
+      "address": "0x42040dc4",
+      "size_bytes": 101
+    },
+    "pwdet_code_cal": {
+      "address": "0x42040e2c",
+      "size_bytes": 38
+    },
+    "phy_param": {
+      "address": "0x3fc8cb20",
+      "size_bytes": 0
+    },
+    "start_tx_tone_step": {
+      "address": "0x42032234",
+      "size_bytes": 313
+    },
+    "get_tone_sar_dout": {
+      "address": "0x42031e58",
+      "size_bytes": 0
+    },
+    "txcal_debuge_mode": {
+      "address": "0x42031bfc",
+      "size_bytes": 0
+    },
+    "txcal_work_mode": {
+      "address": "0x42031da8",
+      "size_bytes": 0
+    }
+  },
+  "literals": {
+    "0x42040db8": "0x6000e05c",
+    "0x42010b58": "0xffff0000",
+    "0x42010d64": "0x3fc8cb20",
+    "0x42040dbc": "0x5555",
+    "0x42040dc0": "0xaaaa",
+    "0x42010aa0": "0x1000000"
+  }
+}

@@ -1284,6 +1284,20 @@ unsafe fn inspect_init(cycle: u32) {
         }
     }
 
+    #[cfg(any(feature = "esp32c3", feature = "esp32s3"))]
+    unsafe {
+        unsafe extern "C" {
+            fn pwdet_ref_code();
+            fn pwdet_code_cal();
+        }
+        for (operation, address) in [
+            (0, pwdet_ref_code as *const () as usize),
+            (1, pwdet_code_cal as *const () as usize),
+        ] {
+            info!("stage=phy_tx_detector_entry cycle={} operation={} address={:#x}", cycle, operation, address);
+        }
+    }
+
     #[cfg(feature = "esp32s3")]
     unsafe {
         unsafe extern "C" {

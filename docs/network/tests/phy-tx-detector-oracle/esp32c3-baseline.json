@@ -1,0 +1,26 @@
+{
+  "functions": [
+    "pwdet_ref_code",
+    "pwdet_code_cal"
+  ],
+  "helpers": [
+    "phy_param",
+    "start_tx_tone_step",
+    "get_tone_sar_dout",
+    "txcal_debuge_mode",
+    "txcal_work_mode"
+  ],
+  "symbols": [
+    "pwdet_ref_code",
+    "pwdet_code_cal",
+    "phy_param",
+    "start_tx_tone_step",
+    "get_tone_sar_dout",
+    "txcal_debuge_mode",
+    "txcal_work_mode"
+  ],
+  "readonly": [],
+  "logs": [],
+  "elf_sha256": "0bad77aa58f51d4a76af382bfb7f0bfa5ce3775c326b5055308e4996411ddfc0",
+  "map_sha256": "75004a719c2d3efaf149cea347100224e5f0cecb22c0159aee0f729ff24f48c6"
+}

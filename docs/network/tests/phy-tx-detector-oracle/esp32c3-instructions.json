@@ -1,0 +1,120 @@
+{
+  "readonly": [],
+  "logs": [],
+  "elf_sha256": "0bad77aa58f51d4a76af382bfb7f0bfa5ce3775c326b5055308e4996411ddfc0",
+  "map_sha256": "75004a719c2d3efaf149cea347100224e5f0cecb22c0159aee0f729ff24f48c6",
+  "functions": [
+    {
+      "name": "pwdet_ref_code",
+      "address": "0x42042fcc",
+      "size_bytes": 116,
+      "body_sha256": "fbd0f2064a9b35fb7396de651ec0474724da12f8b61498eec5e5d540d6971a6c",
+      "code_hex": "41111376f50f01478146930500088147054506c622c426c24ac037e40060eff05ed37c4c41791145b3f727017ccceff05e8c784cb734c83f9567938404a29387575533772701239da40c5d8f78cc1145eff03e8a7c4c2d671307a7aab3f72701239ea40cd98f7cccb24022449244024941018280",
+      "instructions": [
+        "42042fcc: 1141 addi sp,sp,-16",
+        "42042fce: 0ff57613 zext.b a2,a0",
+        "42042fd2: 4701 li a4,0",
+        "42042fd4: 4681 li a3,0",
+        "42042fd6: 08000593 li a1,128",
+        "42042fda: 4781 li a5,0",
+        "42042fdc: 4505 li a0,1",
+        "42042fde: c606 sw ra,12(sp)",
+        "42042fe0: c422 sw s0,8(sp)",
+        "42042fe2: c226 sw s1,4(sp)",
+        "42042fe4: c04a sw s2,0(sp)",
+        "42042fe6: 6000e437 lui s0,0x6000e",
+        "42042fea: d35ef0ef jal 42032d1e",
+        "42042fee: 4c7c lw a5,92(s0)",
+        "42042ff0: 7941 lui s2,0xffff0",
+        "42042ff2: 4511 li a0,4",
+        "42042ff4: 0127f7b3 and a5,a5,s2",
+        "42042ff8: cc7c sw a5,92(s0)",
+        "42042ffa: 8c5ef0ef jal 420328be",
+        "42042ffe: 4c78 lw a4,92(s0)",
+        "42043000: 3fc834b7 lui s1,0x3fc83",
+        "42043004: 6795 lui a5,0x5",
+        "42043006: a2048493 addi s1,s1,-1504",
+        "4204300a: 55578793 addi a5,a5,1365",
+        "4204300e: 01277733 and a4,a4,s2",
+        "42043012: 0ca49d23 sh a0,218(s1)",
+        "42043016: 8f5d or a4,a4,a5",
+        "42043018: cc78 sw a4,92(s0)",
+        "4204301a: 4511 li a0,4",
+        "4204301c: 8a3ef0ef jal 420328be",
+        "42043020: 4c7c lw a5,92(s0)",
+        "42043022: 672d lui a4,0xb",
+        "42043024: aaa70713 addi a4,a4,-1366",
+        "42043028: 0127f7b3 and a5,a5,s2",
+        "4204302c: 0ca49e23 sh a0,220(s1)",
+        "42043030: 8fd9 or a5,a5,a4",
+        "42043032: cc7c sw a5,92(s0)",
+        "42043034: 40b2 lw ra,12(sp)",
+        "42043036: 4422 lw s0,8(sp)",
+        "42043038: 4492 lw s1,4(sp)",
+        "4204303a: 4902 lw s2,0(sp)",
+        "4204303c: 0141 addi sp,sp,16",
+        "4204303e: 8082 ret"
+      ]
+    },
+    {
+      "name": "pwdet_code_cal",
+      "address": "0x42043040",
+      "size_bytes": 62,
+      "body_sha256": "1fa031c7d9ecd3706015f0db56929e8a424653ca3f003d0b549e07f754698bba",
+      "code_hex": "411122c43734c83f130404a28327041206c61397770063400702eff0aed313058007ad37eff0aef88327041237070001d98f2320f412b240224441018280",
+      "instructions": [
+        "42043040: 1141 addi sp,sp,-16",
+        "42043042: c422 sw s0,8(sp)",
+        "42043044: 3fc83437 lui s0,0x3fc83",
+        "42043048: a2040413 addi s0,s0,-1504",
+        "4204304c: 12042783 lw a5,288(s0)",
+        "42043050: c606 sw ra,12(sp)",
+        "42043052: 00779713 slli a4,a5,0x7",
+        "42043056: 02074063 bltz a4,42043076",
+        "4204305a: d3aef0ef jal 42032594",
+        "4204305e: 07800513 li a0,120",
+        "42043062: 37ad jal 42042fcc",
+        "42043064: f8aef0ef jal 420327ee",
+        "42043068: 12042783 lw a5,288(s0)",
+        "4204306c: 01000737 lui a4,0x1000",
+        "42043070: 8fd9 or a5,a5,a4",
+        "42043072: 12f42023 sw a5,288(s0)",
+        "42043076: 40b2 lw ra,12(sp)",
+        "42043078: 4422 lw s0,8(sp)",
+        "4204307a: 0141 addi sp,sp,16",
+        "4204307c: 8082 ret"
+      ]
+    }
+  ],
+  "symbols": {
+    "pwdet_ref_code": {
+      "address": "0x42042fcc",
+      "size_bytes": 116
+    },
+    "pwdet_code_cal": {
+      "address": "0x42043040",
+      "size_bytes": 62
+    },
+    "phy_param": {
+      "address": "0x3fc82a20",
+      "size_bytes": 0
+    },
+    "start_tx_tone_step": {
+      "address": "0x42032d1e",
+      "size_bytes": 0
+    },
+    "get_tone_sar_dout": {
+      "address": "0x420328be",
+      "size_bytes": 0
+    },
+    "txcal_debuge_mode": {
+      "address": "0x42032594",
+      "size_bytes": 0
+    },
+    "txcal_work_mode": {
+      "address": "0x420327ee",
+      "size_bytes": 0
+    }
+  },
+  "literals": {}
+}
