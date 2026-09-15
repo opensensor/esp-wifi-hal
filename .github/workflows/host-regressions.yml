@@ -169,3 +169,9 @@ jobs:
           sh docs/network/tests/run-phy-tx-iq-measure.sh
           python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_iq_measure.py'
           python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_iq_measure.py'
+
+      - name: Compare TX IQ initialization wrappers to original instructions
+        run: |
+          sh docs/network/tests/run-phy-txiq-wrappers.sh
+          python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_txiq_wrappers.py'
+          python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_txiq_wrappers.py'

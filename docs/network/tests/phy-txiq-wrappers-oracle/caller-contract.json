@@ -1,0 +1,22 @@
+{
+  "baseline_revision": "994e666e4ff50dd5dd86365c5d2d455b53e53ef8",
+  "boundaries": [
+    {
+      "callee": "txiq_cal_init",
+      "caller": "phy_init::full",
+      "source": "esp-wifi-hal/src/phy_init.rs",
+      "arguments": 0,
+      "result_used": false,
+      "native_declaration": "unsafe extern C fn()"
+    },
+    {
+      "callee": "bt_txiq_cal",
+      "caller": "phy_tx_gain::Hardware calibration dispatch",
+      "source": "esp-wifi-hal/src/phy_tx_gain.rs",
+      "arguments": 0,
+      "result_used": false,
+      "native_declaration": "unsafe extern C fn()"
+    }
+  ],
+  "limit": "These already source-owned callers establish the integration boundary, not a claim about arbitrary indirect external users."
+}

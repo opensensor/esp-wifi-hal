@@ -129,6 +129,8 @@ mod phy_spur;
 mod phy_tx_detector;
 #[cfg(any(esp32c3, esp32s3))]
 mod phy_tx_iq_measure;
+#[cfg(any(esp32c3, esp32s3))]
+mod phy_txiq_wrappers;
 #[cfg(any(feature = "esp32s3", feature = "esp32c3"))]
 mod ht20;
 pub mod ll;

@@ -1,0 +1,20 @@
+{
+  "functions": [
+    "txiq_cal_init",
+    "bt_txiq_cal"
+  ],
+  "helpers": [
+    "rfcal_txiq"
+  ],
+  "symbols": [
+    "txiq_cal_init",
+    "bt_txiq_cal",
+    "rfcal_txiq",
+    "phy_param",
+    "g_phyFuns"
+  ],
+  "readonly": [],
+  "logs": [],
+  "elf_sha256": "ed653d1625ea347bef8f6aea6c80eb08d1b8c36c66354db41d2dd8f0626e0177",
+  "map_sha256": "a75e487061521874bcfde1d81acc5aa41bdf86ce0788336b8ad08bbcaefd36fb"
+}

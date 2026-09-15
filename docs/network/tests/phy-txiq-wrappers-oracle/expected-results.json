@@ -1,0 +1,22 @@
+{
+  "esp32c3": {
+    "cases": 2048,
+    "instructions": 140,
+    "covered": 140,
+    "edges": 10,
+    "covered_edges": 10,
+    "uncovered_pcs": [],
+    "uncovered_edges": [],
+    "trace_sha256": "2b94f99d2c126311eca5f0cca8990c951c60d3a1c132fb069dd6f03df7250220"
+  },
+  "esp32s3": {
+    "cases": 2048,
+    "instructions": 92,
+    "covered": 92,
+    "edges": 4,
+    "covered_edges": 4,
+    "uncovered_pcs": [],
+    "uncovered_edges": [],
+    "trace_sha256": "9782016947d1737576e605c4036150d3cf43b61b550ef9a5991782be207ec5a5"
+  }
+}
