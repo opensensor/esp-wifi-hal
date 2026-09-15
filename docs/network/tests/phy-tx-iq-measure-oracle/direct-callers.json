@@ -1,0 +1,58 @@
+[
+  {
+    "chip": "esp32c3",
+    "caller": "txiq_cover",
+    "callee": "txiq_get_mis_pwr",
+    "call_address": "42042b9c",
+    "elf_sha256": "fe8a63bfe36a92f6b8d7cced99b2fef1bae005bb36ba240c48cae747238d82c7"
+  },
+  {
+    "chip": "esp32c3",
+    "caller": "txiq_cover",
+    "callee": "txiq_get_mis_pwr",
+    "call_address": "42042bd2",
+    "elf_sha256": "fe8a63bfe36a92f6b8d7cced99b2fef1bae005bb36ba240c48cae747238d82c7"
+  },
+  {
+    "chip": "esp32c3",
+    "caller": "rfcal_txiq",
+    "callee": "get_power_atten",
+    "call_address": "42042ea2",
+    "elf_sha256": "fe8a63bfe36a92f6b8d7cced99b2fef1bae005bb36ba240c48cae747238d82c7"
+  },
+  {
+    "chip": "esp32c3",
+    "caller": "tx_cap_init",
+    "callee": "get_power_atten",
+    "call_address": "420432d2",
+    "elf_sha256": "fe8a63bfe36a92f6b8d7cced99b2fef1bae005bb36ba240c48cae747238d82c7"
+  },
+  {
+    "chip": "esp32s3",
+    "caller": "txiq_cover",
+    "callee": "txiq_get_mis_pwr",
+    "call_address": "42040ab0",
+    "elf_sha256": "3fa80075557dbe1bb0ed11457a13bc4c06173081add903c5bc0eb30a650e4ace"
+  },
+  {
+    "chip": "esp32s3",
+    "caller": "txiq_cover",
+    "callee": "txiq_get_mis_pwr",
+    "call_address": "42040add",
+    "elf_sha256": "3fa80075557dbe1bb0ed11457a13bc4c06173081add903c5bc0eb30a650e4ace"
+  },
+  {
+    "chip": "esp32s3",
+    "caller": "rfcal_txiq",
+    "callee": "get_power_atten",
+    "call_address": "42040d17",
+    "elf_sha256": "3fa80075557dbe1bb0ed11457a13bc4c06173081add903c5bc0eb30a650e4ace"
+  },
+  {
+    "chip": "esp32s3",
+    "caller": "tx_cap_init",
+    "callee": "get_power_atten",
+    "call_address": "4204103a",
+    "elf_sha256": "3fa80075557dbe1bb0ed11457a13bc4c06173081add903c5bc0eb30a650e4ace"
+  }
+]

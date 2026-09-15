@@ -163,3 +163,9 @@ jobs:
           sh docs/network/tests/run-phy-tx-detector.sh
           python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_detector.py'
           python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_detector.py'
+
+      - name: Compare TX IQ measurement and attenuation to original instructions
+        run: |
+          sh docs/network/tests/run-phy-tx-iq-measure.sh
+          python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_iq_measure.py'
+          python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_tx_iq_measure.py'

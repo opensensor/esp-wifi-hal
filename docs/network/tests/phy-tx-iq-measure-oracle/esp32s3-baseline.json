@@ -1,0 +1,33 @@
+{
+  "functions": [
+    "txiq_get_mis_pwr",
+    "get_power_atten"
+  ],
+  "helpers": [
+    "ets_delay_us",
+    "txtone_linear_pwr",
+    "start_tx_tone_step",
+    "get_power_db",
+    "phy_printf"
+  ],
+  "symbols": [
+    "txiq_get_mis_pwr",
+    "get_power_atten",
+    "ets_delay_us",
+    "txtone_linear_pwr",
+    "start_tx_tone_step",
+    "get_power_db",
+    "phy_printf",
+    "g_phyFuns"
+  ],
+  "readonly": [],
+  "logs": [
+    {
+      "address": "0x3c004e73",
+      "bytes": "25642c20617474656e3d25642c207077723d25642c2025642c2025640a00",
+      "sha256": "a28bb4c5a073244ad87775d8206cba4000145773faf2f89bb3b9d65251a7aca1"
+    }
+  ],
+  "elf_sha256": "3fa80075557dbe1bb0ed11457a13bc4c06173081add903c5bc0eb30a650e4ace",
+  "map_sha256": "328f934efbc690d1c52b5f2a82703bca9bb50feb1375a46a0b1c783840e9c6ae"
+}
