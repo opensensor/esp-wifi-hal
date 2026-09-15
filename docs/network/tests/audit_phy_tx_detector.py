@@ -43,10 +43,10 @@ def check_detector(base, symbols, expected):
 
 
 def audit(elf_path, map_path, label, expected):
-    from elftools.elf.elffile import ELFFile
     base = allocations.audit(elf_path, map_path, label, exclude_strings=True)
     prior = previous.audit(elf_path, map_path, label, 'source')
     names = sorted([*SELECTED, *SELECTED.values(), *RETAINED])
+    from elftools.elf.elffile import ELFFile
     with elf_path.open('rb') as stream:
         symbols = temperature.inspect_symbols(ELFFile(stream), names)
     check_detector(base, symbols, expected)

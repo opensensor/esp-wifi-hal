@@ -1,3 +1,4 @@
+import sys
 import unittest
 from unittest.mock import patch
 from pathlib import Path
@@ -90,7 +91,9 @@ class Tests(unittest.TestCase):
             audit.check_detector(b, s, 'source')
 
     def test_previous_gate_cannot_be_skipped(self):
-        with patch.object(audit.allocations, 'audit', return_value={}), patch.object(
+        with patch.dict(sys.modules, {'elftools': None, 'elftools.elf': None,
+                                      'elftools.elf.elffile': None}), patch.object(
+                audit.allocations, 'audit', return_value={}), patch.object(
                 audit.previous, 'audit', side_effect=ValueError('earlier ownership failed')):
             with self.assertRaisesRegex(ValueError, 'earlier ownership failed'):
                 audit.audit(Path('unopened.elf'), Path('unopened.map'), 'unit', 'source')
