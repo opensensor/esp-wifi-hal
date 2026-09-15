@@ -22,11 +22,7 @@ pub trait Access {
 }
 #[inline(always)]
 fn code_argument<A: Access>(code: i32) -> i32 {
-    if A::S3 {
-        code as i8 as i32
-    } else {
-        code
-    }
+    if A::S3 { code as i8 as i32 } else { code }
 }
 #[inline(always)]
 pub fn search<A: Access>(a: &mut A, attenuation: u32, tone: i32, out: u32) {
@@ -41,7 +37,8 @@ pub fn search<A: Access>(a: &mut A, attenuation: u32, tone: i32, out: u32) {
     let mut second = 0i32;
     let mut sum_first = 0i8;
     let mut sum_second = 0i8;
-    for iteration in 0..7 {
+    let mut iteration = 0;
+    loop {
         first = a.set_correction(code_argument::<A>(first), 1);
         if A::S3 {
             first = first as u8 as i32;
@@ -99,8 +96,10 @@ pub fn search<A: Access>(a: &mut A, attenuation: u32, tone: i32, out: u32) {
             if iteration == 6 {
                 first = first.wrapping_sub((sum_first as i32 + 2) >> 2) as i8 as i32;
                 second = second.wrapping_sub((sum_second as i32 + 2) >> 2) as i8 as i32;
+                break;
             }
         }
+        iteration += 1;
     }
     a.set_correction(code_argument::<A>(first), 1);
     a.set_correction(code_argument::<A>(second), 0);
@@ -110,6 +109,15 @@ pub fn search<A: Access>(a: &mut A, attenuation: u32, tone: i32, out: u32) {
     } else {
         a.write(out + 1, 1, second as u8 as u32);
         a.write(out, 1, first as u8 as u32);
+    }
+}
+#[inline(always)]
+fn clamp_coefficient<A: Access>(a: &mut A, index: usize, limit: i8) {
+    let value = a.coefficient(index) as i8;
+    if value > limit {
+        a.write_coefficient(index, limit as u8);
+    } else if value < -limit {
+        a.write_coefficient(index, (-limit) as u8);
     }
 }
 #[inline(always)]
@@ -186,14 +194,8 @@ pub fn calibrate<A: Access>(
     let code = a.attenuation(tone, attenuation, power_target, offset);
     a.cover(code as u8, tone);
     a.work_mode();
-    for (index, limit) in [(0, 15i8), (1, 31)] {
-        let value = a.coefficient(index) as i8;
-        if value > limit {
-            a.write_coefficient(index, limit as u8);
-        } else if value < -limit {
-            a.write_coefficient(index, (-limit) as u8);
-        }
-    }
+    clamp_coefficient(a, 0, 15);
+    clamp_coefficient(a, 1, 31);
     let first = a.coefficient(0) as u32;
     let second = a.coefficient(1) as u32;
     a.write(iq, 2, ((first & 31) << 6) | (second & 63));
