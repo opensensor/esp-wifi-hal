@@ -32,12 +32,12 @@ tone sequencing, convergence, signed averaging and coefficient packing.
 [DC estimate selection and channel filling](docs/network/PHY-RX-DC.md) preserve
 live parameter gates, signed score thresholds and the C3 column-state behavior.
 Both RX calibration archive members are now absent from tested station images.
-TX detector calibration, IQ measurement, attenuation search and TX IQ
-initialization wrappers also run in Rust. The images retain **one vendor PHY
-member, `phy_tx_cal.o`**, with twelve TX calibration routines per chip:
-4,014 non-string bytes on C3 and 3,046 on S3. Analog and ROM dependencies
-remain. The latest
-[TX IQ wrapper validation report](docs/network/PHY-TXIQ-WRAPPERS-VALIDATION.md) records
+TX detector calibration, IQ measurement, attenuation search, TX IQ correction
+search/calibration and initialization wrappers also run in Rust. The images
+retain **one vendor PHY member, `phy_tx_cal.o`**, with ten TX calibration
+routines per chip: 3,282 non-string bytes on C3 and 2,436 on S3. Analog and
+ROM dependencies remain. The latest
+[TX IQ search validation report](docs/network/PHY-TXIQ-SEARCH-VALIDATION.md) records
 original/compiled instruction comparisons, ownership, lifecycle/RX tests,
 reconnects, GTK rotation and actual packet counts. Earlier packet loss and
 latency limits remain open.
