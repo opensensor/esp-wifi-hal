@@ -84,3 +84,7 @@ Logging, FoA/sys pins and radio policy were fixed. This finite comparison does
 not establish a packet-loss fix, timing equivalence or calibrated RF performance.
 
 See [oracle and reproduction](tests/phy-spur-oracle/README.md).
+
+The following [TX detector milestone](PHY-TX-DETECTOR.md) replaces
+`pwdet_ref_code` and `pwdet_code_cal` on both chips, with separate paired
+[application and device evidence](PHY-TX-DETECTOR-VALIDATION.md).

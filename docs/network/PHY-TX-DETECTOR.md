@@ -31,7 +31,12 @@ inputs to disappear, verifies source aliases and executable body extents, and
 retains all sixteen other TX bodies in `phy_tx_cal.o`. It also runs all earlier
 source gates, including complete RX-member absence on both chips.
 
-Application-profile and paired device results will be recorded separately.
+The [application and device report](PHY-TX-DETECTOR-VALIDATION.md) records
+all sixteen builds, eight emitted-code comparisons and eighteen device attempts.
+The source key-rotation trials received all offered echo and group traffic.
+C3 restoration failed its explicit gateway-loss assertion after both cycles
+disconnected (39/40 gateway replies); that failure and the S3 control echo loss
+are retained without replay. Packet loss and latency tails remain unresolved.
 The passive lifetime probe records entry bindings, not per-call execution
 counts. Keep logging and radio policy fixed when comparing implementations;
 no packet-loss, cycle-timing or RF-equivalence claim follows from compilation.
