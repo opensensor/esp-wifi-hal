@@ -1,0 +1,30 @@
+{
+  "functions": [
+    "txiq_cover",
+    "rfcal_txiq"
+  ],
+  "helpers": [
+    "txiq_set_reg",
+    "txiq_get_mis_pwr",
+    "txdc_cal_v70",
+    "get_power_atten",
+    "txcal_debuge_mode",
+    "txcal_work_mode"
+  ],
+  "symbols": [
+    "txiq_cover",
+    "rfcal_txiq",
+    "txiq_set_reg",
+    "txiq_get_mis_pwr",
+    "txdc_cal_v70",
+    "get_power_atten",
+    "txcal_debuge_mode",
+    "txcal_work_mode",
+    "phy_param",
+    "g_phyFuns"
+  ],
+  "readonly": [],
+  "logs": [],
+  "elf_sha256": "7318735a04c2d1bcb382707aba93528eeae01966866902b9157aecb2894688be",
+  "map_sha256": "2aeb443dc6b318b0347f70fc53b10abb107eaf37bcf9917f9d6dccdcc26fc2b7"
+}

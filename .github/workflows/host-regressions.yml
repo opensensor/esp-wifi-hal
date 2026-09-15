@@ -175,3 +175,9 @@ jobs:
           sh docs/network/tests/run-phy-txiq-wrappers.sh
           python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_txiq_wrappers.py'
           python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_txiq_wrappers.py'
+
+      - name: Compare TX IQ correction search to original instructions
+        run: |
+          sh docs/network/tests/run-phy-txiq-search.sh
+          python3 -m unittest discover -s docs/network/tests -p 'test_audit_phy_txiq_search.py'
+          python3 -O -m unittest discover -s docs/network/tests -p 'test_audit_phy_txiq_search.py'

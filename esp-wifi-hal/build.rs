@@ -256,6 +256,10 @@ fn main() {
             reg.push_str(&format!("EXTERN(__opensensor_txiq_{suffix});\n{original} = __opensensor_txiq_{suffix};\n"));
         }
 
+        for (original, suffix) in [("txiq_cover", "search"), ("rfcal_txiq", "calibrate")] {
+            reg.push_str(&format!("EXTERN(__opensensor_txiq_{suffix});\n{original} = __opensensor_txiq_{suffix};\n"));
+        }
+
         let init_names: &[(&str, &str)] = if cfg!(feature = "esp32c3") {
             &[
                 ("phy_get_romfunc_addr", "callbacks"),

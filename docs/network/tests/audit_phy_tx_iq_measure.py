@@ -8,8 +8,8 @@ SELECTED = previous.TX_IQ_SELECTED
 RETAINED = tuple(name for name in previous.RETAINED if name not in SELECTED)
 
 
-def audit(elf_path, map_path, label, expected, *, expected_wrappers='vendor'):
-    prior = previous.audit(elf_path, map_path, label, 'source', expected_iq=expected, expected_wrappers=expected_wrappers)
+def audit(elf_path, map_path, label, expected, *, expected_wrappers='vendor', expected_search='vendor'):
+    prior = previous.audit(elf_path, map_path, label, 'source', expected_iq=expected, expected_wrappers=expected_wrappers, expected_search=expected_search)
     return {**prior, 'schema': 'phy-tx-iq-measure-allocation-audit-v1',
             'previous_source_gates': {**prior['previous_source_gates'], 'tx_detector': True}}
 

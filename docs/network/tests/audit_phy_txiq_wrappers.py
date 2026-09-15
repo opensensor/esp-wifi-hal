@@ -8,8 +8,8 @@ SELECTED = previous.previous.TX_IQ_WRAPPER_SELECTED
 RETAINED = tuple(name for name in previous.RETAINED if name not in SELECTED)
 
 
-def audit(elf_path, map_path, label, expected):
-    prior = previous.audit(elf_path, map_path, label, 'source', expected_wrappers=expected)
+def audit(elf_path, map_path, label, expected, *, expected_search='vendor'):
+    prior = previous.audit(elf_path, map_path, label, 'source', expected_wrappers=expected, expected_search=expected_search)
     return {**prior, 'schema': 'phy-txiq-wrappers-allocation-audit-v1',
             'previous_source_gates': {**prior['previous_source_gates'], 'tx_iq_measure': True}}
 
