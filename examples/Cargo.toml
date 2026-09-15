@@ -69,6 +69,7 @@ rx-probe = ["esp-wifi-hal/rx-probe"]
 phy-smoke = ["dep:esp-phy"]
 printf-smoke = ["dep:cc"]
 foa-smoke = ["dep:foa", "dep:foa_sta", "dep:embassy-net", "dep:smoltcp"]
+tx-probe = ["foa-smoke", "foa/tx-probe", "foa_sta/tx-probe"]
 network-trace = ["foa-smoke", "smoltcp/log", "embassy-net/log", "dep:embassy-net-driver", "foa_sta/connection-trace"]
 gtk-rekey-probe = ["handshake-probe", "foa_sta/gtk-rekey-probe", "embassy-net/udp", "embassy-net/multicast"]
 handshake-probe = ["timing-probe", "foa_sta/handshake-probe"]
@@ -124,8 +125,8 @@ overflow-checks = false
 esp-wifi-sys-esp32c3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
 esp-wifi-sys-esp32s3 = { git = "https://github.com/opensensor/esp-wifi-sys", rev = "73add8985cec3b7582e6df80a4273022deb844b0" }
 # TX/replay fixes, handshake retries, PSK preparation and WPA2 GTK rotation.
-foa = { git = "https://github.com/opensensor/FoA", rev = "9178988e373d14084dab06bde4f6bc679d4753e8" }
-foa_sta = { git = "https://github.com/opensensor/FoA", rev = "9178988e373d14084dab06bde4f6bc679d4753e8" }
+foa = { git = "https://github.com/opensensor/FoA", rev = "dd4db9de3f427db53965e48c731eec786b645421" }
+foa_sta = { git = "https://github.com/opensensor/FoA", rev = "dd4db9de3f427db53965e48c731eec786b645421" }
 # FoA must use the driver under test too.
 esp-wifi-hal = { path = "../esp-wifi-hal" }
 # Keep transitive users on the reviewed PHY initialization adapter too.

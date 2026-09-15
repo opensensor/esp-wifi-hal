@@ -149,6 +149,8 @@ async fn group_traffic(stack: embassy_net::Stack<'_>, seconds: u64) {
 /// Match the C reference test: twenty 512-byte echo requests to the DHCP gateway.
 async fn ping_gateway(stack: embassy_net::Stack<'_>, cycle: u32) -> usize {
     let gateway = stack.config_v4().unwrap().gateway.expect("No DHCP gateway");
+    #[cfg(feature = "tx-probe")]
+    assert!(foa::tx_probe::arm(cycle, gateway.octets()));
     let mut rx_meta = [PacketMetadata::EMPTY; 2];
     let mut tx_meta = [PacketMetadata::EMPTY; 1];
     let mut rx_bytes = [0u8; 1200];
@@ -221,6 +223,28 @@ async fn ping_gateway(stack: embassy_net::Stack<'_>, cycle: u32) -> usize {
         "stage=gateway_ping cycle={} sent=20 received={}",
         cycle, received
     );
+    #[cfg(feature = "tx-probe")]
+    {
+        foa::tx_probe::disarm();
+        // Copy one entry at a time, then format outside the recorder lock and
+        // measured packet batch. An incomplete record remains visible.
+        let count = foa::tx_probe::len();
+        for index in 0..count {
+            let e = foa::tx_probe::entry(index).unwrap();
+            if e.cycle != cycle { continue; }
+            info!(
+                "stage=tx_probe cycle={} tag={} sequence={} phase={:?} accepted_us={} queued_us={:?} picked_us={:?} finished_us={:?} result={:?}",
+                e.cycle, e.tag.ordinal(), e.sequence, e.phase, e.accepted_us,
+                e.queued_us, e.picked_us, e.finished_us, e.completion
+            );
+        }
+        let c = foa::tx_probe::counters();
+        info!(
+            "stage=tx_probe_summary cycle={} retained={} capacity={} rejected={} exhausted={} invalid={} scope_changes={} attempt_hooks=false",
+            cycle, count, foa::tx_probe::CAPACITY, c.capacity_rejections,
+            c.tag_exhaustion, c.invalid_events, c.scope_changes
+        );
+    }
     received
 }
 
